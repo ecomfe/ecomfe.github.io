@@ -300,6 +300,9 @@ section ol li {
 }
 
 @media screen and (max-width: 719px) {
+    nav { margin-bottom: 70px; }
+    nav li { padding-bottom: 0; }
+
     section h3,
     footer h3 {
         width: 280px;
