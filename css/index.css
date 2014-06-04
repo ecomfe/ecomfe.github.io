@@ -2,32 +2,32 @@
     font-family: 'Lato';
     font-style: normal;
     font-weight: 300;
-    src: local('Lato Light'), local('Lato-Light'), url(font/lato-light.woff) format('woff');
+    src: local('Lato Light'), local('Lato-Light'), url(../font/lato-light.woff) format('woff');
 }
 @font-face {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
-    src: local('Lato Regular'), local('Lato-Regular'), url(font/lato.woff) format('woff');
+    src: local('Lato Regular'), local('Lato-Regular'), url(../font/lato.woff) format('woff');
 }
 @font-face {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 700;
-    src: local('Lato Bold'), local('Lato-Bold'), url(font/lato-bold.woff) format('woff');
+    src: local('Lato Bold'), local('Lato-Bold'), url(../font/lato-bold.woff) format('woff');
 }
 @font-face {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 900;
-    src: local('Lato Black'), local('Lato-Black'), url(font/lato-black.woff) format('woff');
+    src: local('Lato Black'), local('Lato-Black'), url(../font/lato-black.woff) format('woff');
 }
 @font-face {
     font-family: 'efe-icons';
-    src:url('font/efe-icons.eot') format('embedded-opentype'),
-        url('font/efe-icons.woff') format('woff'),
-        url('font/efe-icons.ttf') format('truetype'),
-        url('font/efe-icons.svg') format('svg');
+    src:url('../font/efe-icons.eot') format('embedded-opentype'),
+        url('../font/efe-icons.woff') format('woff'),
+        url('../font/efe-icons.ttf') format('truetype'),
+        url('../font/efe-icons.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
