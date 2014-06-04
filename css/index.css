@@ -1,0 +1,308 @@
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Lato Light'), local('Lato-Light'), url(font/lato-light.woff) format('woff');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(font/lato.woff) format('woff');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(font/lato-bold.woff) format('woff');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Lato Black'), local('Lato-Black'), url(font/lato-black.woff) format('woff');
+}
+@font-face {
+    font-family: 'efe-icons';
+    src:url('font/efe-icons.eot') format('embedded-opentype'),
+        url('font/efe-icons.woff') format('woff'),
+        url('font/efe-icons.ttf') format('truetype'),
+        url('font/efe-icons.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-size: 62.5%;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    color: #fff;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+ol, ul, li, dl, dt, dd, html, body, p, section, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header {
+    background: #181818;
+    height: 100%;
+}
+
+nav { 
+    text-align: center;
+    margin-bottom: 140px;
+}
+nav li { 
+    padding: 20px 14px;
+    display: inline-block;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+nav a:link { opacity: .5; }
+nav a:visited { opacity: .5; }
+nav a:hover { opacity: 1; }
+nav a:active { opacity: .5; }
+
+.name-en::before {
+    font-size: 100px;
+    font-family: 'efe-icons';
+    content: "\e600";
+    display: block;
+    margin-bottom: 24px;
+}
+
+.name-en {
+    font-size: 28px;
+    font-size: 2.8rem;
+    font-family: Lato;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.name-en span {
+    font-weight: 900;
+    padding-right:5px;
+}
+
+.name-cn {
+    text-align: center;
+    opacity: .5;
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+footer {
+    background: #181818;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+footer .description {
+    opacity: .8;
+}
+
+footer dt {
+    font-size: 50px;
+    font-family: 'efe-icons';
+    content: "\e600";
+    opacity: .5;
+}
+
+section {
+    padding: 100px 0 50px;
+    overflow: hidden;
+    min-height: 476px;
+}
+
+section h3,
+footer h3 {
+    font-family: Lato;
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 30px;
+    line-height: 3rem;
+    width: 240px;
+    margin: 0 0 0 110px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+section .outline {
+    line-height: 2rem;
+}
+
+section .description {
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 20px;
+    line-height: 2rem;
+    opacity: .5;
+}
+
+dl { 
+    overflow: hidden;
+    width: 350px;
+    float:left;
+}
+
+dt {
+    font-family: Lato;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 14px;
+    margin-top: 10px;
+    width: 96px;
+    float: left;
+    clear: left;
+}
+
+dd {
+    float: left;
+    margin-top: 10px;
+    width: 240px;
+}
+
+dd a {
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 11px;
+    font-size: 1.1rem;
+    line-height: 20px;
+    line-height: 2rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 6px;
+    border: 1px solid #fff;
+    border-radius: 2px;
+}
+dd a:link { opacity: .5; }
+dd a:visited { opacity: .5; }
+dd a:hover { opacity: 1; }
+dd a:active { opacity: .5; }
+
+section ol {
+    position: relative;
+}
+
+section ol img {
+    width: 600px;
+    height: 450px;
+}
+
+section ol h4 {
+    text-align: center;
+    line-height: 26px;
+    background: rgba(255,255,255,.25);
+    color: rgba(255,255,255,.6);
+    border-radius: 5px 5px 0 0;
+}
+
+section ol li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 476px;
+}
+
+.slide {
+    float: left;
+    width: 600px;
+    height: 476px;
+    margin-left: 30px;
+    margin-top: -30px;
+    position: relative;
+}
+
+.slide-tip {
+    background: #000;
+    padding: 0 5px;
+    border-radius: 3px;
+    color: #aaa;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 20px;
+    line-height: 2rem;
+    position: absolute;
+    z-index: 100;
+    right: 8px;
+    bottom: 8px;
+}
+
+.slide-prev, .slide-next {
+    font-family: efe-icons;
+    font-size: 42px;
+    position: absolute;
+    z-index: 100;
+    top: 220px;
+    cursor: pointer;
+    display: none;
+    opacity: .6;
+}
+
+.slide-prev{ left: 20px; }
+.slide-next { right: 20px; }
+
+.slide:hover .slide-prev,
+.slide:hover .slide-next {
+    display: block;
+}
+
+.platform { background: #3d4269; }
+.platform dt { color: #aab6ff;}
+.ria { background: #2a6356; }
+.ria dt { color: #99f3b5;}
+.mobile { background: #2e4594; }
+.mobile dt { color: #98beff;}
+.visualization { background: #b34539;}
+.visualization dt { color: #ffb7a9;}
+.interface { background: #a5448b; }
+.interface dt { color: #f6a4e4;}
+
+@media screen and (max-width: 719px) {
+    /* mobile */
+}
+ 
+@media screen and (min-width: 720px) and (max-width: 959px) {
+    section h3,
+    footer h3 {
+        width: 200px;
+        margin: 0 0 0 100px;
+    }
+
+    dl { width: 300px; }
+    dt { width: 86px; }
+    dd { width: 200px; }
+
+    section ol img {
+        width: 400px;
+        height: 300px;
+    }
+
+    section ol li {
+        width: 400px;
+        height: 326px;
+    }
+
+    .slide {
+        width: 400px;
+        height: 326px;
+        margin-left: 20px;
+    }
+
+    .slide-prev, .slide-next { font-size: 36px; }
+}
+ 
+@media screen and (min-width: 960px) {
+    /* desktop */
+}
