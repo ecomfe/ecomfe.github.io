@@ -43,7 +43,7 @@ body {
     color: #fff;
     font-size: 14px;
     font-size: 1.4rem;
-    font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+    font-family: Lato, Arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
 }
 
 ol, ul, li, dl, dt, dd, html, body, p, section, h1, h2, h3, h4 {
@@ -59,10 +59,10 @@ header {
     min-height: 320px;
 }
 
-nav { 
+nav {
     text-align: center;
 }
-nav li { 
+nav li {
     padding: 20px 14px;
     display: inline-block;
 }
@@ -137,7 +137,6 @@ section {
 
 section h3,
 footer h3 {
-    font-family: Lato;
     font-size: 16px;
     font-size: 1.6rem;
     line-height: 30px;
@@ -159,17 +158,17 @@ section .description {
     opacity: .5;
 }
 
-dl { 
+dl {
     overflow: hidden;
     width: 330px;
     float:left;
 }
 
 dt {
-    font-family: Lato;
     font-weight: 700;
     text-align: right;
     padding-right: 14px;
+    line-height: 2rem;
     margin-top: 10px;
     width: 86px;
     float: left;
@@ -183,8 +182,7 @@ dd {
 }
 
 dd a {
-    font-family: Lato;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 11px;
     font-size: 1.1rem;
     line-height: 20px;
@@ -278,7 +276,7 @@ section ol li {
 .interface dt { color: #f6a4e4;}
 
 
- 
+
 @media screen and (min-width: 720px) and (max-width: 959px) {
     section h3,
     footer h3 {
@@ -325,9 +323,9 @@ section ol li {
         padding: 0 5px;
     }
 
-    footer, section { 
-        padding: 10px 0; 
-        min-height: 50px; 
+    footer, section {
+        padding: 10px 0;
+        min-height: 50px;
     }
 
     .platform h3 a { background: #3d4269; }
@@ -337,16 +335,16 @@ section ol li {
     .interface h3 a { background: #a5448b; }
     footer h3 a { background: #181818; }
 
-    dl { 
-        width: 280px; 
-        float: none; 
+    dl {
+        width: 280px;
+        float: none;
         margin: 0 auto;
     }
 
-    dt { 
-        width: 70px; 
-        padding-right: 10px; 
-        text-align: center; 
+    dt {
+        width: 70px;
+        padding-right: 10px;
+        text-align: center;
     }
 
     dd { width: 200px; }
