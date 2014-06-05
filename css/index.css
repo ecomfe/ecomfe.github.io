@@ -53,13 +53,14 @@ ol, ul, li, dl, dt, dd, html, body, p, section, h1, h2, h3, h4 {
 }
 
 header {
+    position: relative;
     background: #181818;
     height: 100%;
+    min-height: 320px;
 }
 
 nav { 
     text-align: center;
-    margin-bottom: 140px;
 }
 nav li { 
     padding: 20px 14px;
@@ -82,13 +83,20 @@ nav a:active { opacity: .5; }
     margin-bottom: 24px;
 }
 
+.name-en,
+.name-cn {
+    width: 200px;
+    position: absolute;
+    left: calc(50% - 100px);
+}
+
 .name-en {
+    top: calc(50% - 90px);
     font-size: 28px;
     font-size: 3rem;
     font-family: Lato;
     font-weight: 300;
     text-align: center;
-    margin-bottom: 6px;
 }
 
 .name-en span {
@@ -97,6 +105,7 @@ nav a:active { opacity: .5; }
 }
 
 .name-cn {
+    top: calc(50% + 80px);
     text-align: center;
     opacity: .5;
     font-size: 16px;
@@ -121,7 +130,7 @@ footer dt {
 }
 
 section {
-    padding: 100px 0 50px;
+    padding: 100px 0 0;
     overflow: hidden;
     min-height: 476px;
 }
