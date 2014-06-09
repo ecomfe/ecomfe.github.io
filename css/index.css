@@ -99,9 +99,11 @@ nav a:hover {
     text-align: center;
 }
 
-.name-en span {
+.name-en abbr {
     font-weight: 900;
+    border-bottom: none;
     padding-right:5px;
+    cursor: help;
 }
 
 .name-cn {
