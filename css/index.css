@@ -338,6 +338,10 @@ section ol li {
         min-height: 50px;
     }
 
+    footer dt {
+        margin-top: 24px;
+    }
+
     .platform h3 a { background: #3d4269; }
     .ria h3 a { background: #2a6356; }
     .mobile h3 a { background: #2e4594; }
