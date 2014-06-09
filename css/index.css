@@ -125,6 +125,7 @@ footer .description {
 }
 
 footer dt {
+    margin-top: 32px;
     font-size: 50px;
     font-family: 'efe-icons';
     content: "\e600";
