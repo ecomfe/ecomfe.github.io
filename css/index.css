@@ -68,12 +68,12 @@ nav li {
 }
 nav a {
     text-decoration: none;
+    color: #888;
+    color: rgba(255, 255, 255, .5);
+}
+nav a:hover {
     color: #fff;
 }
-nav a:link { opacity: .5; }
-nav a:visited { opacity: .5; }
-nav a:hover { opacity: 1; }
-nav a:active { opacity: .5; }
 
 .name-en::before {
     font-size: 100px;
@@ -156,7 +156,8 @@ section .description {
     font-size: 1.2rem;
     line-height: 20px;
     line-height: 2rem;
-    opacity: .5;
+    margin-bottom: 3px;
+    color: rgba(255, 255, 255, .5);
 }
 
 dl {
@@ -186,18 +187,19 @@ dd a {
     font-weight: 400;
     font-size: 11px;
     font-size: 1.1rem;
-    line-height: 20px;
+    line-height: 2px;
     line-height: 2rem;
-    color: #fff;
+    color: rgba(255, 255, 255, .5);
     text-decoration: none;
-    padding: 0 6px;
-    border: 1px solid #fff;
-    border-radius: 2px;
+    padding: 1px 6px 2px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 3px;
 }
-dd a:link { opacity: .5; }
-dd a:visited { opacity: .5; }
-dd a:hover { opacity: 1; }
-dd a:active { opacity: .5; }
+dd a:hover {
+    color: #000;
+    background: #fff;
+    border-color: #fff;
+}
 
 section ol {
     position: relative;
@@ -279,19 +281,23 @@ section ol li {
 
 
 @media screen and (min-width: 720px) and (max-width: 959px) {
+    section {
+        padding-left: calc(50% - 360px);
+    }
     section h3,
     footer h3 {
         width: 200px;
-        margin: 0 0 0 100px;
+        margin: 0 0 0 80px;
     }
 
     dl { width: 300px; }
-    dt { width: 86px; }
+    dt { width: 66px; }
     dd { width: 200px; }
 
     section ol img {
         width: 400px;
         height: 300px;
+        border-radius: 0 0 4px 4px;
     }
 
     section ol li {
