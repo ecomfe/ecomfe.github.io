@@ -133,6 +133,7 @@ section {
     padding: 100px 0 0;
     overflow: hidden;
     min-height: 476px;
+    padding-left: calc(50% - 475px);
 }
 
 section h3,
@@ -142,7 +143,7 @@ footer h3 {
     line-height: 30px;
     line-height: 3rem;
     width: 230px;
-    margin: 0 0 0 100px;
+    margin: 0 0 0 80px;
     border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
@@ -170,7 +171,7 @@ dt {
     padding-right: 14px;
     line-height: 2rem;
     margin-top: 10px;
-    width: 86px;
+    width: 66px;
     float: left;
     clear: left;
 }
