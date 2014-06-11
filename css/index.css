@@ -181,6 +181,8 @@ dt {
     clear: left;
 }
 
+dt a { text-decoration: none; }
+
 dd {
     float: left;
     margin-top: 10px;
@@ -272,15 +274,34 @@ section ol li {
 }
 
 .platform { background: #3d4269; }
-.platform dt { color: #aab6ff;}
+.platform dt a:link,
+.platform dt a:visited,
+.platform dt a:hover,
+.platform dt a:active { color: #aab6ff;}
+
 .ria { background: #2a6356; }
-.ria dt { color: #99f3b5;}
+.ria dt a:link,
+.ria dt a:visited,
+.ria dt a:hover,
+.ria dt a:active { color: #99f3b5;}
+
 .mobile { background: #2e4594; }
-.mobile dt { color: #98beff;}
+.mobile dt a:link,
+.mobile dt a:visited,
+.mobile dt a:hover,
+.mobile dt a:active { color: #98beff;}
+
 .visualization { background: #b34539;}
-.visualization dt { color: #ffb7a9;}
+.visualization dt a:link,
+.visualization dt a:visited,
+.visualization dt a:hover,
+.visualization dt a:active { color: #ffb7a9;}
+
 .interface { background: #a5448b; }
-.interface dt { color: #f6a4e4;}
+.interface dt a:link,
+.interface dt a:visited,
+.interface dt a:hover,
+.interface dt a:active { color: #f6a4e4;}
 
 
 
