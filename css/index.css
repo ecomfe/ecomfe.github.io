@@ -114,25 +114,7 @@ nav a:hover {
     font-size: 1.6rem;
 }
 
-footer {
-    background: #181818;
-    padding: 50px 0;
-    overflow: hidden;
-}
-
-footer .description {
-    opacity: .8;
-}
-
-footer dt {
-    margin-top: 32px;
-    font-size: 50px;
-    font-family: 'efe-icons';
-    content: "\e600";
-    opacity: .5;
-}
-
-section {
+section, footer {
     padding: 100px 0 0;
     overflow: hidden;
     min-height: 476px;
@@ -161,6 +143,25 @@ section .description {
     line-height: 2rem;
     margin-bottom: 3px;
     color: rgba(255, 255, 255, .5);
+}
+
+footer {
+    background: #181818;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+footer .description {
+    opacity: .8;
+}
+
+footer dt {
+    margin-top: 32px;
+    font-size: 50px;
+    font-family: 'efe-icons';
+    content: "\e600";
+    opacity: .5;
 }
 
 dl {
@@ -284,7 +285,7 @@ section ol li {
 
 
 @media screen and (min-width: 720px) and (max-width: 959px) {
-    section {
+    section, footer {
         padding-left: calc(50% - 360px);
     }
     section h3,
