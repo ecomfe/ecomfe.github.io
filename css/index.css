@@ -115,9 +115,8 @@ nav a:hover {
 }
 
 section, footer {
-    padding: 100px 0 0;
+    padding: 100px 0 50px;
     overflow: hidden;
-    min-height: 476px;
     padding-left: calc(50% - 475px);
 }
 
@@ -147,13 +146,13 @@ section .description {
 
 footer {
     background: #181818;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    overflow: hidden;
+    padding-top: 60px;
+    padding-bottom: 40px;
 }
 
 footer .description {
     opacity: .8;
+    margin-bottom: 3px;
 }
 
 footer dt {
@@ -214,6 +213,7 @@ section ol {
 section ol img {
     width: 600px;
     height: 450px;
+    border-radius: 0 0 4px 4px;
 }
 
 section ol h4 {
@@ -303,7 +303,33 @@ section ol li {
 .interface dt a:hover,
 .interface dt a:active { color: #f6a4e4;}
 
+footer h4 {
+    float: left;
+    margin-left: 280px;
+    width: 60px;
+}
 
+.links a {
+    font-size: 12px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #888;
+    color: rgba(255, 255, 255, .5);
+}
+.links a:hover {
+    color: #fff;
+}
+
+.links {
+    width: 320px;
+    float: left;
+    margin-left:40px;
+}
+
+.links li {
+    width: 160px;
+    float: left;
+}
 
 @media screen and (min-width: 720px) and (max-width: 959px) {
     section, footer {
@@ -315,6 +341,11 @@ section ol li {
         margin: 0 0 0 80px;
     }
 
+    footer h4 { margin-left: 150px;}
+
+    .links { width: 260px; margin-left: 10px; }
+    .links li { width: 130px; }
+
     dl { width: 300px; }
     dt { width: 66px; }
     dd { width: 200px; }
@@ -322,7 +353,6 @@ section ol li {
     section ol img {
         width: 400px;
         height: 300px;
-        border-radius: 0 0 4px 4px;
     }
 
     section ol li {
@@ -363,6 +393,8 @@ section ol li {
     footer dt {
         margin-top: 24px;
     }
+
+    footer h4, .links { display: none; }
 
     .platform h3 a { background: #3d4269; }
     .ria h3 a { background: #2a6356; }
