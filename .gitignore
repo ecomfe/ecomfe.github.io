@@ -1,9 +1,11 @@
+.DS_Store
+Thumbs.db
+db.json
+debug.log
 node_modules/
+public/
+.deploy/
 .idea/
 npm-debug.log
-Thumbs.db
-.DS_Store
 *.swp
-.jshintrc
 bae*
-
