@@ -5,6 +5,7 @@ author_link: http://errorrik.com/
 tags:
 - AMD
 - 模块化
+- JavaScript
 ---
 
 
