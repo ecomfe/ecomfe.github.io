@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <% var title = page.title; %>
+    <% if (is_home()) { %>
+    <title><%= config.title%> - <%= config.subtitle %></title>
+    <% } else { %>
+    <title><% if (title) { %><%= title %> | <% } %><%= config.title %></title>
+    <% } %>
+
+    <%- css('css/page') %>
+    <%- css('css/code') %>
+    <%- css('css/font-awesome') %>
+</head>
+<body>
