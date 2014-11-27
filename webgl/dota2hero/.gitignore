@@ -1,8 +1,0 @@
-*.FBX
-*.vmt
-*.pdf
-node_modules
-*.fbx
-bcp_result
-upload.sh
-shelltool
