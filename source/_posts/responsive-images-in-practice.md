@@ -18,7 +18,7 @@ tags:
 
 作者：[Eric Portis](http://alistapart.com/author/eportis)
 
-> 译者注：感谢 [@米粽粽](http://weibo.com/u/1408056531)、[@i我佛山人](http://weibo.com/u/1765942617)和[@otakustay](http://weibo.com/u/2087024342)为译文提出的宝贵意见。
+译者注：感谢 [@米粽粽](http://weibo.com/u/1408056531)、[@i我佛山人](http://weibo.com/u/1765942617)和[@otakustay](http://weibo.com/u/2087024342)为译文提出的宝贵意见。
 
 ---
 
