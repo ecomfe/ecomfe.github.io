@@ -2,14 +2,23 @@ title: 实战响应式图片
 date: 2014-11-11
 author: Justineo
 author_link: http://weibo.com/u/1143654280
+original_title: 
+original_link: http://alistapart.com/article/responsive-images-in-practice
+original_author: Eric Portis
+original_author_link: http://alistapart.com/author/eportis
 tags:
 - HTML
 - 响应式
+- 图片
+- 优化
+
 ---
 
-原文地址：[http://alistapart.com/article/responsive-images-in-practice](http://alistapart.com/article/responsive-images-in-practice)
+原文：[http://alistapart.com/article/responsive-images-in-practice](http://alistapart.com/article/responsive-images-in-practice)
 
 作者：[Eric Portis](http://alistapart.com/author/eportis)
+
+> 译者注：感谢 [@米粽粽](http://weibo.com/u/1408056531)、[@i我佛山人](http://weibo.com/u/1765942617)和[@otakustay](http://weibo.com/u/2087024342)为译文提出的宝贵意见。
 
 
 > 魔鬼因一切我们享受的东西而惩罚我们。
