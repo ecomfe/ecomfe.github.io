@@ -222,6 +222,7 @@ textarea {
 article {
     line-height: 2;
     margin-bottom: 40px;
+    max-width: 60em;
 }
 
 .article-meta {
