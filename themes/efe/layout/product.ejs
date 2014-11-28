@@ -7,9 +7,9 @@ layout: false
     <meta charset="UTF-8" />
     <meta name="author" content="LangSyne" />
 
-    <title>EFE Products</title>
+    <title>EFE Projects</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="css/index.css" />
+    <%- css('css/index') %>
 </head>
 
 <body>
@@ -49,19 +49,19 @@ layout: false
             <ol>
                 <li>
                     <h4>EDP Commands</h4>
-                    <img src="img/edp.png" alt="edp"/>
+                    <img src="<%- config.root %>img/edp.png" alt="edp"/>
                 </li>
                 <li>
                     <h4>EDP Build</h4>
-                    <img src="img/edp-2.png" alt="edp build -f"/>
+                    <img src="<%- config.root %>img/edp-2.png" alt="edp build -f"/>
                 </li>
                 <li>
                     <h4>EDP Version Info</h4>
-                    <img src="img/edp-3.png" alt="edp -v"/>
+                    <img src="<%- config.root %>img/edp-3.png" alt="edp -v"/>
                 </li>
                 <li>
                     <h4>ESL CDN and Filesizes</h4>
-                    <img src="img/esl.jpg" alt="esl cdn and filesizes"/>
+                    <img src="<%- config.root %>img/esl.jpg" alt="esl cdn and filesizes"/>
                 </li>
             </ol>
         </div>
@@ -96,11 +96,11 @@ layout: false
             <ol>
                 <li>
                     <h4>ER Overview</h4>
-                    <img src="img/er-overview.png" alt="er overview"/>
+                    <img src="<%- config.root %>img/er-overview.png" alt="er overview"/>
                 </li>
                 <li>
                     <h4>ESUI</h4>
-                    <img src="img/esui.jpg" alt="esui"/>
+                    <img src="<%- config.root %>img/esui.jpg" alt="esui"/>
                 </li>
             </ol>
         </div>
@@ -137,15 +137,15 @@ layout: false
             <ol>
                 <li>
                     <h4>模块化、组合式的移动前端框架</h4>
-                    <img src="img/mobile-framework.png" alt="saber framework"/>
+                    <img src="<%- config.root %>img/mobile-framework.png" alt="saber framework"/>
                 </li>
                 <li>
                     <h4>Real World Showcase</h4>
-                    <img src="img/mobile-showcase.png" alt="saber showcase"/>
+                    <img src="<%- config.root %>img/mobile-showcase.png" alt="saber showcase"/>
                 </li>
                 <li>
                     <h4>基于 edp 的移动端开发工具</h4>
-                    <img src="img/mobile-platform.png" alt="edpm"/>
+                    <img src="<%- config.root %>img/mobile-platform.png" alt="edpm"/>
                 </li>
             </ol>
         </div>
@@ -180,23 +180,23 @@ layout: false
             <ol>
                 <li>
                     <h4>ECharts (Enterprise Charts，商业级数据图表)</h4>
-                    <img src="img/v-echarts.png" alt="echarts"/>
+                    <img src="<%- config.root %>img/v-echarts.png" alt="echarts"/>
                 </li>
                 <li>
                     <h4>ECharts (Enterprise Charts)</h4>
-                    <img src="img/v-echarts-2.png" alt="echarts"/>
+                    <img src="<%- config.root %>img/v-echarts-2.png" alt="echarts"/>
                 </li>
                 <li>
                     <h4>ZRender (一个全新的轻量级Canvas类库)</h4>
-                    <img src="img/v-zrender.png" alt="zrender"/>
+                    <img src="<%- config.root %>img/v-zrender.png" alt="zrender"/>
                 </li>
                 <li>
                     <h4>qtek</h4>
-                    <img src="img/v-qtek.png" alt="qtek"/>
+                    <img src="<%- config.root %>img/v-qtek.png" alt="qtek"/>
                 </li>
                 <li>
                     <h4>qtek</h4>
-                    <img src="img/v-qtek-2.png" alt="qtek"/>
+                    <img src="<%- config.root %>img/v-qtek-2.png" alt="qtek"/>
                 </li>
             </ol>
         </div>
@@ -218,11 +218,11 @@ layout: false
             <ol>
                 <li>
                     <h4>est</h4>
-                    <img src="img/est.png" alt="est"/>
+                    <img src="<%- config.root %>img/est.png" alt="est"/>
                 </li>
                 <li>
                     <h4>estFiddle</h4>
-                    <img src="img/estfiddle.png" alt="estFiddle"/>
+                    <img src="<%- config.root %>img/estfiddle.png" alt="estFiddle"/>
                 </li>
             </ol>
         </div>
@@ -240,7 +240,7 @@ layout: false
         <%- partial('_partial/links') %>
     </footer>
 
-    <script src="js/slide.js"></script>
+    <%- js('js/slide') %>
     <script>
     (function () {
         var divs = document.getElementsByTagName('div');
