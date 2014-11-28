@@ -44,7 +44,7 @@ body {
     color: #666;
     font-size: 14px;
     font-size: 1.4rem;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", Lucida, Arial, Helvetica, sans-serif;
+    font-family: "Avenir Next", Helvetica, Arial, "Lantinghei SC", "Microsoft YaHei", sans-serif;
     background: #fff;
     border-top: 5px solid #2d547f;
 }
@@ -98,6 +98,12 @@ footer a,
 footer a:hover {
     text-decoration: underline;
     color: #aaa;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
 }
 
 .home {
