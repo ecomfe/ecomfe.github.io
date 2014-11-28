@@ -1,5 +1,5 @@
 title: 实战响应式图片
-date: 2014-11-11
+date: 2014-11-28
 author: Justineo
 author_link: http://weibo.com/u/1143654280
 original_title: 
