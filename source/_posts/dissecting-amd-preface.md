@@ -1,3 +1,4 @@
+---
 title: 玩转AMD - 写在前面
 date: 2014-11-11
 author: errorrik
