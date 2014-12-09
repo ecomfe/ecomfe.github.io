@@ -265,7 +265,7 @@ article {
     margin: 20px;
 }
 
-article h1, .article-index h2 {
+article h1, .article-index > h2 {
     font-size: 24px;
     color: #555;
 }
