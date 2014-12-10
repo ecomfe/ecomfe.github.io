@@ -145,11 +145,13 @@ textarea {
 }
 
 .product-overview li a {
-    text-decoration: none;
+    display: block;
     background: #fff;
     border-radius: 3px;
-    padding: 5px;
-    display: block;
+    padding: 5px 8px;
+    font-size: 12px;
+    font-size: 1.2rem;
+    text-decoration: none;
 }
 
 .product-overview li a:link,
