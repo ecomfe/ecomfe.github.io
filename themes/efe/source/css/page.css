@@ -375,6 +375,11 @@ article tt {
     border: 1px solid #eaeaea;
     background-color: #f8f8f8;
     border-radius: 3px;
+}
+
+article pre,
+article code,
+article tt {
     font-family: Consolas, 'Courier New', monospace;
 }
 
@@ -383,7 +388,8 @@ article pre code {
     padding: 0;
     white-space: pre;
     border: none;
-    background: transparent; }
+    background: transparent;
+}
 
 article pre {
     background-color: #f8f8f8;
