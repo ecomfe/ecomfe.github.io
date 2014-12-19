@@ -38,6 +38,7 @@ html {
     height: 100%;
 }
 
+
 body {
     margin: 0;
     padding: 20px 30px 0 290px;
@@ -48,6 +49,8 @@ body {
     background: #fff;
     border-top: 5px solid #2d547f;
 }
+
+
 
 ul, li, dt, dd, dl, p, h1, h2, h3, h4, h5, h6 {
     padding: 0;
@@ -70,6 +73,8 @@ aside {
     width: 240px;
     background: #ddeefa;
 }
+
+
 
 aside nav {
     margin-bottom: 20px;
@@ -459,4 +464,46 @@ article hr {
     color: #cccccc;
     height: 4px;
     padding: 0;
+}
+
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+body {
+	padding-left: 20px
+}
+aside {
+		top: 2px;
+		left: 20px;
+		width: auto;
+		height: auto;
+		position: relative;
+		
+	}
+aside nav a {
+    text-align: left;
+
+}
+.home {
+    text-align: left;
+	margin-left: 20px;
+	padding-top: 10px;
+}
+.links {
+	display: none;
+}
+.product-overview{
+	display: none;
+}
+.efe-desc {
+	display: none;
+} 
+aside nav a {
+    display: none;
+}
+article {
+    margin-left: 20px;
+    max-width: 60em;
+}
 }
