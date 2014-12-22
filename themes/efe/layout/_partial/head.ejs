@@ -2,7 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <% var title = page.title; %>
+    <meta name="viewport" 
+	      content="width=device-width, 
+		           height=device-height, 
+				   inital-scale=1.0,
+				   maximum-scale=1.0, 
+				   user-scalable=no;"
+	/>
+    <meta name="author"
+          content="ecomfe">
+	<% var title = page.title; %>
     <% if (is_home()) { %>
     <title><%= config.title%> - <%= config.subtitle %></title>
     <% } else { %>
