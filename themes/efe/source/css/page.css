@@ -524,7 +524,7 @@ and (min-device-width : 320px)
 and (max-device-width : 480px) {
 body {
     /*padding-left: 30px;*/
-    padding: 5px 7.5px 0 7.5px;
+    padding: 0;
 }
 aside {
     top: 20px;
@@ -553,7 +553,7 @@ aside nav a {
     display: block;
     margin-bottom: 0px;
     position: static;
-    height: 110px;
+    height: 115px;
     background: #ddeefa;
     padding-left: 10px;
 }
@@ -573,5 +573,15 @@ article {
     margin-left: 5px;
     max-width: 100%;
 
+}
+footer {
+    margin: 0;
+    padding: 10px 0;
+}
+.rss {
+    display: none;
+}
+time {
+    display: none;
 }
 }
