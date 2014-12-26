@@ -21,6 +21,10 @@ $ hexo new draft <title>
 
 Files will be saved in `source/_drafts` folder.
 
+
+<!-- more -->
+
+
 ### Previewing
 
 To preview your site with drafts, you can enable `render_drafts` setting in `_config.yml`:
