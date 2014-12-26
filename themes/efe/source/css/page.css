@@ -38,6 +38,7 @@ html {
     height: 100%;
 }
 
+
 body {
     margin: 0;
     padding: 20px 30px 0 290px;
@@ -48,6 +49,8 @@ body {
     background: #fff;
     border-top: 5px solid #2d547f;
 }
+
+
 
 ul, li, dt, dd, dl, p, h1, h2, h3, h4, h5, h6 {
     padding: 0;
@@ -70,6 +73,8 @@ aside {
     width: 240px;
     background: #ddeefa;
 }
+
+
 
 aside nav {
     margin-bottom: 20px;
@@ -459,4 +464,124 @@ article hr {
     color: #cccccc;
     height: 4px;
     padding: 0;
+}
+
+/*
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+body {
+	padding-left: 30px;
+}
+aside {
+	top: 20px;
+	width: auto;
+    position: static;	
+}
+aside nav a {
+    display: none;
+}
+.home {
+    text-align: left;
+	margin-left: 20px;
+	padding-top: 10px;
+}
+.home::before {
+    padding-left: 17px;
+}
+.links {
+	display: none;
+}
+.product-overview {
+	display: block;
+    position: absolute;
+    left: 180px;
+    top: 180px;
+    margin-bottom: 0px;
+}
+.product-overview li {
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+.product-overview-desc {
+    display: none;
+}
+.efe-desc {
+	display: none;
+} 
+article {
+    margin-left: 20px;
+    max-width: 100%;
+
+}
+}
+*/
+
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    body {
+        /*padding-left: 30px;*/
+        padding: 0;
+    }
+    aside {
+        top: 20px;
+        width: auto;
+        position: static;   
+    }
+    aside nav {
+        margin-bottom: 0px
+    }
+    aside nav a {
+        display: none;
+    }
+    .home {
+        text-align: center;
+        padding-top: 10px;
+        font-size: 2.4rem;
+        margin-top: 5px;
+    }
+    .home::before {
+        font-size: 4rem;
+    }
+    .links {
+        display: none;
+    }
+    .product-overview {
+        display: block;
+        margin-bottom: 0px;
+        position: static;
+        height: 115px;
+        background: #ddeefa;
+        padding-left: 10px;
+    }
+    .product-overview li {
+        float: left;
+        /*width: 80px;*/
+        width: 25%;
+        text-align: center;
+    }
+    .product-overview-desc {
+        display: none;
+    }
+    .efe-desc {
+        display: none;
+    } 
+    article {
+        margin-left: 5px;
+        max-width: 100%;    
+
+    }
+    footer {
+        margin: 0;
+        padding: 10px 0;
+    }
+    .rss {
+        display: none;
+    }
+    time {
+        display: none;
+    }
 }
