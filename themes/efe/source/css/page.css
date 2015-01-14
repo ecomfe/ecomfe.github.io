@@ -526,6 +526,9 @@ and (max-device-width : 480px) {
         /*padding-left: 30px;*/
         padding: 0;
     }
+    body > main {
+        margin: 0 5px;
+    }
     aside {
         top: 20px;
         width: auto;
@@ -541,7 +544,7 @@ and (max-device-width : 480px) {
         text-align: center;
         padding-top: 10px;
         font-size: 2.4rem;
-        margin-top: 5px;
+        margin-top: 0;
     }
     .home::before {
         font-size: 4rem;
@@ -576,7 +579,8 @@ and (max-device-width : 480px) {
     }
     footer {
         margin: 0;
-        padding: 10px 0;
+        padding: 20px 0;
+        text-align: center;
     }
     .rss {
         display: none;
