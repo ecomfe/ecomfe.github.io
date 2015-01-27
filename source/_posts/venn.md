@@ -90,54 +90,54 @@ approximateValue就为精度。
 ## 结论
 完整递归函数：
 ```javascript
-		_getCoincideLength: function (
-            value0,
-            value1,
-            value2,
-            r0,
-            r1,
-            coincideLengthAnchor,
-            coincideLengthAnchorMin,
-            coincideLengthAnchorMax
-        ) {
-            // 计算
-            var x = (r0 * r0 - r1 * r1) / (2 * coincideLengthAnchor) + coincideLengthAnchor / 2;
-            var y = coincideLengthAnchor / 2 - (r0 * r0 - r1 * r1) / (2 * coincideLengthAnchor);
-            // 夹角
-            var alfa = Math.acos(x / r0);
-            var beta = Math.acos(y / r1);
-            // 第一个圆的面积
-            var area0 = r0 * r0 * Math.PI;
-            // 计算的公共面积 (思路是扇形减三角形)
-            var area2 = alfa * r0 * r0 - x * r0 * Math.sin(alfa) + beta * r1 * r1 - y * r1 * Math.sin(beta);
-            var scaleAnchor = area2 / area0;
-            var scale = value2 / value0;
-            var approximateValue = Math.abs(scaleAnchor / scale);
-            if (approximateValue > 0.999 && approximateValue < 1.001) {
-                return coincideLengthAnchor;
-            }
-            // 若是公共面积比较小，使距离减小一些，让公共面积增大
-            else if (approximateValue <= 0.999) {
-                coincideLengthAnchorMax = coincideLengthAnchor;
-                // 二分法计算新的步调
-                coincideLengthAnchor = (coincideLengthAnchor + coincideLengthAnchorMin) / 2;
-            }
-            // 若是公共面积比较大，使距离增大一些，让公共面积减小
-            else {
-                coincideLengthAnchorMin = coincideLengthAnchor;
-                coincideLengthAnchor = (coincideLengthAnchor + coincideLengthAnchorMax) / 2;
-            }
-            return this._getCoincideLength(
-                value0,
-                value1,
-                value2,
-                r0,
-                r1,
-                coincideLengthAnchor,
-                coincideLengthAnchorMin,
-                coincideLengthAnchorMax
-            );
-        }
+_getCoincideLength: function (
+    value0,
+    value1,
+    value2,
+    r0,
+    r1,
+    coincideLengthAnchor,
+    coincideLengthAnchorMin,
+    coincideLengthAnchorMax
+) {
+    // 计算
+    var x = (r0 * r0 - r1 * r1) / (2 * coincideLengthAnchor) + coincideLengthAnchor / 2;
+    var y = coincideLengthAnchor / 2 - (r0 * r0 - r1 * r1) / (2 * coincideLengthAnchor);
+    // 夹角
+    var alfa = Math.acos(x / r0);
+    var beta = Math.acos(y / r1);
+    // 第一个圆的面积
+    var area0 = r0 * r0 * Math.PI;
+    // 计算的公共面积 (思路是扇形减三角形)
+    var area2 = alfa * r0 * r0 - x * r0 * Math.sin(alfa) + beta * r1 * r1 - y * r1 * Math.sin(beta);
+    var scaleAnchor = area2 / area0;
+    var scale = value2 / value0;
+    var approximateValue = Math.abs(scaleAnchor / scale);
+    if (approximateValue > 0.999 && approximateValue < 1.001) {
+        return coincideLengthAnchor;
+    }
+    // 若是公共面积比较小，使距离减小一些，让公共面积增大
+    else if (approximateValue <= 0.999) {
+        coincideLengthAnchorMax = coincideLengthAnchor;
+        // 二分法计算新的步调
+        coincideLengthAnchor = (coincideLengthAnchor + coincideLengthAnchorMin) / 2;
+    }
+    // 若是公共面积比较大，使距离增大一些，让公共面积减小
+    else {
+        coincideLengthAnchorMin = coincideLengthAnchor;
+        coincideLengthAnchor = (coincideLengthAnchor + coincideLengthAnchorMax) / 2;
+    }
+    return this._getCoincideLength(
+        value0,
+        value1,
+        value2,
+        r0,
+        r1,
+        coincideLengthAnchor,
+        coincideLengthAnchorMin,
+        coincideLengthAnchorMax
+    );
+}
 ```
 这篇文章，可能没有达到要求。也并没有多么高深的技术。就是想分享一下，在遇到一个问题的探究过程中，碰到的有趣的经历与总结的一些经验。
 这些经历与经验如果能给诸位在以后的工作中贡献绵薄，我也就十分欣慰了。
