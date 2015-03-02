@@ -556,9 +556,9 @@ and (max-device-width : 480px) {
         display: block;
         margin-bottom: 0px;
         position: static;
-        height: 115px;
         background: #ddeefa;
         padding-left: 10px;
+        overflow: hidden;
     }
     .product-overview li {
         float: left;
