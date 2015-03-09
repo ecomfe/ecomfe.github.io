@@ -11,7 +11,7 @@ tags:
 嵌套的条件判断会导致方法的正常执行路径不明晰，使代码可读性下降。本文提供一种对嵌套条件重构的方法，能有效提升代码的可读性。
 
 
-原文：http://sourcemaking.com/refactoring/replace-nested-conditional-with-guard-clauses
+原文：[http://sourcemaking.com/refactoring/replace-nested-conditional-with-guard-clauses](http://sourcemaking.com/refactoring/replace-nested-conditional-with-guard-clauses)
 
 条件判断会导致方法的正常执行路径不明晰。
 
