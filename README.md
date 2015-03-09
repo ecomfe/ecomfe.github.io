@@ -67,8 +67,8 @@ source/
 在文章中，对上面这种方式管理的资源，引用方式如下：
 
 ```markdown
-![图片标题](img/demo.png)
-[链接文字](ppt/report.pptx)
+![图片标题](/blog/example-blog/img/demo.png)
+[链接文字](/blog/example-blog/ppt/report.pptx)
 ```
 
 同时，我们推荐使用[OneDrive](http://onedrive.live.com)、[SlideShare](http://slideshare.net)存放PPT资源，使用[GitHub](https://github.com)或[Gist](https://gist.github.com)存放代码片段。
