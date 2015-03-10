@@ -32,10 +32,10 @@ $ npm install -g edp
 ### 示例 
 
 ```
-$ git clone https://github.com/junmer/edp-build-fontmin-demo 	# 下载 示例项目
-$ cd edp-build-fontmin-demo 								 	# 进入 示例项目 路径
-$ npm install edp-build-fontmin									# 安装 edp-build-fontmin	 依赖
-$ edp build -f													# 开始构建
+$ git clone https://github.com/junmer/edp-build-fontmin-demo    # 下载 示例项目
+$ cd edp-build-fontmin-demo                                     # 进入 示例项目 路径
+$ npm install edp-build-fontmin                                 # 安装 edp-build-fontmin   依赖
+$ edp build -f                                                  # 开始构建
 ```
 
 ### 配置
