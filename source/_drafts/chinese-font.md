@@ -10,8 +10,7 @@ tags:
 ---
 
 
-
-[![chinese-font-history](/blog/chinese-font/img/history.png)](http://blog.typeland.com/articles/169)
+![chinese-font-history](/blog/chinese-font/img/history.gif)
 
 关于字体，长久以来，前端工程师们 进行了各种探索：`图片`，`siFR`，`Cufon`，`@font-face` ...
 
@@ -62,11 +61,11 @@ $ edp ws start
 
 构建前:
 
-![before](/blog/chinese-font/before.png)
+![before](/blog/chinese-font/img/before.png)
 
 构建后:
 
-![after](/blog/chinese-font/after.png)
+![after](/blog/chinese-font/img/after.png)
 
 字体文件 `5.1 MB` -> `29.1 KB`, 效果 萌萌哒  (￣y▽￣)~*
 
