@@ -76,7 +76,7 @@ $ edp ws start
 - [edp](https://github.com/ecomfe/edp) 一个基于 Node.JS 与 NPM 的企业级前端应用的开发平台
 - [fontmin](https://github.com/ecomfe/fontmin) 第一个纯 JS 字体解决方案
 - [edp-build-fontmin](https://github.com/ecomfe/edp-build-fontmin) edp fontmin 插件
-- [fonteditor](https://github.com/ecomfe/fonteditor) 字体编辑器
+- [fonteditor](http://font.baidu.com/editor/) 字体编辑器
 
 
 ### 致敬
