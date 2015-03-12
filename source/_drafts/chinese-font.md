@@ -10,7 +10,7 @@ tags:
 ---
 
 
-![chinese-font-history](/blog/chinese-font/img/history.gif)
+![](/blog/chinese-font/img/history.gif)
 
 关于字体，长久以来，前端工程师们 进行了各种探索：`图片`，`siFR`，`Cufon`，`@font-face` ...
 
@@ -61,11 +61,11 @@ $ edp ws start
 
 构建前:
 
-![before](/blog/chinese-font/img/before.png)
+![](/blog/chinese-font/img/before.png)
 
 构建后:
 
-![after](/blog/chinese-font/img/after.png)
+![](/blog/chinese-font/img/after.png)
 
 字体文件 `5.1 MB` -> `29.1 KB`, 效果 萌萌哒  (￣y▽￣)~*
 
@@ -73,8 +73,8 @@ $ edp ws start
 ### 相关项目
 
 - [edp](https://github.com/ecomfe/edp)
-- [fontmin](https://github.com/junmer/fontmin)
-- [edp-build-fontmin](https://github.com/junmer/edp-build-fontmin)
+- [fontmin](https://github.com/ecomfe/fontmin)
+- [edp-build-fontmin](https://github.com/ecomfe/edp-build-fontmin)
 - [fonteditor](https://github.com/ecomfe/fonteditor)
 
 
