@@ -4,13 +4,13 @@ date: 2015-03-12
 author: junmer
 author_link: http://weibo.com/1957223403
 tags:
-- font-face
+- font
 - tool
 - 中文字体
 ---
 
 
-![chinese-font-history](/blog/chinese-font-build/img/history.gif)
+![](/blog/chinese-font-build/img/history.gif)
 
 关于字体，长久以来，前端工程师们 进行了各种探索：`图片`，`siFR`，`Cufon`，`@font-face` ...
 
@@ -18,7 +18,7 @@ tags:
 
 随着 `PC` 的更新换代，操作系统的升级，移动设备的崛起，`@font-face` 兼容性已经不足为患。`ttf`, `svg`, `eot`, `woff` 总有一款适合您。那么剩下的主要问题就是中文字符集过大了。
 
-以上，我们的解决方案就是：基于 [edp](https://github.com/ecomfe/edp) 和 [fontmin](https://github.com/junmer/fontmin)，按需提取字型，多格式转换，自动化构建字体。
+以上，我们的解决方案就是：基于 [edp](https://github.com/ecomfe/edp) 和 [fontmin](https://github.com/ecomfe/fontmin)，按需提取字型，多格式转换，自动化构建字体。
 
 <!-- more -->
 
@@ -33,7 +33,7 @@ $ npm install -g edp
 ```
 $ git clone https://github.com/junmer/edp-build-fontmin-demo    # 下载 示例项目
 $ cd edp-build-fontmin-demo                                     # 进入 示例项目 路径
-$ npm install edp-build-fontmin                                 # 安装 edp-build-fontmin   依赖
+$ npm install edp-build-fontmin                                 # 安装 edp-build-fontmin 依赖
 $ edp build -f                                                  # 开始构建
 ```
 
@@ -61,21 +61,21 @@ $ edp ws start
 
 构建前:
 
-![before](/blog/chinese-font-build/img/before.png)
+![](/blog/chinese-font-build/img/before.png)
 
 构建后:
 
-![after](/blog/chinese-font-build/img/after.png)
+![](/blog/chinese-font-build/img/after.png)
 
 字体文件 `5.1 MB` -> `29.1 KB`, 效果 萌萌哒  (￣y▽￣)~*
 
 
 ### 相关项目
 
-- [edp](https://github.com/ecomfe/edp)
-- [fontmin](https://github.com/junmer/fontmin)
-- [edp-build-fontmin](https://github.com/junmer/edp-build-fontmin)
-- [fonteditor](https://github.com/ecomfe/fonteditor)
+- [edp](https://github.com/ecomfe/edp) 一个基于 Node.JS 与 NPM 的企业级前端应用的开发平台
+- [fontmin](https://github.com/ecomfe/fontmin) 第一个纯 JS 字体解决方案
+- [edp-build-fontmin](https://github.com/ecomfe/edp-build-fontmin) edp fontmin 插件
+- [fonteditor](http://font.baidu.com/editor/) 在线字体编辑器
 
 
 ### 致敬
