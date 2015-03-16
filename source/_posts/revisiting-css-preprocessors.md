@@ -1139,4 +1139,4 @@ Stylus 的语法非常灵活，很多语义都是根据上下文隐含的。基�
 最后打个广告：百度 EFE 目前有一个基于 Less 的样式库 est，以及一个基于 Stylus 的针对移动端的样式库 rider，欢迎大家关注、提交 issue 和 pull request。
 
 est：<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=est&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
-rider：<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=rider&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>\
+rider：<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=rider&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
