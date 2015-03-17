@@ -52,7 +52,7 @@ Stylus：
 
 ## 嵌套语法
 
-三者的 ruleset 嵌套语法都是一致的，甚至连引用父级选择器的标记 `&` 也相同。区别只是 Sass 和 Stylus 可以用没有大括号的方式书写。以 Less 为例：
+三者的 rule set 嵌套语法都是一致的，甚至连引用父级选择器的标记 `&` 也相同。区别只是 Sass 和 Stylus 可以用没有大括号的方式书写。以 Less 为例：
 
 ```less
 .a {
@@ -69,7 +69,7 @@ Stylus：
 }
 ```
 
-除了 ruleset 的嵌套，Sass 额外提供了一个我个人认为比较另（jī）类（lèi）的「属性嵌套」：
+除了 rule set 的嵌套，Sass 额外提供了一个我个人认为比较另（jī）类（lèi）的「属性嵌套」：
 ```scss
 .funky {
   font: {
@@ -82,7 +82,7 @@ Stylus：
 
 ### 选择器引用
 
-三者都支持用 `&` 在嵌套的 ruleset 中引用上层的选择器，这可以是嵌套书写 CSS 时的「惯例」了。语法相同，但是逻辑上有些许差异。在一个选择器中用两次以上 `&` 且父选择器是一个列表时，Less 会对选择器进行排列组合，而 Sass 和 Stylus 不会这么做。
+三者都支持用 `&` 在嵌套的 rule set 中引用上层的选择器，这可以是嵌套书写 CSS 时的「惯例」了。语法相同，但是逻辑上有些许差异。在一个选择器中用两次以上 `&` 且父选择器是一个列表时，Less 会对选择器进行排列组合，而 Sass 和 Stylus 不会这么做。
 
 也就是说，假设上层选择器为 `.a, .b`，则内部的 `& &` 在 Less 中会成为 `.a .a, .a .b, .b .a, .b .b`，而 Sass 和 Stylus 则输出 `.a .a, .b .b`。
 
@@ -111,7 +111,7 @@ article, aside, nav, section {
 
 当然这个推荐样式十分脑残，编译出来的结果会有 47KB 之巨，根本不可用，这里只是借来演示一下。
 
-除了 `&`，Sass 和 Stylus 更进一步，分别用 `@at-root` 和 `/` 符号作为嵌套时「根」ruleset 的选择器引用。这有什么用呢？举个例子，假设 HTML 结构是这样的：
+除了 `&`，Sass 和 Stylus 更进一步，分别用 `@at-root` 和 `/` 符号作为嵌套时「根」rule set 的选择器引用。这有什么用呢？举个例子，假设 HTML 结构是这样的：
 
 ```html
 <article class="post">
@@ -233,7 +233,7 @@ strong {
 
 ### 变量作用域
 
-三种预处理器的变量作用域都是按嵌套的 ruleset 划分，并且在当前 ruleset 下找不到对应变量时会逐级向上查找，注意这个和原生 CSS 的逻辑是*完全不同*的。
+三种预处理器的变量作用域都是按嵌套的 rule set 划分，并且在当前 rule set 下找不到对应变量时会逐级向上查找，注意这个和原生 CSS 的逻辑是*完全不同*的。
 
 如果我们在代码中重写某个已经定义的变量的值，Less 的处理逻辑和其他两者有非常**关键**的区别。在 Less 中，这个行为被称为「[懒加载（Lazy Loading）](http://lesscss.org/features/#variables-feature-lazy-loading)」。所有 Less 变量的计算，都是以这个变量最后一次被定义的值为准。举一个例子更容易说清楚：
 
@@ -820,6 +820,76 @@ Stylus 中还有一个「透明 mixin」的功能，也就是说引入 mixin 完
 
 这意味着可以把兼容性上的处理隐藏在 mixin 中，直接用标准属性同名的 mixin 按普通属性的方式输出。当不需要兼容老浏览器时，直接把 mixin 定义删除仍然能够正常输出。不过这种写法虽然感觉非常「爽快」，但要求开发者必须能很好地区分原生属性和某个样式库中提供的 mixin 功能（对于有经验的开发者问题不大），而且透明意味着看到一个普通属性开发者不能判断是否已经在某处用 mixin 进行了重写，无法明确知道这里的代码最后输出会不会发生变化。在可控条件下，这个功能应该说是非常诱人的。
 
+如果说调用时想传入一组样式规则而非单个值，三种预处理器也都是支持的，但实现方式各有不同。
+
+在 Less 中需要先定义一个 ruleset 变量（detached ruleset，其实就是 CSS 样式块，即 rule set 去掉选择器的部分），然后在调用 mixin 时把它作为参数传进去，然后在 mixin 中用 `@var()` 的方式输出：
+
+```less
+.red(@custom) {
+  color: red;
+  @custom();
+}
+
+.alert {
+  @styles: {
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+
+  .red(@styles);
+}
+```
+
+在 Sass 和 Stylus 中，都支持直接在 mixin 调用下层传入「block」：
+
+Sass 下直接跟一个样式块即可，然后用关键字 `@content` 来进行输出：
+
+```scss
+@mixin red() {
+  color: red;
+  @content;
+}
+
+.alert {
+  @include red() {
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+}
+```
+
+Stylus 支持两种方法，首先是 Less 那样的「具名」样式块，调用时当做变量：
+
+```stylus
+red(foo)
+  color: red
+  {foo}
+
+.alert
+  foo =
+    font-weight: 700
+    font-size: 1.5em
+  red(foo)
+
+```
+
+第二种是 Sass 那样类似传入「字面量」，并且用关键词 `block` 输出的方式。这种方式需要为要传入样式块的 mixin 前添加一个 `+` 符号（可能是来自 SCSS 的对应功能）：
+
+```stylus
+red()
+  color: red
+  {block}
+
+.alert
+  +red()
+    font-weight: 700
+    font-size: 1.5em
+```
+
+第二种方式可以看做是第一种方式的语法糖，在 mixin 只需要传入一个样式块时可以免去起名字带来的困扰。
+
+相比之下 Less 只支持先定义变量后传入的方式，优点是可以传入多个样式块；而 Sass 只支持传入一个「匿名」样式块但是更简单；Stylus 则是两种方式都支持。这个功能在抽象「需要应用样式的条件」时非常有用，比如我们基于 Stylus 的样式库 [rider](https://github.com/ecomfe/rider) 中就用它来实现[对 media query 的抽象封装](https://github.com/ecomfe/rider/blob/master/lib/rider/breakpoint.styl)。
+
 
 ## 继承
 
@@ -955,7 +1025,7 @@ button.primary {
 
 ### placeholder
 
-Placeholder 是什么？简单来说就是一个 ruleset（预处理器 DSL 中的 ruleset，包含其下嵌套规则），但是不会在最终的 CSS 中输出。其实这是一组「抽象」样式，只存在于预处理器的编译过程中（类似 mixin），但不同之处是它可以被继承。这样我们就可以在纯样式层为 ruleset 起与样式强耦合的名称而不怕它出现在 CSS 与 HTML 的「接口」——选择器之中了。
+Placeholder 是什么？简单来说就是一个样式块（预处理器 DSL 中的样式块，包含其下嵌套规则），但是不会在最终的 CSS 中输出。其实这是一组「抽象」样式，只存在于预处理器的编译过程中（类似 mixin），但不同之处是它可以被继承。这样我们就可以在纯样式层为样式块起与样式强耦合的名称而不怕它出现在 CSS 与 HTML 的「接口」——选择器之中了。
 
 Sass：
 
