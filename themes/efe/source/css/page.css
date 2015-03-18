@@ -376,7 +376,6 @@ article code,
 article tt {
     margin: 0 2px;
     padding: 0 5px;
-    white-space: nowrap;
     border: 1px solid #eaeaea;
     background-color: #f8f8f8;
     border-radius: 3px;
@@ -476,7 +475,7 @@ body {
 aside {
 	top: 20px;
 	width: auto;
-    position: static;	
+    position: static;
 }
 aside nav a {
     display: none;
@@ -509,7 +508,7 @@ aside nav a {
 }
 .efe-desc {
 	display: none;
-} 
+}
 article {
     margin-left: 20px;
     max-width: 100%;
@@ -532,7 +531,7 @@ and (max-device-width : 480px) {
     aside {
         top: 20px;
         width: auto;
-        position: static;   
+        position: static;
     }
     aside nav {
         margin-bottom: 0px
@@ -571,11 +570,12 @@ and (max-device-width : 480px) {
     }
     .efe-desc {
         display: none;
-    } 
+    }
     article {
         margin-left: 5px;
-        max-width: 100%;    
-
+        margin-right: 5px;
+        max-width: 100%;
+        word-break: break-all;
     }
     footer {
         margin: 0;

@@ -641,7 +641,7 @@ This is the content, also I can use `${variables}`
 
 ### 支持完全自定义模板语法
 
-我们之前通过`commandOpen`、`commandClose`、`variableOpen`、`variableClose`配置项支持用户对部分语法部分进行定制，但是`var: a = 1`中间的冒号算怎么回事，怎么觉得这么别扭呢？
+我们之前通过 `commandOpen` / `commandClose` / `variableOpen` / `variableClose` 配置项支持用户对部分语法部分进行定制，但是`var: a = 1`中间的冒号算怎么回事，怎么觉得这么别扭呢？
 
 所以，我们增加了一个参数：`commandSyntax`，让用户能够对命令的语法规则进行定制。看看[这个例子](http://ecomfe.github.io/etpl/example.html#custom)，经过定制后，ETpl语法和nunjucks是一样的。
 
