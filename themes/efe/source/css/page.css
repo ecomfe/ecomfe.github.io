@@ -470,11 +470,11 @@ article hr {
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
 body {
-	padding-left: 30px;
+    padding-left: 30px;
 }
 aside {
-	top: 20px;
-	width: auto;
+    top: 20px;
+    width: auto;
     position: static;
 }
 aside nav a {
@@ -482,17 +482,17 @@ aside nav a {
 }
 .home {
     text-align: left;
-	margin-left: 20px;
-	padding-top: 10px;
+    margin-left: 20px;
+    padding-top: 10px;
 }
 .home::before {
     padding-left: 17px;
 }
 .links {
-	display: none;
+    display: none;
 }
 .product-overview {
-	display: block;
+    display: block;
     position: absolute;
     left: 180px;
     top: 180px;
@@ -507,7 +507,7 @@ aside nav a {
     display: none;
 }
 .efe-desc {
-	display: none;
+    display: none;
 }
 article {
     margin-left: 20px;
