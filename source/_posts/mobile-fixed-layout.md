@@ -74,11 +74,9 @@ main {
     height: 2000px
 }
 ```
-
+然后看起来就是下面这个样子。拖动页面时 header 和 footer 已经定位在了对应的位置，目测没问题了。
 
 ![fixed定位](/blog/mobile-fixed-layout/img/fixed.png "fixed page")
-
-然后看起来就是上面这个样子。拖动页面时 header 和 footer 已经定位在了对应的位置，目测没问题了。
 
 但接下来问题就来了！如果底部输入框软键盘被唤起以后，再次滑动页面，就会看到如下图所示：
 
@@ -212,7 +210,50 @@ main {
 
 在细节处理上，其实还有很多要注意的，挑几个实际遇到比较大的问题来说一下：
 
-1.  在 iOS 下使用第三方输入法时，输入法在唤起经常会盖住输入框，只有在输入了一条文字后，输入框才会浮出。目前也不知道有什么好的办法能让唤起输入框时正确显示。这暂时算是 iOS 下的一个坑吧。
-2.  有时候输入框 focus 以后，会出现软键盘遮挡输入框的情况，这时候可以尝试 input 元素的 scrollIntoView 进行修复。 
+1.  有时候输入框 focus 以后，会出现软键盘遮挡输入框的情况，这时候可以尝试 input 元素的 scrollIntoView 进行修复。 
+2.  在 iOS 下使用第三方输入法时，输入法在唤起经常会盖住输入框，只有在输入了一条文字后，输入框才会浮出。目前也不知道有什么好的办法能让唤起输入框时正确显示。这暂时算是 iOS 下的一个坑吧。
 3.  有些第三方浏览器底部的工具栏是浮在页面之上的，因此底部 fixed 定位会被工具栏遮挡。解决办法也比较简单粗暴——适配不同的浏览器，调整 fixed 元素距离底部的距离。
 4.  最好将 header 和 footer 元素的 touchmove 事件禁止，以防止滚动在上面触发了部分浏览器全屏模式切换，而导致顶部地址栏和底部工具栏遮挡住 header 和 footer 元素。
+5.  在页面滚动到上下边缘的时候，如果继续拖拽会将整个 View 一起拖拽走，导致页面的"露底"。
+
+    ![fixed定位](/blog/mobile-fixed-layout/img/fixed_pull_over.png "fixed page")
+    
+为了防止页面露底，可以在页面拖拽到边缘的时候，通过判断拖拽方向以及是否为边缘来阻止 touchmove 事件，防止页面继续拖拽。
+
+以上面内滚动 `layout-scroll-fixed` 布局为例，给出一段代码作为参考：
+```js
+// 防止内容区域滚到底后引起页面整体的滚动
+var content = document.querySelector('main');
+var startY;
+
+content.addEventListener('touchstart', function (e) {
+    startY = e.touches[0].clientY;
+});
+
+content.addEventListener('touchmove', function (e) {
+    // 高位表示向上滚动
+    // 底位表示向下滚动
+    // 1容许 0禁止
+    var status = '11';
+    var ele = this;
+
+    var currentY = e.touches[0].clientY;
+
+    if (ele.scrollTop === 0) {
+        // 如果内容小于容器则同时禁止上下滚动
+        status = ele.offsetHeight >= ele.scrollHeight ? '00' : '01';
+    } else if (ele.scrollTop + ele.offsetHeight >= ele.scrollHeight) {
+        // 已经滚到底部了只能向上滚动
+        status = '10';
+    }
+
+    if (status != '11') {
+        // 判断当前的滚动方向
+        var direction = currentY - startY > 0 ? '10' : '01';
+        // 操作方向和当前允许状态求与运算，运算结果为0，就说明不允许该方向滚动，则禁止默认事件，阻止滚动
+        if (!(parseInt(status, 2) & parseInt(direction, 2))) {
+            stopEvent(e);
+        }
+    }
+});
+```
