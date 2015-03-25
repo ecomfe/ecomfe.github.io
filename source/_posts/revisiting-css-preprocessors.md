@@ -23,21 +23,20 @@ CSS 预处理器是什么？一般来说，它们基于 CSS 扩展了一套属�
 
 下面主要会分为如下几方面来讨论：
 
-<ol start="0">
-    <li>基本语法</li>
-    <li>嵌套语法</li>
-    <li>变量</li>
-    <li>@import</li>
-    <li>混入</li>
-    <li>继承</li>
-    <li>函数</li>
-    <li>逻辑控制</li>
-</ol>
+- 基本语法
+- 嵌套语法
+- 变量
+- @import
+- 混入
+- 继承
+- 函数
+- 逻辑控制
 
 事先声明一下，平时我在开发中主要使用的是 Less，所以可能对 Sass 和 Stylus 的熟悉程度稍差一些，比较时主要参考三者官网的语言特性说明，有一些正在开发的功能可能会遗漏。
 
 本文中对 CSS 语法的话术与 MDN 的 [CSS 语法](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Syntax)介绍一致。
 
+<!-- more -->
 
 ## 基本语法
 
