@@ -1227,7 +1227,7 @@ div {
 
 我个人认为，Less 从语言特性的设计到功能的健壮程度和另外两者相比都有一些缺陷，但因为 Bootstrap 引入了 Less，导致 Less 在今天还是有很多用户。用 Less 可以满足大多数场景的需求，但相比另外两者，基于 Less 开发类库会复杂得多，实现的代码会比较脏，能实现的功能也会受到 DSL 的制约。比 Stylus 语义更清晰、比 Sass 更接近 CSS 语法，使得刚刚转用 CSS 预编译的开发者能够更平滑地进行切换。当初 Sass 并不支持 SCSS 语法，使得转投 Sass 成本较高，所以 [Alexis Sellier](http://cloudhead.io/) 才萌生开发一个更「CSS」的预处理器的念头。大获成功以后反过来影响到了 Sass，迫使其也支持类似 CSS 语法的 SCSS。另外，Less 支持浏览器端编译，这无疑降低了开发门槛，使得很多非专业的开发者能够更快地上手（对于一些个人项目来说，能让项目跑起来就行，对前端的性能并没有专业工程师那么高的要求）。
 
-Sass 在三者之中历史最久，也吸收了其他两者的一些有点。从功能上来说 Sass 大而全，语义明晰但是代码很容易显得累赘。主项目基于 Ruby 可能也是一部分人不选择它的理由（Less 开始也是基于 Ruby 开发，后来逐渐转到 [less.js](https://github.com/less/less.js) 项目中）。 Sass 有一个「事实标准」库——[Compass](http://compass-style.org/)，于是对于很多开发者而言省去了选择类库的烦恼，对于提升开发效率也有不小的帮助。
+Sass 在三者之中历史最久，也吸收了其他两者的一些优点。从功能上来说 Sass 大而全，语义明晰但是代码很容易显得累赘。主项目基于 Ruby 可能也是一部分人不选择它的理由（Less 开始也是基于 Ruby 开发，后来逐渐转到 [less.js](https://github.com/less/less.js) 项目中）。 Sass 有一个「事实标准」库——[Compass](http://compass-style.org/)，于是对于很多开发者而言省去了选择类库的烦恼，对于提升开发效率也有不小的帮助。
 
 Stylus 的语法非常灵活，很多语义都是根据上下文隐含的。基于 Stylus 可以写出非常简洁的代码，但对使用团队的开发素养要求也更高，更需要有良好的开发规范或约定。Stylus 是前 Node.js 圈第一大神 [TJ Holowaychuk](https://github.com/tj/) 的作品，虽然他已经弃坑了，但是仍然有不小的号召力。和 Sass 有  Compass 类似，Stylus 有一个官方开发的样式库 [nib](http://tj.github.io/nib/)，同样提供了不少好用的 mixin。对于比较有经验的开发者，用 Stylus 可能更会有一种畅快的感觉。总的来说用一个词形容 Stylus 的话，我会用「sexy」。
 
