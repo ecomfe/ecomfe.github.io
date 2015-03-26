@@ -199,6 +199,7 @@ article, aside, nav, section {
 变量无疑为 CSS 增加了一种有效的复用方式，减少了原来在 CSS 中无法避免的重复「硬编码」。
 
 Less：
+
 ```less
 @red: #c00;
 
@@ -208,6 +209,7 @@ strong {
 ```
 
 Sass：
+
 ```scss
 $red: #c00;
 
@@ -217,6 +219,7 @@ strong {
 ```
 
 Stylus：
+
 ```stylus
 red = #c00
 
@@ -251,6 +254,7 @@ strong {
 如果我们在代码中重写某个已经定义的变量的值，Less 的处理逻辑和其他两者有非常**关键**的区别。在 Less 中，这个行为被称为「[懒加载（Lazy Loading）](http://lesscss.org/features/#variables-feature-lazy-loading)」。所有 Less 变量的计算，都是以这个变量最后一次被定义的值为准。举一个例子更容易说清楚：
 
 Less：
+
 ```less
 @size: 10px;
 .box {
@@ -264,6 +268,7 @@ Less：
 ```
 
 输出：
+
 ```css
 .box {
   width: 20px;
@@ -274,6 +279,7 @@ Less：
 ```
 
 而在 Stylus 中：
+
 ```stylus
 size = 10px
 .box
@@ -285,6 +291,7 @@ size = 20px
 ```
 
 输出：
+
 ```css
 .box {
   width: 10px;
@@ -424,6 +431,7 @@ Less 中支持 `@@foo` 的形式引用变量，即该变量的名字是由 `@foo
 选择器是样式表和 DOM 的纽带，是我们实际暴露给 HTML 的接口。支持插值显然可以让接口更不容易和其他内容冲突。假设我们在开发一个 UI 库，生成的组件类名希望有一个可配置的前缀，这时选择器插值就变得相当重要。初看下来，三者用法类似：
 
 Less：
+
 ```less
 @prefix: ui;
 .@{prefix}-button {
@@ -432,6 +440,7 @@ Less：
 ```
 
 Sass：
+
 ```scss
 $prefix: ui
 .#{$prefix}-button
@@ -439,13 +448,14 @@ $prefix: ui
 ```
 
 Stylus：
+
 ```stylus
 prefix = ui
 .{prefix}-button
   color #333
 ```
 
-但是在 Less 中，有一个很严重的问题：通过选择器插值生成的规则无法被继承（*[Extend dynamically generated selectors](https://github.com/less/less.js/issues/2200)*）！当然，如果有类似 Placeholder 的机制，这都不是事儿了。问题是 Less 没有！未来的方案看来可能是通过 `:extend(.mixin())` 的方式实现类似功能（*[:extend mixins](https://github.com/less/less.js/issues/1177)*），虽然用 `:extend` 本身的语法说不过去，但是在现有机制上来看还算可以接受。关于样式的继承复用，后面会详细讲到。
+但是在 Less 中，有一个很严重的问题：通过选择器插值生成的规则无法被继承（[Extend dynamically generated selectors](https://github.com/less/less.js/issues/2200)）！当然，如果有类似 Placeholder 的机制，这都不是事儿了。问题是 Less 没有！未来的方案看来可能是通过 `:extend(.mixin())` 的方式实现类似功能（[:extend mixins](https://github.com/less/less.js/issues/1177)）。虽然用 `:extend` 本身的语法说不过去，但是在现有机制上来看还算可以接受。关于样式的继承复用，后面会详细讲到。
 
 #### @import 语句插值
 
@@ -499,6 +509,7 @@ red-border(sides)
 三种预处理器均支持在 `@media`、`@keyframes`、`@counter-style` 等规则中进行插值。`@media` 插值主要用来做响应式的配置，而 `@keyframes` 这样带名称名称的 `@` 规则则可以通过插值来避免命名冲突。
 
 Less：
+
 ```less
 @m: screen;
 @orient: landscape;
@@ -520,6 +531,7 @@ Less：
 ```
 
 Sass：
+
 ```scss
 $m: screen;
 $orient: landscape;
@@ -541,8 +553,8 @@ $prefix: ui;
 ```
 
 Stylus：
-```stylus
 
+```stylus
 m = screen
 orient = landscape
 mq = m + " and (orientation: " + orient + ")"
@@ -1223,5 +1235,5 @@ Stylus 的语法非常灵活，很多语义都是根据上下文隐含的。基�
 
 最后打个广告：百度 EFE 目前有一个基于 Less 的样式库 est，以及一个基于 Stylus 的针对移动端的样式库 rider，欢迎大家关注、提交 issue 和 pull request。
 
-est：<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=est&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
-rider：<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=rider&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+<dl><dt>est</dt><dd><iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=est&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe></dd>
+<dt>rider</dt><dd><iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=rider&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe></dd></dl>
