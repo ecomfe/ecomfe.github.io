@@ -1,21 +1,22 @@
-title: "Web移动端Fixed布局的解决方案"
-date: 2015-03-23 00:00:00
+title: Web移动端Fixed布局的解决方案
+date: 2015-4-3
 author: redmed
 author_link: http://weibo.com/redmed
 tags: 
-- fixed布局
-- Web移动端
+- fixed
+- Layout
+- Mobile
 - 弹性滚动
-- iOS Web
 ---
 
 
-## Web移动端Fixed布局的解决方案
 
 
 移动端业务开发，iOS 下经常会有 fixed 元素和输入框(input 元素)同时存在的情况。
 但是 fixed 元素在有软键盘唤起的情况下，会出现许多莫名其妙的问题。
 这篇文章里就提供一个简单的有输入框情况下的 fixed 布局方案。
+
+<!-- more -->
 
 ---
 
