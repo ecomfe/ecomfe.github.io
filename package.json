@@ -16,6 +16,7 @@
     "hexo-renderer-stylus": "^0.2.0",
     "hexo-renderer-pandoc": "*",
     "hexo-generator-feed": "^1.0.1",
+    "hexo-renderer-marked": "^0.2.4",
     "hexo-generator-sitemap": "^1.0"
   }
 }
