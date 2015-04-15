@@ -1,6 +1,6 @@
 ---
-title: Fontmin 发布 0.6.0
-date: 2015-04-14
+title: Fontmin 快速指南
+date: 2015-04-17
 author: junmer
 author_link: http://weibo.com/1957223403
 tags:
@@ -143,7 +143,7 @@ npm install -g fontmin
 ## EOF
 
 - 本文封面：[Fontmin Example](http://codepen.io/firede/pen/raEXBX) by [@Firede](http://weibo.com/firede)，[Kinda Realistic Text](http://codepen.io/lbebber/pen/dalKF) by [@lucasbebber](https://twitter.com/lucasbebber)
-- 字体支持：[新蒂字体](http://www.sentyfont.com/)，[浙江民间书刻体](http://weibo.com/eonway)，[造字工房](http://www.makefont.com/)，[思源字体](https://github.com/adobe-fonts/source-han-sans)，[台湾教育部標準宋體](http://www.edu.tw/pages/detail.aspx?Node=3691&Page=17009&Index=6)
+- 字体支持：[新蒂字体](http://www.sentyfont.com/)，[浙江民间书刻体](http://weibo.com/eonway)，[思源字体](https://github.com/adobe-fonts/source-han-sans)，[台湾教育部標準宋體](http://www.edu.tw/pages/detail.aspx?Node=3691&Page=17009&Index=6)
 
 如果您觉得 Fontmin 还不错，请给个 star 呗 ヾ(◍°∇°◍)ﾉﾞ
 
