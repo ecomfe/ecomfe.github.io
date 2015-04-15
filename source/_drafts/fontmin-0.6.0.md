@@ -80,6 +80,46 @@ var fontmin = new Fontmin()
 }
 ```
 
+为方便大家使用，提供一个最基本的 webfont 工作流 snippet：
+
+```
+var Fontmin = require('fontmin');
+
+var srcPath = 'src/font/*.ttf'; // 字体源文件
+var destPath = 'asset/font';    // 输出路径
+var text = '我说你是人间的四月天；笑响点亮了四面风；轻灵在春的光艳中交舞着变。';
+
+// 初始化
+var fontmin = new Fontmin()
+    .src(srcPath)               // 输入配置
+    .use(Fontmin.glyph({        // 字型提取插件
+        text: text              // 所需文字
+    }))
+    .use(Fontmin.ttf2eot({      // eot 转换插件
+        clone: true             // 保留 ttf
+    }))
+    .use(Fontmin.ttf2woff({     // woff 转换插件
+        clone: true             // 保留 ttf
+    }))
+    .use(Fontmin.ttf2svg({      // svg 转换插件
+        clone: true             // 保留 ttf
+    }))
+    .use(Fontmin.css())         // css 生成插件
+    .dest(destPath);            // 输出配置
+
+// 执行
+fontmin.run(function (err, files, stream) {
+
+    if (err) {                  // 异常捕捉
+        console.error(err);
+    }
+
+    console.log('done');        // 成功
+});
+```
+
+大家可以这个基础上，自由扩展，玩法多多。
+
 ## 命令行
 
 极客范儿? 就是喜欢弹奏键盘这种飘逸的感觉～
@@ -94,7 +134,7 @@ npm install -g fontmin
 
 ## 客户端
 
-懒得写代码? 直接拖进来，duang 一下，就搞定了~
+懒得写代码? 直接把 `TTF` 拖进来，左侧输入需要文字，右侧实时看效果。点击生成，duang 一下，就搞定了~
 
 ![](/blog/fontmin-0.6.0/img/app.png)
 
