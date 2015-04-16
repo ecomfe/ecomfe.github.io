@@ -38,7 +38,7 @@ tags:
 
 - 专注，面向前端工程师，专注字体的 web 应用
 - 工程化，自动化开发流程，告别刀耕火种的人肉操作 
-- 社区，依靠社区的力量，可以有更多的玩法，如：[edp-build-fontmin](http://efe.baidu.com/blog/chinese-font-build/), [font-spider](https://github.com/aui/font-spider)
+- 社区，依靠社区的力量，可以有更多的玩法，如：[edp-build-fontmin](http://efe.baidu.com/blog/chinese-font-build/), [gulp-fontmin](https://github.com/ecomfe/gulp-fontmin), [font-spider](https://github.com/aui/font-spider)
 
 以上，[Fontmin](http://ecomfe.github.io/fontmin/) 提供了多种方式，带你玩转字体。
 
