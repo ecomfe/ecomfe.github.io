@@ -124,13 +124,13 @@ fontmin.run(function (err, files, stream) {
 npm install -g fontmin
 ```
 
-![](/blog/fontmin-0.6.0/img/terminal.png)
+![](/blog/fontmin-getting-started/img/terminal.png)
 
 ## 客户端
 
 懒得写代码? 直接把 `TTF` 拖进来，左侧输入需要文字，右侧实时看效果。点击生成，duang 一下，就搞定了~
 
-![](/blog/fontmin-0.6.0/img/app.png)
+![](/blog/fontmin-getting-started/img/app.png)
 
 可以在 [这里](https://github.com/ecomfe/fontmin-app/releases) 找到最新版本。
 
