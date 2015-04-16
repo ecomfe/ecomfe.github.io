@@ -95,15 +95,9 @@ var fontmin = new Fontmin()
     .use(Fontmin.glyph({        // 字型提取插件
         text: text              // 所需文字
     }))
-    .use(Fontmin.ttf2eot({      // eot 转换插件
-        clone: true             // 保留 ttf
-    }))
-    .use(Fontmin.ttf2woff({     // woff 转换插件
-        clone: true             // 保留 ttf
-    }))
-    .use(Fontmin.ttf2svg({      // svg 转换插件
-        clone: true             // 保留 ttf
-    }))
+    .use(Fontmin.ttf2eot())     // eot 转换插件
+    .use(Fontmin.ttf2woff())    // woff 转换插件     
+    .use(Fontmin.ttf2svg())     // svg 转换插件
     .use(Fontmin.css())         // css 生成插件
     .dest(destPath);            // 输出配置
 
