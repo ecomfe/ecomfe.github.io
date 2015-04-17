@@ -3,7 +3,7 @@
   "version": "2.8.3",
   "private": true,
   "hexo": {
-    "version": "3.0.0"
+    "version": "3.0.1"
   },
   "dependencies": {
     "hexo": "^3.0.0",
@@ -16,6 +16,7 @@
     "hexo-renderer-stylus": "^0.2.0",
     "hexo-renderer-pandoc": "*",
     "hexo-generator-feed": "^1.0.1",
+    "hexo-renderer-marked": "^0.2.4",
     "hexo-generator-sitemap": "^1.0"
   }
 }
