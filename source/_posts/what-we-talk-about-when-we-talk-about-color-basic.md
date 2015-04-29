@@ -1,5 +1,5 @@
 title: 当我们谈论颜色时，我们在谈论什么 - 基础知识篇
-date: 2015-4-24
+date: 2015-4-29
 author: Firede
 author_link: http://weibo.com/firede
 tags:
