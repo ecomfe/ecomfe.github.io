@@ -1,19 +1,19 @@
-title: "vim的javascript补全"
-date: 2015-05-03
+title: VIM的JavaScript补全
+date: 2015-05-05
 author: hushicai
 author_link: http://hushicai.com
 tags:
-- vim
-- javascript
-- completion
-s: vim javascript completion
+- VIM
+- JavaScript
+- Completion
+s: VIM JavaScript Completion
 ---
 
-最近微软出了个visual studio code，听说很叼，尤其是对javascript的补全支持很令人惊艳！
+最近微软出了个Visual Studio Code，听说很diao，尤其是对JavaScript的补全支持很令人惊艳！
 
 如果你是一个vim党，那么请淡定！
 
-在javascript开发过程中，使用vim内置的`ins-completion`再加上一些插件，我们同样可以获得很牛逼的completion支持！
+在JavaScript开发过程中，使用vim内置的`ins-completion`再加上一些插件，我们同样可以获得很牛逼的completion支持！
 
 <!-- more -->
 
