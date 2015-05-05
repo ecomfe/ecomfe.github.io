@@ -1,0 +1,8 @@
+<% if (site.tags.length){ %>
+    <dl class="tags">
+        <dt>Tags</dt>
+        <% site.tags.sort('posts.length').reverse().each(function(item){ %>
+            <dd><a href="<%- config.root %><%- item.path %>"><%= item.name %></a> <small>(<%= item.posts.length %>)</small></dd>
+        <% }); %>
+    </dl>
+<% } %>

@@ -181,19 +181,23 @@ textarea {
     color: #5b85b3;
 }
 
-.links {
+.links, .tags {
     background: #f9f9f6;
     padding: 20px 10px;
 }
-.links dt { margin-bottom: 10px; }
-.links a {
+.links dt, .tags dt { margin-bottom: 10px; color: #222; }
+.links a, .tags a {
     font-size: 12px;
     font-size: 1.2rem;
     text-decoration: none;
-    color: #888;
+    color: #777;
 }
-.links a:hover {
-    color: #5b85b3;
+.links a:hover, .tags a:hover {
+    color: #555;
+}
+
+.tags dd small {
+    color: #aaa;
 }
 
 .rss {
@@ -567,7 +571,7 @@ and (max-device-width : 480px) {
     .home::before {
         font-size: 4rem;
     }
-    .links {
+    .links, .tags {
         display: none;
     }
     .product-overview {
