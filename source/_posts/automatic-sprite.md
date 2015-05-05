@@ -4,9 +4,9 @@ date: 2015-1-4
 author: dbear
 author_link: http://weibo.com/u/1809099542
 tags:
-- image
-- css
-- sprite
+- 图片
+- CSS
+- 优化
 ---
 
 

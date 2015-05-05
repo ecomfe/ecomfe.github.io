@@ -4,8 +4,7 @@ date: 2014-11-11
 author: errorrik
 author_link: http://errorrik.com/
 tags:
-- example 
-- test
+- JavaScript
 ---
 
 

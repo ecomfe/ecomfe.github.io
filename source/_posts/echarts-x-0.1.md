@@ -7,7 +7,7 @@ tags:
 - ECharts
 - ECharts-X
 - 3D
-- 数据可视化 
+- 数据可视化
 ---
 
 ECharts-X 发布啦！3D 的 Glob Visualization，3D 的 markPoint， markLine，艺术的风场洋流可视化，一切都有可能！ECharts the next generation ！好奇的小伙伴们快去[官网](http://echarts.baidu.com/x/doc/index.html)看看吧！

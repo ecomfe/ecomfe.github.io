@@ -5,7 +5,7 @@ author: errorrik
 author_link: http://errorrik.com/
 tags:
 - 模板引擎
-- ETpl 
+- ETpl
 - JavaScript
 ---
 

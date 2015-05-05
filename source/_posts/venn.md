@@ -4,9 +4,9 @@ date: 2015-1-27
 author: loutongbing
 author_link: https://github.com/loutongbing
 tags:
-- 数据可视化 
+- 数据可视化
 - ECharts
-- venn 
+- venn
 ---
 
 维恩图（venn），也叫文氏图，用于显示元素集合重叠区域的图示。我们准备在echarts中提供这类图表。第一期支持两个集合的韦恩图，后期准备支持三个集合乃至多个集合的韦恩图

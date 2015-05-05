@@ -4,7 +4,8 @@ date: 2015-3-27
 author: errorrik 
 author_link: http://errorrik.com/
 tags:
-- ECharts 
+- ECharts
+- 数据可视化
 ---
 
 ![](/blog/echarts-course/ec.jpg)
