@@ -1,12 +1,10 @@
 ---
 title: 使用FontEditor创建web字体图标
-date: 2015-05-01
+date: 2015-05-19
 author: mkwiser
 author_link: http://www.mkwiser.com/
 tags:
 - font
-- font editor
-- webfont
 ---
 
 关于web字体图标，市面上已经有一些好的在线工具来管理和生成，`iconfont`和`icomoon`都可以将svg图标转换成font图标以便在网页上使用。但是如果你想要更多：ttf、woff、eot、otf统统拿来用，svg、图片统统可导入，图标效果实时可调整，只需要在线动动鼠标，就可以完成呢。
