@@ -1,6 +1,6 @@
 ---
 title: 使用ES6进行开发的思考
-date: 2015-5-20
+date: 2015-5-21
 author: otakustay
 author_link: http://otakustay.com
 tags:
@@ -13,45 +13,44 @@ ECMAScript6已经于近日进入了RC阶段，而早在其处于社区讨论时�
 
 而在有了充足的环境、工具之后，我们面临的是对ES6众多新特性的选择和分析，以便选取一个最佳的子集，让我们可以享受ES6带来的便利（减少代码量、提高可读性等）的同时，也可以顺利运行于当前以ES3-ES5为主的浏览器环境中。
 
-## 整体结论
+经过分析后，本文试图对ES6各个特性得出是否适合应用的初步结论，并一一解释其使用场景。ES6的特性列表选自[es6features](https://github.com/lukehoban/es6features)。
 
-以下是在经过分析后得出的一个初步结论，ES6的特性列表选自[es6features](https://github.com/lukehoban/es6features)。
 
-在本文中，会将这些特性分为几个类型，并一一解释其使用场景。
+- ★★★ 推荐使用 
+- ★★ 有考虑地使用 
+- ★ 慎重地使用 
+- ☆ 不使用
 
-<table>
-    <caption>
-        ★★★ 推荐使用 ★★ 有考虑地使用 ★ 慎重地使用 ☆ 不使用
-    </caption>
-    <thead>
-        <tr><td>特性</td><td>推荐程度</td></tr>
-    </thead>
-    <tbody>
-        <tr><th>arrows</th><td>★★★</td></tr>
-        <tr><th>classes</th><td>★★★</td></tr>
-        <tr><th>enhanced object literals</th><td>★★★</td></tr>
-        <tr><th>template strings</th><td>★★★</td></tr>
-        <tr><th>destructuring</th><td>★★</td></tr>
-        <tr><th>default + rest + spread</th><td>★★★</td></tr>
-        <tr><th>let + const</th><td>★★★</td></tr>
-        <tr><th>iterators + for..of</th><td>★★</td></tr>
-        <tr><th>generators</th><td>★</td></tr>
-        <tr><th>unicode</th><td>☆</td></tr>
-        <tr><th>modules</th><td>★★</td></tr>
-        <tr><th>module loaders</th><td>☆</td></tr>
-        <tr><th>map + set + weakmap + weakset</th><td>★★</td></tr>
-        <tr><th>proxies</th><td>☆</td></tr>
-        <tr><th>symbols</th><td>★</td></tr>
-        <tr><th>subclassable built-ins</th><td>☆</td></tr>
-        <tr><th>promises</th><td>★★★</td></tr>
-        <tr><th>math + number + string + array + object APIs</th><td>★★★</td></tr>
-        <tr><th>binary and octal literals</th><td>★</td></tr>
-        <tr><th>reflect api</th><td>☆</td></tr>
-        <tr><th>tail calls</th><td>★★</td></tr>
-    </tbody>
-</table>
 
-在后续按特性介绍时，需要关注一点：如果你不想使用shim库（如Babel的`browser-polyfill.js`和`generatorsRuntime.js`）或者想使用尽可能少的helper（Babel的`externalHelpers`配置），那么需要按你的需求进一步缩减可使用的ES6特性，如`Map`、`Set`这些就不应该使用。
+特性                                             推荐程度       
+---------------------------------------------   --------------
+arrows                                          ★★★
+classes                                         ★★★
+enhanced object literals                        ★★★
+template strings                                ★★★
+destructuring                                   ★★
+default + rest + spread                         ★★★
+let + const                                     ★★★
+iterators + for..of                             ★★
+generators                                      ★
+unicode                                         ☆
+modules                                         ★★
+module loaders                                  ☆
+map + set + weakmap + weakset                   ★★
+proxies                                         ☆
+symbols                                         ★
+subclassable built-ins                          ☆
+promises                                        ★★★
+math + number + string + array + object APIs    ★★★
+binary and octal literals                       ★
+reflect api                                     ☆
+tail calls                                      ★★
+---------------------------------------------   --------------
+
+
+接下来我们以上特性挨个进行介绍。需要关注一点：如果你不想使用shim库（如Babel的`browser-polyfill.js`和`generatorsRuntime.js`）或者想使用尽可能少的helper（Babel的`externalHelpers`配置），那么需要按你的需求进一步缩减可使用的ES6特性，如`Map`、`Set`这些就不应该使用。
+
+<!-- more -->
 
 ## 语法增强类
 
