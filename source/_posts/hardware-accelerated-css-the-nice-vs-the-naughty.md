@@ -1,6 +1,6 @@
 ---
 title: CSS硬件加速的好与坏
-date: 2015-05-11
+date: 2015-05-26
 author: 敏明君
 author_link: http://zencode.in/
 tags:
@@ -16,6 +16,8 @@ tags:
 现代浏览器大都可以利用GPU来加速[页面渲染](http://blogs.msdn.com/b/ie/archive/2010/09/10/the-architecture-of-full-hardware-acceleration-of-all-web-page-content.aspx)。在GPU的众多特性之中，它可以存储一定数量的纹理（一个矩形的像素点集合）并且高效地操作这些纹理（比如进行特定的移动、缩放和旋转操作）。这些特性在实现一个[流畅的动画](http://ariya.ofilabs.com/2013/06/optimizing-css3-for-gpu-compositing.html)时特别有用。浏览器不会在动画的每一帧都绘制一次，而是生成DOM元素的快照，并作为GPU纹理（也被叫做层）存储起来。之后浏览器只需要告诉GPU去转换指定的纹理来实现DOM元素的动画效果。这就叫做**GPU合成**，也经常被称作『硬件加速』。
 
 不幸的是，浏览器是一个很[复杂](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)的软件（Firefox有[几百万行代码](https://www.openhub.net/p/firefox/analyses/latest/languages_summary)）。因此一句简单的『使用translate3d来提高性能』并不能囊括所有的情况。如果碰巧有效那不过是瞎猫碰上死耗子而已。所以有必要知道更多的运行机制，才能更好地处理实际情况。
+
+<!-- more -->
 
 想象使用GPU加速的动画就像是Vin Diesel（速度与激情的主角）开着Dominic标志性的汽车 —— Dodge Charger。它的定制900 hp引擎可以让它在一瞬间从0加速到60码。但是如果你开着它在拥挤的高速公路上又有什么用呢？这种情况下你选择的车辆Charger是正确的。但是问题是你还在一个拥堵的高速公路上。
 
