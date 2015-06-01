@@ -86,7 +86,10 @@ exclude_generator:
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-    type:
+  type: git
+  repo: git@github.com:ecomfe/ecomfe.github.io.git
+  branch: master
+  message: deploy efe
 
 feed:
     type: atom
