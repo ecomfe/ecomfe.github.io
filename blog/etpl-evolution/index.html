@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>ETpl的演进 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>ETpl的演进</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://errorrik.com/" title="errorrik">errorrik</a>
+    
+</span>
+
+        <time datetime="2015-03-15T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-03-16</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/ETpl/">ETpl</a>, <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/模板引擎/">模板引擎</a></span>
+
+
+    </div>
+
+    
+        <div class="figure">
+<img src="/blog/etpl-evolution/eng.png">
+</div>
+<p>如果有人看过我写的《AMD系列三部曲 <a href="/blog/dissecting-amd-what/">一</a> <a href="/blog/dissecting-amd-how/">二</a> <a href="/blog/dissecting-amd-loader/">三</a>》，就会知道我是个唐僧。这次，唐僧想说说<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>。</p>
+<p><a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>是一个JavaScript的模板引擎。JavaScript最广泛被应用于浏览器端，通常JavaScript模板引擎的作用就是生成HTML串。<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>当前的版本是3.0，也就是说，算上最初设计时，它经历了3次技术上比较大的选型。</p>
+<p>今天，<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>号称是一个<code>强复用</code>、<code>灵活</code>、<code>高性能</code>的JavaScript模板引擎，有很多<a href="http://ecomfe.github.io/etpl/feature.html" target="_blank" rel="external">别人有或者别人没有的功能</a>，这些都是what。而我一直认为why比what更重要，了解背后的原因、了解思考的过程比知道是什么有更大的收获，所以这次想要啰嗦的，是<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>在走到今天的过程中，那些what背后的why。如果你能忍受我的八婆把它看完，应该多少能有点收获，越到后面技术点越多噢。</p>
+<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&amp;repo=etpl&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="170" height="20">
+</iframe>
+<p>因为本篇比较长，开始先求个star支持下呗，反正不花钱</p>
+<a id="more"></a>
+<h2 id="时我们做了这些事情">1.0时，我们做了这些事情</h2>
+<p><a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>是没有独立的1.0版本的。在2010年初，我们为一个SPA应用做重构的时候，开发了<a href="https://github.com/ecomfe/er" target="_blank" rel="external">ER - Enterprise RIA</a>框架的1.0版本，当时ER框架自带了一个模板引擎，这就是<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>的1.0。当时的想法很简单，我们要解决下面这些最基本的问题：</p>
+<ol style="list-style-type: decimal">
+<li>在JavaScript里面写HTML片段的字符串是不人道的，应该写到另外的文件中</li>
+<li>有的HTML片段是需要被复用的</li>
+<li>同样的数据在一个片段中可能会重复出现多次</li>
+</ol>
+<h3 id="command语法">Command语法</h3>
+<p>我们认为，最基本的单元应该是一个模板片段。我们需要设计一种语法，来描述这样的片段。</p>
+<ol style="list-style-type: decimal">
+<li>大多数时候我们的模板片段会是HTML，我们不希望放弃Editor本身提供的HTML语法高亮、自动补全等功能，所以我们可以通过特殊格式的HTML注释来描述模板片段</li>
+<li>开发时我们可能每一个文件是一个模板片段，构建时为了优化HTTP请求，这些文件需要合并，我们期望合并可以是简单的，直接合并文件内容就行。所以模板片段需要有开始和结束，我们认为标签式是比较好的方式</li>
+<li>合并后模板片段需要能够被分别辨认，而且模板片段需要能被复用，所以模板片段需要被命名</li>
+<li>最后面临的是命名问题：哪个单词用来描述一个基本的模板片段单元比较合适呢？选来选去，我们选了<code>target</code></li>
+</ol>
+<p>基于以上，<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>的语法风格在2010年初被最初固定下来了（在很久以后的2013年，我们才让它可定制化）。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[target]</span><br><span class="line">start tag: <span class="comment">&lt;!-- target: target-name --&gt;</span></span><br><span class="line">end tag: <span class="comment">&lt;!-- /target --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后我们开始设计如何描述复用。自然而然的，把<code>target</code>换成<code>import</code>就行了。在设计的过程中，我们受到一些HTML的启发：input、img之类的标签是可以不用自闭合的，不是每个标签都需要闭合，我们不是写XML。所以，import没有闭合。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[import]</span><br><span class="line">tag: <span class="comment">&lt;!-- import: target-name --&gt;</span></span><br></pre></td></tr></table></figure>
+<div class="figure">
+<img src="/blog/etpl-evolution/import.png">
+</div>
+<p>基于以上，一个模板可以这么写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- target: header --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">header</span>&gt;</span>...<span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /target --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: biz1 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- import: header --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /target --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>举一反三的，还是受到HTML的启发：li、td、body等标签是不需要写闭合的，parser能够自动在合适的位置认为标签已经结束。比如遇到li的start，就知道上一个li应该结束了。所以我们决定支持target自动闭合，让模板编写者少写一点东西。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- target: header --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span>...<span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: biz1 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- import: header --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>到这里，从<code>target</code>和<code>import</code>可以看出来，<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>的语法格式已经被固定下来了：</p>
+<ol style="list-style-type: decimal">
+<li>起始由<code>command-name</code>和<code>command-value</code>组成，<code>:</code>分隔</li>
+<li>闭合由<code>/command-name</code>组成</li>
+</ol>
+<p>罗马不是一天建成的。基于最早的语法形式，我们不断的通过命令扩展功能，加入了if、for，这都是比较常规的事情了。</p>
+<h3 id="变量替换">变量替换</h3>
+<p>变量替换是模板引擎的基本功能。从下面的例子可以看出，我们使用的变量替换语法比较大众化：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello $&#123;name&#125;!</span><br></pre></td></tr></table></figure>
+<p><a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>的主要使用场景是HTML生成。在HTML中常用两种转义方式：</p>
+<ol style="list-style-type: decimal">
+<li>HTML转义，要显示变量值可能是原始的来源于用户输入的串，不转义有危险</li>
+<li>URL转义，变量值可能用于图片的src或者a的href</li>
+</ol>
+<p>我们通过filter的方式，使变量替换过程的中间能够加入一些处理。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello $&#123;name|html&#125;!</span><br></pre></td></tr></table></figure>
+<p>大多数变量替换后的内容会用于直接视图显示，所以我们在不写filter的时候，默认使用html filter进行处理。但是还有一些场景我们是期望输出原始值的，我们引入了一个raw filter用于支持这种情况。这样，我们内置了3个filter，这点一直到现在都没变：</p>
+<ol style="list-style-type: decimal">
+<li>html (default)</li>
+<li>url</li>
+<li>raw</li>
+</ol>
+<p>另外，通过etpl.addFilter(name, filter)方法也可以自己添加filter。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">etpl.addFilter(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(source)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> source + <span class="string">'!'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="母版">母版</h3>
+<p>在SPA应用开发的过程中，我们发现在一个应用里，页面类型的种类很可能是固定的几种，基本所有页面都是在相同的页面框架下，不同部分的内容有一定的区分，所以我们立即就加入了母版的功能(有的模板引擎叫做模板继承，其实是一回事)。</p>
+<div class="figure">
+<img src="/blog/etpl-evolution/master.png">
+</div>
+<p>母版功能的语法，参考的是Asp.net，使用了<code>master</code>、<code>contentplaceholder</code>、<code>content</code>，下面这个例子应该容易理解：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- target: biz(master = frame) --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content:header --&gt;</span>header<span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content:body --&gt;</span>body<span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content:footer --&gt;</span>footer<span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- master: frame --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span><span class="comment">&lt;!-- contentplaceholder: header --&gt;</span><span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- contentplaceholder: body --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">footer</span>&gt;</span><span class="comment">&lt;!-- contentplaceholder: footer --&gt;</span><span class="tag">&lt;/<span class="title">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>母版功能再配合import使用，使开发过程中的重复代码量减少很多，特别是对于SPA类型的应用。母版功能是好的，但是，这样的写法真的不友好。我们直到3.0时，才重新改进了它。</p>
+<h3 id="data-getter">Data Getter</h3>
+<p>根据数据名称生成数据的功能，我们在最早的时候就支持了。可以看看<a href="http://ecomfe.github.io/etpl/example.html#data-getter" target="_blank" rel="external">这个例子</a>。</p>
+<p>这个功能有什么用呢？看起来是没啥用的，但是它提供了数据的动态性，让数据可以在render的过程决定：</p>
+<ol style="list-style-type: decimal">
+<li>数据来源于多对象，有优先级。这种场景其实可以通过merge解决，但for in可能更耗时。</li>
+<li>没有数据时需要自动生成一个，然后写入缓存。</li>
+</ol>
+<p>这个动态的功能在后来我们做模板编译的时候，成为一个性能瓶颈点，但我们巧妙的解决了。</p>
+<h3 id="时代的总结">1.0时代的总结</h3>
+<p>如果你用过<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>，你会发现它很多东西是最初就有的，一直到现在都没怎么变。这代表最初的设计有很多是现在还适用的，令人高兴。但是有的东西已经发生了变化（比如母版），我们后面会反思这点。</p>
+<p>我们就这样走过了两年多。在这两年里，周围的很多商业系统都采用了SPA的模式，也一直是使用这个ER里自带的模板引擎生成HTML，然后通过UI组件二次进行富交互的行为管理。在这两年里，前端模板开始像雨后春笋一样冒出来，但是我们一直没有跟进，一直在停留。直到……</p>
+<h2 id="时我们做了这些事情-1">2.0时，我们做了这些事情</h2>
+<p>在2012年的时候，我们的很多SPA应用面临同样的问题：由于业务量的爆炸，一次性把所有JS都压缩到一个文件的构建方案已经不能满足需求。各个产品线都各自设计了按需加载的方案，有还算靠谱的或者不靠谱的。在这样的背景下，我们决定开始强制使用AMD。这不单能从根本上解决这个问题，还能获得一些模块组织、依赖管理、包管理方面的好处。这是一个艰难的决定，这意味着我们原有的很多libraries和frameworks都需要AMD化，包括<a href="https://github.com/ecomfe/er" target="_blank" rel="external">ER框架</a>。当时ER框架里不单自带了模板引擎，还自带了<a href="https://github.com/ecomfe/esui" target="_blank" rel="external">ESUI</a>控件库。我们决定按照<a href="https://github.com/ecomfe/spec" target="_blank" rel="external">规范</a>把他们分离出来，作为独立的package提供。这也符合前端发展的趋势。</p>
+<p>既然要独立提供，就来一次进化吧。这一次，ETpl的升级吸收了很多意见，增加了很多实用的功能，体积也控制住了：</p>
+<h3 id="模板编译">模板编译</h3>
+<p>JavaScript模板引擎所谓的模板编译，指的不是编译成机器码，而是解析模板语法，转换成JavaScript代码，再经过new Function，变成可以在当前环境下执行的function。至于这个过程中有什么编译，render过程有什么JIT，由当前运行的JS引擎决定，不是这里关心的内容了。</p>
+<p>在2012年，模板编译已经快成为标配了，几乎所有流行的模板引擎都是编译的。显然模板编译能让性能更高，特别是使用一个模板多次render的场景。我们以前没这么做，是因为在现有应用中没有遇到性能瓶颈，而有其他很多事情让我们无暇顾及他。但是当我们决定要去做一个大升级的时候，这无论如何都是不应该缺席的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有模板编译</span></span><br><span class="line"><span class="keyword">var</span> result = etpl.render(source, data);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有模板编译</span></span><br><span class="line"><span class="keyword">var</span> render = etpl.compile(source);</span><br><span class="line"><span class="keyword">var</span> result = render(data);</span><br></pre></td></tr></table></figure>
+<p>由于ETpl的灵活性（功能强大的filter、data getter功能等），这些东西都会使性能变差。我们期望坚持我们的特点，在此之上做到相对较高的性能。所以，我们采用了一些方法优化我们的编译产物。下面列举一些我还记得的：</p>
+<p>一个是根据不同平台生成不同的代码。这个优化主要是因为鸡国用户的老操作系统老浏览器比例还很大。据我所知<a href="https://github.com/aui/artTemplate" target="_blank" rel="external">artTemplate</a>是最早采用这种优化方法的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> RENDER_STRING_DECLATION = <span class="string">'var r="";'</span>;</span><br><span class="line"><span class="keyword">var</span> RENDER_STRING_ADD_START = <span class="string">'r+='</span>;</span><br><span class="line"><span class="keyword">var</span> RENDER_STRING_ADD_END = <span class="string">';'</span>;</span><br><span class="line"><span class="keyword">var</span> RENDER_STRING_RETURN = <span class="string">'return r;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( <span class="keyword">typeof</span> navigator != <span class="string">'undefined'</span> </span><br><span class="line">    &amp;&amp; <span class="regexp">/msie\s*([0-9]+)/i</span>.test( navigator.userAgent )</span><br><span class="line">    &amp;&amp; <span class="built_in">RegExp</span>.$<span class="number">1</span> - <span class="number">0</span> &lt; <span class="number">8</span></span><br><span class="line">) &#123;</span><br><span class="line">    RENDER_STRING_DECLATION = <span class="string">'var r=[],ri=0;'</span>;</span><br><span class="line">    RENDER_STRING_ADD_START = <span class="string">'r[ri++]='</span>;</span><br><span class="line">    RENDER_STRING_RETURN = <span class="string">'return r.join("");'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有数据访问。由于下面的理由，我们不能把<code>${team.name}</code>直接编译成<code>data.team.name</code>，我们只能编译成<code>getVariable('team.name')</code>:</p>
+<ol style="list-style-type: decimal">
+<li>data支持getter方法</li>
+<li>null和undefined的处理</li>
+<li>防止中间变量（for、var）更改数据</li>
+</ol>
+<p>但是在render运行时切分<code>team.name</code>是非常耗时的事情，所以后来我们编译成了<code>getVariable('team.name', ['team', 'name'])</code>，将这部分的工作放到了编译时。</p>
+<p>然后，然后我就不记得了，总之还做过一些。好吧，忘了就忘了，重要的是，我们在支持这么多动态特性下，与性能著称的模板引擎们相比运行时间相比几乎是差不多的（感兴趣的可以自己运行<a href="http://ecomfe.github.io/etpl/performance/render-time.html" target="_blank" rel="external">性能测试用例</a>，IE6下请自觉减少运行的数量级）。我们曾经在一个性能要求非常严苛的NodeJS项目中应用，原先用的mustache性能满足不了需求，后来换了etpl，性能测试就通过了。由于项目涉及保密，就不说了。</p>
+<p>性能与功能的取舍总是需要平衡的，我们找到了自己的点：强复用、灵活、高性能的JavaScript模板引擎。</p>
+<p>p.s. 我记得前段时间，某模板引擎跳出来说自己性能最高，还给出了测试用例。<a href="http://weibo.com/u/1143654280" target="_blank" rel="external">10同学</a>跑了一下，发现ETpl和mustache差不多。我们觉得不应该啊，再一看测试用例，是1000次编译*10000次运行。妈蛋测试不能这样做啊，1000次编译你还要编译干嘛？而且就算要做，也是两个测试用例，编译性能是一个测试用例，运行性能是一个测试用例啊。真能混淆视听。</p>
+<h3 id="移动可用">移动可用</h3>
+<p>由于模板编译已经把性能考虑掉了，这里主要考虑的是体积的大小。移动方向负责人<a href="http://weibo.com/u/1653095744" target="_blank" rel="external">Firede</a>给的指标是，ETpl语法压缩+GZip后不能超过4k。</p>
+<p>关键是ETpl的特点是复用能力和灵活性啊，有这么多功能就有这么多代码，我们总不能砍功能最后变成再做一个doT或者artTemplate出来吧那就没必要再写了啊，妈蛋只能进行体积优化了啊。我知道的另外一个复用功能比较强大的模板引擎<a href="http://mozilla.github.io/nunjucks/" target="_blank" rel="external">nunjucks</a>语法压缩+GZip后是19k。</p>
+<p>我专门抽了将近一周时间一点一点砍体积。说实话这是个体力活，是个精细化的活。优化过程中还经常会出现觉得这么做体积能减小一点，做了以后发现和预想的不一样，增加了几个字节，只好撤销，重新读代码去寻找优化点。优化进行了4天后（达到小于4k后，已经和自己较劲上了，根本就停不下来啊），体积是3.7k，感觉已经接近x尽人亡了。好多点都已经不记得了，就说两个记得的比较大的点吧。</p>
+<p>把相似的代码尽量放到一起。下面的代码可以看出来，<code>Command.prototype.open = function (context) {</code>相同片段的代码都放的比较近，更利于GZip。同样的，很多Constructor中代码比较接近，所以作为Constructor的function都放到了一起声明。可读性党在这里会不会跳出来？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">UseCommand.prototype.open = <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> </span>&#123;</span><br><span class="line">    context.stack.top().addChild(<span class="keyword">this</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">BlockCommand.prototype.open = <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> </span>&#123;</span><br><span class="line">    Command.prototype.open.call(<span class="keyword">this</span>, context);</span><br><span class="line">    (context.imp || context.target).blocks[<span class="keyword">this</span>.name] = <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ElifCommand.prototype.open = <span class="function"><span class="keyword">function</span> <span class="params">(context)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> elseCommand = <span class="keyword">new</span> ElseCommand();</span><br><span class="line">    elseCommand.open(context);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> ifCommand = autoCloseCommand(context, IfCommand);</span><br><span class="line">    ifCommand.addChild(<span class="keyword">this</span>);</span><br><span class="line">    context.stack.push(<span class="keyword">this</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>再看看下面inherits的实现，简化了不少。注释已经写的很清楚了。可维护性党在这里会不会跳出来？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherits</span><span class="params">(subClass, superClass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="keyword">new</span> <span class="built_in">Function</span>();</span><br><span class="line">    F.prototype = superClass.prototype;</span><br><span class="line">    subClass.prototype = <span class="keyword">new</span> F();</span><br><span class="line">    subClass.prototype.constructor = subClass;</span><br><span class="line">    <span class="comment">// 由于引擎内部的使用场景都是inherits后，逐个编写子类的prototype方法</span></span><br><span class="line">    <span class="comment">// 所以，不考虑将原有子类prototype缓存再逐个拷贝回去</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="支持不写target">支持不写target</h3>
+<p>不是所有模板片段都需要被复用，他们可以作为单独的模板片段，编译一次，多次使用。这在很多小的字符串片段的生成中还是比较常见的。所以有的模板就不需要被命名。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> helloRender = etpl.compile(<span class="string">'Hello $&#123;name&#125;'</span>);</span><br><span class="line">helloRender(&#123;</span><br><span class="line">    name: <span class="string">'ETpl'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这里支持的技术方法很简单：</p>
+<ol style="list-style-type: decimal">
+<li>原来每个target都是具名的，这点内部实现还是不变。当遇到模板源码的起始不是target的时候，就自动创建一个target，并自动生成一个不重复的名字。</li>
+<li>compile方法返回第一个target的编译结果。</li>
+</ol>
+<h3 id="通过配置项定义语法风格">通过配置项定义语法风格</h3>
+<p>最初我们的初衷是期望在写模板的时候，不要丢失Editor对HTML的一些语法高亮、自动补全等功能的支持，所以模板语法是写在HTML注释里的。后来我们发现不少人不喜欢这种风格：</p>
+<ol style="list-style-type: decimal">
+<li>习惯了其他的风格，比如<code>&lt;%</code>和<code>%&gt;</code></li>
+<li>HTML注释要输入的开始和结束很长啊，分别是4个字符和3个字符</li>
+</ol>
+<p>所以我们决定支持一些配置项，让用户可以自己定制语法风格。最开始支持的是<code>commandOpen</code>和<code>commandClose</code>。再后来，我们又发现由于mustache的流行，很多人习惯 <strong></strong> 的变量替换风格。所以我们又支持了<code>variableOpen</code>和<code>variableClose</code>。</p>
+<p>于是，如果你有如下的配置：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">etpl.config(&#123;</span><br><span class="line">    commandOpen: '<span class="tag">&lt;<span class="title">%',</span></span><br><span class="line">    <span class="attribute">commandClose:</span> '%&gt;</span>',</span><br><span class="line">    variableOpen: '\&#123;\&#123;',</span><br><span class="line">    variableClose: '\&#125;\&#125;'</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>你的模板可能会是这样：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">target:</span> <span class="attribute">header</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span>...<span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">target:</span> <span class="attribute">biz1</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">import:</span> <span class="attribute">header</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>Hello &#123;&#123;name&#125;&#125;!<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="多引擎实例">多引擎实例</h3>
+<p>随着业务规模的爆炸，一个应用开发人数增多，以及开发过程管理不够科学，有的团队遇到了模板片段命名上出现冲突的问题。简单的一个例子，两个功能都有列表页，大家都为模板片段起名叫list，就会冲突。</p>
+<p>对业务功能进行统一管理，并制定合理的规范，在执行上有效监督，是能避免这个问题的。但是不一定每个团队都能做到这一点，而且既然发现问题，在技术手段上能解决，我们就解决。</p>
+<p>解决的方法很简单，就是etpl支持多引擎实例，不同引擎实例之间完全隔离，就可以拥有相同名称不同内容的模板，甚至不同引擎可以各自定义自己的模板语法格式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var engine = new etpl.Engine(&#123;</span><br><span class="line">    commandOpen: '<span class="tag">&lt;<span class="title">%',</span></span><br><span class="line">    <span class="attribute">commandClose:</span> '%&gt;</span>',</span><br><span class="line">    variableOpen: '\&#123;\&#123;',</span><br><span class="line">    variableClose: '\&#125;\&#125;'</span><br><span class="line">&#125;)</span><br><span class="line">var render = engine.compile('Hello &#123;&#123;name&#125;&#125;!');</span><br><span class="line">render(&#123;name: 'myName'&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>etpl</code>这个变量本身是默认一开始就初始化好的一个引擎实例。</p>
+<h3 id="在模板里定义数据">在模板里定义数据</h3>
+<p>我们对提供模板中声明数据的能力一直持谨慎的态度，但后来我们决定支持它。</p>
+<ol style="list-style-type: decimal">
+<li>有的东西在写模板时也可以被抽取成为数据，在内容串中多次用到</li>
+<li>一些特性、行为选择可以抽取作为数据配置项</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- var: name = 'etpl' --&gt;</span></span><br><span class="line"></span><br><span class="line">Hello $&#123;name&#125;!</span><br><span class="line"><span class="comment">&lt;!-- if: score &gt; 90 --&gt;</span></span><br><span class="line">$&#123;name&#125; is clever!</span><br><span class="line"><span class="comment">&lt;!-- /if --&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="动态调用">动态调用</h3>
+<p>原先我们通过<code>import</code>可以实现复用，其效果相当于把目标模板片段的源码嵌入相应位置。但是请看下面的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- target: grade --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h3</span>&gt;</span>class1<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- var: members = class1.members --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- import: members --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">h3</span>&gt;</span>class2<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- var: members = class2.members --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- import: members --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: members --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- for: $&#123;members&#125; as $&#123;member&#125; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>$&#123;member.name&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- /for --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>members模板片段提供了把一群人打印出来的能力，但是这群人的数据名称被固定了，必须是members。在我们只能使用<code>import</code>时，一般同学会写两遍，很聪明的同学会想到上面这样的方法来复用，真是难为了。</p>
+<p>所以，我们在2.0通过<code>use</code>支持了动态调用的特性，其效果相当于JavaScript中的函数调用。调用传入数据的方式是名称对应，不是顺序对应，因为模板片段声明时只会声明名称，不会声明其用到的数据。模板引擎能这么玩还是不多见的，所以说复用和灵活是<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>最大特点。</p>
+<div class="figure">
+<img src="/blog/etpl-evolution/use.png">
+</div>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- target: grade --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h3</span>&gt;</span>class1<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- use: members(members=class1.members) --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">h3</span>&gt;</span>class2<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- use: members(members=class2.members) --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: members --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- for: $&#123;members&#125; as $&#123;member&#125; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>$&#123;member.name&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- /for --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="filter支持参数">filter支持参数</h3>
+<p>在1.0时代，filter是一个非常简单的功能。在2.0中，我们对它专门进行了设计，增加了很多特性。</p>
+<h4 id="对参数的支持">对参数的支持</h4>
+<p>我们希望filter在运行时能够根据一些参数，进行不同行为的处理。比如下面的应用场景，支持参数是非常有用的：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;</span>birthday | dateFormat(<span class="string">'yyyy-MM-dd'</span>)&#125;</span><br></pre></td></tr></table></figure>
+<p>在addFilter时，我们有两种方案可以选择：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1，参数紧跟在filter函数的source参数后</span></span><br><span class="line">etpl.addFilter(<span class="string">'dateFormat'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(source, format)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ......</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2，闭包根据</span></span><br><span class="line">etpl.addFilter(<span class="string">'dateFormat'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(source)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(format)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ......</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>方案2的优势是，如果后续filter还有什么扩展，能够更方便。最后，由于性能和filter开发的易理解上的考虑，我们最终选择了方案1。</p>
+<h4 id="对管道的支持">对管道的支持</h4>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;</span>content | cut(<span class="number">200</span>) | highlight(<span class="variable">$&#123;</span>keyword&#125;)&#125;</span><br></pre></td></tr></table></figure>
+<p>我们发现，在一些场景下，一个完成独立功能的filter不足以完成一些需求，这个时候，我们可能需要add一个新的filter，其功能是另外两个filter的组合。这事情是多此一举的。我们从shell的管道得到启发，我们让filter功能也支持了管道。</p>
+<p>换一个简单的例子：<code>${team.name | slice(1, 3) | html}</code>，下面是其模板编译的结果说明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">filters.html(</span><br><span class="line">    filters.slice(</span><br><span class="line">        toString(</span><br><span class="line">            getVariable(</span><br><span class="line">                ‘team.name’,</span><br><span class="line">                [‘team’,’name’]</span><br><span class="line">            )</span><br><span class="line">        ),</span><br><span class="line">        <span class="number">1</span>,</span><br><span class="line">        <span class="number">3</span></span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>从上面的模板编译结果说明，我们发现在getVariable和filters.slice之间，有一个toString，为什么呢？</p>
+<h4 id="参数类型的考虑">参数类型的考虑</h4>
+<p>在仔细设计filter功能的时候，我们对参数类型的问题，进行了一次深入的讨论。包括后来，很多使用者也问过我们为什么是这样。我们通过下面的应用场景对这个问题进行说明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    name: <span class="string">'erik'</span></span><br><span class="line">    birthday: <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2007</span>, <span class="number">6</span>, <span class="number">11</span>),</span><br><span class="line">    sex: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;name | html&#125; was born in $&#123;birthday | dateFormat('yyyy-MM-dd')&#125;.</span><br></pre></td></tr></table></figure>
+<p>filter应该接受数据的原始类型，还是字符串呢？</p>
+<p>接受原始类型，dateFormat会比较容易处理。但是存在如下问题：</p>
+<ol style="list-style-type: decimal">
+<li>管道的输入和输出应该保持一致性，否则容易导致混乱</li>
+<li>每个filter开发都需要做类型判断和转换。比如cut filter的功能是字符串截断，它需要内部将输入转换成字符串，因为输入可能是数字，不转换就会报错。</li>
+</ol>
+<p>我们认为：</p>
+<ol style="list-style-type: decimal">
+<li>默认情况下，在变量替换中，将默认一开始就把数据转换成字符串。filter的返回也应该是字符串。从而保证filter管道的数据类型一致性。</li>
+<li>我们也应该提供一种途径，方便一些特殊的filter进行处理，使其内部不需要进行字符串到所需数据类型的反序列化。我们选择的方式是<code>${*variable | filter}</code>：当variable使用<code>*</code>前缀时，ETpl默认不将variable转换成字符串，直接将原始数据传递给filter进行处理。这时filter中的处理过程是干净的，模板编写者需要知道filter是怎么干的，从而决定是否给filter原始数据。</li>
+</ol>
+<p>所以，上面的模板例子，正确形式应该是这样：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;name | html&#125; was born in $&#123;*birthday | dateFormat('yyyy-MM-dd')&#125;.</span><br></pre></td></tr></table></figure>
+<p>约定输入必须是字符串，我们也才能顺利实现后面的 <strong>处理模板内容块</strong> 功能。</p>
+<h4 id="处理模板内容块">处理模板内容块</h4>
+<p>filter的功能能够对目标内容进行一些处理，但是变量替换中的filter只能处理数据中的内容，我们可能需要对一些模板里的内容，使用filter进行处理。我们通过一个叫做filter的命令，实现了这样的功能。下面的代码是我们对于需求的最初设想：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- filter: markdown --&gt;</span></span><br><span class="line">## markdown document</span><br><span class="line"></span><br><span class="line">This is the content, also I can use `$&#123;variables&#125;`</span><br><span class="line"><span class="comment">&lt;!-- /filter --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们很兴奋的支持了这个功能，但是迄今为止还没在应用中用到。</p>
+<h3 id="母版的母版">母版的母版</h3>
+<p>在1.0时代，我们支持了母版功能，但是只有target可以指定master。遇到下面这样的场景，就得写多个母版，每个母版里还有很多重复的内容。</p>
+<p>所以在2.0里，我们支持了这样的功能，母版也能指定母版：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- master: up-down --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- contentplaceholder: header --&gt;</span>header<span class="comment">&lt;!-- /contentplaceholder --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- contentplaceholder: body --&gt;</span>body<span class="comment">&lt;!-- /contentplaceholder --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- master: up-left-right(master = up-down) --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content: header --&gt;</span>my header<span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content: body --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">aside</span>&gt;</span><span class="comment">&lt;!-- contentplaceholder: body-side --&gt;</span><span class="tag">&lt;/<span class="title">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">main</span>&gt;</span><span class="comment">&lt;!-- contentplaceholder: body-main --&gt;</span>child body<span class="comment">&lt;!-- /contentplaceholder --&gt;</span><span class="tag">&lt;/<span class="title">main</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: biz(master = up-left-right) --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content: body-side --&gt;</span>biz aside<span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content: body-main --&gt;</span>biz main<span class="comment">&lt;!-- /content --&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="时代的总结-1">2.0时代的总结</h3>
+<p>由于ETpl独立化的契机，我们精心设计了2.0，加入了很多我们认为应该支持的功能。在这个过程中我们依然是谨慎的，我们没有忘记“复用、灵活”的初衷，并且努力实现“高性能，小体积”。从1.0到2.0，我们完成了 <strong>还算好用</strong> 到 <strong>敢见人</strong> 的转变。</p>
+<h2 id="时我们做了这些事情-2">3.0时，我们做了这些事情</h2>
+<p>在2.0中，我们已经做了一些比较完善的工作。但是在设计2.0的时候，我们期望尽量能够平滑的升级。我们增加特性，也要保证在现有系统中存在的模板能够正常的运行。但是不可否认，从1.0沿袭下来的2.0在母版功能的语法上存在不好用的地方，可以改进。</p>
+<ol style="list-style-type: decimal">
+<li>master和target为什么非要区分？master也是模板片段，直接用来渲染按道理应该是可以的。</li>
+<li>contentplaceholder是什么东西？谁能记住这个不止一个单词的货色妈蛋？</li>
+</ol>
+<p>我们一直有所感觉，但没有着手去做这个事情。因为我们知道这是一个breaking change，在一个已经被广泛应用的东西上做breaking change是需要谨慎、需要足够充足的理由的，但我们一直没找到，直到……</p>
+<h3 id="引用代入">引用代入</h3>
+<p>直到<a href="http://otakustay.com/" target="_blank" rel="external">灰大</a>提出了<a href="https://github.com/ecomfe/etpl/issues/31" target="_blank" rel="external">issue31</a>!</p>
+<p>这是个令人振奋的功能，迄今为止我没有见过市面上哪个模板引擎提供了这样的功能。我把它叫做<a href="http://ecomfe.github.io/etpl/feature.html#import-block" target="_blank" rel="external">引用代入</a>，意思是：在我<code>import</code>一个模板片段的时候，我能够对它中间的部分内容进行复写。</p>
+<div class="figure">
+<img src="/blog/etpl-evolution/import-rewrite.png">
+</div>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- target: header --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span><span class="comment">&lt;!-- block: header --&gt;</span>default header<span class="comment">&lt;!-- /block --&gt;</span><span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: main --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- block: main --&gt;</span>default list<span class="comment">&lt;!-- /block --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: footer --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">footer</span>&gt;</span><span class="comment">&lt;!-- block: footer --&gt;</span>default footer<span class="comment">&lt;!-- /block --&gt;</span><span class="tag">&lt;/<span class="title">footer</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: biz --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- import: header --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- import: main --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- block: main --&gt;</span>specical list<span class="comment">&lt;!-- /block --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /import --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这能够有效避免在大应用中的母版爆炸问题，有效减少代码量！具体他是什么，能做什么，上面的issue里写得很清楚了，感兴趣的人去看看吧，相信大家会有收获。</p>
+<p>这个feature给了我们给ETpl升级一位版本号的理由，因为它太令人振奋了。当然迄今为止用到这个feature的人并不多，因为大家还没明白它的好处，但我强烈建议大家去看看上面的issue！！！这里也有一个<a href="http://ecomfe.github.io/etpl/example.html#import-block" target="_blank" rel="external">引用代入的例子</a>。</p>
+<h3 id="对母版功能的语法重设计">对母版功能的语法重设计</h3>
+<p>我承认标题吹牛逼了，我们其实没有重设计。流行的模板引擎早已经有成熟的语法了，我们就是改成那样而已。这事情的意义是：梗终于被拔掉了。</p>
+<p>方案是：我们砍掉了<code>master</code>、<code>content</code>、<code>contentplaceholder</code>，引入了<code>block</code>。</p>
+<div class="figure">
+<img src="/blog/etpl-evolution/newmaster.png">
+</div>
+<p>回顾上面多重母版的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- master: up-down --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- contentplaceholder: header --&gt;</span>header<span class="comment">&lt;!-- /contentplaceholder --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- contentplaceholder: body --&gt;</span>body<span class="comment">&lt;!-- /contentplaceholder --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- master: up-left-right(master = up-down) --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content: header --&gt;</span>my header<span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content: body --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">aside</span>&gt;</span><span class="comment">&lt;!-- contentplaceholder: body-side --&gt;</span><span class="tag">&lt;/<span class="title">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">main</span>&gt;</span><span class="comment">&lt;!-- contentplaceholder: body-main --&gt;</span>child body<span class="comment">&lt;!-- /contentplaceholder --&gt;</span><span class="tag">&lt;/<span class="title">main</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: biz(master = up-left-right) --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content: body-side --&gt;</span>biz aside<span class="comment">&lt;!-- /content --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- content: body-main --&gt;</span>biz main<span class="comment">&lt;!-- /content --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在3.0时代就变成了这样：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- target: up-down --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span><span class="comment">&lt;!-- block: header --&gt;</span>header<span class="comment">&lt;!-- /block --&gt;</span><span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- block: body --&gt;</span>body<span class="comment">&lt;!-- /block --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: up-left-right(master = up-down) --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- block: header --&gt;</span>my header<span class="comment">&lt;!-- /block --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- block: body --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">aside</span>&gt;</span><span class="comment">&lt;!-- block: body-side --&gt;</span><span class="tag">&lt;/<span class="title">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">main</span>&gt;</span><span class="comment">&lt;!-- block: body-main --&gt;</span>child body<span class="comment">&lt;!-- /block --&gt;</span><span class="tag">&lt;/<span class="title">main</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /block --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- target: biz(master = up-left-right) --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- block: body-side --&gt;</span>biz aside<span class="comment">&lt;!-- /block --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- block: body-main --&gt;</span>biz main<span class="comment">&lt;!-- /block --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>爽很多，有木有？但是毕竟是breaking change，很多ETpl2语法编写的模板迁移成本会很高。所以我们还提供了<a href="https://github.com/ecomfe/etpl2to3" target="_blank" rel="external">etpl2to3</a>的工具帮助老的产品线自动转换，基本迁移就可以无缝了。</p>
+<h3 id="支持完全自定义模板语法">支持完全自定义模板语法</h3>
+<p>我们之前通过 <code>commandOpen</code> / <code>commandClose</code> / <code>variableOpen</code> / <code>variableClose</code> 配置项支持用户对部分语法部分进行定制，但是<code>var: a = 1</code>中间的冒号算怎么回事，怎么觉得这么别扭呢？</p>
+<p>所以，我们增加了一个参数：<code>commandSyntax</code>，让用户能够对命令的语法规则进行定制。看看<a href="http://ecomfe.github.io/etpl/example.html#custom" target="_blank" rel="external">这个例子</a>，经过定制后，ETpl语法和nunjucks是一样的。</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">target</span> <span class="attribute">myTpl</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">import</span> <span class="attribute">header</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"main"</span>&gt;</span>Hello </span><span class="expression">&#123;&#123;<span class="variable">name</span>&#125;&#125;</span><span class="xml">!<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">import</span> <span class="attribute">footer</span> %&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">target</span> <span class="attribute">header</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">header</span>&gt;</span>Header Content<span class="tag">&lt;/<span class="title">header</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> <span class="attribute">target</span> <span class="attribute">footer</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">footer</span>&gt;</span>Footer Content<span class="tag">&lt;/<span class="title">footer</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><code>commandSyntax</code>类型是一个正则，默认值是<code>^\s*(\/)?([a-z]+)\s*(?::([\s\S]*))?$</code>，第一个match是结束标记，第二个match是command name，第三个match是command value。使用符合规则的正则就能很方便的定制ETpl的语法咯。</p>
+<p>在2.0的时候我们也隐约感觉应该开放这样的定制点，但时间总是有限的，我们还在做其他的事情。当我们决定升级3.0的时候，我们就会把之前觉得不太紧急的升级点，仔细考虑，一并做掉。所以自定义模板语法的支持，在3.0才算是真正完全实现。</p>
+<h2 id="最后">最后</h2>
+<p>跌跌撞撞的，<a href="http://ecomfe.github.io/etpl/" target="_blank" rel="external">ETpl</a>存在到现在也有4年多了。中间的升级一直断断续续，我们走的不快，但是还算稳。在这个过程中，对于lib类型的产品，我们有一些感想：</p>
+<ol style="list-style-type: decimal">
+<li>很多基因在最开始的时候就已经被决定了。我们一开始最关注提供中大型应用中的模板复用性和灵活性，到最后这也是我们最厉害的地方。</li>
+<li>定位很重要，定位一定是一个取舍。讲性能我们比不过<a href="https://github.com/aui/artTemplate" target="_blank" rel="external">artTemplate</a>，讲体积我们比不过<a href="http://olado.github.io/doT/" target="_blank" rel="external">doT</a>，我们有我们的特点和生存空间。</li>
+<li>结合应用实际很重要。我们的功能点有很多是来源于应用后的反馈。绝对不能只高屋建瓴的空想。</li>
+<li>用户量越多，包袱越大。就像我们没法随意更改其语法。所以每个设计点都应该谨慎决策。</li>
+<li>用户通常只能看到你的第一价值观。就像我们提供了语法定制的功能，但是绝大多数用户是不会用的，他们会根据是否喜欢你提供的默认语法形式，决定用不用你。</li>
+</ol>
+<p>我们仍有没做的功能，比如预编译。原因如下：</p>
+<ol style="list-style-type: decimal">
+<li>预编译后的代码大多数时候比模板本身要大，可见预编译对浏览器端应用是没有价值的。</li>
+<li>对于NodeJS应用，服务启动时编译一次的成本并不高。</li>
+<li>filter功能对于预编译是一个障碍，我们无法平滑的完成预编译的过程，filter可能是一个位于复杂环境的function。</li>
+</ol>
+<p>所以，我们还未决定是否进行预编译的支持。当然，主要是因为我们现在还没有时间仔细的审视这个问题并给出方案。在未来的某个时候，我们将会考虑。</p>
+<p>如果你觉得本篇blog有点收获，求个star支持下呗，反正不花钱</p>
+<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&amp;repo=etpl&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="170" height="20">
+</iframe>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/revisiting-css-preprocessors/" class="article-prev">前一篇: 再谈 CSS 预处理器</a>
+    
+    
+    <a href="/blog/chinese-font-build/" class="article-next">后一篇: 中文字体 webfont 自动化构建</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/etpl-evolution/" data-title="ETpl的演进" data-url="http://efe.baidu.com/blog/etpl-evolution/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

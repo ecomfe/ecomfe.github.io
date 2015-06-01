@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>ECharts 发布 2.2.2 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>ECharts 发布 2.2.2</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/u/1403623137" title="diysimon">diysimon</a>
+    
+</span>
+
+        <time datetime="2015-04-29T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-04-30</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/ECharts/">ECharts</a>, <a href="/tags/数据可视化/">数据可视化</a></span>
+
+
+    </div>
+
+    
+        <p>在五一劳动节的前一天，ECharts发布了一个非常2的版本，2.2.2。在本版本中，我们一共做了以下重大升级：</p>
+<ul>
+<li>新增韦恩图(venn)及Treemap</li>
+<li>发布 ECharts 在线构建工具</li>
+<li>新增对数轴</li>
+</ul>
+<p>并且修复了一些反馈较多、优先级较高的问题：</p>
+<ul>
+<li>增加了大规模折线图添加数据抽希策略配置。<a href="https://github.com/ecomfe/echarts/issues/1370" target="_blank" rel="external">解决原有抽希策略导致的数据精度缺失问题</a></li>
+<li>symbolSize 支持通过数组分别设置宽高</li>
+<li>修复 <a href="https://github.com/ecomfe/echarts/issues/1308" target="_blank" rel="external">mac safari饼图性能问题</a></li>
+<li>支持 z, zlevel 的配置</li>
+</ul>
+<a id="more"></a>
+<h2 id="韦恩图">韦恩图</h2>
+<p>韦恩图（维恩图），也叫文氏图，用于显示元素集合重叠区域的图示。诞生于1880年，韦恩（Venn）在《论命题和推理的图表化和机械化表现》一文中首次采用固定位置的交叉环形式用封闭曲线（内部区域）表示集合及其关系的图形。</p>
+<div class="figure">
+<img src="/blog/echarts-2.2.2/venn.jpg" alt="韦恩图"><p class="caption">韦恩图</p>
+</div>
+<p>可以通过访问ECharts官网的<a href="http://echarts.baidu.com/doc/example/venn.html" target="_blank" rel="external">示例</a>了解如何使用ECharts制作韦恩图</p>
+<h2 id="treemap">Treemap</h2>
+<p>这是一个中文名很长的图表类型，比如叫做：矩形式树状结构绘图法，或矩形式树状结构图绘制法，或者树状结构矩形图绘制法，或者甚至称为树状结构映射。其实指的是一种利用嵌套式矩形来显示树状结构数据的方法。</p>
+<div class="figure">
+<img src="/blog/echarts-2.2.2/treemap.jpg" alt="Treemap"><p class="caption">Treemap</p>
+</div>
+<p>可以通过访问ECharts官网的<a href="http://echarts.baidu.com/doc/example/treemap.html" target="_blank" rel="external">示例</a>了解如何使用ECharts制作Treemap。</p>
+<h2 id="echarts在线发布工具">ECharts在线发布工具</h2>
+<p>我们提供了最新的ECharts在线发布工具，方便用户可以自由的选择，仅仅打包你在项目中使用到的图表及组件代码。减少整体需要加载的ECharts文件大小，提高您产品的网络加载速度及用户体验。</p>
+<p>入口最ECharts官网主导航的下载栏目中，或者直接访问 <a href="http://ecomfe.github.io/echarts-builder-web/" class="uri" target="_blank" rel="external">http://ecomfe.github.io/echarts-builder-web/</a></p>
+<div class="figure">
+<img src="/blog/echarts-2.2.2/pub.jpg" alt="发布工具"><p class="caption">发布工具</p>
+</div>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/vim-javascript-completion/" class="article-prev">前一篇: VIM的JavaScript补全</a>
+    
+    
+    <a href="/blog/what-we-talk-about-when-we-talk-about-color-basic/" class="article-next">后一篇: 当我们谈论颜色时，我们在谈论什么 - 基础知识篇</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/echarts-2.2.2/" data-title="ECharts 发布 2.2.2" data-url="http://efe.baidu.com/blog/echarts-2.2.2/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

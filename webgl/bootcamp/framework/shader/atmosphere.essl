@@ -1,0 +1,124 @@
+// Modified from http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter16.html
+@export atmosphere.vertex
+
+#define PI 3.1415925
+#define SAMPLES 2
+
+attribute vec3 position : POSITION;
+
+uniform mat4 worldViewProjection : WORLDVIEWPROJECTION;
+
+uniform vec3 cameraPos;       // The camera's current position
+uniform vec3 lightDirection;        // The direction vector to the light source
+uniform vec3 invWavelength;   // 1 / pow(wavelength, 4) for the red, green, and blue channels
+uniform float outerRadius : 10.25;  // The outer (atmosphere) radius
+uniform float innerRadius : 10.00;   // The inner (planetary) radius
+uniform float kr : 0.0005;      // Rayleigh scattering constant
+uniform float km : 0.010;      // Mie scattering constant
+uniform float ESun : 20;        // Sun brightness
+uniform float scaleDepth : 0.25;// The scale depth (i.e. the altitude at which the atmosphere's average density is found)
+
+varying vec3 v_Color;
+varying vec3 v_SecondaryColor;
+varying vec3 v_Direction;
+varying vec3 v_LightDirection;
+
+float scale(float fCos)
+{
+    float x = 1.0 - fCos;
+    return scaleDepth * exp(-0.00287 + x*(0.459 + x*(3.83 + x*(-6.80 + x*5.25))));
+}
+// http://codeflow.org/entries/2011/apr/13/advanced-webgl-part-2-sky-rendering/
+float horizonExtinction(vec3 position, vec3 dir, float radius)
+{
+    float u = dot(dir, -position);
+    if(u<0.0)
+    {
+        return 1.0;
+    }
+    vec3 near = position + u*dir;
+    if(length(near) < radius)
+    {
+        return 0.0;
+    }
+    else{
+        vec3 v2 = normalize(near)*radius - position;
+        float diff = acos(dot(normalize(v2), dir));
+        return smoothstep(0.0, 1.0, pow(diff*2.0, 3.0));
+    }
+}
+
+void main(void)
+{
+    vec3 worldPosition = position * outerRadius;
+    float cameraHeight = length(cameraPos);
+    float fScale = 1.0 / (outerRadius - innerRadius);
+    float scaleOverScaleDepth = fScale / scaleDepth;
+    // Get the ray from the camera to the vertex, and its length (which is the far point of the ray passing through the atmosphere)
+    vec3 ray = worldPosition - cameraPos;
+    float far = length(ray);
+    ray /= far;
+
+    // Calculate the ray's starting position, then calculate its scattering offset
+    vec3 startPos = cameraPos;
+    float height = length(startPos);
+    float depth = exp(scaleOverScaleDepth * (innerRadius - cameraHeight));
+    float startAngle = dot(ray, startPos) / height;
+    float startOffset = depth*scale(startAngle);
+
+    // Initialize the scattering loop variables
+    float sampleLength = far / float(SAMPLES);
+    float scaledLength = sampleLength * fScale;
+    vec3 sampleRay = ray * sampleLength;
+    vec3 samplePoint = startPos + sampleRay * 0.5;
+    float cameraExtinction = horizonExtinction(cameraPos, ray, innerRadius - 0.15);
+
+    // Now loop through the sample rays
+    vec3 v3FrontColor = vec3(0.0, 0.0, 0.0);
+    vec3 attenuate;
+    for(int i=0; i<SAMPLES; i++)
+    {
+        float height = length(samplePoint);
+        float depth = exp(scaleOverScaleDepth * (innerRadius - height));
+        float lightAngle = dot(lightDirection, samplePoint) / height;
+        float cameraAngle = dot(ray, samplePoint) / height;
+        float scatter = (startOffset + depth*(scale(lightAngle) - scale(cameraAngle)));
+        vec3 attenuate = exp(-scatter * (invWavelength * kr * 4.0 * PI + km * 4.0 * PI));
+        float extinction = horizonExtinction(samplePoint, lightDirection, innerRadius - 0.15);
+        v3FrontColor += attenuate * (depth * scaledLength) * extinction;
+        samplePoint += sampleRay;
+    }
+
+    v_Color = v3FrontColor * invWavelength * kr * ESun * cameraExtinction;
+    // Calculate the attenuation factor for the ground
+    v_SecondaryColor = v3FrontColor * km * ESun * cameraExtinction;
+    gl_Position = worldViewProjection * vec4(position, 1.0);
+
+    v_LightDirection = lightDirection;
+    v_Direction = cameraPos - worldPosition;
+}
+
+@end
+
+
+@export atmosphere.fragment
+
+uniform float g : 0.99;
+
+varying vec3 v_Direction;
+varying vec3 v_LightDirection;
+varying vec3 v_Color;
+varying vec3 v_SecondaryColor;
+
+void main (void)
+{
+    float g2 = g * g;
+    float fCos = dot(-v_LightDirection, v_Direction) / length(v_Direction);
+    float fMiePhase = 1.5 * ((1.0 - g2) / (2.0 + g2)) * (1.0 + fCos*fCos) / pow(1.0 + g2 - 2.0*g*fCos, 1.5);
+    gl_FragColor.rgb = max(v_Color + fMiePhase * v_SecondaryColor, vec3(0.0));
+    gl_FragColor.a = 1.0;
+    // gl_FragColor.a = gl_FragColor.b;
+}
+
+@end
+

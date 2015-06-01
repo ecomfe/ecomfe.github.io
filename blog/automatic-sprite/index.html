@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>一种雪碧图自动化方案的设想 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>一种雪碧图自动化方案的设想</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/u/1809099542" title="dbear">dbear</a>
+    
+</span>
+
+        <time datetime="2015-01-03T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-01-04</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/CSS/">CSS</a>, <a href="/tags/优化/">优化</a>, <a href="/tags/图片/">图片</a></span>
+
+
+    </div>
+
+    
+        <p>制作“雪碧图”一般是前端优化的重要一步，主要作用当然就是减少HTTP请求数。但是由于传统方法的雪碧图制作和维护成本都极高，加之现代浏览器支持的并发数也不断提高，所以很多人开始质疑做这项工作的必要性。但并发支持度变高，并不代表无限支持，网页首屏需要加载十几张图片资源还是很常见，再算上js、css以及一些数据的ajax请求，HTTP数上五十也是轻轻松，于是，用户体验就不那么好了。所以，这个工作不能省，但是开发成本又不得不考虑，于是，“雪碧图自动化”是自然而然就会产生的想法。</p>
+<p>先看下雪碧图的发展历史:</p>
+<a id="more"></a>
+<h3 id="那时前端没有雪碧图">那时，前端没有雪碧图</h3>
+<p>在不远的从前，雪碧图的概念还不存在，那时候开发者们很开心的从视觉稿中切出一个个的图标素材，</p>
+<div class="figure">
+<img src="img/1.png" alt="图标"><p class="caption">图标</p>
+</div>
+<p>然后利用css的background-position把它放置在任何他们想放的地方，以任何方式。</p>
+<h3 id="雪碧图横空出世">雪碧图横空出世</h3>
+<p>后来，网页被越做越丰富，单页面首屏图片资源加载数就超过了浏览器的允许的最大并发请求数，于是，为了降低请求数，有人开始提出把一些常用图标元素拼到一张图里的想法。</p>
+<div class="figure">
+<img src="img/2.png" alt="图标"><p class="caption">图标</p>
+</div>
+<p>但是，拼图不易，用图更难，把那些小图标一个个的手动挪到一张图里，这是个痛苦的过程。后来FE们把这个工作交给了UE同学 —— 好样的。但是，有一个工作还是避免不了，要计算每个图标的坐标位置，然后用到css里，UE同学不是好欺负的。。。</p>
+<h3 id="简单的自动化出现">简单的自动化出现</h3>
+<p>由于雪碧图的制作和使用都过于复杂，于是很多自动拼雪碧图的工具开始涌现，比如我用过的一个（飞飞同学推荐的~~） Css Sprite Tools。</p>
+<p>这工具功能不算强大，算比较精简的：把需要拼合的图片上传，然后在生成雪碧图的同时，生成一个css文件，里面以图片名作为class，生成每个图片的坐标。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.arrow-down-gray</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">url</span>(../imgs/allbgs.png) no-repeat <span class="number">0px</span> <span class="number">0px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">5px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding-left</span>:<span class="value"><span class="number">11px</span></span></span>;</span><br><span class="line"><span class="rule">&#125;</span></span></span><br><span class="line"><span class="class">.active-arrow-down</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">url</span>(../imgs/allbgs.png) no-repeat <span class="number">0px</span> -<span class="number">5px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">5px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding-left</span>:<span class="value"><span class="number">11px</span></span></span>;</span><br><span class="line"><span class="rule">&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>剩下的就是ctrl-c和ctrl-v了。有很长的一段时间我们都是用的这个方式。</p>
+<h3 id="但是我们失去了一些东西">但是，我们失去了一些东西</h3>
+<p>对于常规图标，像这样</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.icon-a</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">28px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">28px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="string">'xxx'</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-position</span>:<span class="value"> -<span class="number">22px</span> -<span class="number">11px</span></span></span>;</span><br><span class="line"><span class="rule">&#125;</span></span></span><br></pre></td></tr></table></figure>
+<div class="figure">
+<img src="img/3.png" alt="图标"><p class="caption">图标</p>
+</div>
+<p>元素宽高正好够包裹一个图标的，使用雪碧图没有任何问题。但是很多时候，具有背景的元素宽高并不是正好这样的，比如</p>
+<div class="figure">
+<img src="img/4.png" alt="图标"><p class="caption">图标</p>
+</div>
+<p>在非雪碧图年代，我们还可以这样</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.icon-a</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">40px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="string">'xxx'</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-position</span>:<span class="value"> <span class="number">5px</span> center</span></span>;</span><br><span class="line"><span class="rule">&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>但是，在雪碧图年代，这样做的后果就是</p>
+<div class="figure">
+<img src="img/5.png" alt="图标"><p class="caption">图标</p>
+</div>
+<p>于是你面临两种选择：</p>
+<p>A —— 在做雪碧图的时候预先考虑它未来可能的使用环境，设计出一种布局，来满足那些相对坐标的情形，比如</p>
+<div class="figure">
+<img src="img/6.png" alt="图标"><p class="caption">图标</p>
+</div>
+<p>上图的意思是“把4个background-position的东西放在4块灰色区域里”，但前提是横向或纵向的background-position只指定了一个，且没有repeat 。</p>
+<p>可见这种方法满足不了所有的情形，而且需要开发者在制作雪碧图时就要思考好太多。而且如果未来需要增加图标，维护成本相当的高。</p>
+<p>B —— 放弃使用background-position的相对坐标，多增加一个不留白的元素，专门用来包裹图片素材，然后通过元素的定位属性，来定位图标位置。</p>
+<p>这个方法其实相对安全，维护成本也低，即便新增图标，雪碧图也可以使用工具自动生成，无需考虑图标如何布局。</p>
+<p>但是，一般在开发一个控件时，比如一个按钮控件，你不能假设使用者就一定会给这个按钮配备一个图标然后多增加一个空元素。那如何在不增加元素的情况下还能保留B方案的优势呢？方法其实很简单：使用伪元素。比如：</p>
+<div class="figure">
+<img src="img/7.png" alt="图标"><p class="caption">图标</p>
+</div>
+<p>使用伪元素方法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.button</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">cursor</span>:<span class="value"> pointer</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span> <span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#12bdce</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#12bdce</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#ffffff</span></span></span>;</span><br><span class="line"><span class="rule">&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class">.button</span><span class="pseudo">:after</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">url</span>(../img/sprite.png) scroll -<span class="number">20px</span> <span class="number">20px</span> no-repeat transparent</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">''</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-indent</span>:<span class="value"> -<span class="number">9999px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">50%</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> -<span class="number">5.5px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">11px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">11px</span></span></span>;</span><br><span class="line"><span class="rule">&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>上面这个方法似乎解决了雪碧图元素固定布局的问题，但是，你不要写这么多的代码，而且还放弃了那些好用的“相对坐标”。两个你都想要，怎么破？</p>
+<h3 id="动态样式语言拯救你">动态样式语言拯救你</h3>
+<p>这里不想多讲LESS，SASS是怎么回事，如果你知道，那很好；如果你不知道，那就只当它是一种能把你的css写的更像编程语言的东西吧。用上面的需求为例，你希望能够使用background的那些相对定位的属性。那么，下面这段代码，不知道是否可以满足你的需求</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.button</span> &#123;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">33px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">34px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="class">.pseudo-icon</span>(<span class="function">url</span>(<span class="string">../img/sprite.png</span>), -<span class="number">20px</span>, -<span class="number">20px</span>, <span class="number">11px</span>, <span class="number">11px</span>, left, <span class="number">15px</span>, center);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你之前看到的那堆after的代码都没有了，然后又看到了熟悉的 left center这种相对定位坐标。 其实跟之前的相比，这段代码只多做了一件事：创建了一个mixin —— pseudo-icon，这个方法把刚才那些伪元素的方法都封装了起来，只暴露出跟background差不多的参数变量，使使用者“看起来”在用原来的background写背景。</p>
+<p>于是现在，你可以随意摆放你的图标了。但是，这样就够了么？这个方法似乎只是完善了功能，并没有降低未来增加图标所带来的维护成本呢？</p>
+<h3 id="最后的自动化">最后的自动化</h3>
+<p>设想一种情景，你在一开始开发的时候根本不用理会图标会不会被合并到雪碧图里，只当它会一直独立存在，并且就那样的使用。之后在代码build时，你的这个图标会被自动的解析出来，并且合并到雪碧图中，它的相应坐标也会被同步更新，一切都自动化完成，无需任何人工干预，这样是不是很好？</p>
+<p>于是，为了做到这点，我们需要对上面的mixin参数做些修改，比如</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.button</span> &#123;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">33px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">34px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="class">.pseudo-icon</span>(<span class="function">url</span>(<span class="string">../img/add-button-icon.png</span>), <span class="number">11px</span>, <span class="number">11px</span>, left, <span class="number">15px</span>, center);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里，第一个参数变成了一个独立图标元素的路径，因为是使用伪元素的全包裹方式，所以也无需定义background-position的值，默认就是 0 0。</p>
+<p>接下来便如我们所设想的那样，当所有less被解析完成并整合到一个main.css中后，自动化工具将main.css中的所有图片路径解析出来，并根据路径将图片合并到一张图中，同时将原css中的背景数据更新，然后发布。</p>
+<h2 id="edp雪碧图自动化构想">edp雪碧图自动化构想</h2>
+<p>目前来讲，在构建时做雪碧图自动化的其实不少，比如基于Grunt的grunt-sprite，基于SASS的Compass，但是就我目前了解的（不排除了解的不够深的情况），他们的方式都无法覆盖全面，他们都只是对简单规范的background-position做解析，然后替换，因为没有使用伪元素，而放弃了一些灵活的布局特性。 而目前edp在雪碧图自动化方面还没有做任何的工作，所以我的设想是，在edp中也引入雪碧图自动化插件，这个插件将结合伪元素图标思想与现行的雪碧图自动生成方法为一体，完整实现雪碧图自动化。</p>
+<h2 id="遇到了阻碍">遇到了阻碍</h2>
+<p>其实自动化的想法已经在脑力沉淀很久了，但直到现在也没有实现，有一个很重要的原因是各种图形处理相关的依赖包一直无法安装成功。所以，如果有哪位仁兄在Windows系统，或者任何什么其他系统上安装成功了spritesmith这东西—— 如果还用过，那就更好了。请私我，我会亲自求教～</p>
+<p>相关参考资料</p>
+<p><a href="http://thesassway.com/intermediate/spriting-with-sass-and-compass" target="_blank" rel="external">使用sass和compass自动生成雪碧图</a></p>
+<p><a href="http://himeters.com/grunt-sprite" target="_blank" rel="external">基于Grunt的自动化雪碧图方案</a></p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/windows-tools-recommandation-list/" class="article-prev">前一篇: Windows平台开发必备工具</a>
+    
+    
+    <a href="/blog/dissecting-amd-loader/" class="article-next">后一篇: 玩转AMD - Loader</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/automatic-sprite/" data-title="一种雪碧图自动化方案的设想" data-url="http://efe.baidu.com/blog/automatic-sprite/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>VIM的JavaScript补全 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>VIM的JavaScript补全</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://hushicai.com" title="hushicai">hushicai</a>
+    
+</span>
+
+        <time datetime="2015-05-04T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-05-05</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/Completion/">Completion</a>, <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/VIM/">VIM</a></span>
+
+
+    </div>
+
+    
+        <p>最近微软出了个Visual Studio Code，听说很diao，尤其是对JavaScript的补全支持很令人惊艳！</p>
+<p>如果你是一个vim党，那么请淡定！</p>
+<p>在JavaScript开发过程中，使用vim内置的<code>ins-completion</code>再加上一些插件，我们同样可以获得很牛逼的completion支持！</p>
+<a id="more"></a>
+<h2 id="ins-completion">ins-completion</h2>
+<p>vim其实已经提供了很好的代码补全支持。</p>
+<h3 id="整行">整行</h3>
+<p>快捷键：<code>&lt;C-X&gt;&lt;C-L&gt;</code></p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/c-x-c-l.gif">
+</div>
+<h3 id="文件名">文件名</h3>
+<p>快捷键：<code>&lt;C-X&gt;&lt;C-F&gt;</code></p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/c-x-c-f.gif">
+</div>
+<h3 id="当前文件中的关键字">当前文件中的关键字</h3>
+<p>快捷键：<code>&lt;C-X&gt;&lt;C-P&gt;</code>或<code>&lt;C-X&gt;&lt;C-N&gt;</code></p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/c-x-c-pn.gif">
+</div>
+<h3 id="complete选项所指定的范围中的关键字"><code>complete</code>选项所指定的范围中的关键字</h3>
+<p>快捷键：<code>&lt;C-N&gt;</code>或<code>&lt;C-P&gt;</code></p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/c-pn.gif">
+</div>
+<p><code>&lt;C-N&gt;</code>、<code>&lt;C-P&gt;</code>跟<code>&lt;C-X&gt;&lt;C-N&gt;</code>、<code>&lt;C-X&gt;&lt;C-P&gt;</code>类似，但是查找范围更广，不局限于当前文件。</p>
+<p>如上图所示，我打开两个文件，在<code>src/echarts.js</code>中补全<code>src/component.js</code>中的关键字，就可以使用<code>&lt;C-N&gt;</code>或<code>&lt;C-P&gt;</code>。</p>
+<p>具体查找范围由<code>complete</code>选项所规定，详见<code>:help E535</code>。</p>
+<h3 id="dictionary中的关键字"><code>dictionary</code>中的关键字</h3>
+<p>快捷键：<code>&lt;C-X&gt;&lt;C-K&gt;</code></p>
+<p>假设你有一个<code>javascript.dict</code>文件，其内容如下： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Promise&#10;Proxy&#10;let&#10;class&#10;extends</span><br></pre></td></tr></table></figure></p>
+<p>设置<code>:set dictionary+=/path/to/es6.dict</code>之后就可以用<code>&lt;C-X&gt;&lt;C-K&gt;</code>来补全这些关键字了。</p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/c-x-c-k.gif">
+</div>
+<h3 id="omni-completion">omni completion</h3>
+<p>快捷键：<code>&lt;C-X&gt;&lt;C-O&gt;</code></p>
+<p>这个是基于语义上的补全，vim会猜测光标之前的关键词，然后给出补全。</p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/c-x-c-o.gif">
+</div>
+<p>更多补全方式，请看<code>:help ins-completion</code>。</p>
+<h2 id="youcompleteme">YouCompleteMe</h2>
+<p>按键太多了，真不开心…</p>
+<p>先上一个自动打开候选菜单的插件，再继续吹牛逼吧…</p>
+<p>YouCompleteMe是一个不错的选择，补全速度比neocomplete快。</p>
+<p>基本配置如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">let g:ycm_min_num_of_chars_for_completion = 3 </span><br><span class="line">let g:ycm_autoclose_preview_window_after_completion=1</span><br><span class="line">let g:ycm_complete_in_comments = 1</span><br><span class="line">let g:ycm_key_list_select_completion = ['&lt;c-n&gt;', '&lt;Down&gt;']</span><br><span class="line">let g:ycm_key_list_previous_completion = ['&lt;c-p&gt;', '&lt;Up&gt;']</span><br><span class="line">" 比较喜欢用tab来选择补全...</span><br><span class="line">function! MyTabFunction ()</span><br><span class="line">    let line = getline('.')</span><br><span class="line">    let substr = strpart(line, -1, col('.')+1)</span><br><span class="line">    let substr = matchstr(substr, "[^ \t]*$")</span><br><span class="line">    if strlen(substr) == 0</span><br><span class="line">        return "\&lt;tab&gt;"</span><br><span class="line">    endif</span><br><span class="line">    return pumvisible() ? "\&lt;c-n&gt;" : "\&lt;c-x&gt;\&lt;c-o&gt;"</span><br><span class="line">endfunction</span><br><span class="line">inoremap &lt;tab&gt; &lt;c-r&gt;=MyTabFunction()&lt;cr&gt;</span><br></pre></td></tr></table></figure>
+<p>现在，对于关键字补全、路径补全、<code>omni completion</code>，YouCompleteMe可以自动打开补全菜单了。</p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/ycm.gif">
+</div>
+<p>恩，看起来<code>ins-completion</code>还不错，但是跟vscode比起来还不够！</p>
+<p>vim的<code>omni completion</code>实际上可以支持更牛逼的completion，于是有了<a href="http://ternjs.net" target="_blank" rel="external">tern</a>。</p>
+<h2 id="tern_for_vim">tern_for_vim</h2>
+<p><code>tern_for_vim</code>是ternjs给vim量身定做的插件，它实际上是给javascript实现了一个新的<code>omnifunc</code>，叫做<code>tern#Complete</code>。</p>
+<p>当我们按下<code>&lt;C-X&gt;&lt;C-O&gt;</code>时，vim实际上就是调用<code>omnifunc</code>。</p>
+<p><code>tern_for_vim</code>改写了<code>omnifunc</code>，接管了vim的<code>omni completion</code>。</p>
+<p>vim安装了<code>tern_for_vim</code>之后，在项目的根目录中新建一个配置文件<code>.tern-project</code>，以echarts为例，配置如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">libs</span>": <span class="value">[</span><br><span class="line">        <span class="string">"browser"</span></span><br><span class="line">    ]</span>,</span><br><span class="line">    "<span class="attribute">plugins</span>": <span class="value">&#123;</span><br><span class="line">        "<span class="attribute">requirejs</span>": <span class="value">&#123;</span><br><span class="line">            "<span class="attribute">baseUrl</span>": <span class="value"><span class="string">"./src"</span></span>,</span><br><span class="line">            "<span class="attribute">paths</span>": <span class="value">&#123;</span><br><span class="line">                "<span class="attribute">zrender</span>": <span class="value"><span class="string">"bower_components/zrender/src"</span></span><br><span class="line">            </span>&#125;</span><br><span class="line">        </span>&#125;</span><br><span class="line">    </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p><code>libs</code>字段指明要导入哪些库，tern内置了以下几种库：</p>
+<ul>
+<li>browser</li>
+<li>chai</li>
+<li>ecma5，默认自动导入</li>
+<li>ecma6</li>
+<li>jquery</li>
+<li>underscore</li>
+</ul>
+<p>我们现在只配置了browser，看看会发生什么事情？</p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/tern-browser.gif">
+</div>
+<p>如果你的项目还用到了jquery，那么你可以把jquery加到<code>.tern-project</code>的libs字段中，效果如下：</p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/tern-jquery.gif">
+</div>
+<p><code>plugins</code>更猛，可以补全模块化的代码，tern支持以下几种插件：</p>
+<ul>
+<li>angular.js</li>
+<li>complete_string.js</li>
+<li>component.js</li>
+<li>doc_comment.js，默认自动启用</li>
+<li>nodejs</li>
+<li>requirejs</li>
+</ul>
+<p>看看echarts项目配置了requirejs插件之后会怎么样？</p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/tern-requirejs.gif">
+</div>
+<p>碉堡了，有木有！</p>
+<p>我们再也不用担心某个模块到底提供了哪些方法，require它，输入点号，然后提示，你所要做的就是选择！</p>
+<p>如果第三方库在代码中提供足够的文档注释，我们甚至都不需要再去查文档了！</p>
+<p>哦，稍等，听说vscode还支持nodejs的补全。</p>
+<p>在nodejs项目下配置一下<code>.tern-project</code>：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">libs</span>": <span class="value">[]</span>,</span><br><span class="line">    "<span class="attribute">plugins</span>": <span class="value">&#123;</span><br><span class="line">        "<span class="attribute">node</span>": <span class="value">&#123;&#125;</span><br><span class="line">    </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>看看tern对nodejs项目的支持如何？</p>
+<div class="figure">
+<img src="/blog/vim-javascript-completion/tern-node.gif">
+</div>
+<p>嗯，貌似还可以！</p>
+<h2 id="小结">小结</h2>
+<p>如果你是一个vim粉丝，那希望本文对你有所帮助！</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/use-fonteditor-to-build-webfont/" class="article-prev">前一篇: 使用FontEditor创建web字体图标</a>
+    
+    
+    <a href="/blog/echarts-2.2.2/" class="article-next">后一篇: ECharts 发布 2.2.2</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/vim-javascript-completion/" data-title="VIM的JavaScript补全" data-url="http://efe.baidu.com/blog/vim-javascript-completion/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

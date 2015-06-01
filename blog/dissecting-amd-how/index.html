@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>玩转AMD - 应用实践 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>玩转AMD - 应用实践</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://errorrik.com/" title="errorrik">errorrik</a>
+    
+</span>
+
+        <time datetime="2014-12-09T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2014-12-10</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/AMD/">AMD</a>, <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/模块化/">模块化</a></span>
+
+
+    </div>
+
+    
+        <p>在 <strong>设计思路</strong> 篇中，已经对 <code>AMD</code> 在设计上的一些考虑做了比较详细的论述。所以这一篇只会提一些建议，引用一些 <strong>设计思路</strong> 篇中的结论，不会再详细描述为什么。</p>
+<p>本篇提出的所有建议，都是针对于开发时就使用 <code>AMD</code> 的玩法。据我所知，有一些团队在开发时按照 <code>CommonJS</code> 的方式编写模块，通过开发时工具监听文件变化实时编译，上线前通过工具构建，<code>AMD</code> 纯粹被当作模块包装来用。本篇提出的建议不涵盖这种应用场景。</p>
+<p>部分建议有一定的重叠，或者理由是相同的。举一反三能力较强的阅读者可能会觉得我很罗嗦，见谅。</p>
+<a id="more"></a>
+<h3 id="开发时">开发时</h3>
+<h4 id="模块声明不要写-id">模块声明不要写 ID</h4>
+<p>将模块 ID 交给应用页面决定，便于重构和模块迁移。模块开发者应该适应这点，从模块定义时就决定模块名称的思路中解放出来。这是使用 <code>AMD</code> 的开发者能获得的最大便利。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> sidebar = <span class="built_in">require</span>(<span class="string">'./common/sidebar'</span>);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">sidebarHideListener</span><span class="params">(e)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            init: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                sidebar.on(<span class="string">'hide'</span>, sidebarHideListener)</span><br><span class="line">                sidebar.init();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">define(</span><br><span class="line">    <span class="string">'main'</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> sidebar = <span class="built_in">require</span>(<span class="string">'./common/sidebar'</span>);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">sidebarHideListener</span><span class="params">(e)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            init: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                sidebar.on(<span class="string">'hide'</span>, sidebarHideListener)</span><br><span class="line">                sidebar.init();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="模块划分应尽可能细粒度">模块划分应尽可能细粒度</h4>
+<p>细粒度划分模块，有助于更精细地进行模块变更、依赖、按需加载和引用等方面的管理，有利于让系统结构更清晰，让设计上的问题提早暴露，也能从一定程度上避免一些看起来也合理的循环依赖。</p>
+<p>举个例子：在 namespace 模式下我们可能将一些 util function 通过 method 方式暴露，在 <code>AMD</code> 模块划分时，应该拆分成多个模块。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good: 分成多个模块</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">comma</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">        <span class="keyword">return</span> comma;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">pad</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">        <span class="keyword">return</span> pad;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            comma: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;&#125;,</span><br><span class="line">            pad: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="在-factory-中使用-require-引用依赖模块不要写-dependencies-参数">在 factory 中使用 require 引用依赖模块，不要写 dependencies 参数</h4>
+<p>需要啥就在当前位置 require 一个，然后马上使用是最方便的。当模块文件比较大的时候，我想没有谁会喜欢回到头部在 dependencies 中添加一个依赖，然后在 factory 里添加一个参数。</p>
+<p>另外，只使用 dependencies 参数声明依赖的方式，解决不了循环依赖的问题。为了项目中模块定义方式的一致性，也应该统一在 factory 中使用 require 引用依赖模块。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> sidebar = <span class="built_in">require</span>(<span class="string">'./common/sidebar'</span>);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">sidebarHideListener</span><span class="params">(e)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            init: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                sidebar.on(<span class="string">'hide'</span>, sidebarHideListener)</span><br><span class="line">                sidebar.init();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">define(</span><br><span class="line">    [<span class="string">'./common/sidebar'</span>],</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(sidebar)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">sidebarHideListener</span><span class="params">(e)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            init: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                sidebar.on(<span class="string">'hide'</span>, sidebarHideListener)</span><br><span class="line">                sidebar.init();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="对于要使用的依赖模块即用即-require">对于要使用的依赖模块，即用即 require</h4>
+<p>遵守 <code>即用即 require</code> 的原则有如下原因：</p>
+<ul>
+<li>require 与使用的距离越远，代码的阅读与维护成本越高。</li>
+<li>避免无意义的 <code>装载时依赖</code>。在 <strong>设计思路</strong> 篇中有提到：对于循环依赖，只要依赖环中任何一条边是<code>运行时依赖</code>，这个环理论上就是活的。如果全部边都是<code>装载时依赖</code>，这个环就是死的。遵守 <code>即用即 require</code> 可以有效避免出现死循环依赖。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(callback)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> requester = <span class="built_in">require</span>(<span class="string">'requester'</span>);</span><br><span class="line">            requester.send(url, method, callback);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> requester = <span class="built_in">require</span>(<span class="string">'requester'</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(callback)</span> </span>&#123;</span><br><span class="line">            requester.send(url, method, callback);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="对于-package-依赖require-使用-top-level-id对于相同功能模块群组下的依赖require-使用-relative-id">对于 package 依赖，require 使用 Top-Level ID；对于相同功能模块群组下的依赖，require 使用 Relative ID</h4>
+<p>这条的理由与 <strong>模块声明不要写 ID</strong> 相同，都是为了获得 <code>AMD</code> 提供的模块灵活性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'underscore'</span>);</span><br><span class="line">        <span class="keyword">var</span> conf = <span class="built_in">require</span>(<span class="string">'./conf'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'underscore'</span>);</span><br><span class="line">        <span class="keyword">var</span> conf = <span class="built_in">require</span>(<span class="string">'conf'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><strong>相同功能模块群组</strong> 的界定需要开发者自己分辨，这取决于你对未来变更可能性的判断。</p>
+<p>下面的目录结构划分中，假设加载器的 baseUrl 指向 src 目录，你可以认为 src 下是一个 <strong>相同功能模块群组</strong>；你也可以认为 common 是一个 <strong>相同功能模块群组</strong>，biz1 是一个 <strong>相同功能模块群组</strong>。如果是后者，biz1 中模块对 common 中模块的 require，可以使用 Relative ID，也可以使用 Top-Level ID。</p>
+<p>但是无论如何，common 或 biz1 中模块的相互依赖，应该使用 Relative ID。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">    <span class="string">|- src/</span></span><br><span class="line">        <span class="string">|- common/</span></span><br><span class="line">            <span class="string">|- conf.js</span></span><br><span class="line">            <span class="string">|- sidebar.js</span></span><br><span class="line">        <span class="string">|- biz1/</span></span><br><span class="line">            <span class="string">|- list.js</span></span><br><span class="line">            <span class="string">|- edit.js</span></span><br><span class="line">            <span class="string">|- add.js</span></span><br><span class="line">        <span class="string">|- main.js</span></span><br><span class="line">    <span class="string">|- dep/</span></span><br><span class="line">        <span class="string">|- underscore/</span></span><br><span class="line">    <span class="string">|- index.html</span></span><br></pre></td></tr></table></figure>
+<h4 id="模块的资源引用在-factory-头部声明">模块的资源引用，在 factory 头部声明</h4>
+<p>有时候，一些模块需要依赖一些资源，常见一个业务模块需要依赖相应的模板和 CSS 资源。这些资源需要被加载，但是在模块内部代码中并不一定会使用它们。把这类资源的声明写在模块定义的开始部分，会更清晰。</p>
+<p>另外，为了便于重构和模块迁移，对于资源的引用，resource ID 也应该使用 Relative ID 的形式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">'css!./list.css'</span>);</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">'tpl!./list.tpl.html'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> Action = <span class="built_in">require</span>(<span class="string">'er/Action'</span>);</span><br><span class="line">        <span class="keyword">var</span> listAction = <span class="keyword">new</span> Action(&#123;&#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> listAction;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="不要使用-paths">不要使用 paths</h4>
+<p>在 <strong>设计思路</strong> 篇中有说到，默认情况下 paths 是相对 baseUrl 的，配置了 paths 时不同 ID 的模块可能对应到同一个 define 文件。在一个系统里，同一个文件对应到多个模块，这种二义很容易导致难以理解的，并且会留下坑。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    baseUrl: <span class="string">'src'</span>,</span><br><span class="line">    paths: &#123;</span><br><span class="line">        <span class="string">'conf'</span>: <span class="string">'common/conf'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>那 paths 在什么地方用到呢？在 <strong>打包构建</strong> 章节会有一些说明。</p>
+<h4 id="使用第三方库通过-package-引入">使用第三方库，通过 package 引入</h4>
+<p>通常，在项目里会用到一些第三方库，除非你所有东西都自己实现。就算所有东西都自己实现，基础的业务无关部分，也应该作为独立的 package。</p>
+<p>一个建议是，在项目开始就应该规划良好的项目目录结构，在这个时候确定 package 的存放位置。一个项目的源代码应该放在一个独立目录下（比如叫做 src），这里面的所有文件都是和项目业务相关的代码。存放第三方库 package 的目录应该和项目源代码目录分开。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">    <span class="string">|- src/</span></span><br><span class="line">        <span class="string">|- common/</span></span><br><span class="line">            <span class="string">|- conf.js</span></span><br><span class="line">            <span class="string">|- sidebar.js</span></span><br><span class="line">        <span class="string">|- biz1/</span></span><br><span class="line">            <span class="string">|- list.js</span></span><br><span class="line">            <span class="string">|- edit.js</span></span><br><span class="line">            <span class="string">|- add.js</span></span><br><span class="line">        <span class="string">|- main.js</span></span><br><span class="line">    <span class="string">|- dep/</span></span><br><span class="line">        <span class="string">|- underscore/</span></span><br><span class="line">    <span class="string">|- index.html</span></span><br></pre></td></tr></table></figure>
+<p>如果有可能，定义一种 package 目录组织的规范，自己开发的 package 都按照这个方式组织，用到的第三方库也按照这种方式做一个包装，便于通过工具进行 package 的管理（导入、删除、package间依赖管理等）。</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">说明： 源代码不按照 <span class="constant">Common</span>JS 建议放在 lib 目录的原因是，<span class="keyword">node</span> <span class="keyword">package</span> 是放在 lib 目录的，frontend <span class="keyword">package</span> 应该有所区分。</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span>/</span><br><span class="line">    |- src/</span><br><span class="line">    |- doc/</span><br><span class="line">    |- test/</span><br><span class="line">    |- <span class="keyword">package</span>.json</span><br></pre></td></tr></table></figure>
+<p>广告时间来了：</p>
+<p>EFE 技术团队在决定使用 <code>AMD</code> 后，就马上规范了 <a href="https://github.com/ecomfe/spec/blob/master/directory.md" target="_blank" rel="external">项目目录结构</a> 和 <a href="https://github.com/ecomfe/spec/blob/master/package.md" target="_blank" rel="external">package结构</a>。这是我们认为比较合理的方式。我们使用了很多业内的标准和工具（CommonJS Package / Semver 等），在此之上做一些前端应用的细化，具有通用性，并不专门为我们的项目特点定制，执行的过程中也一直比较顺利。我们后来基于此也搭建了内部的 npm 作为 package 发布平台，开发的 <a href="https://github.com/ecomfe/edp" target="_blank" rel="external">EDP</a> 也包含了项目中使用和管理 package 功能。希望能给开发者，特别是所在团队还没有做相应工作的开发者，一些参考和启发。</p>
+<h4 id="业务重复的功能集合趁早抽取-package">业务重复的功能集合，趁早抽取 package</h4>
+<p>这和尽早重构是一个道理。那么，什么样的东西需要被抽取成 package 呢？</p>
+<ul>
+<li>如果项目业务无关的基础库或框架是自己开发的，那一开始就应该作为 package 存在。</li>
+<li>业务公共代码一般是不需要抽取成 package 的。</li>
+<li>一些业务公共模块集，如果预期会被其他项目用到，就应该抽取成 package。举个例子，正在开发的项目是面向 PC 的，项目中有个数据访问层，如果之后还要做 Mobile 的版本，这个数据访问层就应该抽象成 package。</li>
+</ul>
+<h4 id="package-内部模块之间的项目依赖require-使用-relative-id">package 内部模块之间的项目依赖，require 使用 Relative ID</h4>
+<p>package 内部模块之间的依赖通过 Relative ID require，能够保证 package 内部封装的整体性。在 <code>AMD</code> 环境下，package 使用者可能会需要多版本并存，或者在项目中根据自己的喜好对引入的 package 命名（比如 xxui，使用者可能会期望在项目里使用时，package 名称就叫做 ui）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'./util'</span>);</span><br><span class="line">        <span class="keyword">var</span> Control = <span class="built_in">require</span>(<span class="string">'./Control'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">Button</span><span class="params">(options)</span> </span>&#123;&#125;</span><br><span class="line">        util.inherits(Button, Control);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Button;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">define(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="params">(require)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'esui/util'</span>);</span><br><span class="line">        <span class="keyword">var</span> Control = <span class="built_in">require</span>(<span class="string">'esui/Control'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">Button</span><span class="params">(options)</span> </span>&#123;&#125;</span><br><span class="line">        util.inherits(Button, Control);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Button;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h4 id="package-内部模块对主模块的依赖不使用-require.">package 内部模块对主模块的依赖，不使用 require(‘.’)</h4>
+<p>package 开发者会指定一个主模块，通常主模块就叫做 main。package 内其他模块对它的依赖可以使用 require(‘.’) 和 require(‘./main’) 两种方式。</p>
+<p>但是，我们无法排除 package 的使用者在配置 package 的时候，认为把另外一个模块作为主模块更方便，从而进行了非主流的配置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非主流 package 配置</span></span><br><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    baseUrl: <span class="string">'src'</span>,</span><br><span class="line">    packages: [</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'esui'</span>,</span><br><span class="line">            location: <span class="string">'../dep/esui'</span>,</span><br><span class="line">            main: <span class="string">'notmain'</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用 require(‘./main’) 就能规避这个问题。所以，不要使用 require(‘.’)。</p>
+<h4 id="可以对环境和模块进行区分不需要太强迫症">可以对环境和模块进行区分，不需要太强迫症</h4>
+<p>有的第三方库，本身更适合作为环境引入，基本上项目所有模块开发时候都会以这些库的存在为前提。这样的东西就更适合作为环境引入，<strong>不一定</strong> 非要把它当作模块，在每个模块中 require 它。</p>
+<p>典型的例子有 es5-shim / jquery 等。</p>
+<p>直接作为环境引入的方法是，在页面中，在引入 Loader 的 script 前引入。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"es5-shim.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"amd-loader.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="打包构建">打包构建</h3>
+<h4 id="构建工具">构建工具</h4>
+<p><a href="http://requirejs.org/docs/optimization.html" target="_blank" rel="external">r.js</a> 是 RequireJS 附带的 optimize 工具，比较成熟，打包构建 <code>AMD</code> 模块的构建产物优秀。</p>
+<p>Grunt 和 Gulp 下的一些 <code>AMD</code> 构建插件，有的用了 r.js，有的是自己写的，构建产物的质量参差不齐，选用之前可以看看。我觉得以下几点可以判断构建产物是否优秀：</p>
+<ol style="list-style-type: decimal">
+<li>ID 被固化</li>
+<li>factory 中 require 的依赖被提取填充到 dependencies</li>
+<li>Relative ID 的 require，不需要在构建阶段 normalize</li>
+<li>factory 没有进行任何修改，包括参数和函数体</li>
+<li>对 package 的主模块进行了处理</li>
+</ol>
+<p>我们团队开发的 <a href="https://github.com/ecomfe/edp" target="_blank" rel="external">EDP</a> 中，<code>AMD</code> 模块构建就是自己写的。如果想自己实现 <code>AMD</code> 模块的构建，上面的几点和 EDP 都有一定的参考价值。</p>
+<p>但是，在我所知道的 <code>AMD</code> 构建工具中，都需要通过配置，手工指定哪些模块需要合并，合并的时候 exclude 哪些模块，include 哪些模块。还没有一个工具能够很好的分析系统，自动进行比较优化的构建。我们在这方面有一些积累，但是实践的效果尚不明确，所以就不说了。</p>
+<p>即使在构建阶段，把所有的模块定义都合并到主模块的文件中，构建方案还是需要将散模块单独构建生成单独的文件。在多页面对模块交叉引用，或按需加载时，会比较有帮助。</p>
+<h4 id="cdn">CDN</h4>
+<p>因为性能的考虑，线上环境静态资源通过 CDN 分发是一种常用做法。此时，静态资源和页面处于不同的域名下，线上环境的 Loader 配置需要通过 paths，让 Loader 能够正确加载静态资源。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    baseUrl: <span class="string">'src'</span>,</span><br><span class="line">    paths: &#123;</span><br><span class="line">        <span class="string">'biz1'</span>: <span class="string">'http://static-domain/project/biz1'</span>,</span><br><span class="line">        <span class="string">'biz2'</span>: <span class="string">'http://static-domain/project/biz2'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如果所有的模块都整体通过 CDN 分发，可以直接指定 baseUrl。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    baseUrl: <span class="string">'http://static-domain/project'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>开发环境和线上环境的配置信息差异，根据 DRY 原则，这个工作一定要用工具在构建过程自动完成。</p>
+<h4 id="使用内容摘要作为文件名的玩法">使用内容摘要作为文件名的玩法</h4>
+<p>在构建过程，使用文件内容的摘要作为文件名，是一种常用的优化手段。这种方式能够在 HTTP 层面设置强 cache，让用户能够最大程度缓存，减少网络传输的流量和时间。</p>
+<p>但是在 <code>AMD</code> 中，模块 ID 与路径应该是一个对应关系。怎么破？这里提供两种玩法：</p>
+<p>第一种方式：将打包后的模块定义合并文件，直接在页面上通过 script 标签引入。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"amd-loader.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"combined-md5.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="built_in">require</span>([<span class="string">'main'</span>], <span class="function"><span class="keyword">function</span> <span class="params">(main)</span> </span>&#123;</span><br><span class="line">    main.init();</span><br><span class="line">&#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二种方式：通过 paths 配置映射。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"amd-loader.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    paths: &#123;</span><br><span class="line">        <span class="string">'main'</span>: <span class="string">'main-file-md5'</span>,</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">require</span>([<span class="string">'main'</span>], <span class="function"><span class="keyword">function</span> <span class="params">(main)</span> </span>&#123;</span><br><span class="line">    main.init();</span><br><span class="line">&#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在一个 Web 应用，特别是规模较大的 Web 应用中，为了性能最优化的考虑，可能会两种方式结合着玩：</p>
+<ul>
+<li>系统一开始进入就需要的模块，通过第一种方式载入；需要按需加载的模块，通过第二种方式配置</li>
+<li>模块定义合并文件可以根据变更频度打包成多个，充分利用缓存和浏览器的并行下载</li>
+<li>paths 配置项是 id prefix 匹配的，工具处理时注意模块文件同名目录下文件的路径处理</li>
+<li>需要按需加载的模块数量通常不小，根据 DRY 原则，线上环境 paths 配置一定要用工具在构建过程自动完成</li>
+</ul>
+<h3 id="本篇结束">本篇结束</h3>
+<p><code>AMD</code> 有很多特性，有的是为开发时设计的，有的是为线上环境设计的。理解其设计思路，选择合适的开发方式，和构建方式，整个过程才能不别扭，更顺畅。</p>
+<p>用一句话来总结，就是 <strong>要按常理出牌</strong>。</p>
+<p>本来 <strong>Dissecting AMD</strong> 应该到此结束了，但是 Loader 的选择也是一件很重要的事情。保守地选择 RequireJS，在绝大多数情况下是没问题的，但是不代表它没有缺陷。而且，RequireJS 的体积确实不小。所以我们开发了一个 <code>AMD</code> Loader：<a href="https://github.com/ecomfe/esl" target="_blank" rel="external">ESL</a>。下一篇，我打算围绕 ESL，对 Loader 的细节做一些阐述。这不单是广告，内容一定是技术有料的。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/dissecting-amd-loader/" class="article-prev">前一篇: 玩转AMD - Loader</a>
+    
+    
+    <a href="/blog/dissecting-amd-what/" class="article-next">后一篇: 玩转AMD - 设计思路</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/dissecting-amd-how/" data-title="玩转AMD - 应用实践" data-url="http://efe.baidu.com/blog/dissecting-amd-how/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

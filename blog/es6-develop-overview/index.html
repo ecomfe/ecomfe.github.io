@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>使用ES6进行开发的思考 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>使用ES6进行开发的思考</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://otakustay.com" title="otakustay">otakustay</a>
+    
+</span>
+
+        <time datetime="2015-05-20T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-05-21</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/ECMAScript6/">ECMAScript6</a>, <a href="/tags/ES6/">ES6</a>, <a href="/tags/JavaScript/">JavaScript</a></span>
+
+
+    </div>
+
+    
+        <p>ECMAScript6已经于近日进入了RC阶段，而早在其处于社区讨论时，我就开始一直在尝试使用ES6进行开发的方案。在<a href="https://babeljs.io" target="_blank" rel="external">Babel</a>推出后，基于ES6的开发也有了具体可执行的解决方案，无论是Build还是Debug都能得到很好的支持。</p>
+<p>而在有了充足的环境、工具之后，我们面临的是对ES6众多新特性的选择和分析，以便选取一个最佳的子集，让我们可以享受ES6带来的便利（减少代码量、提高可读性等）的同时，也可以顺利运行于当前以ES3-ES5为主的浏览器环境中。</p>
+<p>经过分析后，本文试图对ES6各个特性得出是否适合应用的初步结论，并一一解释其使用场景。ES6的特性列表选自<a href="https://github.com/lukehoban/es6features" target="_blank" rel="external">es6features</a>。</p>
+<ul>
+<li>★★★ 推荐使用</li>
+<li>★★ 有考虑地使用</li>
+<li>★ 慎重地使用</li>
+<li>☆ 不使用</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">特性</th>
+<th align="center">推荐程度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">arrows</td>
+<td align="center">★★★</td>
+</tr>
+<tr class="even">
+<td align="left">classes</td>
+<td align="center">★★★</td>
+</tr>
+<tr class="odd">
+<td align="left">enhanced object literals</td>
+<td align="center">★★★</td>
+</tr>
+<tr class="even">
+<td align="left">template strings</td>
+<td align="center">★★★</td>
+</tr>
+<tr class="odd">
+<td align="left">destructuring</td>
+<td align="center">★★</td>
+</tr>
+<tr class="even">
+<td align="left">default + rest + spread</td>
+<td align="center">★★★</td>
+</tr>
+<tr class="odd">
+<td align="left">let + const</td>
+<td align="center">★★★</td>
+</tr>
+<tr class="even">
+<td align="left">iterators + for..of</td>
+<td align="center">★★</td>
+</tr>
+<tr class="odd">
+<td align="left">generators</td>
+<td align="center">★</td>
+</tr>
+<tr class="even">
+<td align="left">unicode</td>
+<td align="center">☆</td>
+</tr>
+<tr class="odd">
+<td align="left">modules</td>
+<td align="center">★★</td>
+</tr>
+<tr class="even">
+<td align="left">module loaders</td>
+<td align="center">☆</td>
+</tr>
+<tr class="odd">
+<td align="left">map + set + weakmap + weakset</td>
+<td align="center">★★</td>
+</tr>
+<tr class="even">
+<td align="left">proxies</td>
+<td align="center">☆</td>
+</tr>
+<tr class="odd">
+<td align="left">symbols</td>
+<td align="center">★</td>
+</tr>
+<tr class="even">
+<td align="left">subclassable built-ins</td>
+<td align="center">☆</td>
+</tr>
+<tr class="odd">
+<td align="left">promises</td>
+<td align="center">★★★</td>
+</tr>
+<tr class="even">
+<td align="left">math + number + string + array + object APIs</td>
+<td align="center">★★★</td>
+</tr>
+<tr class="odd">
+<td align="left">binary and octal literals</td>
+<td align="center">★</td>
+</tr>
+<tr class="even">
+<td align="left">reflect api</td>
+<td align="center">☆</td>
+</tr>
+<tr class="odd">
+<td align="left">tail calls</td>
+<td align="center">★★</td>
+</tr>
+</tbody>
+</table>
+<p>接下来我们以上特性挨个进行介绍。需要关注一点：如果你不想使用shim库（如Babel的<code>browser-polyfill.js</code>和<code>generatorsRuntime.js</code>）或者想使用尽可能少的helper（Babel的<code>externalHelpers</code>配置），那么需要按你的需求进一步缩减可使用的ES6特性，如<code>Map</code>、<code>Set</code>这些就不应该使用。</p>
+<a id="more"></a>
+<h2 id="语法增强类">语法增强类</h2>
+<h3 id="arrow-function">Arrow function</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">Arrow functions</a>是ES6在语法上提供的一个很好的特性，其特点有：</p>
+<ul>
+<li>语法更为简洁了。</li>
+<li>文法上的固定<code>this</code>对象。</li>
+</ul>
+<p>我们<strong>鼓励在可用的场景下使用Arrow functions</strong>，并以此代替原有的<code>function</code>关键字。</p>
+<p>当然Arrow functions并不是全能的，在一些特别的场景下并不十分适用，最为典型的是Arrow functions无法提供函数名称，因此做递归并不方便。虽然可以使用<a href="http://en.wikipedia.org/wiki/Y_combinator" target="_blank" rel="external">Y combinator</a>来实现函数式的递归，但其可读性会有比较大的损失。</p>
+<p>配合后文会提到的对象字面量增强，现在我们定义方法/函数会有多种方式，建议执行以下规范：</p>
+<ul>
+<li><p>所有的Arrow functions的参数均使用括号<code>()</code>包裹，即便只有一个参数：</p>
+<pre><code>// Good
+let foo = (x) =&gt; x + 1;
+
+// Bad
+let foo = x =&gt; x + 1;</code></pre></li>
+<li><p>定义函数尽量使用Arrow functions，而不是<code>function</code>关键字：</p>
+<pre><code>// Good
+let foo = () =&gt; {
+    // code
+};
+
+// Bad
+function foo() {
+    // code
+}
+
+// Bad
+let foo = function () {
+    // code
+}</code></pre>
+<p>除非当前场景不合适使用Arrow functions，如函数表达式需要自递归、需要运行时可变的<code>this</code>对象等。</p></li>
+<li><p>对于对象、类中的方法，使用增强的对象字面量：</p>
+<pre><code>// Good
+let foo = {
+    bar() {
+        // code
+    }
+};
+
+// Bad
+let foo = {
+    bar: () =&gt; {
+        // code
+    }
+};
+
+// Bad
+let foo = {
+    bar: function () {
+        // code
+    }
+};</code></pre></li>
+</ul>
+<h3 id="增强的对象字面量">增强的对象字面量</h3>
+<p>对象字面量的增强主要体现在3个方面：</p>
+<h4 id="可在对象中直接定义方法">可在对象中直接定义方法</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = &#123;</span><br><span class="line">    bar() &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我们<strong>推荐使用</strong>这种方式定义方法。</p>
+<h4 id="可使用通过计算得出的键值">可使用通过计算得出的键值</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> MY_KEY = <span class="string">'bar'</span>;</span><br><span class="line"><span class="keyword">let</span> foo = &#123;</span><br><span class="line">    [MY_KEY + <span class="string">'Hash'</span>]: <span class="number">123</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我们<strong>推荐在需要的时候使用计算得出的键值</strong>，以便在一个语句中完成整个对象的声明。</p>
+<h4 id="与当前scope中同名变量的简写">与当前Scope中同名变量的简写</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> bar = <span class="string">'bar'</span>;</span><br><span class="line"><span class="keyword">let</span> foo = &#123;</span><br><span class="line">    bar <span class="comment">// 相当于bar: bar</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我们<strong>并不推荐</strong>这样的用法，这对可读性并没有什么帮助。</p>
+<h3 id="模板字符串">模板字符串</h3>
+<p>模板字符串的主要作用有2个：</p>
+<h3 id="多行字符串">多行字符串</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> html =</span><br><span class="line">`&lt;div&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span>`</span></span><br></pre></td></tr></table></figure>
+<p>从上面的代码中可以看出，实际使用多行字符串时，对齐是个比较麻烦的事。如果<code>let html</code>这一行本身又有缩进，那么会让代码更为难受一些。</p>
+<p>因此我们<strong>不推荐使用多行字符串</strong>，必要时还是可以使用数组和<code>join('')</code>配合，而生成HTML的场景我们应该尽量使用模板引擎。</p>
+<h4 id="字符串变量替换">字符串变量替换</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> message = `Hello $&#123;name&#125;, it<span class="string">'s $&#123;time&#125; now`;</span></span><br></pre></td></tr></table></figure>
+<p>这是一个非常方便的功能，我们<strong>鼓励使用</strong>。但需要注意这些变量并不会被HTML转义，所以在需要HTML转义的场景，还是乖乖使用模板引擎或者其它的模板函数。</p>
+<h3 id="解构">解构</h3>
+<p>解构（原谅我没什么好的翻译）是个比较复杂的语法，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [foo, bar] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> &#123;id, name, children&#125; = getTreeRoot();</span><br></pre></td></tr></table></figure>
+<p>还可以有更复杂的，具体可以参考<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="external">MDN的文档</a>。</p>
+<p>对于这样一个复杂且多变的语法，我们要有选择地使用，建议遵循以下原则：</p>
+<ul>
+<li>不要一次通过解构定义过多的变量，建议不要超过5个。</li>
+<li>谨慎在解构中使用“剩余”功能，即<code>let [foo, bar, ...rest] = getValue()</code>这种方式。</li>
+<li>不要在对象解构中使用过深层级，建议不要超过2层。</li>
+</ul>
+<h3 id="函数参数增强">函数参数增强</h3>
+<p>ES6为函数参数提供了默认值、剩余参数等功能，同时在调用函数时允许将数组展开为参数，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = (x = <span class="number">1</span>) =&gt; x + <span class="number">1</span>;</span><br><span class="line">foo(); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> extend = (source, ...args) =&gt; &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> target <span class="keyword">in</span> args) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> name <span class="keyword">in</span> <span class="built_in">Object</span>.keys(target) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!source.hasOwnProperty(name) &#123;</span><br><span class="line">                source[name] = target[name];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> extensions = [</span><br><span class="line">    &#123;name: <span class="string">'Zhang'</span>&#125;,</span><br><span class="line">    &#123;age: <span class="number">17</span>&#125;,</span><br><span class="line">    &#123;work: <span class="string">'hard'</span>&#125;</span><br><span class="line">];</span><br><span class="line">extend(&#123;&#125;, ...extensions);</span><br></pre></td></tr></table></figure>
+<p>我们<strong>鼓励使用这些特性让函数的声明和调用变得更为简洁</strong>，但有一些细节需要注意：</p>
+<ul>
+<li>在使用默认参数时，如果参数默认值是固定且不会修改的，建议使用一个常量来作为默认值，避免每一次生成的开销。</li>
+<li>不要对<code>arguments</code>对象使用展开运算，这不是一个数组。</li>
+</ul>
+<h2 id="关键字类">关键字类</h2>
+<h3 id="let和const">let和const</h3>
+<p>这是2个用来定义变量的关键字，众所周知的，<code>let</code>表示块作用域的变量，而<code>const</code>表示常量。</p>
+<p>需要注意的是，<code>const</code>仅表示这个变量不能被再将赋值，但并不表示变量是对象、数组时其内容不能改变。如果需要一个不能改变内容的对象、数组，使用<code>Object.freeze</code>方法定义一个真正的常量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> DEFAULT_OPTIONS = <span class="built_in">Object</span>.freeze(&#123;id: <span class="number">0</span>, name: <span class="string">'unknown'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>不过如果你在程序中能控制不修改对象的话，这并不具备什么意义，<code>Object.freeze</code>是否会引起执行引擎的进一步优化也尚未得到证实。</p>
+<p>我们<strong>推荐使用<code>let</code>全面替代<code>var</code></strong>。同时<strong>建议仅在逻辑上是常量的情况下使用<code>const</code></strong>，不要任何不会被二次赋值的场景均使用<code>const</code>。</p>
+<h3 id="迭代器和for..of">迭代器和for..of</h3>
+<p>迭代器是个好东西，至少我们可以很简单地遍历数组了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> array) &#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是迭代器本身存在一些细微的缺点：</p>
+<ul>
+<li>性能稍微差了一些，对于数组来说大致与<code>Array.prototype.forEach</code>相当，比不过原生的<code>for</code>循环。</li>
+<li>不能在循环体中得到索引<code>i</code>的值，因此如果需要索引则只能用原生的<code>for</code>循环。</li>
+<li>判断一个对象是否可迭代比较烦人，没有原生方法提供，需要自行使用<code>typeof o[Symbol.iterator] === 'function'</code>判断。</li>
+</ul>
+<p>对于迭代器，我们<strong>鼓励使用并代替原生<code>for</code>循环</strong>，且推荐关注以下原则：</p>
+<ul>
+<li>对于仅一个语句的循环操作，建议使用<code>forEach</code>方法，配合Arrow functions可非常简单地在一行写下循环逻辑。</li>
+<li>对于多个语句的循环操作，建议使用<code>for..of</code>循环。</li>
+<li>对于循环的场景，需要注意非数组但可迭代的对象，如<code>Map</code>和<code>Set</code>等，因此除<code>arguments</code>这类对象外，均建议直接判断是否可迭代，而不是<code>length</code>属性。</li>
+</ul>
+<h3 id="生成器">生成器</h3>
+<p>生成器（Generators）也是一个比较复杂的功能，具体可以参考<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*" target="_blank" rel="external">MDN的文档</a>。</p>
+<p>对于生成器，我的建议是<strong>非常谨慎地使用</strong>，理由如下：</p>
+<ul>
+<li>生成器不是用来写异步的，虽然他确实有这样一个效果，但这仅仅是一种Hack。异步在未来一定是属于<code>async</code>和<code>await</code>这两个关键字的，但太多人眼里生成器就是写异步用的，这会导致滥用。</li>
+<li>生成器经过Babel转换后生成的代码较多，同时还需要<code>generatorsRuntime</code>库的支持，成本较高。</li>
+<li>我们实际写应用的大部分场景下暂时用不到。</li>
+</ul>
+<p>生成器最典型的应用可以参考<a href="https://msdn.microsoft.com/en-us/library/bb397926.aspx" target="_blank" rel="external">C#的LINQ</a>获取一些经验，将对一个数组的多次操作合并为一个循环是其最大的贡献。</p>
+<h3 id="模块和模块加载器">模块和模块加载器</h3>
+<p>ES6终于在语言层面上定义了模块的语法，但这并不代表我们现在可以使用ES6的模块，因为实际在ES6定稿的时候，它把模块加载器的规范给移除了。因此我们现在有的仅仅是一个模块的<code>import</code>和<code>export</code>语法，但具体如“模块名如何对应到URL”、“如何异步/同步加载模块”、“如何按需加载模块”等这些均没有明确的定义。</p>
+<p>因此，在模块这一块，我们的建议是<strong>使用标准语法书写模块，但使用AMD作为运行时模块解决方案</strong>，其特点有：</p>
+<ul>
+<li>保持使用<code>import</code>和<code>export</code>进行模块的引入和定义，可以安全地使用命名<code>export</code>和默认<code>export</code>。</li>
+<li>在使用Babel转换时，配置<code>modules: 'amd'</code>转换为AMD的模块定义。</li>
+<li>假定模块的URL解析是AMD的标准，<code>import</code>对应的模块名均以AMD标准书写。</li>
+<li>不要依赖<code>SystemJS</code>这样的ES6模块加载器。</li>
+</ul>
+<p>这虽然很可能导致真正模块加载器规范定型后，我们的<code>import</code>模块路径是不规范的。但出于ES6的模块不配合HTTP/2简直没法完的考虑，AMD一定很长一段时间内持续存在，我们的应用基本上都是等不到HTTP/2实际可用的日子的，所以无需担心。</p>
+<h2 id="类型增强类">类型增强类</h2>
+<h3 id="unicode支持">Unicode支持</h3>
+<p>这个东西基本没什么影响，我们很少遇到这些情况且已经习惯了这些情况，所以可以认为这个特性不存在而继续开发。</p>
+<h3 id="map和set">Map和Set</h3>
+<p>两个非常有用的类型，但对不少开发者来说，会困惑于其跟普通对象的区别，毕竟我们已经拿普通对象当<code>Map</code>和<code>Set</code>玩了这么多年了，也很少自己写一个类型出来。</p>
+<p>对于此，我们的建议是：</p>
+<ul>
+<li>当你的元素或者键值有可能不是字符串时，无条件地使用<code>Map</code>和<code>Set</code>。</li>
+<li>有移除操作的需求时，使用<code>Map</code>和<code>Set</code>。</li>
+<li>当仅需要一个不可重复的集合时，使用<code>Set</code>优先于普通对象，而不要使用<code>{foo: true}</code>这样的对象。</li>
+<li>当需要遍历功能时，使用<code>Map</code>和<code>Set</code>，因为其可以简单地使用<code>for..of</code>进行遍历。</li>
+</ul>
+<p>因此，事实上仅有一种情况我们会使用普通的对象，即使用普通对象来表达一个仅有增量<code>Map</code>，且这个<code>Map</code>的键值是字符串。</p>
+<p>另外，<code>WeakMap</code>和<code>WeakSet</code>是没有办法模拟实现的，因此<strong>不要使用</strong>。</p>
+<h3 id="proxy">Proxy</h3>
+<p>这不是一个可以模拟实现的功能，没法用，因此<strong>不要使用Proxy</strong>。</p>
+<h3 id="symbol">Symbol</h3>
+<p><code>Symbol</code>最简单的解释是“可用于键值的对象”，最大的用处可能就是用来定义一些私有属性了。</p>
+<p>我们建议<strong>谨慎使用<code>Symbol</code></strong>，如果你使用它来定义私有属性，那么请保持整个项目内是一致的，不要混用<code>Symbol</code>和闭包定义私有属性等手段。</p>
+<h3 id="可继承的内置类型">可继承的内置类型</h3>
+<p>按照ES6的规范，内置类型如<code>Array</code>、<code>Function</code>、<code>Date</code>等都是可以继承且没有什么坑的。但是我们的代码要跑在ES3-5的环境下，显然这一特性是不能享受的。</p>
+<h3 id="promise">Promise</h3>
+<p>这个真没什么好说的，即便不是ES6，我们也已经满地用着<code>Promise</code>了。</p>
+<p>建议<strong>所有异步均使用Promise实现</strong>，以便在未来享受<code>async</code>和<code>await</code>关键字带来的便携性。</p>
+<p>另外，虽然Babel可以转换<code>async</code>和<code>await</code>的代码，但<strong>不建议使用</strong>，因为转换出来的代码比较繁琐，且依赖于<code>generatorsRuntime</code>。</p>
+<h3 id="各内置类型的方法增强">各内置类型的方法增强</h3>
+<p>如<code>Array.from</code>、<code>String.prototype.repeat</code>等，这些方法都可以通过shim库支持，因此放心使用即可。</p>
+<h3 id="二进制和八进制数字字面量">二进制和八进制数字字面量</h3>
+<p>这个特性基本上是留给算法一族用的，因此我们的建议是<strong>除非数字本身在二/八进制下才有含义，否则不要使用</strong>。</p>
+<h3 id="反射api">反射API</h3>
+<p><code>Reflect</code>对象是ES6提供的反射对象，但其实没有什么方法是必要的。</p>
+<p>其中的<code>delete(name)</code>和<code>has(name)</code>方法相当于<code>delete</code>和<code>in</code>运算符，而<code>defineProperty</code>等在<code>Object</code>上本身就有一套了，因此<strong>不建议使用该对象</strong>。</p>
+<h3 id="尾递归">尾递归</h3>
+<p>当作不存在就好了……</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/hardware-accelerated-css-the-nice-vs-the-naughty/" class="article-prev">前一篇: CSS硬件加速的好与坏</a>
+    
+    
+    <a href="/blog/use-fonteditor-to-build-webfont/" class="article-next">后一篇: 使用FontEditor创建web字体图标</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/es6-develop-overview/" data-title="使用ES6进行开发的思考" data-url="http://efe.baidu.com/blog/es6-develop-overview/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

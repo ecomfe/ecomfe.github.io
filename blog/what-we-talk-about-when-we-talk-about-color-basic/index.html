@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>当我们谈论颜色时，我们在谈论什么 - 基础知识篇 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>当我们谈论颜色时，我们在谈论什么 - 基础知识篇</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/firede" title="Firede">Firede</a>
+    
+</span>
+
+        <time datetime="2015-04-28T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-04-29</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/color/">color</a>, <a href="/tags/前端设计感/">前端设计感</a>, <a href="/tags/用户体验/">用户体验</a></span>
+
+
+    </div>
+
+    
+        <div class="figure">
+<img src="/blog/what-we-talk-about-when-we-talk-about-color-basic/cover.png">
+</div>
+<p>谈到 <strong>颜色</strong>，前端工程师首先想起的便是基于 RGB 的 16 进制颜色代码，这也是我们工作中最常用到的 <strong>数值表示</strong> 方式。但是当我们的谈话再深入一些，话题远不止这些：</p>
+<blockquote>
+<p>前端：「我在 hackathon 时做了个网站，配色怎么看都丑，你帮我看看？」<br>设计：「这俩颜色不搭，光晕现象都出来了，还有把这里的饱和度调低一点，亮度调高一点。」<br>前端：「……」（你™在说什么！）</p>
+</blockquote>
+<p>这时你应该去向设计小伙伴要最熟悉的 16 进制颜色代码了，但被抱怨缺乏 <strong>设计感</strong> 的挫折还是有一点的。</p>
+<p>想要和小伙伴愉快的交流下去，我们要了解颜色的「基础知识」，还要对「色彩空间」、「颜色搭配」、「颜色与情感」等各个方面都有些了解。<del>作为一个边看书边查百科的伪设计师，</del> 我想通过这个系列与大家一起从 <strong>颜色</strong> 开始，培养点 <strong>设计感</strong>。</p>
+<p>本篇我们一起复习一下基础知识。</p>
+<a id="more"></a>
+<h2 id="原理">原理</h2>
+<p>我们在中学的 <strong>物理</strong> 课上学过，颜色本质上是特定范围的 <a href="http://zh.wikipedia.org/wiki/电磁波" target="_blank" rel="external">电磁波</a>（如下图<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>）。</p>
+<div class="figure">
+<img src="/blog/what-we-talk-about-when-we-talk-about-color-basic/spectrum.png" alt="我们看到的色彩，是电磁波谱的一小部分"><p class="caption">我们看到的色彩，是电磁波谱的一小部分</p>
+</div>
+<p>但从 <strong>生理</strong> 来看，人们能看到颜色，是因为人类每只眼球视网膜大约有 600-700 万的 <a href="http://en.wikipedia.org/wiki/Cone_cell" target="_blank" rel="external">视锥细胞</a>，他们是处理可见光谱颜色的 <strong>感光器</strong><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。 人类的视锥细胞有三种，分别是 <strong>短波（S 或蓝色）视锥细胞</strong>、<strong>中波（M 或绿色）视锥细胞</strong>、<strong>长波（L 或红色）视锥细胞</strong>；这些视锥细胞响应的组合，让我们能够分辨出大约一千万种颜色。</p>
+<h2 id="无障碍">无障碍</h2>
+<p>我们能够看到色彩，是我们的 <em>身体硬件</em> 附带了相应功能的 <em>传感器</em>。其他生物与我们的 <em>硬件构造</em> 不同，看到的世界也是不同的，比如：大多数哺乳动物只有两种感光器，许多鸟类与有袋动物有四种感光器。</p>
+<p>人类对颜色的感受也存在 <strong>较大</strong> 的 <strong>个体差异</strong>，根据网上的公开数据，色盲和色弱在人群中占有很大比率：</p>
+<blockquote>
+<p>红绿色盲人口占全球男性人口约 8%，女性人口约 0.5%，他们能看到多种颜色，但是会混淆识别某些颜色，尤其是红色与绿色。 另外全球约6%人口为三色视觉(色弱)，约 2% 人口为二色视觉(色盲)，极少数为单色视觉(全色盲)。</p>
+<p>–维基百科<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+</blockquote>
+<div class="figure">
+<img src="/blog/what-we-talk-about-when-we-talk-about-color-basic/colorblind.png" alt="红、绿、蓝、黑 在人们眼中的样子"><p class="caption">红、绿、蓝、黑 在人们眼中的样子</p>
+</div>
+<p>所以我们在做 <strong>无障碍</strong> 产品的时候请将 <strong>色彩</strong> 的 <strong>可用性</strong> 也纳入考虑范围（比如数据可视化的色彩搭配）。<br>这里推荐一个叫做 <a href="https://chrome.google.com/webstore/detail/colorblinding/dgbgleaofjainknadoffbjkclicbbgaa" target="_blank" rel="external">Colorblinding</a> 的 Chrome 插件，你可以看看自己的作品，在 <strong>8%+ 的用户</strong> 眼中是什么样子的。</p>
+<h2 id="原色">原色</h2>
+<p>我们知道，<strong>原色</strong> 是指不能透过其他颜色的混合调配而得出的 <strong>基本色</strong>。<br><strong>原色</strong> 是个生物学的概念，所以我们看到 <strong>三原色</strong> 与我们三种类型的视锥细胞是基本吻合的。</p>
+<p>有的同学会有疑惑，我小学美术老师教的三原色是 <strong>红</strong>、<strong>黄</strong>、<strong>蓝</strong> 又是怎么回事儿呢？<br>这得从 <strong>反射色</strong> 与 <strong>透过色</strong> 之间，不同的混色原理说起。</p>
+<hr>
+<p>以 <strong>反射光源</strong> 或 <strong>颜料着色</strong> 时使用的色彩，属于 <strong>消减型</strong> 的原色系统。</p>
+<p>我们身边的物体大多数都无法自行发光，必须借助光源的 <strong>反射</strong> 才能被看见。 当光源照射物体时，对物体而言，可分为被吸收的波长与反射的波长，反射后的波长即是我们所看到的颜色。</p>
+<p>CMYK（印刷四分色模式）是彩色印刷时采用的一种套色模式，它利用色料的 <strong>减色混合法</strong> 原理，加上黑色油墨<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>，共计四种颜色叠加，形成所谓 <strong>全彩印刷</strong>。 四种标准颜色是 <strong>青色（Cyan）</strong>、<strong>品红色（Magenta）</strong>、<strong>黄色（Yellow）</strong> 和 <strong>黑色（blacK）</strong>。</p>
+<div class="figure">
+<img src="/blog/what-we-talk-about-when-we-talk-about-color-basic/subtractive-primaries.png" alt="消减型原色系统"><p class="caption">消减型原色系统</p>
+</div>
+<p>对前端来说，我们的主要产出是用各种屏幕来展示的，CYMK 和我们关系不大，就不展开了。</p>
+<hr>
+<p>以 <strong>光源投射</strong> 时使用的色彩，属于 <strong>叠加型</strong> 的原色系统。</p>
+<p>此系统中包含了 <strong>红</strong>、<strong>绿</strong>、<strong>蓝</strong> 三种原色，使用这三种原色可以产生其他颜色，例如红色与绿色混合可以产生黄色或橙色，绿色与蓝色混合可以产生青色，蓝色与红色混合可以产生紫色或品红色。 当这三种原色以等比例叠加在一起时，会变成灰色；若将此三原色的强度均调至最大并且等量重叠时，则会呈现白色。这套原色系统常被称为「RGB 色彩空间」。<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<div class="figure">
+<img src="/blog/what-we-talk-about-when-we-talk-about-color-basic/additive-primaries.png" alt="叠加型原色系统"><p class="caption">叠加型原色系统</p>
+</div>
+<p>电视、显示器、手机屏幕都是基于 <strong>RGB 色彩模型</strong> 来运转的，所以我们用 <code>RGB</code> 来表述颜色是最贴近硬件的方式。</p>
+<p>很显然，作为前端的你已经非常熟悉 RGB 了。<br>你经常通过调整 <code>#RRGGBB</code> 中代表 红、绿、蓝 的值，调整设计细节；<br>你看到一个颜色的 HEX 代码就能够想象出它偏向哪种色彩，颜色是深是浅。<br>所以我也没必要再啰嗦一遍，耽误你们的时间。</p>
+<h2 id="这些我都知道了然后呢">这些我都知道了，然后呢？</h2>
+<p>用 <strong>RGB 色彩空间</strong> 调整颜色是让你 <strong>像显示器一样思考</strong>，或者 <strong>不思考</strong> 直接拿来用。</p>
+<p>但我们设计时需要的是符合 <strong>语义</strong> 的、像人类一样思考的 <strong>色彩空间</strong>，比如：</p>
+<ul>
+<li>孟塞尔色彩空间 (HVC)：拥有一百多年历史，至今仍被广泛使用的系统</li>
+<li>HSB (HSV)：各种图形应用程序中最常用的色彩空间</li>
+<li>HSL：从 <a href="http://www.w3.org/TR/css3-color/#hsl-color" target="_blank" rel="external">CSS Color Module Level 3</a> 起支持的色彩空间</li>
+<li>HWB：在 <a href="http://dev.w3.org/csswg/css-color/#the-hwb-notation" target="_blank" rel="external">CSS Color Module Level 4</a> 中将要支持的色彩空间</li>
+<li>HuSL 与 HuSLp：改进了 HSL 的缺陷，用户友好的色彩空间</li>
+</ul>
+<p>上面这些内容我会在 <del>作者不忙的时候再写</del> 的本系列下一篇「色彩空间」中向大家介绍，本篇就到这里 <del>，因为听说博客太长没人看</del>。</p>
+<p>最后，推荐一下 <a href="http://weibo.com/justineo" target="_blank" rel="external">Justineo</a> 同学写的颜色操作库 <a href="http://justineo.github.io/kolor/" target="_blank" rel="external">Kolor</a>，据说读懂源码看 <strong>下一篇</strong> 就会很轻松，路过就顺手给个 <strong>star</strong> 呗：</p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Justineo&amp;repo=kolor&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="170px" height="20px">
+</iframe>
+<h2 id="书目">书目</h2>
+<p>以下是本系列博客的主要参考的书目，以及我根据 <strong>主观印象</strong> 给的评分，供参考。</p>
+<ul>
+<li><a href="http://dwz.cn/hacker-design" target="_blank" rel="external">黑客与设计：剖析设计之美的秘密</a>，评分：★★★★★，作者：[美] David Kadavy，ISBN：9787115345370</li>
+<li><a href="http://dwz.cn/color-design" target="_blank" rel="external">色彩设计的原理</a>，评分：★★★★★，作者：[日] 伊达千代，ISBN：9787508629902</li>
+<li><a href="http://dwz.cn/interaction-of-color" target="_blank" rel="external">色彩构成</a>，评分：★★★★☆，作者：[美] Josef Albers，ISBN：9787562463450</li>
+<li><a href="http://dwz.cn/color-schemes" target="_blank" rel="external">配色设计原理</a>，评分：★★★☆☆，作者：[日] 奥博斯科编辑部，ISBN：9787500690351</li>
+</ul>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>可见光谱在电磁波中的范围，原作者：<a href="http://en.wikipedia.org/wiki/File:EM_spectrum.svg" target="_blank" rel="external">Philip Ronan</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>视细胞中还有一种 <a href="http://en.wikipedia.org/wiki/Rod_cell" target="_blank" rel="external">视杆细胞</a>，他们在黑暗条件下比较敏感，但几乎不参与对颜色的处理。<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>来自维基百科「色盲」词条：<a href="http://zh.wikipedia.org/wiki/色盲" class="uri" target="_blank" rel="external">http://zh.wikipedia.org/wiki/色盲</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>理论上只用上述三种颜色能够混合成黑色，但实际印刷时三种颜色的相加只能形成一种深灰色或深褐色。<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>来自维基百科「原色」词条：<a href="http://zh.wikipedia.org/wiki/原色" class="uri" target="_blank" rel="external">http://zh.wikipedia.org/wiki/原色</a><a href="#fnref5">↩</a></p></li>
+</ol>
+</div>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/echarts-2.2.2/" class="article-prev">前一篇: ECharts 发布 2.2.2</a>
+    
+    
+    <a href="/blog/fontmin-getting-started/" class="article-next">后一篇: Fontmin 快速指南</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/what-we-talk-about-when-we-talk-about-color-basic/" data-title="当我们谈论颜色时，我们在谈论什么 - 基础知识篇" data-url="http://efe.baidu.com/blog/what-we-talk-about-when-we-talk-about-color-basic/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

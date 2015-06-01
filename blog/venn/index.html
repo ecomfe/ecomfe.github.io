@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>使用逼近算法生成韦恩图的探究与经验 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>使用逼近算法生成韦恩图的探究与经验</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/loutongbing" title="loutongbing">loutongbing</a>
+    
+</span>
+
+        <time datetime="2015-01-26T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-01-27</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/ECharts/">ECharts</a>, <a href="/tags/venn/">venn</a>, <a href="/tags/数据可视化/">数据可视化</a></span>
+
+
+    </div>
+
+    
+        <p>维恩图（venn），也叫文氏图，用于显示元素集合重叠区域的图示。我们准备在echarts中提供这类图表。第一期支持两个集合的韦恩图，后期准备支持三个集合乃至多个集合的韦恩图</p>
+<h3 id="准备">准备</h3>
+<p>使用zrender框架，画出两个circle使之重叠，即可产生一个韦恩图。但是，互相重叠的部分会相互遮挡，（如下图）解决方案是对每个circle都调整透明度至50%。</p>
+<div class="figure">
+<img src="/blog/venn/img/opacity.png" alt="venn 透明度"><p class="caption">venn 透明度</p>
+</div>
+<a id="more"></a>
+<h3 id="确定位置">确定位置</h3>
+<p>下面最困难的就是在确定一个圆的位置的情况下，根据两个集合的大小与交集的大小，确定第二个圆的位置。对于这一点，我进行了几个尝试。</p>
+<h4 id="尝试一估值">尝试一————估值</h4>
+<p>由于韦恩图本身可以看做一个非精确图标。所以，猜测了一个值。即两个圆心的距离的表达式是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> coincideLengthAnchor = ((r0 + r1) / <span class="number">2</span>) * <span class="built_in">Math</span>.sqrt(data[<span class="number">2</span>].value) / <span class="built_in">Math</span>.sqrt((data[<span class="number">0</span>].value + data[<span class="number">1</span>].value) / <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>两个圆心的距离与两圆半径均值之比等于交集与两集合均值的开方之比。 但我们知道，同等半径、边长等情况下，圆的面积最大。所以这种方法计算的距离是偏小的，公共面积是偏大的。 而且当一个集合为另一个的子集时，误差过大。（如下图）</p>
+<div class="figure">
+<img src="/blog/venn/img/guess.png" alt="venn 子集不精确"><p class="caption">venn 子集不精确</p>
+</div>
+<h4 id="尝试二计算">尝试二————计算</h4>
+<p>既然估计是不可行的，那么我就采取计算的方法。凭借我深（xue）厚（zha）的数学功底，应该能算出来圆心的距离。 省略1w字。 然后我确定我是计算不出来的。此方法也是不可行的。</p>
+<h4 id="尝试三逼近算法">尝试三————逼近算法</h4>
+<p>在网上进行了一系列的调研，我发现在尝试二中，我犯了一个计算机专业大一学渣都不应该犯的一个错误。就是一直使用高中数学的思维来解决问题，而没有用计算机思维。所谓计算机思维我认为核心有两点：</p>
+<ol style="list-style-type: decimal">
+<li>计算机性能优越，可以短时间计算大规模的数据</li>
+<li>计算机允许计算无数次（递归思想）</li>
+</ol>
+<p>所以调研发现，诸如d3等支持维恩图的图表框架，都使用了逼近算法来计算。也就是带进去一个值去计算，不对了就换个值再计算一遍。</p>
+<h3 id="逼近算法">逼近算法</h3>
+<p>这里就是猜测一个coincideLength，代入计算出公共面积，然后与实际公共面积进行比较。在一定的可接受的精度内，得到coincideLength。否则，对coincideLength调整，递归代入，直至在一定的可接受的精度内，递归结束。</p>
+<p>于是，开始编写代码。在此过程中遇到了若干问题。</p>
+<h4 id="问题一对coincidelength调整调整不力">问题一————对coincideLength调整调整不力</h4>
+<p>先设定一个coincideLength的锚定，coincideLengthAnchor。</p>
+<p>当coincideLengthAnchor过小，需要增大时，我使用了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> coincideLengthAnchor = (coincideLengthAnchor + r0 + r1) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>当coincideLengthAnchor过大，需要减小时，我使用了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coincideLengthAnchor = <span class="built_in">Math</span>.abs(coincideLengthAnchor - <span class="built_in">Math</span>.abs(r0 - r1)) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>我理解的是，距离最大值就是两圆外切也就是r0 + r1；距离最小时就是两圆内切也就是Math.abs(r0 - r1)。 想法很好。当然大牛的你们也发现问题了。这样做会造成数值抖动。最后报too much recursion算是好的。我才不会乱说我把浏览器不知道卡死了多少次呢。</p>
+<p>所以要对每次的边界值做出相应的调整，这样递归函数增加两个参数，coincideLengthAnchorMin, coincideLengthAnchorMax。然后每次以二分法调整步调</p>
+<p>当coincideLengthAnchor过小，下次递归的下限就是这次的锚定值，同时调整步调</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">coincideLengthAnchorMin = coincideLengthAnchor;</span><br><span class="line">coincideLengthAnchor = (coincideLengthAnchor + coincideLengthAnchorMax) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>当coincideLengthAnchor过大，下次递归的上限就是这次的锚定值，同时调整步调</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">coincideLengthAnchorMax = coincideLengthAnchor;</span><br><span class="line">coincideLengthAnchor = (coincideLengthAnchor + coincideLengthAnchorMin) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="问题一精度调整">问题一————精度调整</h4>
+<p>上面也说到了。递归最后的coincideLength不可能百分比精确。那么我使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算的公共面积 (思路是扇形减三角形)</span></span><br><span class="line"><span class="keyword">var</span> area2 = alfa * r0 * r0 - x * r0 * <span class="built_in">Math</span>.sin(alfa) + beta * r1 * r1 - y * r1 * <span class="built_in">Math</span>.sin(beta);</span><br><span class="line"><span class="keyword">var</span> scaleAnchor = area2 / area0;</span><br><span class="line"><span class="keyword">var</span> scale = value2 / value0;</span><br><span class="line"><span class="keyword">var</span> approximateValue = <span class="built_in">Math</span>.abs(scaleAnchor / scale);</span><br></pre></td></tr></table></figure>
+<p>scaleAnchor为计算的公共面积比第一个圆的面积。 scale为实际的公共面积比第一个圆的面积。 approximateValue就为精度。</p>
+<p>开始时我把精度设为下限0.9上限1.1。得到的图基本正确，但是在两圆内切的特殊情况下就杯具了：</p>
+<div class="figure">
+<img src="/blog/venn/img/previous_low.png" alt="venn 精度过低"><p class="caption">venn 精度过低</p>
+</div>
+<p>那我为什么不把精度调整的特别高呢？我们知道二分法计算，“一尺之棰，日取其半，万事不竭”。精度过高，特别是数值特别大的时候，计算的速度又会特别慢。</p>
+<div class="figure">
+<img src="/blog/venn/img/previous_high.jpg" alt="venn 极限"><p class="caption">venn 极限</p>
+</div>
+<p>所以，我调整精度为下限0.999上限1.001。</p>
+<h3 id="结论">结论</h3>
+<p>完整递归函数： <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">_getCoincideLength: <span class="function"><span class="keyword">function</span> <span class="params">(</span><br><span class="line">    value0,</span><br><span class="line">    value1,</span><br><span class="line">    value2,</span><br><span class="line">    r0,</span><br><span class="line">    r1,</span><br><span class="line">    coincideLengthAnchor,</span><br><span class="line">    coincideLengthAnchorMin,</span><br><span class="line">    coincideLengthAnchorMax</span><br><span class="line">)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 计算</span></span><br><span class="line">    <span class="keyword">var</span> x = (r0 * r0 - r1 * r1) / (<span class="number">2</span> * coincideLengthAnchor) + coincideLengthAnchor / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">var</span> y = coincideLengthAnchor / <span class="number">2</span> - (r0 * r0 - r1 * r1) / (<span class="number">2</span> * coincideLengthAnchor);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 夹角</span></span><br><span class="line">    <span class="keyword">var</span> alfa = <span class="built_in">Math</span>.acos(x / r0);</span><br><span class="line">    <span class="keyword">var</span> beta = <span class="built_in">Math</span>.acos(y / r1);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 第一个圆的面积</span></span><br><span class="line">    <span class="keyword">var</span> area0 = r0 * r0 * <span class="built_in">Math</span>.PI;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 计算的公共面积 (思路是扇形减三角形)</span></span><br><span class="line">    <span class="keyword">var</span> area2 = alfa * r0 * r0 - x * r0 * <span class="built_in">Math</span>.sin(alfa) + beta * r1 * r1 - y * r1 * <span class="built_in">Math</span>.sin(beta);</span><br><span class="line">    <span class="keyword">var</span> scaleAnchor = area2 / area0;</span><br><span class="line">    <span class="keyword">var</span> scale = value2 / value0;</span><br><span class="line">    <span class="keyword">var</span> approximateValue = <span class="built_in">Math</span>.abs(scaleAnchor / scale);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (approximateValue &gt; <span class="number">0.999</span> &amp;&amp; approximateValue &lt; <span class="number">1.001</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> coincideLengthAnchor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若是公共面积比较小，使距离减小一些，让公共面积增大</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (approximateValue &lt;= <span class="number">0.999</span>) &#123;</span><br><span class="line">        coincideLengthAnchorMax = coincideLengthAnchor;</span><br><span class="line">        <span class="comment">// 二分法计算新的步调</span></span><br><span class="line">        coincideLengthAnchor = (coincideLengthAnchor + coincideLengthAnchorMin) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若是公共面积比较大，使距离增大一些，让公共面积减小</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        coincideLengthAnchorMin = coincideLengthAnchor;</span><br><span class="line">        coincideLengthAnchor = (coincideLengthAnchor + coincideLengthAnchorMax) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._getCoincideLength(</span><br><span class="line">        value0,</span><br><span class="line">        value1,</span><br><span class="line">        value2,</span><br><span class="line">        r0,</span><br><span class="line">        r1,</span><br><span class="line">        coincideLengthAnchor,</span><br><span class="line">        coincideLengthAnchorMin,</span><br><span class="line">        coincideLengthAnchorMax</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这篇文章，并没有多么高深的技术。就是想分享一下，在遇到一个问题的探究过程中，碰到的有趣的经历与总结的一些经验。 这些经历与经验如果能给读者在以后的工作中贡献绵薄，我也就十分欣慰了。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/echarts-x-0.1/" class="article-prev">前一篇: ECharts-X 发布 0.1</a>
+    
+    
+    <a href="/blog/isomorphic/" class="article-next">后一篇: 可伸缩的同构Javascript代码</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/venn/" data-title="使用逼近算法生成韦恩图的探究与经验" data-url="http://efe.baidu.com/blog/venn/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>使用FontEditor创建web字体图标 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>使用FontEditor创建web字体图标</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://www.mkwiser.com/" title="mkwiser">mkwiser</a>
+    
+</span>
+
+        <time datetime="2015-05-18T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-05-19</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/font/">font</a></span>
+
+
+    </div>
+
+    
+        <p>关于web字体图标，市面上已经有一些好的在线工具来管理和生成，<code>iconfont</code>和<code>icomoon</code>都可以将svg图标转换成font图标以便在网页上使用。但是如果你想要更多：ttf、woff、eot、otf统统拿来用，svg、图片统统可导入，图标效果实时可调整，只需要在线动动鼠标，就可以完成呢。 那就需要一个好用的在线font编辑工具，<strong><a href="http://font.baidu.com/editor/" target="_blank" rel="external">FontEditor</a></strong>，你需要的东西都在这里。</p>
+<a id="more"></a>
+<h3 id="为什么会出现fonteditor">为什么会出现FontEditor</h3>
+<blockquote>
+<p>Everything Happens for a Reason</p>
+</blockquote>
+<p>FontEditor会出现只是因为我比较懒。如果我想用webfont做图标，又不想了解一大堆专业术语，又不想一次一次的导入和导出，又不想一次一次的调整fontsize以适应图标变化，又踏破铁鞋无觅处，那只能自己整一个了。FontEditor是一款<strong>纯前端</strong>字体编辑和管理软件，支持字体项目管理，支持导入ttf、woff、eot、otf格式字体，支持svg和图片导入，支持生成ttf、woff、eot、svg格式字体，支持批量调整字形和单个字形轮廓编辑，支持实时预览，支持实时同步字体到本地。</p>
+<h3 id="如何使用svg制作webfont">如何使用svg制作webfont</h3>
+<p>打开<code>chrome</code>浏览器，输入<a href="http://font.baidu.com/" class="uri" target="_blank" rel="external">http://font.baidu.com/</a>，创建名为<code>fonteditor</code>（看个人喜好）的项目，开始制作字体。</p>
+<div class="figure">
+<img src="/blog/use-fonteditor-to-build-webfont/img/new.png">
+</div>
+<p>在主菜单点击<code>导入-&gt;导入svg</code>按钮，打开文件选择框，拖选svg文件将svg图标导入到主面板；点击主面板<code>设置代码点</code>按钮，批量设置unicode代码点；点击主菜单<code>ttf</code>、<code>woff</code>、<code>zip</code>按钮，导出ttf、woff或其他格式字体；一个webfont制作完成，so easy。 保存项目，点击<code>预览</code>按钮查看图标预览，以及嵌入代码，如果你熟悉这一步，算我没说。</p>
+<div class="figure">
+<img src="/blog/use-fonteditor-to-build-webfont/img/import-svg.png">
+</div>
+<p>其他格式字形的导入，请参考FontEditor帮助文档，simple and stupid。</p>
+<h3 id="如何调整字形">如何调整字形</h3>
+<p>在主面板工具栏点击<code>调整位置</code>和<code>调整字形</code>按钮，对图标进行批量调整，也可以选中单个或多个字形进行单独调整。 这里需要普及一下相关知识： * <strong>左边轴</strong>：字形左边留白 * <strong>右边轴</strong>：字形右边留白，左右留白决定两个字形之间的间距 * <strong>基线</strong>：字体的baseline，对应于css中的<code>baseline</code> * <strong>上下边界</strong>：字体的ascent和descent，对应于css中的<code>text-top</code>和<code>text-bottom</code> * <strong>unicode代码点</strong>：Font Engine根据会代码点查找到相应的字形进行渲染，webfont可以使用私有区域 <code>0xE000</code>~<code>0XF8FF</code> 作为图标的代码点，详情：<a href="http://en.wikipedia.org/wiki/Unicode" target="_blank" rel="external">unicode</a></p>
+<div class="figure">
+<img src="/blog/use-fonteditor-to-build-webfont/img/glyf.png">
+</div>
+<h3 id="如何编辑单个字形">如何编辑单个字形</h3>
+<p>对于webfont，使用FontEditor<strong>调整左右边轴为0，缩放字形到上下边界</strong>，即可满足大部分图标制作需求。如果需要精确调整字形，点击主面板字形上面的<code>铅笔</code>按钮可打开字形编辑面板，对单个字形进行调整： 拖选需要调整的轮廓，点击工具栏中的相关菜单可以对轮廓进行对齐、翻转、镜像、切割、求交、求并等操作，拖拽轮廓边界控制点调整轮廓大小。 双击单个轮廓进入轮廓点编辑模式，拖拽轮廓点改变字形，右键可增加、删除轮廓点，按<code>esc</code>退出轮廓点编辑。 点击工具栏中的<code>保存</code>按钮，保存当前轮廓。 按<code>F2</code>可以去切换<code>打开/关闭</code>字形编辑面板，也可以点击工具栏右侧的<code>退出</code>按钮退出字形编辑。</p>
+<div class="figure">
+<img src="/blog/use-fonteditor-to-build-webfont/img/adjust-contours.png">
+</div>
+<h3 id="如何同步字体到本地">如何同步字体到本地</h3>
+<p>点击主面板工具栏<code>同步字体</code>按钮，设置同步选项。设置接收文件的服务地址，设置字体名称和需要同步的字体类型。在保存项目的时候FontEditor会发送数据到接收地址，然后就需要服务端接收字体数据。 关于如何保存FontEditor发送的字体，查看<a href="https://github.com/ecomfe/fonteditor/blob/master/demo/sync/font.php" target="_blank" rel="external">PHP版同步示例</a>。不会php？算我没说。</p>
+<div class="figure">
+<img src="/blog/use-fonteditor-to-build-webfont/img/sync.png">
+</div>
+<h3 id="脑补">脑补</h3>
+<p>字体相关的文档和技术非常多，多到让人眼花缭乱无所适从，这里只列举了技术相关的文档，其他请自行补脑。</p>
+<ul>
+<li><a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM02/Chap2.html" target="_blank" rel="external">The Font Engine</a> 字体引擎工作原理</li>
+<li><a href="http://www.microsoft.com/typography/otspec/" target="_blank" rel="external">OpenType specification</a> OpenType官方文档</li>
+<li><a href="http://www.w3.org/TR/2012/REC-WOFF-20121213/" target="_blank" rel="external">WOFF Font</a> WOFF字体格式</li>
+<li><a href="http://www.w3.org/TR/SVG11/fonts.html" target="_blank" rel="external">SVG Font</a> SVG字体格式</li>
+</ul>
+<p>想贡献代码？移步这里： <iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=fonteditor&type=fork&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe> 只想点个赞，在这： <iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=fonteditor&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe></p>
+<h3 id="相关项目">相关项目</h3>
+<ul>
+<li><a href="https://github.com/ecomfe/fontmin" target="_blank" rel="external">fontmin</a> 第一个纯 JS 字体解决方案</li>
+<li><a href="https://github.com/kekee000/fonteditor-ttf" target="_blank" rel="external">fonteditor-ttf</a> FontEditor的nodejs版本基础库</li>
+</ul>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/es6-develop-overview/" class="article-prev">前一篇: 使用ES6进行开发的思考</a>
+    
+    
+    <a href="/blog/vim-javascript-completion/" class="article-next">后一篇: VIM的JavaScript补全</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/use-fonteditor-to-build-webfont/" data-title="使用FontEditor创建web字体图标" data-url="http://efe.baidu.com/blog/use-fonteditor-to-build-webfont/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

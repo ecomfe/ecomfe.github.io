@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>PC端大型单页式商业内容管理系统的JS模块化构建探索 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css" type="text/css">
+    <link rel="stylesheet" href="/css/code.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/edp"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(12)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(5)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECMAScript6/">ECMAScript6</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://mweb.baidu.com/">Baidu MWeb</a></dd>
+        <dd><a target="_blank" href="http://labs.music.baidu.com/demo/audiolab/?p=0">Baidu MusicLab</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>PC端大型单页式商业内容管理系统的JS模块化构建探索</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://otakustay.com/" title="otakustay">otakustay</a>
+    
+</span>
+
+        <time datetime="2015-02-12T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-02-13</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/SPA/">SPA</a>, <a href="/tags/构建/">构建</a>, <a href="/tags/模块化/">模块化</a></span>
+
+
+    </div>
+
+    
+        <h3 id="前提">前提</h3>
+<p>为了不被喷得太惨，给标题加了这么多的限制定语也是相当不容易的了。此文讨论的是我所处的环境下对JavaScript构建的一些简单探索，因此有相当多的前提限制。</p>
+<p>首先，何为大型。从我们的系统来看，20多个业务模块，近100个页面组成的单页系统，对应的业务源码代码量如下：</p>
+<div class="figure">
+<img src="/blog/pc-spa-js-build/src.png">
+</div>
+<a id="more"></a>
+<p>对应的依赖库，除<code>underscore</code>和<code>moment</code>外均为公司内部库，代码量为：</p>
+<div class="figure">
+<img src="/blog/pc-spa-js-build/dep.png">
+</div>
+<p>其次，所谓的“模块化”指我们使用AMD进行构建，使用符合社区AMD标准的Loader进行模块的加载。</p>
+<p>而“PC 端单页式商业内容管理系统”则代表着系统的不少特性：</p>
+<ul>
+<li>使用是相对强制的，对用户来说这是一项工作，而不是爱用不用的用户产品。</li>
+<li>商业公司通常拥有较好的网络环境，面向PC设计更使得带宽不是一个需要着重考虑的因素。</li>
+<li>单页系统使得所有功能被包含在一个HTML页面内，不存在页间的跳转，因此资源不以页面为单位进行切分。</li>
+</ul>
+<h3 id="为何要构建">为何要构建</h3>
+<p>第一个问题是，AMD有自然的按需加载的属性，按需加载也是一直被提倡的一种模式。那么，如果不进行任何的构建，让模块自然地按需加载，是否可行？</p>
+<p>如果看了这个图，你还相信按需加载的话，可以停止此文的阅读了：</p>
+<div class="figure">
+<img src="/blog/pc-spa-js-build/requests.png">
+</div>
+<p>简单来说，按需加载与构建并不冲突，我们不能将所有资源最细粒度地使用按需加载进行管理，必要的构建来减少资源请求是必要的。</p>
+<p>随之而来的，我们会考虑标准的代码合并方案。相当多的站点会将所有的JavaScript合并为一个文件，这也是最简单粗暴有效的方案。</p>
+<p>但是对于大型的单页系统而言，所有JavaScript合并后生成的文件会非常之巨大，其体积在浏览器单线程的下载模式下已经成为系统的性能瓶颈。因此我们需要一些更好的策略，让系统的启动性能得以优化。</p>
+<p>最后，常用于业界的还有一种方案，即自动化的运行时合并。通过在服务器端配置一个处理程序，可以运行时检测需要文件的依赖，进行依赖打包并响应至客户端。</p>
+<p>这种方案有其成本小、透明化等多方面的优势，但在精益求精的场景下仍旧略有不足。其最大的缺点是当有2个以上模块依赖同一个模块时，被依赖模块可能会被重复打包到多份<code>.js</code>文件中，造成不必要的网络传输。</p>
+<p>当然有很多的方法解决这一问题，诸如在Session中记录用户已经拥有的模块，或由客户端记录并提供已有模块列表，来保证打包过程不会加入无用的模块。但这些方法会提升一定的开发成本，同时前后端合作才可以完成的方案往往在推进上会遇到一些小阻碍。</p>
+<p>基于这些原因，从前端静态化的构建入手，在构建阶段实现较为优化的打包方案，是现阶段我们采取的策略。</p>
+<h3 id="准则">准则</h3>
+<p>从系统运行时来分析，对于JavaScript的构建，可以提出以下的原则。</p>
+<h4 id="控制请求段的数量">控制请求段的数量</h4>
+<p>“请求段”是一个很模糊的概念，简单来说，在一个带宽足够的环境下，我们并不看重运行时产生了多少个请求，而是看重这些请求在瀑布图中被分为几段。由于浏览器并行加载的特性，系统真正的可用时间是由段的数量和每一个段的时间来决定的。</p>
+<p>对于常见的浏览器，其并行加载的请求个数为4-6个，也即一个段可以加入4-6个的请求。从分段越少越好的角度来考虑，我们规划的系统启动分为3个段：</p>
+<ol style="list-style-type: decimal">
+<li>加载必要的前置条件，其中最为主要的是AMD Loader。<code>.css</code>文件可以在这个阶段加载，以避免影响后面更重量级的<code>.js</code>的加载效率。</li>
+<li>主要的JavaScript模块的加载，在此段通过对并行数的控制，期望在一个段内加载完所有必要的模块。同时从<code>段的用时 = 段内加载总大小 / 并发数</code>这一公式考虑，应尽可能将模块打包为浏览器可接受的最大并发数个文件。</li>
+<li>一些动态的信息，如用户登录信息、系统常量表等，这些信息是易变或动态的，因此从缓存的角度考虑不适合进行打包。</li>
+</ol>
+<p>从我们的系统来看，仅看JavaScript的资源，很明显地分为3段进行加载（红线分隔）：</p>
+<div class="figure">
+<img src="/blog/pc-spa-js-build/http-block.png">
+</div>
+<h4 id="文件大小">文件大小</h4>
+<p>从经验值来看，单个资源的大小尽量控制在未Gzip前500KB以内，过大的文件会成为瓶颈，除非你可以很好地规划一个HTTP请求段，使得一个大文件加载的用时内浏览器会利用另一个TCP链接加载多个小文件。</p>
+<p>Gzip对纯文本文件的压缩率一般在16%左右，文件的形式和内容不会对此比率造成特别大的影响。如果使用Linux或OSX系统，可以简单地使用以下命令来看一个文件Gzip后的近似大小：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -c &#123;file&#125; | wc -c</span><br></pre></td></tr></table></figure>
+<p>同时，由于短板效应的存在，一个段的加载时间会由这个段内最大的资源决定，因此尽量使得各资源的大小相近。</p>
+<h4 id="请求控制">请求控制</h4>
+<p>并不是所有的文件都需要合并在一起，也不是所有资源都可以按需加载，对于请求数量的控制并不仅仅体现在系统启动时，也贯穿整个系统的使用流程，来提供用户一致的性能体验。</p>
+<p>我对一个大型CMS系统的请求数量的总结可以概括为3点：</p>
+<ol style="list-style-type: decimal">
+<li>在导航通过一次操作可到达的页面内，不应该产生额外的请求，即系统启动过程中这些模块都应当就位。</li>
+<li>在一级页面中进行下探才可以到达的页面，尽量控制一个页面仅产生一个请求。考虑到单个页面的资源不会很大，因此再行拆分并行加载反而可能因为TCP链接、网络延迟等因素有负面的效果。</li>
+<li>对于特别大的页面，或者页面中一定条件下才会访问的区域，相关资源使用按需加载的策略配置。</li>
+</ol>
+<p>基于以上的这些原则，我在系统中有进一步的实践。</p>
+<h3 id="实践">实践</h3>
+<h4 id="文件合并">文件合并</h4>
+<p>将JavaScript文件分为多个“启动脚本”，一个启动脚本中会包含一系列的模块，现有系统中我将启动脚本分割为4个，分别为：</p>
+<ol style="list-style-type: decimal">
+<li>特别大的库单独拥有自己的一个脚本，比如<code>ECharts</code>之类的图表库。</li>
+<li>UI控件库，包含基础UI控件和业务UI控件，合并为一个脚本。</li>
+<li>MVC框架、页面基类、工具类、系统通用功能层等业务无关的逻辑合并为一个脚本。</li>
+<li>一级页面的业务模块合并为一个脚本。</li>
+</ol>
+<p>需要特别注意的是，各启动脚本间应该保持完美的正交，即不应该有任何一个模块被重复合并到多个脚本中。</p>
+<p>除了启动脚本外，前面也有提到单一页面应该尽可能只加载一个资源，因此页面相关会被打包在一起，比较典型的是将Controller、Model和View合并到Controller对应的文件中。</p>
+<p>由于二级页面并不能确定哪一个会被先访问，因此各页面打包文件中是会存在一定的模块重复的，经典如<code>util</code>模块就会同时被列表、表单、只读等页使用。这会导致加载多个页面时部分资源被重复加载，但是此类资源通常体积很小，产生的副作用在可控范围内。</p>
+<h4 id="文件加载">文件加载</h4>
+<p>在文件加载这一方向上，需要有一个特别的处理。由于AMD的依赖管理和运行时依赖分析功能，通过Loader的<code>require</code>函数加载一个模块的化，Loader会自动分析依赖并通过零碎的HTTP请求去请求相关的资源，而无视这些资源是否可能被下一个脚本打包在一起。</p>
+<p>用一个实例来说明，我们的依赖关系为<code>a -&gt; b</code>以及<code>c -&gt; b</code>，即<code>b</code>模块是一个通用模块，被两边所依赖。当我们将<code>a</code>和<code>c</code>分开打包为2个文件时，<code>b</code>会出现在其中一个中（为了实现完美正交）。假设<code>b</code>被打包在<code>a.js</code>中，那么当<code>c.js</code>被Loader加载时，如果<code>a.js</code>还未就位，就会产生一个单独的HTTP请求<code>b.js</code>。由于并行下载时，谁先完成是不可预知的，就有很大的可能性产生无意义的零碎请求。</p>
+<p>解决这一问题的方法是，使用<code>&lt;script&gt;</code>标签来引入这些打过包的脚本，而不要让Loader去做加载。由于<code>&lt;script&gt;</code>标签的执行过程中并不会有依赖分析，也就不会产生额外的请求。</p>
+<p>需要注意的是，能够使用<code>&lt;script&gt;</code>标签来实现这一功能，需要对应的Loader有延迟执行AMD模块的<code>factory</code>函数的功能，即遵循CMD规范。现有业界<code>RequireJS</code>和百度的<code>esl</code>都有这一功能，可放心使用。</p>
+<h4 id="硬编码预加载">硬编码预加载</h4>
+<p>除去打包这一比较常规的步骤之上的微创新外，前端在资源加载方向上还有一个很重要的方向就是“预加载”。所谓预加载，即在用户尚未使用某一个功能的时候预先加载相关的资源并缓存，便于用户使用时能够快速获得资源。预加载的探索上，有几个指标至关重要：</p>
+<ol style="list-style-type: decimal">
+<li>加载的时机。在保证用户需要时已经加载完毕的前提下，越晚加载越有利于系统整体的性能。</li>
+<li>加载的精度。预加载一个用户最终都没有用到的资源是一种浪费的行为。</li>
+</ol>
+<p>从这两点出发，预加载可以衍生出相当多的子话题，包括：</p>
+<ol style="list-style-type: decimal">
+<li>用户行为预测，如用户停留在某一个列表页面时时，根据其以往的行为进行分析，很有可能进入新建的操作。</li>
+<li>临近加载，如计算用户的鼠标轨迹来预测后续可能点击的按钮等。</li>
+<li>空闲加载，通过统一的请求管理，寻找网络空闲的时候来加载需要的资源，从而不影响急需的资源的加载进度。</li>
+</ol>
+<p>由于在这一块还没有深入的探索和相关的产出，因此不再赘述。</p>
+<h4 id="版本管理">版本管理</h4>
+<p>在构建完成后，由于HTTP缓存的特性，我们希望可以达到静态资源永久缓存的前提下又可以准确地进行缓存过期。在这一方向上，最为普遍的方法即使用一定的算法为资源生成版本号，从而使得新旧资源的URL不同，来强制浏览器加载新的资源。</p>
+<p>在版本号的算法选择中，MD5大致是当前最优的方案。但由于MD5的计算和HTML中资源链接的替换都相对成本较高，在某种情况下使用简单的递增或SVN Revision作为版本号都是可以考虑的。这些相关的话题都有过很深入的讨论，也不作为本文详细描述的重点。</p>
+<p>在版本号控制缓存的规划之中，需要注意的是对脚本的“变化频率”进行预测，我们应当尽可能地将下次变化时间相同/相近的资源打包在一起，以避免因为一个资源变化导致大量资源要同时失去缓存的场景出现。</p>
+<p>在这种控制上，简单的策略有2种：</p>
+<ol style="list-style-type: decimal">
+<li>通过分层设计，将系统自下而上，自基础至业务分为多层，越接近下层（基础）的代码变动理应越少，而越接近上层（业务）的代码则理应有更频繁的变动。通过分层可以简单地区分这些，上文提到的脚本分割策略也一定程度上基于这一理论。</li>
+<li>对于易变的内容，可以进一步通过策略等模式，抽取出不变和可变的部分，将可变的部分打包在一起的同时，提供一些接口来允许覆盖这些“可变量”。随后通过一种“灰度脚本”，即临时性执行的脚本来覆盖这些可变量，达到在一定时期内运行新的策略，但不至于打包的脚本缓存过期的目的。当打包脚本确实需要过期时，则再将新策略内联到脚本中。</li>
+</ol>
+<h3 id="总结">总结</h3>
+<p>由于系统的私有性，以及我们团队使用的工具相对并不流行，因此本文也不再放出实例代码来了。</p>
+<p>以上是我在系统中进行的构建相关的初步探索，得到的只是一个<strong>静态</strong>的<strong>简单</strong>的构建模型，远未达到我预期中的最佳。</p>
+<p>至于最佳的构建会是怎么样的，考虑到我还想用这些产出去升个职什么的，便不再透露了，等到实际有了成果后再总结成文共享。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/oo-super-syntax-in-javascript/" class="article-prev">前一篇: 在 Javascript 中实现调用父类同名方法的语法糖(this._super())</a>
+    
+    
+    <a href="/blog/esl-2.0/" class="article-next">后一篇: ESL 发布 2.0</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/pc-spa-js-build/" data-title="PC端大型单页式商业内容管理系统的JS模块化构建探索" data-url="http://efe.baidu.com/blog/pc-spa-js-build/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2014 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+
