@@ -1,5 +1,5 @@
 title: 1px on retina
-date: 2015-05-14
+date: 2015-6-1
 author: wxpuker
 author_link: http://weibo.com/u/2144043071
 tags:
