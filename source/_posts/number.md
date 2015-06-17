@@ -1,6 +1,6 @@
 ---
 title: 数字知多少？
-date: 2015-6-8
+date: 2015-6-17
 author: treelite
 author_link: http://treelite.me/
 tags:
