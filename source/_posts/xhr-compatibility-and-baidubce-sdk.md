@@ -44,6 +44,7 @@ xhr.send('');
 
   1. 在`POST`的时候**给所有浏览器**下面都加上`; charset=UTF-8`这部分信息
   2. 使用 `sendAsBinary` 代替 `send`，不过 `browserify` 生成的代码里面没有调用这个 `API`，需要自己去修改一下才可以。
+  3. 调用`xhr.send`参数的时候，不要传递`string`，改成`Uint8Array`，也可以避免这个问题。
 
 * `Content-Length` 这个问题会判断一下 `GET` 和 `0` 的情况来决定是否让 `Content-Length` 来参与计算签名
 
