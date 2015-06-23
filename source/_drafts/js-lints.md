@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-自鸿蒙初辟，[Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich) 10 天捏出 Mocha 之后，即便进化成 EcmaScript，这个语言依旧毁誉相随。那些经过重重劫难，侥幸渡劫成功的苦主总结了诸多大坑（见 [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/)）---- 当然，你也可以称之 feature。据无责任乱猜，Douglas Crockford 也没少踩坑，于是才有了蝴蝶书《JavaScript: The Good Parts》，下雨天与 `JSLint` 一起使用会更配哟。
+自鸿蒙初判，[Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich) 10 天捏出 Mocha 之后，即便进化成 EcmaScript，这个语言依旧毁誉相随。那些经过重重劫难，侥幸渡劫成功的苦主标识了诸多天坑（见 [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/)） —— 当然，你也可以称之 feature。据无责任乱猜，Douglas Crockford 也没少踩坑，于是才有了蝴蝶书《JavaScript: The Good Parts》，下雨天与 `JSLint` 一起使用会更配哟。
 
 ![](./js-lints/guide.vs.good-parts.png)
 
@@ -22,7 +22,7 @@ tags:
 
 `JSLint` 的名字源于早期用于检查 `C` 语言代码质量的 `Lint`，老道把认为非 `Good Parts` 、有陷阱的部分全部报 warning，而且绝不允许妥协（当前版本已经允许部分的可配置项），固执得令人心疼。
 
-虽然这个在 2002 年的 JSLint 代表着先进的方向，但是前端的发展一日千里，严格不妥协的 `JSLint` 开始阻碍前端的发展 -- 例如函数内变量全部集中在顶部定义，推荐一个 `var` 定义多个变量等。最最最重要的是，老道拒绝开源 `JSLint`（无责任乱猜，也许 `JSLint` 的实现代码违反它自己制定的规则）。
+虽然这个在 2002 年的 JSLint 代表着先进的方向，但是前端的发展一日千里，严格不妥协的 `JSLint` 开始阻碍前端的发展 —— 例如函数内变量全部集中在顶部定义，推荐一个 `var` 定义多个变量等。最最最重要的是，老道拒绝开源 `JSLint`（无责任乱猜，也许 `JSLint` 的实现代码违反它自己制定的规则）。
 
 
 截止 2015年6月9日，`JSLint` 仍然在更新，官网上写着 **`JSLint edition 2015-06-02 BETA`**，固执的老道。
@@ -31,7 +31,7 @@ tags:
 
 鉴于 `JSLint` 的现状，[Anton Kovalyov](http://anton.kovalyov.net/) 以 `JSLint` 为蓝本，在社区力量的帮助下实现了开源的 `JSHint`。
 
-相较之下，`JSHint` 更友好，可配置性更高。由于大家受 `JSLint` 的压迫太久，而且得益于开源的优势，风头很快盖过 `JSLint`，一时无两，获得大量 IDE/Editor 的支持。然而成败萧何，`JSHint` 的成功源于对 `JSLint` 的改进，但同样继承了 `JSLint` 的诸多缺点，比如不易扩展，难以根据报错信息定位到具体的规则配置等。虽然有专门的文档说明，但是修复的成本仍旧不低，于是出现了 [ JSLint Error Explanations](http://jslinterrors.com/) 这样的网站，针对 `JSLint/JSHint/ESLint` 报的错误作修复说明 -- “啪啪”，这对 `JSHint` 团队来说无异于打脸。
+相较之下，`JSHint` 更友好，可配置性更高。由于大家受 `JSLint` 的压迫太久，而且得益于开源的优势，风头很快盖过 `JSLint`，一时无两，获得大量 IDE/Editor 的支持。然而成败萧何，`JSHint` 的成功源于对 `JSLint` 的改进，但同样继承了 `JSLint` 的诸多缺点，比如不易扩展，难以根据报错信息定位到具体的规则配置等。虽然有专门的文档说明，但是修复的成本仍旧不低，于是出现了 [ JSLint Error Explanations](http://jslinterrors.com/) 这样的网站，针对 `JSLint/JSHint/ESLint` 报的错误作修复说明 —— “啪啪”，这对 `JSHint` 团队来说无异于打脸。
 
 
 `JSHint` 团队也逐渐意识到这个问题的重要性，2012 年时曾有 [**讨论**](https://github.com/jshint/jshint/issues/387) 使用 `esprima` 生成 **AST**（见 [jshint-next](https://github.com/jshint/jshint-next)，提示该项目已过期，已 merge 到主项目，但在 2013/5 又从主项目移除，现已难觅芳踪，原因未明），并有专门针对 `JSHint` 的 warning 作修复的 [fixmyjs](https://github.com/jshint/fixmyjs/)。
@@ -62,12 +62,12 @@ tags:
 
 可以发现它使用了 `esprima` 生成 **AST**，再通过 `estraverse` 遍历作检查，因此性能上会逊于 `JSLint` 与 `JSHint`，但是带来的收益是易于维护和扩展，相对于性能上的损失，是完全值得的。另外，`JSCS` 可通过 `esprima-harmony-jscs` 实现对 `ES6` 的支持，并且自带错误修复技能。
 
-`JSCS` 与 `JSHint` 份属盟军，互相使用对方作本项目的代码检查。
+`JSCS` 与 `JSHint` 份属同盟，互相使用对方作本项目的代码检查。
 
 
 ### [ESLint](http://esling.org/)
 
-无独有偶，同样是源于对 `JSLint` 与 `JSHint` 的不满，[Nicholas C. Zakas](http://nczonline.net/) 也在 ` JSCS` 发布的当月开始造另一个新轮子 -- `JSCheck`（浓浓的山寨感扑面而来有没有），不过几天后即更名为 `ESLint` -- 再次表明，好名字重要性。
+无独有偶，同样是源于对 `JSLint` 与 `JSHint` 的不满，[Nicholas C. Zakas](http://nczonline.net/) 也在 ` JSCS` 发布的当月开始造另一个新轮子 —— `JSCheck`（浓浓的山寨感扑面而来有没有），不过几天后即更名为 `ESLint` —— 再次表明，好名字重要性。
 
 功能方面，`ESLint` 可以简单的理解成 `JSHint + JSCS`，基本上集成了两大基友的优点。`ESLint` 在初期也是依赖于 `esprima` 生成 **AST**，后来为提高对 **ES6** 的支持，换成 `esprima` 的分支版本 `espree`。然而，`espress` 对 **ES6** 的支持仍然很有限，不过好在还有 [Babel-ESLint](https://npmjs.com/package/babel-eslint)。
 
