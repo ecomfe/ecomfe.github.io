@@ -30,11 +30,11 @@ xhr.send('');
 
 ## Content-Length
 
-第二个兼容性的问题是关于`Content-Length`的，因为 `baidubce-sdk` 最初的是为 `Node.js` 开发的，通过 `browserify` 处理之后直接运行在浏览器里面。主要遇到的问题跟前面类似，因为`Content-Length`导致计算签名不一致。
+第二个兼容性的问题是关于`Content-Length`的，因为 `baidubce-sdk` 最初的是为 `Node.js` 开发的，通过 `browserify` 处理之后直接运行在浏览器里面。
 
 在`Node.js`里面，我们直接使用的`require('http')`模块，可以任意设置`Request Header`里面的字段，但是在[XMLHttpRequest的文档](http://www.w3.org/TR/XMLHttpRequest/#the-setrequestheader%28%29-method)里面，限制了一些可以设置的`Header`。
 
-在`GET`请求里面，`Content-Length`值是`0`，此时 client 是有这个信息的，因此会把`Content-Length`作为计算签名的一个因子，不过因为`xhr`的限制，我们无法设置这个参数，因此 server 收到的 `GET` 请求里面，`Request Header` 里面是没有这个字段的，这也就产生了不一致的问题。
+在`GET`请求里面，`Content-Length`值是`0`，此时 client 是有这个信息的，因此会把`Content-Length`作为计算签名的一个因子，不过因为`xhr`的限制，我们无法设置这个 Header，因此 server 收到的 `GET` 请求里面，`Request Header` 里面是没有这个`Content-Length`的，这也就导致了签名计算不一致的问题。
 
 ## baidubce-sdk
 
