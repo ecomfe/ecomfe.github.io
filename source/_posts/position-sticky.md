@@ -1,11 +1,11 @@
 ---
 title: position:sticky实现iOS6+下的粘性布局
-date: 2015-06-10
+date: 2015-06-24
 author: oddjohn
 author_link: http://weibo.com/u/1898659961
 tags:
 - iOS
-- mobile
+- Mobile
 - fixed
 - sticky
 ---
