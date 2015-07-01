@@ -38,7 +38,7 @@ Blog的内容应该具有 `原创性` 和 `独到性`。 以下类型的内容�
 ### 如何提交 Blog
 
 1. fork 当前 repos，切换到 `efe` 分支。
-2. 在 `source/_drafts` 目录下创建Blog文件。Blog文件要求如下： [参考示例](source/_drafts/example.md)
+2. 在 `source/_posts` 目录下创建Blog文件。Blog文件要求如下： [参考示例](source/_drafts/example.md)
     - 文件名使用英文或数字，单词间以 `-` 分隔。文件名应能代表Blog内容
     - 文件名以 `.md` 作为后缀
     - 在文件开头的 Front-matter 部分编写一些信息，必填的有：`author`、`title`、`date`，可选的有 `tag`、`author_link`
