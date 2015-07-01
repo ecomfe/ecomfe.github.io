@@ -1,6 +1,6 @@
 ---
 title: JavaScript 代码静态质量检查
-date: 2015-6-17
+date: 2015-7-1 14:00
 author: 我佛山人
 author_link: http://weibo.com/wfsr
 tags:
@@ -12,11 +12,13 @@ tags:
 
 自鸿蒙初判，[Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich) 10 天捏出 Mocha 之后，即便进化成 EcmaScript，这个语言依旧毁誉相随。那些经过重重劫难，侥幸渡劫成功的苦主标识了诸多天坑（见 [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/)） —— 当然，你也可以称之 feature。据无责任乱猜，Douglas Crockford 也没少踩坑，于是才有了蝴蝶书《JavaScript: The Good Parts》，下雨天与 `JSLint` 一起使用会更配哟。
 
-![](./js-lints/guide.vs.good-parts.png)
+![](/blog/js-lints/guide.vs.good-parts.png)
 
 《JavaScript: The Definitive Guide》 V.S. 《JavaScript: The Good Parts》
 
 时至今日，代码的静态质量检查在项目质量保障方面的重要性与必要性已毋庸置疑。越来越多的开发者意识到了这一点，纷纷在项目构建流程或者源码控制系统中添加静态检查的 `hook`。本文将依时间顺序，选出 `JavaScript` 史上的主要几个 `Linter` 作横向比较，最终属意谁家，那就见仁见智了。
+
+<!-- more -->
 
 ### [JSLint](http://www.jslint.com/)
 
