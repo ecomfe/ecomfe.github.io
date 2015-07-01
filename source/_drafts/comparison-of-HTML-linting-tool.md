@@ -9,9 +9,9 @@ tags:
 - Node.js
 ---
 
-作为一个前端，不可避免同时与三个语言打交道：JS、CSS 和 HTML。而HTML，超文本标记语言，可能是其中可编程性最弱的，一直以来得到的关注都较少。另外源于浏览器对 HTML 逆天的容错支持，一份几乎错误百出的文档也可以在浏览器里边表现得中规中矩。这样的背景下，绝大部分被产出的 HTML 代码都存在着各种各样的小问题，比如缺少必要的元信息（meta），比如混乱的 class、id 或属性的取值格式；这些或影响页面在不同浏览器下的表现，或增大了页面的开发、维护成本。
+作为一个前端，不可避免同时与三个语言打交道：JS、CSS 和 HTML。而HTML，超文本标记语言，可能是其中可编程性最弱的，一直以来得到的关注都较少。另外源于浏览器对 HTML 逆天的容错支持，一份即使是错误百出的文档也可以在浏览器里边表现得中规中矩。这样的背景下，绝大部分被产出的 HTML 代码都存在着各种各样的小问题，比如缺少必要的元信息（meta），比如混乱的 class、id 或属性的取值格式；这些问题或影响页面在不同浏览器下的表现，或增大了页面的开发、维护成本。
 
-因此，选用一个合适的 HTML 代码风格检查工具对 HTML 代码进行质量控制会是一个很有意义的事情。本文选择了 AriaLinter、htmllint、HTMLHint 及 htmlcs 这四个目前最活跃的相关项目进行对比。除此之外还存在如 tidy、W3C/Mozilla HTML validator 等工具，但它们专注于 HTML 规范，几乎不涉及代码风格上的检查，这里就不做比较。
+因此，选用一个合适的工具对 HTML 代码进行质量控制会是一个很有意义的事情。本文选择了 AriaLinter、htmllint、HTMLHint 及 htmlcs 这四个目前最活跃的相关项目进行对比。除此之外还存在如 tidy、W3C/Mozilla HTML validator 等工具，但它们专注于 HTML 规范，几乎不涉及代码风格上的检查，这里就不做比较。
 
 对比角度将主要包括以下几个方面：
 
@@ -20,7 +20,7 @@ tags:
 * 性能
 * 亮点
 
-为了后续说明的便利，这里先对语法风格的规则进行简单的分类，第一类包括 `attr-value-double-quotes`（使用双引号包围属性值）， `max-length`（限制单行最大长度）， `tag-pair`（要求需要显式闭合的标签显式闭合）等；第二类包括 `script-in-tail`（Javascript 内容要求在页面最后嵌入）, `title-required`（要求 title 标签）, `id-class-ad-disabled`（不允许在 id 或 class 的值中出现 ad_，ad-，_ad，-ad 等）等。这两类规则有很明显的区别，第一类偏重于代码格式（遵循与否都不影响最终语义），这里叫它格式规则；对应地，第二类偏重语义，即最终 document 的表现，这里叫它语义规则。一般情况下，前者更适合在语法分析阶段做，而后者更适合在分析完后基于分析结果（AST/document）进行。
+为了后续说明的便利，这里先对语法风格的规则进行简单的分类，第一类包括 `attr-value-double-quotes`（使用双引号包围属性值）， `max-length`（限制单行最大长度）， `tag-pair`（要求需要显式闭合的标签显式闭合）等；第二类包括 `script-in-tail`（JavaScript 内容要求在页面最后嵌入）, `title-required`（要求 title 标签）, `id-class-ad-disabled`（不允许在 id 或 class 的值中出现 ad_，ad-，_ad，-ad 等）等。这两类规则有很明显的区别，第一类偏重于代码格式（遵循与否都不影响最终语义），这里叫它格式规则；对应地，第二类偏重语义，即最终 document 的表现，这里叫它语义规则。一般情况下，前者更适合在语法分析阶段做，而后者更适合在分析完后基于分析结果（AST/document）进行。
 
 ### [AriaLinter](https://github.com/globant-ui/arialinter)
 
@@ -28,7 +28,7 @@ AriaLinter 是一个基于规则（Rule based），面向 HTML document 的检�
 
 作为一个 Grunt 任务或 Nodejs 模块被调用时，支持传入规则配置。但不支持配置文件或行内配置，及作为单独命令行工具使用时是不可配置的。
 
-AriaLinter 强调了它是“for HTML documents”，即偏语义规则的检查，做法是基于 jsdom 获取页面执行的结果 document，接着检查其内容、结构。事实上，AriaLinter 几乎没有实现任何格式规则。另外，也不支持自定义规则。
+AriaLinter 强调了它是“for HTML documents”，即偏语义规则的检查，做法是基于 jsdom 获取运行时的 document，接着检查其内容、结构。事实上，AriaLinter 几乎没有实现任何格式规则。另外，也不支持自定义规则。
 
 AriaLinter 性能会是个问题，毕竟只是为了得到 document 结构的话，jsdom 太重了。
 
