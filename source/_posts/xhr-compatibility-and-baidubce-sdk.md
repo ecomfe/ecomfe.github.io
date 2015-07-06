@@ -1,15 +1,15 @@
 ---
 title: XHR 和 baidubce-sdk
-date: 2015-6-23
+date: 2015-7-6
 author: leeight
 author_link: https://github.com/leeight
 tags:
-- xhr
+- XHR
 - baidubce
 ---
 
 
-## Content-Type
+### Content-Type
 
 在开发 [baidubce-sdk](https://www.npmjs.com/package/baidubce-sdk) 的时候，遇到了在不同浏览器（主要是 Firefox 和 Chrome）下调用 `xhr.setRequestHeader` 设置 `Request Header` 之后，内部的处理逻辑有一些细微的差别，导致`baidubce-sdk`无法正常的工作。
 
@@ -28,7 +28,7 @@ xhr.send('');
 
 因为根据 ak 和 sk 计算签名的时候，`Content-Type`作为其中的一个因子参与计算的。Firefox下面的这个问题，导致 client 和 server 计算出来的签名不一致，所以 server 就拒绝了某些请求。
 
-## Content-Length
+### Content-Length
 
 第二个兼容性的问题是关于`Content-Length`的，因为 `baidubce-sdk` 最初的是为 `Node.js` 开发的，通过 `browserify` 处理之后直接运行在浏览器里面。
 
@@ -36,7 +36,7 @@ xhr.send('');
 
 在`GET`请求里面，`Content-Length`值是`0`，此时 client 是有这个信息的，因此会把`Content-Length`作为计算签名的一个因子，不过因为`xhr`的限制，我们无法设置这个 Header，因此 server 收到的 `GET` 请求里面，`Request Header` 里面是没有这个`Content-Length`的，这也就导致了签名计算不一致的问题。
 
-## baidubce-sdk
+### baidubce-sdk
 
 问题都描述清楚了，对应的解决方案也就有了：
 
@@ -57,6 +57,6 @@ npm i baidubce-sdk
 ```
 
 
-## 参考
+### 参考
 
 * <https://bugzilla.mozilla.org/show_bug.cgi?id=416178>
