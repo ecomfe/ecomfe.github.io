@@ -11,7 +11,7 @@ tags:
 
 作为一个前端，不可避免同时与三个语言打交道：JS、CSS 和 HTML。而HTML，超文本标记语言，可能是其中可编程性最弱的，一直以来得到的关注都较少。另外源于浏览器对 HTML 逆天的容错支持，一份即使是错误百出的文档也可以在浏览器里边表现得中规中矩。这样的背景下，绝大部分被产出的 HTML 代码都存在着各种各样的小问题，比如缺少必要的元信息（meta），比如混乱的 class、id 或属性的取值格式；这些问题或影响页面在不同浏览器下的表现，或增大了页面的开发、维护成本。
 
-因此，选用一个合适的工具对 HTML 代码进行质量控制会是一个很有意义的事情。本文选择了 AriaLinter、htmllint、HTMLHint 及 htmlcs 这四个目前最活跃的相关项目进行对比。除此之外还存在如 tidy、W3C/Mozilla HTML validator 等工具，但它们专注于 HTML 规范，几乎不涉及代码风格上的检查，这里就不做比较。
+因此，选用一个合适的工具对 HTML 代码进行质量控制会是一个很有意义的事情。本文选择了 Bootlint、AriaLinter、htmllint、HTMLHint 及 htmlcs 这五个目前最活跃的相关项目进行对比。除此之外还存在如 tidy、W3C/Mozilla HTML validator 等工具，但它们专注于 HTML 规范，几乎不涉及代码风格上的检查，这里就不做比较。
 
 对比角度将主要包括以下几个方面：
 
@@ -22,17 +22,29 @@ tags:
 
 为了后续说明的便利，这里先对语法风格的规则进行简单的分类，第一类包括 `attr-value-double-quotes`（使用双引号包围属性值）， `max-length`（限制单行最大长度）， `tag-pair`（要求需要显式闭合的标签显式闭合）等；第二类包括 `script-in-tail`（JavaScript 内容要求在页面最后嵌入）, `title-required`（要求 title 标签）, `id-class-ad-disabled`（不允许在 id 或 class 的值中出现 ad_，ad-，_ad，-ad 等）等。这两类规则有很明显的区别，第一类偏重于代码格式（遵循与否都不影响最终语义），这里叫它格式规则；对应地，第二类偏重语义，即最终 document 的表现，这里叫它语义规则。一般情况下，前者更适合在语法分析阶段做，而后者更适合在分析完后基于分析结果（AST/document）进行。
 
+### [Bootlint](https://github.com/twbs/bootlint)
+
+Bootlint 可能是 github 上 star 数最多的 HTML 代码风格检查工具。不过正如其名所暗示的，它由 Bootstrap 团队开发，专注于基于 Bootstrap 的项目。与受到的关注度对应地，项目的完善度较高，文档齐全，使用方式包括在浏览器中引入，作为 Grunt 任务、Nodejs 模块及命令行工具。
+
+Bootlint 支持规则粒度的配置，但仅限于 disable / enable。不支持配置文件或行内配置。
+
+Bootlint 专注于基于 Bootstrap 的项目，这一点在它的规则列表中体现得较为明显：Bootlint 提供的大多数规则都明显只适用于 Bootstrap 项目，如 W004（插件 Modal 中不允许使用将被废弃的 `remote`）， W005（如果使用了基于 jQuery 的 Bootstrap 插件，则要求页面中引入 jQuery）等。另外，Bootlint 实现方式是通过 [Cheerio](https://github.com/cheeriojs/cheerio) 对 HTML 代码进行解析，获取到类 jQuery 的 `$`（选择器）接口，其规则均在 `$ `基础上实现，这决定了目前的 Bootlint 所能提供的仅限上述语义规则。另外，Bootlint 不支持自定义规则。
+
+Bootlint 性能一般，Cheerio 底层使用 htmlparser2 进行 HTML 代码的解析，然后封装了一个 `$`，Bootlint 的每个规则使用 `$` 查找元素，依据结果进行检查。
+
+针对 Bootstrap 相关的检查可以算是 Bootlint 的亮点之一。另一个 Bootlint 的独特之处在于，它支持作为一个服务器运行，提供基于 HTTP 请求的 lint 服务。
+
 ### [AriaLinter](https://github.com/globant-ui/arialinter)
 
 AriaLinter 是一个基于规则（Rule based），面向 HTML document 的检查工具。它支持作为一个 Grunt 任务（最推荐的形式）、Nodejs模块或命令行工具使用。
 
 作为一个 Grunt 任务或 Nodejs 模块被调用时，支持传入规则配置。但不支持配置文件或行内配置，及作为单独命令行工具使用时是不可配置的。
 
-AriaLinter 强调了它是“for HTML documents”，即偏语义规则的检查，做法是基于 jsdom 获取运行时的 document，接着检查其内容、结构。事实上，AriaLinter 几乎没有实现任何格式规则。另外，也不支持自定义规则。
+AriaLinter 强调了它是“for HTML documents”，即偏语义规则的检查，做法是基于 [jsdom](https://github.com/tmpvar/jsdom) 获取运行时的 document，接着检查其内容、结构。事实上，AriaLinter 几乎没有实现任何格式规则。另外，也不支持自定义规则。
 
 AriaLinter 性能会是个问题，毕竟只是为了得到 document 结构的话，jsdom 太重了。
 
-AriaLinter 的亮点之一是贴心地支持了 template 参数，当开启时部分规则不做检查。事实上这意义不大，尤其在模板语法会对 HTML 语法造成破坏时。
+AriaLinter 的亮点之一是贴心地支持了 template 参数，当开启时部分规则不做检查。该特性在模板语法会对 HTML 语法造成破坏时效果有限。
 
 ### [htmllint](https://github.com/htmllint/htmllint)
 
@@ -79,4 +91,10 @@ htmlcs 的性能不是优势，处于可接受的程度。HTML 代码的 parse �
 
 ### 总结
 
-AriaLinter 短板明显，除非只关注语义规则，否则大部分情况下都不能满足需求。htmllint 能满足基本需求，但优点不明显。如果对性能较为敏感，推荐 HTMLHint。而 htmlcs 在扩展性、自定义能力上表现突出，覆盖的规则可能也是目前最全的，从个人角度看是大部分情况下的推荐选择。
+Bootlint 与 AriaLinter 均短板明显。前者在只针对 Bootstrap 项目时有一定优势；而后者在只关注语义规则时能满足一定需求。
+
+htmllint 在大部分情况下能满足基本需求，但优点不明显。
+
+如果对性能较为敏感，推荐 HTMLHint。
+
+而 htmlcs 在扩展性、自定义能力上表现突出，覆盖的规则可能也是目前最全的，从个人角度看是大部分情况下的推荐选择。
