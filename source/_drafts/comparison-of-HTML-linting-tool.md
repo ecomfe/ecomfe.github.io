@@ -24,7 +24,7 @@ tags:
 
 ### [Bootlint](https://github.com/twbs/bootlint)
 
-Bootlint 可能是 github 上 star 数最多的 HTML 代码风格检查工具。不过正如其名所暗示的，它由 Bootstrap 团队开发，专注于基于 Bootstrap 的项目。与受到的关注度对应地，项目的完善度较高，文档齐全，使用方式包括在浏览器中引入，作为 Grunt 任务、Nodejs 模块及命令行工具。
+Bootlint 可能是 github 上 star 数最多的 HTML 代码风格检查工具。不过正如其名所暗示的，它由 Bootstrap 团队开发，专注于基于 Bootstrap 的项目。与受关注程度相对应，项目的完善度较高，文档齐全，使用方式包括在浏览器中引入，作为 Grunt 任务、Nodejs 模块及命令行工具。
 
 Bootlint 支持规则粒度的配置，但仅限于 disable / enable。不支持配置文件或行内配置。
 
