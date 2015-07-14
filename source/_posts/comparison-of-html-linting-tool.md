@@ -1,12 +1,12 @@
 ---
 title: HTML代码风格检查工具对比
-date: 2015-06-30
+date: 2015-07-14
 author: nighca
 author_link: http://nighca.me/
 tags:
 - HTML 
-- lint
-- Node.js
+- Lint
+- NodeJS
 ---
 
 作为一个前端，不可避免同时与三个语言打交道：JS、CSS 和 HTML。而 HTML，超文本标记语言，是其中可编程性最弱的，一直以来得到的关注都较少。加上浏览器对 HTML 逆天的容错支持，即使是错误百出的文档也可以在浏览器里边表现得中规中矩。这样的背景下，绝大部分被产出的 HTML 代码都存在着各种各样的小问题，比如缺少必要的元信息（meta），比如混乱的 class、id 或属性的取值格式；这些问题或影响页面在不同浏览器下的表现，或增大了页面的开发、维护成本。
@@ -21,6 +21,8 @@ tags:
 * 亮点
 
 为了后续说明的便利，这里先对语法风格的规则进行简单的分类，第一类包括 `attr-value-double-quotes`（使用双引号包围属性值）， `max-length`（限制单行最大长度）， `tag-pair`（要求需要显式闭合的标签显式闭合）等；第二类包括 `script-in-tail`（JavaScript 内容要求在页面最后嵌入）, `title-required`（要求 title 标签）, `id-class-ad-disabled`（不允许在 id 或 class 的值中出现 ad_，ad-，_ad，-ad 等）等。这两类规则有很明显的区别，第一类偏重于代码格式（遵循与否都不影响最终语义），这里叫它格式规则；对应地，第二类偏重语义，即最终 document 的表现，这里叫它语义规则。一般情况下，前者更适合在语法分析阶段做，而后者更适合在分析完后基于分析结果（AST / document）进行。
+
+<!-- more -->
 
 ### [Bootlint](https://github.com/twbs/bootlint)
 
