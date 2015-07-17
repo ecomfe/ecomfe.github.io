@@ -1,20 +1,20 @@
 ---
 title: ES Decorators简介
-date: 2015-7-1
+date: 2015-7-17
 author: otakustay
 author_link: http://otakustay.com
 tags:
 - JavaScript
 - ES6
-- ES7
-- ECMAScript6
-- ECMAScript7
+- ESNext
 ---
+
+
 我跟你说，我最讨厌“简介”这种文章了，要不是语文是体育老师教的，早就换标题了！
 
 [Decorators](https://github.com/wycats/javascript-decorators)是ECMAScript现在处于[Stage 1](https://github.com/tc39/ecma262)的一个提案。当然ECMAScript会有很多新的特性，特地介绍这一个是因为它能够在实际的编程中提供很大的帮助，甚至于改变不少功能的设计。
 
-## 先说说怎么回事
+### 先说说怎么回事
 
 如果光从概念上来介绍的话，官方是这么说的：
 
@@ -55,6 +55,8 @@ class Foo {
 
 可以看出来，上面代码的重点在于：
 
+<!-- more -->
+
 1. 有一个`memoize`函数。
 2. 在类的某个方法上加了`@memoize;`这样一个标记。
 
@@ -66,7 +68,7 @@ class Foo {
 
 看到了基本用法其实并不能说明什么，我们有几个核心的问题有待说明：
 
-### 有几种装饰器
+#### 有几种装饰器
 
 现阶段官方说有2种装饰器，但从实际使用上来看是有4种，分别是：
 
@@ -90,7 +92,7 @@ let foo = {
 
 之所以这么分，是因为不同情况下，装饰器接收的3个参数代表的意义并不相同。
 
-### 装饰器的3个参数是什么
+#### 装饰器的3个参数是什么
 
 装饰器接收3个参数，分别是`target`、`key`和`descriptor`，他们各自分别是什么值，用一段代码就能很容易表达出来：
 
@@ -135,7 +137,7 @@ class Bar {
 
 对于这一环节，我们**需要特别注意一点**，由于`target`是类的`prototype`，所以往它上面添加属性是，要注意继承时是会被继承下去的，而子类上再加同样属性又会有覆盖甚至对象、数组同引用混在一起的问题。这和我们平时尽量不在`prototype`上放对象或者数组的思路是一致的，要避免这一问题。
 
-### 装饰器在什么时候执行
+#### 装饰器在什么时候执行
 
 既然装饰器本身是一个函数，那么自然要有函数被执行的时候。
 
@@ -190,7 +192,7 @@ object method bar
 
 因为以上这2个规则，我们需要**特别注意一点**，在装饰器运行时，你所能得到的环境是空的，在`Bar.prototype`或者`Bar`上的属性是获取不到的，也就是说整个`target`里其实只有`constructor`这一个属性。换句话说，装饰器运行时所有的属性和方法均**未定义**。
 
-### descriptor里有啥
+#### descriptor里有啥
 
 我们都知道，`PropertyDescriptor`的基本内容如下：
 
@@ -235,11 +237,11 @@ class Alice {
 console.log((new Alice()).name); // alice-776521
 ```
 
-## 再说说怎么用
+### 再说说怎么用
 
 在基本把概念说完后，其实我们并没有说装饰器怎么用，虽然前面有一些代码，但并不能逻辑完善地说明问题。
 
-### descriptor的使用
+#### descriptor的使用
 
 对于属性、方法、访问器的装饰器，真正的作用在于对`descriptor`这个属性的修改。我们拿一些原始的例子来看，比如你要给一个对象声明一个属性：
 
@@ -283,7 +285,7 @@ Object.defineProperty(foo, 'foo', readOnly(property));
 
 装饰器是最后的修改`descriptor`的机会，再往后如果`configurable`被设为`false`的话，就再也没机会去改变这些元数据了。
 
-### 类装饰器的使用
+#### 类装饰器的使用
 
 类装饰器不大一样，因为没有`descriptor`给你，你唯一能获得的是**类本身**，也就是一个函数。
 
@@ -318,7 +320,7 @@ new Bob();
 console.log(Bob.getInstanceCount()); // 2
 ```
 
-### 实际的使用场景
+#### 实际的使用场景
 
 上面的代码可能都很扯谈，谁会有这种奇怪的需求，所以举一些真正实用的代码来看看。
 
@@ -422,11 +424,11 @@ class LoginForm {
 
 这只是一个很简单直观的例子，我们用装饰器可以做更多的事，有待在实际开发中慢慢发掘，同时[DecorateThis](https://github.com/mako-taco/DecorateThis)项目给我们做了不少的示范，虽然我觉得这个库提供的装饰器并没有什么卯月……
 
-## 题外话的概念和坑
+### 题外话的概念和坑
 
 到这边基本把装饰器的概念和使用都讲了，我理解有不少FE一时不好接受这些（QWrap那边的人倒应该能非常迅速地接受这种函数式的玩法），后面说一些题外话，主要是装饰器与其它语言类似功能的比较，以及一些坑爹的坑。
 
-### 和其它语言的比较
+#### 和其它语言的比较
 
 大部分开发者都会觉得装饰器这个语法很眼熟，因为我们在Java中有[Annotation](https://en.wikipedia.org/wiki/Java_annotation)这个东西，而在C#中也有[Attribute](https://msdn.microsoft.com/en-us/library/aa288454(v=vs.71).aspx)这个东西。
 
@@ -438,7 +440,7 @@ class LoginForm {
 
 而装饰器，和Python的相同功能同名（赤裸裸的抄袭），其核心是一段逻辑，起源于[装饰器设计模式](https://en.wikipedia.org/wiki/Decorator_pattern)，让你有机会去改变一个方法、属性、类的逻辑，[StackOverflow上Python的回答](http://stackoverflow.com/questions/15347136/is-a-python-decorator-the-same-as-java-annotation-or-java-with-aspects)能比较好地解释这个区别。
 
-### 几个坑
+#### 几个坑
 
 在我看来，装饰器现在有几个坑得注意一下。
 
@@ -466,6 +468,6 @@ class Foo {
 
 想一想如果因为特性比较新，压缩工具一个没做好没给补上分号压成了一行，这是一个怎么样的代码……
 
-## 总结
+### 总结
 
 我不写总结，就酱。
