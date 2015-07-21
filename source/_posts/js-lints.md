@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-自鸿蒙初判，[Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich) 10 天捏出 Mocha 之后，即便进化成 EcmaScript，这个语言依旧毁誉相随。那些经过重重劫难，侥幸渡劫成功的苦主标识了诸多天坑（见 [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/)） —— 当然，你也可以称之 feature。据无责任乱猜，Douglas Crockford 也没少踩坑，于是才有了蝴蝶书《JavaScript: The Good Parts》，下雨天与 `JSLint` 一起使用会更配哟。
+自鸿蒙初判，[Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich) 10 天捏出 Mocha 之后，即便进化成 ECMAScript，这个语言依旧毁誉相随。那些经过重重劫难，侥幸渡劫成功的苦主标识了诸多天坑（见 [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/)） —— 当然，你也可以称之 feature。据无责任乱猜，Douglas Crockford 也没少踩坑，于是才有了蝴蝶书《JavaScript: The Good Parts》，下雨天与 `JSLint` 一起使用会更配哟。
 
 ![](/blog/js-lints/guide.vs.good-parts.png)
 
