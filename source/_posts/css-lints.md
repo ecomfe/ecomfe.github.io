@@ -13,16 +13,16 @@ tags:
 
 关于代码静态质量检查，在大佛的上一篇文章 《[JavaScript 代码静态质量检查](http://efe.baidu.com/blog/js-lints/)》中已经说得很明白了，虽然主要讲的是 JavaScript 方面，但代码静态质量检查的本质是不变的，今天我们来介绍一下 CSS 方面的静态质量检查。
 
-CSS 中也有一些 Lint 工具，例如 [CSSLint](https://github.com/CSSLint/csslint)，[PrettyCSS](https://github.com/fidian/PrettyCSS)，[recess](https://github.com/twitter/recess)，[CKStyle](https://github.com/wangjeaf/ckstyle-node)，[stylelint](https://github.com/stylelint/stylelint)，当然还有百度 EFE 出品的 CSS 代码风格检查工具 [CSSHint](https://github.com/ielgnaw/node-csshint)。本文将从功能、性能、适用范围、规则实现、个性化几个方面对这几个 Lint 工具进行对比。
+CSS 中也有一些 Lint 工具，例如 [CSSLint](https://github.com/CSSLint/csslint)，[PrettyCSS](https://github.com/fidian/PrettyCSS)，[recess](https://github.com/twitter/recess)，[CKStyle](https://github.com/wangjeaf/ckstyle-node)，[stylelint](https://github.com/stylelint/stylelint)，当然还有百度 EFE 出品的 CSS 代码风格检查工具 [CSSHint](https://github.com/ecomfe/node-csshint)。本文将从功能、性能、适用范围、规则实现、个性化几个方面对这几个 Lint 工具进行对比。
 
 <!-- more -->
 
 
 ### [CSSLint](http://csslint.net)
 
-`CSSLint` 和它底层所使用的解析器 [`parserlib`](https://github.com/CSSLint/parser-lib) 都是 [Nicholas C. Zakas](http://www.nczonline.net/) 的作品。它适用于浏览器以及 CLI 环境，在浏览器端和 CLI 环境中分别是两套代码，这么做的原因是它的底层库 `parserlib` 在浏览器和 CLI 环境分别是两套。
+`CSSLint` 和它底层所使用的解析器 [`parserlib`](https://github.com/CSSLint/parser-lib) 都是 [Nicholas C. Zakas](http://www.nczonline.net/) 的作品（当然，[`ESLint`](https://github.com/eslint/eslint) 也是他的作品）。它适用于浏览器以及 CLI 环境，在浏览器端和 CLI 环境中分别是两套代码，这么做的原因是它的底层库 `parserlib` 在浏览器和 CLI 环境分别是两套。
 
-功能上，`CSSLint` 提供了对 CSS 的解析、检查等功能。在规则实现方面，无法通过 JSON 配置来管理，默认的规则全部在 `src/rules/` 目录中，要添加自定义规则，必须通过全局的 **CSSLint.addRule** 方法来实现对规则的扩展。
+功能上，`CSSLint` 提供了对 CSS 的解析、检查等功能。在规则实现方面，无法通过 JSON 配置来管理，默认的规则全部在 `src/rules/` 目录中，要添加自定义规则，必须通过全局的 **CSSLint.addRule** 方法来实现。
 
 实现上，`CSSLint` 主要是利用事件监听，在底层 parse CSS 过程中触发事件，例如 **startstylesheet**、**endstylesheet**、**charset**、**import**、**namespace**、**startmedia**、**endmedia**、**startpage**、**endpage**、**startrul** 和 **endrule** 等，事件回调中会返回当前 AST 的信息，开发者根据这些信息来进行规则检测。
 
@@ -67,11 +67,11 @@ Twitter 出品的 CSS 代码质量检查工具，可以作为 Node.js 模块和 
 `stylelint` 本质上和下面将要介绍的 `CSSHint` 是一样的，都是基于 `postcss` 解析器实现的，除了规则实现的数量不一样，最大的区别就是 `stylelint` 是用 ES6 写的。所以这里就不介绍了，直接看下面的 `CSSHint` 了。
 
 
-### [CSSHint](https://github.com/ielgnaw/node-csshint)
+### [CSSHint](https://github.com/ecomfe/node-csshint)
 
 `CSSHint` 是百度 EFE 出品的 CSS 代码风格检查工具，在 2014 年底应公司内部全面推行代码规范检查的需求而产生的。目前 `CSSHint` 支持 Node.js 模块以及 CLI 方式使用，提供对 CSS 的解析和检查等功能，通过 JSON 文件来管理规则的配置。
 
-在项目刚开始设计阶段，我们曾考虑使用大神的 `CSSLint`，但在经过调研后发现，`CSSLint` 在针对我们自己的[规范](https://github.com/ecomfe/spec/blob/master/css-style-guide.md)做规则检测的时候，发现一些问题，`CSSLint` 默认实现的规则里面并不能完全覆盖我们自己的[规范](https://github.com/ecomfe/spec/blob/master/css-style-guide.md)。因此，我们决定基于 `CSSLint` 解析器 `parserlib` 重新实现一套 CSS 代码检查工具。这就是 **0.1.0** 版本之前的 `CSSHint`，经过一段时间的运行我们发现这个解析器返回的 AST 上信息太少，而且针对解析器来写插件不是特别方便。因此在 **0.1.0** 版本的重构中，我们把底层解析器换成了 [`postcss`](https://github.com/postcss/postcss)(`postcss` 和 `parserlib` 相比，最大的优点是优秀的插件机制，而且 AST 上的信息也更完整），同时改变了实现的方式，在性能和功能上较 **0.1.0** 之前版本有较大的提升。
+在项目刚开始设计阶段，我们曾考虑使用大神的 `CSSLint`，但在经过调研后发现，`CSSLint` 在针对我们自己的[规范](https://github.com/ecomfe/spec/blob/master/css-style-guide.md)做规则检测的时候，发现一些问题：首先 `CSSLint` 默认实现的规则里面并不能完全覆盖我们自己的[规范](https://github.com/ecomfe/spec/blob/master/css-style-guide.md)，其次，在单条规则上，对规则匹配度也不够，最后，基于 `CSSLint` 来写插件不太方便。因此，我们决定基于 `CSSLint` 解析器 `parserlib` 重新实现一套 CSS 代码检查工具。这就是 **0.1.0** 版本之前的 `CSSHint`，经过一段时间的使用我们发现这个解析器返回的 AST 上信息太少，而且针对解析器来写插件也不方便。因此在 **0.1.0** 版本的重构中，我们把底层解析器换成了 [`postcss`](https://github.com/postcss/postcss)(`postcss` 和 `parserlib` 相比，最大的优点是优秀的插件机制，而且 AST 上的信息也更完整），同时改变了实现的方式，在性能和功能上较 **0.1.0** 之前版本有较大的提升。
 
 得益于 `postcss` 优秀的插件机制，`CSSHint` 提供了较为丰富的规则实现，每个规则实际上就是一个 `postcss` 的插件，扩展新规则比较方便，只需注册到 **postcss.plugin** 上即可。
 
@@ -92,4 +92,4 @@ Twitter 出品的 CSS 代码质量检查工具，可以作为 Node.js 模块和 
 
 `stylelint` 本质上和 `CSSHint` 一样，可以作为一个 ES6 的学习项目。
 
-`CSSHint` 目前在扩展性、规则的自定义上表现不错，虽然默认覆盖的规则不算最全，但是扩展起来很方便，另外，行内注释指令的功能在其他 Lint 工具上也是没有的，个人来看，未来的潜力比较大。
+`CSSHint` 已经发布了 `0.2.0` 版本，在扩展性、规则的自定义上表现不错，同时，除了满足我们自己的[规范](https://github.com/ecomfe/spec/blob/master/css-style-guide.md)，还覆盖了 `CSSLint` 的规则。目前来看，`CSSHint` 是覆盖规则最全的一个 CSS 代码风格检查工具了，而且扩展起来也比较方便，另外，行内注释指令的功能在其他 Lint 工具上也是没有的，个人来看，未来的潜力比较大。
