@@ -1,5 +1,5 @@
 ---
-title: 谈谈使用promise时候的一些反模式
+title: 谈谈使用 promise 时候的一些反模式
 date: 2015-07-24
 author: 刘超凡
 tags:
@@ -509,7 +509,7 @@ Promise.resolve('foo').then(function () {
 
 下面给出前文题目的解答
 
-\# 1
+\#1
 
 ```
 doSomething().then(function () {
@@ -526,7 +526,7 @@ doSomething
                                      |------------------|
 ```
 
-\# 2
+\#2
 
 ```
 doSomething().then(function () {
@@ -545,7 +545,7 @@ doSomething
                   |------------------|
 ```
 
-\# 3
+\#3
 
 ```
 doSomething().then(doSomethingElse())
@@ -563,7 +563,7 @@ doSomethingElse(undefined)
                   |------------------|
 ```
 
-\# 4
+\#4
 
 ```
 doSomething().then(doSomethingElse)

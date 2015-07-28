@@ -7,7 +7,7 @@ tags:
 - forEach
 ---
 
-原文：http://aeflash.com/2014-11/avoid-foreach.html
+原文：<http://aeflash.com/2014-11/avoid-foreach.html>
 
 > 遍历集合，会产生副作用。——如 [mori.each 文档](http://swannodette.github.io/mori/#each)所说
 
@@ -242,8 +242,6 @@ var result = values.reduce(function (result, value) {
 ```
 
 重构时你会发现多了些东西，如果这些东西使程序更简单，那就没问题。多个简单的东西组合起来会比一个大而复杂的东西更容易理解。
-
-### Transducers
 
 ### 转换器
 
