@@ -10,7 +10,7 @@ tags:
 - JavaScript
 ---
 
-自鸿蒙初判，[Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich) 10 天捏出 Mocha 之后，即便进化成 EcmaScript，这个语言依旧毁誉相随。那些经过重重劫难，侥幸渡劫成功的苦主标识了诸多天坑（见 [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/)） —— 当然，你也可以称之 feature。据无责任乱猜，Douglas Crockford 也没少踩坑，于是才有了蝴蝶书《JavaScript: The Good Parts》，下雨天与 `JSLint` 一起使用会更配哟。
+自鸿蒙初判，[Brendan Eich](http://en.wikipedia.org/wiki/Brendan_Eich) 10 天捏出 Mocha 之后，即便进化成 ECMAScript，这个语言依旧毁誉相随。那些经过重重劫难，侥幸渡劫成功的苦主标识了诸多天坑（见 [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/)） —— 当然，你也可以称之 feature。据无责任乱猜，Douglas Crockford 也没少踩坑，于是才有了蝴蝶书《JavaScript: The Good Parts》，下雨天与 `JSLint` 一起使用会更配哟。
 
 ![](/blog/js-lints/guide.vs.good-parts.png)
 
@@ -71,7 +71,7 @@ tags:
 
 无独有偶，同样是源于对 `JSLint` 与 `JSHint` 的不满，[Nicholas C. Zakas](http://nczonline.net/) 也在 ` JSCS` 发布的当月开始造另一个新轮子 —— `JSCheck`（浓浓的山寨感扑面而来有没有），不过几天后即更名为 `ESLint` —— 再次表明，好名字重要性。
 
-功能方面，`ESLint` 可以简单的理解成 `JSHint + JSCS`，基本上集成了两大基友的优点。`ESLint` 在初期也是依赖于 `esprima` 生成 **AST**，后来为提高对 **ES6** 的支持，换成 `esprima` 的分支版本 `espree`。然而，`espress` 对 **ES6** 的支持仍然很有限，不过好在还有 [Babel-ESLint](https://npmjs.com/package/babel-eslint)。
+功能方面，`ESLint` 可以简单的理解成 `JSHint + JSCS`，基本上集成了两大基友的优点。`ESLint` 在初期也是依赖于 `esprima` 生成 **AST**，后来为提高对 **ES6** 的支持，换成 `esprima` 的分支版本 `espree`。然而，`espree` 对 **ES6** 的支持仍然很有限，不过好在还有 [Babel-ESLint](https://npmjs.com/package/babel-eslint)。
 
 
 ### 总结

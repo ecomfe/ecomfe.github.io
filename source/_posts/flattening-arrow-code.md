@@ -97,7 +97,7 @@ do {
     validateRowAttribute(drc[rowIdx]);
     rowIdx++;
 }
-while(rowIdx < rowCount && parseInt(drc[rowIdx], 10) === Id);
+while (rowIdx < rowCount && parseInt(drc[rowIdx], 10) === Id);
 ```
 
 3. 将否定检查转为肯定检查。主要规则是把肯定比较置前，让否定比较自然落到 else 中。我认为这样可读性肯定更好，更重要的是，避免 “我永远不会不做” 句式。
