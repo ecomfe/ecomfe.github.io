@@ -1,10 +1,10 @@
 ---
 title: 基于百度网盘构建的Android SDK镜像
-date: 2015-8-22
+date: 2015-8-24
 author: leeight
 author_link: https://github.com/leeight
 tags:
-- android
+- Android
 - baidu网盘
 ---
 
