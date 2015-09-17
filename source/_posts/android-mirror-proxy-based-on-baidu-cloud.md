@@ -44,4 +44,4 @@ DEBUG=* node main.js --bduss=$BDUSS --baiduid=$BAIDUID --port=8964
 
 对于我的 `100M` 电信宽带来说，未开通了百度网盘会员之前，下载速度在 `300K` 左右，开通了之后，下载速度是 `6M ~ 7M` 左右。
 
-![android-sdk-download-speed](androind-mirror-proxy-based-on-baidu-cloud/android-sdk-download-speed.png)
+![android-sdk-download-speed](/blog/android-mirror-proxy-based-on-baidu-cloud/android-sdk-download-speed.png)
