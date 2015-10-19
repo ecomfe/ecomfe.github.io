@@ -39,20 +39,20 @@ float属性被设置为非none的元素：
 ## CSS规范映射
 
 ### 第一条和第二条可以总体归结为“浮动对于自身的影响”。
+>1.元素被视作块级元素，相当于display设置为"block"；
 
-```
-1. 元素被视作块级元素，相当于display设置为"block"；
-2. 元素具备包裹性，会根据它所包含的元素实现宽度、高度自适应；
-```
+>2.元素具备包裹性，会根据它所包含的元素实现宽度、高度自适应；
 
 标准中有关第一条是有明确指明的：
 
 >if 'float' has a value other than 'none', the box is floated and 'display' is set according to the table below.
->
-| *Specified value* | *Computed value* |
-| inline-table | table |
-| inline, table-row-group, table-column, table-column-group, table-header-group, table-footer-group, table-row, table-cell, table-caption, inline-block | block |
-| others | same as specified |
+
+<table>
+  <tr><th width="70%">Specified value</th><th width="30%">Computed value</th></tr>
+  <tr><td>inline-table</td><td>table</td></tr>
+  <tr><td>inline, table-row-group, table-column, table-column-group, table-header-group, table-footer-group, table-row, table-cell, table-caption, inline-block</td><td>block</td></tr>
+  <tr><td>others</td><td>same as specified</td></tr>
+</table>
 
 基本上说的就是第一条。
 
@@ -91,11 +91,13 @@ Calculation of the shrink-to-fit width is similar to calculating the width of a 
 
 
 ### 第三、四、五、六条可以总体归结为“浮动对于兄弟元素的影响”。
+>3.浮动元素前后的块级兄弟元素忽视浮动元素的而占据它的位置，并且元素会处在浮动元素的下层（并且无法通过z-index属性改变他们的层叠位置），但它的内部文字和其他行内元素都会环绕浮动元素；
 
-     3. 浮动元素前后的块级兄弟元素忽视浮动元素的而占据它的位置，并且元素会处在浮动元素的下层（并且无法通过z-index属性改变他们的层叠位置），但它的内部文字和其他行内元素都会环绕浮动元素；
-     4. 浮动元素前后的行内元素环绕浮动元素排列；
-     5. 浮动元素之前的元素如果也是浮动元素，且方向相同，它会紧跟在它们后面；父元素宽度不够，换行展示；
-     6. 浮动元素之间的水平间距不会重叠；
+>4.浮动元素前后的行内元素环绕浮动元素排列；
+
+>5.浮动元素之前的元素如果也是浮动元素，且方向相同，它会紧跟在它们后面；父元素宽度不够，换行展示；
+
+>6.浮动元素之间的水平间距不会重叠；
 
 
 标准里对float的定义是
@@ -143,10 +145,11 @@ Margins of elements that establish new block formatting contexts (such as floats
 因此，也可证明合理。
 
 ### 第七、八、九条可以总体归结为“浮动对于包含元素的影响”。浮动使用时的另一批潜在坑就出现在对几个特点的应用上。
+>7.当包含元素中只有浮动元素时，包含元素将会高度塌陷；
 
-    7. 当包含元素中只有浮动元素时，包含元素将会高度塌陷；
-    8. 浮动元素的父元素的非浮动兄弟元素，忽视浮动元素存在，在浮动元素之下展示；
-    9. 浮动元素的父元素的浮动兄弟元素，会跟随浮动元素布局，仿佛处在同一父元素中。
+>8.浮动元素的父元素的非浮动兄弟元素，忽视浮动元素存在，在浮动元素之下展示；
+
+>9.浮动元素的父元素的浮动兄弟元素，会跟随浮动元素布局，仿佛处在同一父元素中。
 
 首先，以上三条拥有一个共同的原因：浮动元素脱离文档流。
 
