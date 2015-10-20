@@ -1,6 +1,6 @@
 ---
 title: CSS 代码静态质量检查
-date: 2015-07-02
+date: 2015-07-31
 author: ielgnaw
 author_link: http://weibo.com/justjava
 tags:
@@ -8,7 +8,6 @@ tags:
 - Hint
 - Check
 - CSS
-- NodeJS
 ---
 
 关于代码静态质量检查，在大佛的上一篇文章 《[JavaScript 代码静态质量检查](http://efe.baidu.com/blog/js-lints/)》中已经说得很明白了，虽然主要讲的是 JavaScript 方面，但代码静态质量检查的本质是不变的，今天我们来介绍一下 CSS 方面的静态质量检查。
