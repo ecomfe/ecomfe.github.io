@@ -14,6 +14,8 @@ tags:
 **私有成员**是实现封装的一个重要途径。但在 JavaScript 中，确没有在语法特性上对**私有成员**提供支持，
 这也使得开发人员使出了各种奇技淫巧去实现 JS 中的私有成员，以下将介绍下目前实现 JS 私有成员特性的几个方案以及它们之间的优缺点对比。
 
+<!-- more -->
+
 ### 现有的一些实现方案
 
 #### 约定命名方案
@@ -166,7 +168,7 @@ function createPrivate(prototype) {
          if (!instance.hasOwnProperty(privateStore)) {
              instance[privateStore] = {};
          }
-	     var store = instance[classToken];
+       var store = instance[classToken];
          store[token] = store[token] || Object.create(prototype || {});
          return store[token];
      };
