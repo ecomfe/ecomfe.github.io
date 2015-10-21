@@ -1,11 +1,11 @@
 ---
 title: 在 JavaScript 中实现私有成员的语法特性
-date: 2015-10-14
+date: 2015-10-21
 author: exodia
 author_link: http://weibo.com/exodia17
 tags:
-- oo
-- private
+- JavaScript
+- OO
 ---
 
 ### 前言
