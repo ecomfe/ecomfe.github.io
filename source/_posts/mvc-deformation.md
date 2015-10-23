@@ -25,7 +25,7 @@ MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程�
 
 ### MVC历史
 
-MVC最初是在研究Smalltalk-80（1979年）期间设计出来的，恐怕没有一本书能够回到计算机石器时代介绍一下smalkTalK的代码是如何实现MVC的，不仅如此，连想搞清楚当时的应用场景都很难了，都要追溯到80后出生以前的事了。但是当时的图形界面少之又少，施乐公司正在研发友好的用户图形界面，以取代电脑屏幕上那些拒人于千里之外的命令行和DOS提示符。那时计算机世界天地混沌，浑然一体，然后出现了一个创世者，将现实世界抽象出模型形成model，将人机交互从应用逻辑中分离形成view，然后就有了空气、水、、鸡啊、蛋什么的。在1995年出版的《设计模式：可复用面向对象软件的基础》对MVC进行了深入的阐述，在推广使用方面发挥了重要作用。
+MVC最初是在研究Smalltalk-80（1979年）期间设计出来的，恐怕没有一本书能够回到计算机石器时代介绍一下smalkTalK的代码是如何实现MVC的，不仅如此，连想搞清楚当时的应用场景都很难了，都要追溯到80后出生以前的事了。但是当时的图形界面少之又少，施乐公司正在研发友好的用户图形界面，以取代电脑屏幕上那些拒人于千里之外的命令行和DOS提示符。那时计算机世界天地混沌，浑然一体，然后出现了一个创世者，将现实世界抽象出模型形成model，将人机交互从应用逻辑中分离形成view，然后就有了空气、水、鸡啊、蛋什么的。在1995年出版的《设计模式：可复用面向对象软件的基础》对MVC进行了深入的阐述，在推广使用方面发挥了重要作用。
 
 MVC包括三类对象，将他们分离以提高灵活性和复用性。
 
@@ -56,25 +56,25 @@ MVC包括三类对象，将他们分离以提高灵活性和复用性。
 
 我们回顾了经典的MVC，接下来讲到的MVC主要是在Javascript上的实现。
 
-![javascript MVC模式](/mvc-deformation/img/javascriptMVC.png)
+![javascript MVC模式](/blog/mvc-deformation/img/javascriptMVC.png)
 
 [源图](https://www.safaribooksonline.com/library/view/learning-javascript-design/9781449334840/ch10s02.html)
 
 如图所示，view承接了部分controller的功能，负责处理用户输入，但是不必了解下一步做什么。它依赖于一个controller为她做决定或处理用户事件。事实上，前端的view已经具备了独立处理用户事件的能力，如果每个事件都要流经controller，势必增加复杂性。同时，view也可以委托controller处理model的更改。model数据变化后通知view进行更新，显示给用户。这个过程是一个圆，一个循环的过程。
 
-这种从经典MVC到Javascript MVC的1对1转化，导致控制器的角色有点尴尬。MVC这样的结构的正确性在于，任何界面都需要面对一个用户，而controller “是用户和系统之间的链接”。在经典MVC中，controller要做的事情多数是派发用户输入给不同的view，并且在必要的时候从view中获取用户输入来更改model，而Web以及绝大多数现在的UI系统中，controller的职责已经被系统实现了。由于某种原因，控制器和视图的分界线越来越模糊，也有认为，view启动了action理论上应该把view归属于controller。比如在Backbone中，Backbone.view和Backbone,Router一起承担了controller的责任。这就为MVC中controller的衍变埋下了伏笔。
+这种从经典MVC到Javascript MVC的1对1转化，导致控制器的角色有点尴尬。MVC这样的结构的正确性在于，任何界面都需要面对一个用户，而controller “是用户和系统之间的链接”。在经典MVC中，controller要做的事情多数是派发用户输入给不同的view，并且在必要的时候从view中获取用户输入来更改model，而Web以及绝大多数现在的UI系统中，controller的职责已经被系统实现了。由于某种原因，控制器和视图的分界线越来越模糊，也有认为，view启动了action理论上应该把view归属于controller。比如在Backbone中，Backbone.view和Backbone.Router一起承担了controller的责任。这就为MVC中controller的衍变埋下了伏笔。
 
 ### MVP
 
 MVP（model-view-Presenter）是经典MVC设计模式的一种衍生模式，是在1990年代Taligent公司创造的，一个用于C++ CommonPoint的模型。背景上不再考证，直接上图看一下与MVC的不同。
 
-![MVP模式](/mvc-deformation/img/mvp.png)
+![MVP模式](/blog/mvc-deformation/img/mvp.png)
 
-经典MVC中，一对controller-view捆绑起来表示一个ui组件，controller直接接受用户输入，并将输入转为相应命令来调用model的接口，对model的状态进行修改，最后通过观察者模式对V进行重新渲染。
+经典MVC中，一对controller-view捆绑起来表示一个ui组件，controller直接接受用户输入，并将输入转为相应命令来调用model的接口，对model的状态进行修改，最后通过观察者模式对view进行重新渲染。
 
-进化为MVP的切入点是修改controller-view的捆绑关系，为了解决controller-view的捆绑关系，将进行改造，使view不仅拥有UI组件的结构，还拥有处理用户事件的能力，这样就能将controller独立出来。为了对用户事件进行统一管理，view只负责将用户产生的事件传递给controller，由controller来统一处理，这样的好处是多个view可共用同一个controller。此时的controller也由组件级别上升到了应用级别，然而更新view的方式仍然与经典MVC一样：通过Presenter更新M，通过观察者模式更新view。
+进化为MVP的切入点是修改controller-view的捆绑关系，为了解决controller-view的捆绑关系，将进行改造，使view不仅拥有UI组件的结构，还拥有处理用户事件的能力，这样就能将controller独立出来。为了对用户事件进行统一管理，view只负责将用户产生的事件传递给controller，由controller来统一处理，这样的好处是多个view可共用同一个controller。此时的controller也由组件级别上升到了应用级别，然而更新view的方式仍然与经典MVC一样：通过Presenter更新model，通过观察者模式更新view。
 
-另一个显而易见的不同在于，MVC是一个圆，一个循环的过程，但MVP不是，依赖Presenter作为核心，负责从model中拿数据，填充到view中。常见的MVP的实现是被动视图(passive view),Presenter观察model，不再是view观察model，一旦model发生变化，就会更新view。Presenter有效地绑定了model到view。view暴露了setters接口以便Presenter可以设置数据。对于这种被动视图的结构，没有直接数据绑定的概念。但是他的好处是在view和model直接提供更清晰的分离。但是由于缺乏数据 绑定支持，意味着不得不单独关注某个任务。在MVP里，应用程序的逻辑主要在Presenter来实现，其中的view是很薄的一层。
+另一个显而易见的不同在于，MVC是一个圆，一个循环的过程，但MVP不是，依赖Presenter作为核心，负责从model中拿数据，填充到view中。常见的MVP的实现是被动视图(passive view),Presenter观察model，不再是view观察model，一旦model发生变化，就会更新view。Presenter有效地绑定了model到view。view暴露了setters接口以便Presenter可以设置数据。对于这种被动视图的结构，没有直接数据绑定的概念。但是他的好处是在view和model直接提供更清晰的分离。但是由于缺乏数据绑定支持，意味着不得不单独关注某个任务。在MVP里，应用程序的逻辑主要在Presenter来实现，其中的view是很薄的一层。
 
 ### MVVM
 MVVM，model－view－viewmodel，最初是由微软在使用Windows Presentation Foundation和SilverLight时定义的，2005年John Grossman在一篇关于阿瓦隆（WPF的代码）的博客文章中正式宣布了它的存在。如果你用过Visual Studio, 新建一个WPF Application，然后在“设计”中拖进去一个控件、双击后在“代码”中写事件处理函数、或者绑定数据源。就对这个MVVM有点感觉了。比如VS自动生成的如下代码：
@@ -105,7 +105,7 @@ MVVM，model－view－viewmodel，最初是由微软在使用Windows Presentatio
 
 背景介绍完毕，再来看一下理论图
 
-![MVVM模式](/mvc-deformation/img/mvvm.png)
+![MVVM模式](/blog/mvc-deformation/img/mvvm.png)
 
 
 首先，view和model是不知道彼此存在的，同MVP一样，将view和model清晰地分离开来。
@@ -118,7 +118,7 @@ MVVM，model－view－viewmodel，最初是由微软在使用Windows Presentatio
 
 ### BackboneJS
 
-Backbone通过提供模型models、集合Collection、视图Veiew赋予了Web应用程序分层结构，其中模型包含领域数据和自定义事件；集合Colection是模型的有序或无序集合，带有丰富的可枚举API； 视图可以声明事件处理函数。最终将模型、集合、视图与服务端的RESTful JSON接口连接。
+Backbone通过提供模型model、集合Collection、视图Veiew赋予了Web应用程序分层结构，其中模型包含领域数据和自定义事件；集合Colection是模型的有序或无序集合，带有丰富的可枚举API； 视图可以声明事件处理函数。最终将模型、集合、视图与服务端的RESTful JSON接口连接。
 
 Backbone在升级的过程中，去掉了controller，由view和router代替controller，view集中处理了用户事件（如click，keypress等）、渲染HTML模板、与模型数据的交互。Backbone的model没有与UI视图数据绑定，而是需要在view中自行操作DOM来更新或读取UI数据。Router 为客户端路由提供了许多方法，并能连接到指定的动作（actions）和事件（events）。
 
@@ -224,7 +224,7 @@ view是对viewmodel中数据的一个可视化的显示，view观察viewmodel，
 
     ko.applyBindings(new SimpleListmodel(["Alpha", "Beta", "Gamma"]));
 
-### angularJS
+### AngularJS
 
 AngularJS试图成为WEB应用中的一种端对端的解决方案。这意味着它不只是你的WEB应用中的一个小部分，而是一个完整的端对端的解决方案。这会让AngularJS在构建一个CRUD的应用时看起来很呆板，缺乏灵活性。AngularJS是为了克服HTML在构建应用上的不足而设计的。使用了不同的方法，它尝试去补足HTML本身在构建应用方面的缺陷。通过使用标识符(directives)的结构，让浏览器能够识别新的语法。例如使用双大括号{{}}语法进行数据绑定；使用ng-controller指定每个控制器负责监视视图中的哪一部分，使用ng-model，把输入数据绑定到模型中的一部分属性上
 
@@ -243,7 +243,7 @@ AngularJS原本是倾向于MVC，但是随着项目重构和版本升级，现�
         </ul>
       </body>
 
-在<li>标签里面的ng-repeat语句是一个AngularJS迭代器。包裹在phone.name和phone.snippet周围的花括号标识着数据绑定，是对应用一个数据模型的引用。当页面加载的时候，AngularJS会根据模版中的属性值，将其与数据模型中相同名字的变量绑定在一起，以确保两者的同步性。
+在li标签里面的ng-repeat语句是一个AngularJS迭代器。包裹在phone.name和phone.snippet周围的花括号标识着数据绑定，是对应用一个数据模型的引用。当页面加载的时候，AngularJS会根据模版中的属性值，将其与数据模型中相同名字的变量绑定在一起，以确保两者的同步性。
 
   在PhoneListCtrl控制器里面初始化了数据模型：
 
@@ -260,7 +260,7 @@ AngularJS原本是倾向于MVC，但是随着项目重构和版本升级，现�
       ];
     }
 
-尽管控制器看起来并没有什么控制的作用，但是它在这里的重要性在于，通过给定数据模型的作用域$scope，允许建立模型和视图之间的数据绑定。方法名PhoneListCtrl和<body>标签里面的ngcontroller指令的值相匹配。当应用启动之后，会有一个根作用域被创建出来，而控制器的作用域是根作用域的一个典型后继。这个控制器的作用域对所有<body ng-controller="PhoneListCtrl">标记内部的数据绑定有效。
+尽管控制器看起来并没有什么控制的作用，但是它在这里的重要性在于，通过给定数据模型的作用域$scope，允许建立模型和视图之间的数据绑定。方法名PhoneListCtrl和body标签里面的ngcontroller指令的值相匹配。当应用启动之后，会有一个根作用域被创建出来，而控制器的作用域是根作用域的一个典型后继。这个控制器的作用域对所有<body ng-controller="PhoneListCtrl"\>标记内部的数据绑定有效。
 
 AngularJS的作用域理论非常重要：一个作用域可以视作模板、模型和控制器协同工作的粘接器。AngularJS使用作用域，同时还有模板中的信息，数据模型和控制器。这些可以帮助模型和视图分离，但是他们两者确实是同步的！任何对于模型的更改都会即时反映在视图上；任何在视图上的更改都会被立刻体现在模型中。
 
@@ -273,12 +273,12 @@ AngularJS的作用域理论非常重要：一个作用域可以视作模板、�
 我开始思考action（controller）这个角色。我觉得从纯粹地解耦角度来说，view和model应该是互相不知道彼此存在的，所有的事件流和对数据、UI的处理应该都流经action。但是这一点又极不现实。用户操作了一个UI，需要更新model的一个数据，就要fire到action，通过action来调用model的set方法。这样又有点麻烦，因为view中有对model的应用，可以一句代码搞定这一个数据的设置。所以，我自己设置了一个规则：如果是简单的模型数据读写可以直接在view中操作；如果要经过复杂的数据处理，必须流经action。于是，我遇到了一种怎么都偷不了懒（必须经过action）的情况：
 比如有个主action mainMVC，两个子action listMVC、selectMVC，用户在listMVC中的view选择一条数据添加到右侧selectMVC中。那走过的流程是这样的：
 
-![实践中的思考](/mvc-deformation/img/practice.png)
+![实践中的思考](/blog/mvc-deformation/img/practice.png)
 
-1、子Action中的listview接受UI事件，fire到listAction中
-2、listAction继续将事件fire到Mainview中，由主action来处理另外子Action的事情。
-3、Mainview接收到事件、调用子Action selecteAction的方法
-4、selecteAction继续调用selectview的方法来完成UI的更新。
+1. 子Action中的listview接受UI事件，fire到listAction中
+2. listAction继续将事件fire到Mainview中，由主action来处理另外子Action的事情。
+3. Mainview接收到事件、调用子Action selecteAction的方法
+4. selecteAction继续调用selectview的方法来完成UI的更新。
 
 其中涉及的model的变化暂时不考虑。我在想，view既然把经典MVC中的controller接受用户事件的角色承接过来的，那如果借鉴backone的思想，把view作为controller的一个实现，推到战场的最前线。省掉两次action的中转传递，是不是更简单。
 
