@@ -79,27 +79,29 @@ MVP（model-view-Presenter）是经典MVC设计模式的一种衍生模式，是
 ### MVVM
 MVVM，model－view－viewmodel，最初是由微软在使用Windows Presentation Foundation和SilverLight时定义的，2005年John Grossman在一篇关于阿瓦隆（WPF的代码）的博客文章中正式宣布了它的存在。如果你用过Visual Studio, 新建一个WPF Application，然后在“设计”中拖进去一个控件、双击后在“代码”中写事件处理函数、或者绑定数据源。就对这个MVVM有点感觉了。比如VS自动生成的如下代码：
 
-    Xaml代码
-    <GroupBox Header="绑定对象">
-        <StackPanel Orientation="Horizontal" Name="stackPanel1">
-            <TextBlock Text="学号:"/>
-            <TextBlock Text="{Binding Path=StudentID}"/>
-            <TextBlock Text="姓名:"/>
-            <TextBlock Text="{Binding Path=Name}"/>
-            <TextBlock Text="入学日期:"/>
-            <TextBlock Text="{Binding Path=EntryDate, StringFormat=yyyy-MM-dd}"/>
-            <TextBlock Text="学分:"/>
-            <TextBlock Text="{Binding Path=Credit}"/>
-        </StackPanel>
-    </GroupBox>
+```
+// Xaml代码
+<GroupBox Header="绑定对象">
+    <StackPanel Orientation="Horizontal" Name="stackPanel1">
+        <TextBlock Text="学号:"/>
+        <TextBlock Text="{Binding Path=StudentID}"/>
+        <TextBlock Text="姓名:"/>
+        <TextBlock Text="{Binding Path=Name}"/>
+        <TextBlock Text="入学日期:"/>
+        <TextBlock Text="{Binding Path=EntryDate, StringFormat=yyyy-MM-dd}"/>
+        <TextBlock Text="学分:"/>
+        <TextBlock Text="{Binding Path=Credit}"/>
+    </StackPanel>
+</GroupBox>
 
-    Xaml后台代码
-    stackPanel1.DataContext = new Student() {
-        StudentID=20130501,
-        Name="张三",
-        EntryDate=DateTime.Parse("2013-09-01"),
-        Credit=0.0
-    };
+// Xaml后台代码
+stackPanel1.DataContext = new Student() {
+    StudentID=20130501,
+    Name="张三",
+    EntryDate=DateTime.Parse("2013-09-01"),
+    Credit=0.0
+};
+```
 
 其中最重要的特性之一就是数据绑定，Data-binding。没有前后端分离，一个开发人员全搞定，一只手抓业务逻辑、一只手抓数据访问，顺带手拖放几个UI控件，绑定数据源到某个对象或某张表，一步到位。
 
@@ -128,67 +130,68 @@ Backbone是一个小巧灵活的库，只是帮你实现一个MVC模式的框架
 
 至于Backbone属于MV\*中的哪种模式，有人认为不是MVC，有人觉得更接近于MVP，事实上，它借用多个架构模式中一些很好的概念，创建一个运行良好的灵活框架。不必拘泥于某种模式。
 
-    view:
-    var Appview = Backbone.view.extend({
-        // 每个view都需要一个指向DOM元素的引用，就像ER中的main属性。
-        el: '#container',
+```javascript
+// view:
+var Appview = Backbone.view.extend({
+    // 每个view都需要一个指向DOM元素的引用，就像ER中的main属性。
+    el: '#container',
 
-        // view中不包含html标记，有一个链接到模板的引用。
-        template: _.template("<h3>Hello <%= who %></h3>"),
+    // view中不包含html标记，有一个链接到模板的引用。
+    template: _.template("<h3>Hello <%= who %></h3>"),
 
-        // 初始化方法
-        initialize: function(){
-          this.render();
-        },
+    // 初始化方法
+    initialize: function(){
+      this.render();
+    },
 
-        // $el是一个已经缓存的jQuery对象
-        render: function(){
-          this.$el.html("Hello World");
-        },
+    // $el是一个已经缓存的jQuery对象
+    render: function(){
+      this.$el.html("Hello World");
+    },
 
-        // 事件绑定
-        events: {'keypress #new-todo': 'createTodoOnEnter'}
-    });
-    var appview = new Appview();
+    // 事件绑定
+    events: {'keypress #new-todo': 'createTodoOnEnter'}
+});
+var appview = new Appview();
 
-    model:
-    // 每个应用程序的核心、包含了交互数据和逻辑
-    // 如数据验证、getter、setter、默认值、数据初始化、数据转换
-    var app = {};
+// model:
+// 每个应用程序的核心、包含了交互数据和逻辑
+// 如数据验证、getter、setter、默认值、数据初始化、数据转换
+var app = {};
 
-    app.Todo = Backbone.model.extend({
-      defaults: {
-        title: '',
-        completed: false
-      }
-    });
+app.Todo = Backbone.model.extend({
+  defaults: {
+    title: '',
+    completed: false
+  }
+});
 
-    // 创建一个model实例
-    var todo = new app.Todo({title: 'Learn Backbone.js', completed: false});
-    todo.get('title'); // "Learn Backbone.js"
-    todo.get('completed'); // false
-    todo.get('created_at'); // undefined
-    todo.set('created_at', Date());
-    todo.get('created_at'); // "Wed Sep 12 2012 12:51:17 GMT-0400 (EDT)"
+// 创建一个model实例
+var todo = new app.Todo({title: 'Learn Backbone.js', completed: false});
+todo.get('title'); // "Learn Backbone.js"
+todo.get('completed'); // false
+todo.get('created_at'); // undefined
+todo.set('created_at', Date());
+todo.get('created_at'); // "Wed Sep 12 2012 12:51:17 GMT-0400 (EDT)"
 
-    collection：
-    // model的有序集合，可以设置或获取model
-    // 监听集合中的数据变化，从后端获取模型数据、持久化。
-    app.TodoList = Backbone.Collection.extend({
-      model: app.Todo,
-      localStorage: new Store("backbone-todo")
-    });
+// collection：
+// model的有序集合，可以设置或获取model
+// 监听集合中的数据变化，从后端获取模型数据、持久化。
+app.TodoList = Backbone.Collection.extend({
+  model: app.Todo,
+  localStorage: new Store("backbone-todo")
+});
 
-    // collection实例
-    var todoList = new app.TodoList()
-    todoList.create({title: 'Learn Backbone\'s Collection'});
+// collection实例
+var todoList = new app.TodoList()
+todoList.create({title: 'Learn Backbone\'s Collection'});
 
-    // model实例
-    var model = new app.Todo({title: 'Learn models', completed: true});
-    todoList.add(model);
-    todoList.pluck('title');
-    todoList.pluck('completed');
-
+// model实例
+var model = new app.Todo({title: 'Learn models', completed: true});
+todoList.add(model);
+todoList.pluck('title');
+todoList.pluck('completed');
+```
 
 ### KnockoutJS
 
@@ -197,32 +200,33 @@ viewmodel是model和view上的操作的一个连接，是一个纯粹的Javascri
 
 view是对viewmodel中数据的一个可视化的显示，view观察viewmodel，操作view时会发送命令到viewmodel，并且当viewmodel变化时更新。view和model是不了解彼此的存在的。
 
-    view：
-    <form data-bind="submit: addItem">
-        New item:
-        <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
-        <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
-        <p>Your items:</p>
-        <select multiple="multiple" width="50" data-bind="options: items"> </select>
-    </form>
+```javascript
+// view
+<form data-bind="submit: addItem">
+    New item:
+    <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+    <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+    <p>Your items:</p>
+    <select multiple="multiple" width="50" data-bind="options: items"> </select>
+</form>
 
+// viewmodel
+var SimpleListmodel = function(items) {
+    this.items = ko.observableArray(items);
+    this.itemToAdd = ko.observable("");
+    this.addItem = function() {
+        if (this.itemToAdd() != "") {
+            // 把input中的值加入到items，会自动更新select控件
+            this.items.push(this.itemToAdd());
+            // 清空input中的值
+            this.itemToAdd("");
+        }
+    // 确保这里的this一直是viewmodel
+    }.bind(this);
+};
 
-    viewmodel
-    var SimpleListmodel = function(items) {
-        this.items = ko.observableArray(items);
-        this.itemToAdd = ko.observable("");
-        this.addItem = function() {
-            if (this.itemToAdd() != "") {
-                // 把input中的值加入到items，会自动更新select控件
-                this.items.push(this.itemToAdd());
-                // 清空input中的值
-                this.itemToAdd("");
-            }
-        // 确保这里的this一直是viewmodel
-        }.bind(this);
-    };
-
-    ko.applyBindings(new SimpleListmodel(["Alpha", "Beta", "Gamma"]));
+ko.applyBindings(new SimpleListmodel(["Alpha", "Beta", "Gamma"]));
+```
 
 ### AngularJS
 
@@ -234,31 +238,35 @@ AngularJS原本是倾向于MVC，但是随着项目重构和版本升级，现�
 
 在AngularJS中，一个视图是模型通过HTML模板渲染之后的映射。这意味着，不论模型什么时候发生变化，AngularJS会实时更新结合点，随之更新视图。比如，视图组件被AngularJS用下面这个模板构建出来：
 
-      <body ng-controller="PhoneListCtrl">
-        <ul>
-          <li ng-repeat="phone in phones">
+```javascript
+<body ng-controller="PhoneListCtrl">
+    <ul>
+        <li ng-repeat="phone in phones">
             {{phone.name}}
-          <p>{{phone.snippet}}</p>
-          </li>
-        </ul>
-      </body>
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+</body>
+```
 
 在li标签里面的ng-repeat语句是一个AngularJS迭代器。包裹在phone.name和phone.snippet周围的花括号标识着数据绑定，是对应用一个数据模型的引用。当页面加载的时候，AngularJS会根据模版中的属性值，将其与数据模型中相同名字的变量绑定在一起，以确保两者的同步性。
 
-  在PhoneListCtrl控制器里面初始化了数据模型：
+在PhoneListCtrl控制器里面初始化了数据模型：
 
-    controller:
-    function PhoneListCtrl($scope) {
-      // 数组中存储的对象是手机数据列表
-      $scope.phones = [
-        {"name": "Nexus S",
-         "snippet": "Fast just got faster with Nexus S."},
-        {"name": "Motorola XOOM™ with Wi-Fi",
-         "snippet": "The Next, Next Generation tablet."},
-        {"name": "MOTOROLA XOOM™",
-         "snippet": "The Next, Next Generation tablet."}
-      ];
-    }
+```javascript
+// controller:
+function PhoneListCtrl($scope) {
+  // 数组中存储的对象是手机数据列表
+  $scope.phones = [
+    {"name": "Nexus S",
+     "snippet": "Fast just got faster with Nexus S."},
+    {"name": "Motorola XOOM™ with Wi-Fi",
+     "snippet": "The Next, Next Generation tablet."},
+    {"name": "MOTOROLA XOOM™",
+     "snippet": "The Next, Next Generation tablet."}
+  ];
+}
+```
 
 尽管控制器看起来并没有什么控制的作用，但是它在这里的重要性在于，通过给定数据模型的作用域$scope，允许建立模型和视图之间的数据绑定。方法名PhoneListCtrl和body标签里面的ngcontroller指令的值相匹配。当应用启动之后，会有一个根作用域被创建出来，而控制器的作用域是根作用域的一个典型后继。这个控制器的作用域对所有<body ng-controller="PhoneListCtrl"\>标记内部的数据绑定有效。
 
