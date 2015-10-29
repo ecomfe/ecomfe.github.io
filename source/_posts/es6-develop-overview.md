@@ -6,7 +6,7 @@ author_link: http://otakustay.com
 tags:
 - JavaScript
 - ES6
-- ECMAScript6
+- ESNext
 ---
 
 ECMAScript6已经于近日进入了RC阶段，而早在其处于社区讨论时，我就开始一直在尝试使用ES6进行开发的方案。在[Babel](https://babeljs.io)推出后，基于ES6的开发也有了具体可执行的解决方案，无论是Build还是Debug都能得到很好的支持。
