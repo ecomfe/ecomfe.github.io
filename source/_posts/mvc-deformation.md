@@ -289,7 +289,7 @@ AngularJS的作用域理论非常重要：一个作用域可以视作模板、�
 3. mainView接收到事件、调用子Action selectAction的方法
 4. selectAction继续调用selectView的方法来完成UI的更新。
 
-其中涉及的model的变化暂时不考虑。我在想，view既然把经典MVC中的controller接受用户事件的角色承接过来的，那如果借鉴Backone的思想，把view作为controller的一个实现，推到战场的最前线。省掉两次action的中转传递，是不是更简单。
+其中涉及的model的变化暂时不考虑。我在想，view既然把经典MVC中的controller接受用户事件的角色承接过来的，那如果借鉴Backbone的思想，把view作为controller的一个实现，推到战场的最前线。省掉两次action的中转传递，是不是更简单。
 
 ### model驱动开发
 
