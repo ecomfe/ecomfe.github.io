@@ -1,9 +1,9 @@
 ---
 title: 前端MVC变形记
-date: 2015-10-22
+date: 2015-11-3
 author: wangfengjiao
 tags:
-- JAVASCRIPT
+- JavaScript
 - MVC
 - MVP
 - MVVM
@@ -231,7 +231,7 @@ ko.applyBindings(new SimpleListmodel(["Alpha", "Beta", "Gamma"]));
 
 ### AngularJS
 
-AngularJS试图成为Web应用中的一种端对端的解决方案。这意味着它不只是你的Web应用中的一个小部分，而是一个完整的端对端的解决方案。这会让AngularJS在构建一个CRUD的应用时看起来很呆板，缺乏灵活性。AngularJS是为了克服HTML在构建应用上的不足而设计的。使用了不同的方法，它尝试去补足HTML本身在构建应用方面的缺陷。通过使用标识符(directives)的结构，让浏览器能够识别新的语法。例如使用双大括号{{}}语法进行数据绑定；使用ng-controller指定每个控制器负责监视视图中的哪一部分；使用ng-model，把输入数据绑定到模型中的一部分属性上。
+AngularJS试图成为Web应用中的一种端对端的解决方案。这意味着它不只是你的Web应用中的一个小部分，而是一个完整的端对端的解决方案。这会让AngularJS在构建一个CRUD的应用时看起来很呆板，缺乏灵活性。AngularJS是为了克服HTML在构建应用上的不足而设计的。使用了不同的方法，它尝试去补足HTML本身在构建应用方面的缺陷。通过使用标识符(directives)的结构，让浏览器能够识别新的语法。例如使用双大括号`{{data}}`语法进行数据绑定；使用ng-controller指定每个控制器负责监视视图中的哪一部分；使用ng-model，把输入数据绑定到模型中的一部分属性上。
 
 双向数据绑定是AngularJS的另一个特性。UI控件的任何更改会立即反映到模型变量（一个方向），模型变量的任何更改都会立即反映到问候语文本中（另一方向）。AngularJS通过作用域来保持数据模型与视图界面UI的双向同步。一旦模型状态发生改变，AngularJS会立即刷新反映在视图界面中，反之亦然。
 
