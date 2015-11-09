@@ -20,7 +20,7 @@ tags:
 > All code in any code-base should look like a single person typed it, no matter how many people contributed. — idiomatic.js
 
 
-[![fecs](/blog/fecs/logo.png)](http://fecs.baidu.com/)
+[![fecs](/blog/fecs/banner.jpg)](http://fecs.baidu.com/)
 
 [fecs](http://fecs.baidu.com/) 是以百度前端代码规范为目标的前端代码风格套件，套件包括 [htmlcs](http://github.com/ecomfe/htmlcs)、[csshint](http://github.com/ecomfe/node-csshint)、[lesslint](http://github.com/ecomfe/node-lesslint) 和 [jformatter](http://github.com/ecomfe/jformatter)，此外还有社区的相关开源模块 ~~cssbeautify~~、csscomb、fixmyjs 和 esformatter：
 
@@ -69,7 +69,7 @@ CSS 的 linter 相对于 JS 的则要少得多，基本上是 csslint 一枝独�
 
 #### JavaScript
 
-从图中很明显的看到，为了修复 JS 代码，fecs 使用了 fixmyjs、jformatter 和 esformatter 三个的模块。其中 fixmyjs 源于 jshint 团队，除了少数几个固定的修复，主要是针对 jshint 的检查结果作修复，但实现的规则并不多，所以我们需要 jformatter。而 esformatter 是名副其实的只做格式化。另外，`eslint` 在 [1.4.0](http://eslint.org/blog/2015/09/eslint-v1.4.0-released/) 版本之后开始支持 `--fix` 参数，借鉴 fixmyjs 针对检查的结果作修复，只是直到最新的 **1.8.0** 版本，能修复的点仍然很少。
+从图中很明显的看到，为了修复 JS 代码，fecs 使用了 fixmyjs、jformatter 和 esformatter 三个模块。其中 fixmyjs 源于 jshint 团队，除了少数几个固定的修复，主要是针对 jshint 的检查结果作修复，但实现的规则并不多，所以我们需要 jformatter。而 esformatter 是名副其实的只做格式化。另外，`eslint` 在 [1.4.0](http://eslint.org/blog/2015/09/eslint-v1.4.0-released/) 版本之后开始支持 `--fix` 参数，借鉴 fixmyjs 针对检查的结果作修复，只是直到最新的 **1.8.0** 版本，能修复的点仍然很少。
 
 
 #### CSS/LESS
@@ -132,7 +132,7 @@ htmlcs 实现了完整的 beautify 功能，同时针对某些规则作了修复
  + [VIM](https://github.com/hushicai/fecs.vim)
  + [WebStorm](https://github.com/leeight/Baidu-FE-Code-Style#webstorm)
  + [Eclipse](https://github.com/ecomfe/fecs-eclipse)
- + Sublime Text 2/3 [Baidu FE Code Style](https://github.com/leeight/Baidu-FE-Code-Style) [Sublime Helper](https://github.com/baidu-lbs-opn-fe/Sublime-fecsHelper)
+ + Sublime Text 2/3 [Baidu FE Code Style](https://github.com/leeight/Baidu-FE-Code-Style) [Sublime Helper](https://github.com/baidu-lbs-opn-fe/Sublime-fecsHelper) [SublimeLinter-contrib-fecs](https://github.com/robbenmu/SublimeLinter-contrib-fecs)
  + [Visual Studio Code](https://github.com/21paradox/fecs-visual-studio-code)
  + [Atom](https://github.com/8427003/atom-fecs)
  + [Grunt](https://github.com/ecomfe/fecs-grunt)
