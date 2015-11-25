@@ -57,7 +57,7 @@ Promise 能让潜在可怕的异步代码变得非常友好。下面假设一个
 
 为了阐明竞态条件，假设有这样一个左侧是文章列表，右侧是选中的文章内容的博客：
 
-![App with Article 1 Selected](/defusing-race-conditions-when-using-promises/img/img1.png)
+![App with Article 1 Selected](/blog/defusing-race-conditions-when-using-promises/img/img1.png)
 
 
 让我们从第一个选中的文章标题开始。然后，选中第二个文章标题。该应用发送一个请求去加载文章的内容（this.store.fetchArticle(2)），并且用户可以看见一个加载的指示器，就像这样：
