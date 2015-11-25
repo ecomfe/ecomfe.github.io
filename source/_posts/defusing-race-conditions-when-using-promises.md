@@ -2,7 +2,7 @@
 title: 化解使用 Promise 时的竞态条件
 date: 2015-11-25
 author: zhouqinghuai
-author_link: http://treelite.me/
+author_link: http://weibo.com/presidentsZhou
 tags:
 - JavaScript
 - promise
