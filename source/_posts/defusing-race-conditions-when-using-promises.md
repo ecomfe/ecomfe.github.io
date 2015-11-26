@@ -56,7 +56,6 @@ Promise 能让潜在可怕的异步代码变得非常友好。下面假设一个
 ##轮子掉了
 
 为了阐明竞态条件，假设有这样一个左侧是文章列表，右侧是选中的文章内容的博客：
-
 ![App with Article 1 Selected](/blog/defusing-race-conditions-when-using-promises/img/img1.png)
 
 
