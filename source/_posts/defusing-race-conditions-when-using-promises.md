@@ -1,6 +1,6 @@
 ---
 title: 化解使用 Promise 时的竞态条件
-date: 2015-11-25
+date: 2015-11-26
 author: zhouqinghuai
 author_link: http://weibo.com/presidentsZhou
 tags:
@@ -12,7 +12,6 @@ tags:
 
 原文：https://quickleft.com/blog/defusing-race-conditions-when-using-promises/
 
-## 化解使用 Promise 时的竞态条件
 
 网络时代，创建现代软件时其中一个很大的限制是所需要的数据往往在远程服务器上。应用程序在等待网络请求时简单地锁死是不现实（甚至不可能）的。相反，我们必须让应用程序在等待时保持响应。。
 
@@ -20,24 +19,24 @@ tags:
 为此，我们需要写出并发的代码。当应用的某一部分正在等待网络请求的响应时，其他部分必须继续运行。 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 对于编写非阻塞型的代码是很不错的工具，而且你的浏览器就支持这个。
 
 Promise 能让潜在可怕的异步代码变得非常友好。下面假设一个博客的文章视图这样从远程服务器加载一篇文章并显示它：
-```javascript
 
-	// Called from `componentWillMount` and `componentWillReceiveProps`:
-	ArticleView.prototype.updateArticle = function (props) {
+```javascript
+// Called from `componentWillMount` and `componentWillReceiveProps`:
+ArticleView.prototype.updateArticle = function (props) {
+    this.setState({
+        error: null,
+        title: null,
+        body: null
+    });
+    ArticleStore.fetch(props.articleID).then(article => {
         this.setState({
-            error: null,
-            title: null,
-            body: null
+            title: article.title,
+            body: article.body
         });
-        ArticleStore.fetch(props.articleID).then(article => {
-            this.setState({
-                title: article.title,
-                body: article.body
-            });
-        }).catch(err => {
-            this.setState({ error: 'Oh Noes!' });
-        });
-    };
+    }).catch(err => {
+        this.setState({ error: 'Oh Noes!' });
+    });
+};
 
 ```
 
@@ -48,12 +47,15 @@ Promise 能让潜在可怕的异步代码变得非常友好。下面假设一个
 这样的代码是很优雅的。许多复杂的异步调用消失了，取而代之的是直接明了的代码。然而，使用 promise 并不能保证代码是正确的。
 
 
+
 **注意到我例子中引入的不易察觉的竞态条件了吗？**
 
 
 提示：竞态条件出现的原因是无法保证异步操作的完成会按照他们开始时同样的顺序。
 
-##轮子掉了
+<!-- more -->
+
+### 轮子掉了
 
 为了阐明竞态条件，假设有这样一个左侧是文章列表，右侧是选中的文章内容的博客：
 
@@ -76,7 +78,7 @@ Promise 能让潜在可怕的异步代码变得非常友好。下面假设一个
 
 这个问题很严重，更糟糕的是在开发环境你未必能发现。在你的本机上（或者本局域网等等），加载更快而且更少出现意外。因此，代码运行时，在等待请求完成的过程中你很可能不会觉得厌烦。
 
-## 装回轮子
+### 装回轮子
 
 
 首先要明白发生了什么才能解决这个问题。我们遇到的竞态条件过程如下：
@@ -93,40 +95,40 @@ Promise 能让潜在可怕的异步代码变得非常友好。下面假设一个
 2.异步操作完成后校验应用是否仍处于同一状态。
 
 举例如下：
+
 ```javascript
-    
-	ArticleView.prototype.updateArticle = function (props) {
+ArticleView.prototype.updateArticle = function (props) {
+    this.setState({
+        error: null,
+        title: null,
+        body: null
+    });
+    // 记录应用的状态:
+    var id = props.articleID;
+
+    ArticleStore.fetch(id).then(article => {
+
+        // 校验应用的状态:
+        if (this.props.articleID !== id) return;
+
         this.setState({
-            error: null,
-            title: null,
-            body: null
+            title: article.title,
+            body:article.body
         });
-        // 记录应用的状态:
-        var id = props.articleID;
+    }).catch(err => {
+        // 校验应用的状态:
+        if (this.props.articleID !== id) return;
 
-        ArticleStore.fetch(id).then(article => {
-
-            // 校验应用的状态:
-            if (this.props.articleID !== id) return;
-
-            this.setState({
-                title: article.title,
-                body:article.body
-            });
-        }).catch(err => {
-            // 校验应用的状态:
-            if (this.props.articleID !== id) return;
-
-            this.setState({
-                error: 'Oh Noes!'
-            });
+        this.setState({
+            error: 'Oh Noes!'
         });
-    };
+    });
+};
 ```
 
 之所以喜欢这个方案是因为记录和校验状态的所有代码都在一块，正好紧挨着异步操作的代码。
 
-## 结语
+### 结语
 
 
 这个问题并不是基于 promise 的代码特有的，Node 式的回调代码也有同样的问题。基于 promise 的代码看起来越来越无害处，尽管它能轻松避免这样的问题。虽然我很乐意使用 [async 函数和 await 关键字](https://github.com/lukehoban/ecmascript-asyncawait)，但有点担心他们更容易导致忽略这些问题(这里有个[例子](https://gist.github.com/nonsensery/847be84fcae9b57e6af3))：
