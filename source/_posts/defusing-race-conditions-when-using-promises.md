@@ -10,7 +10,7 @@ tags:
 ---
 
 
-原文：https://quickleft.com/blog/defusing-race-conditions-when-using-promises/
+原文：[Defusing Race Conditions when Using Promises](https://quickleft.com/blog/defusing-race-conditions-when-using-promises/)
 
 
 网络时代，创建现代软件时其中一个很大的限制是所需要的数据往往在远程服务器上。应用程序在等待网络请求时简单地锁死是不现实（甚至不可能）的。相反，我们必须让应用程序在等待时保持响应。。

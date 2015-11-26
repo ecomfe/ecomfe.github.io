@@ -11,7 +11,7 @@ tags:
 
 作为[《嵌套条件的重构》](http://efe.baidu.com/blog/replace-nested-conditional-with-guard-clauses/) 的姊妹篇，补充说明箭形代码的缺点，并以函数分解的方式扁平化箭形代码。
 
-原文：http://blog.codinghorror.com/flattening-arrow-code/
+原文：[Flattening Arrow Code](http://blog.codinghorror.com/flattening-arrow-code/)
 
 
 经常看到这种代码：
