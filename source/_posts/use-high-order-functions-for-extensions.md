@@ -1,11 +1,10 @@
 ---
 title: 使用高阶函数实现类的扩展设计
-date: 2015-12-19
+date: 2015-12-21
 author: otakustay
-author_link: http://otakustay.com
+author_link: http://otakustay.com/
 tags:
 - JavaScript
-- ES6
 - ESNext
 - 设计
 - 扩展性
@@ -18,6 +17,8 @@ tags:
 一个非常简单的案例即日志的记录。通常框架自身并不会有业务相关的日志记录的功能，而业务代码也不希望混入并非业务逻辑的日志记录部分。那么使用一个扩展，在合适的点进行日志的收集和存储是很合适的设计。
 
 在以往，比较流行的扩展通常有几种形式：
+
+<!-- more -->
 
 1. Mixin形式。这种形式下扩展与目标形成完全的覆盖关系，属于暴力而简单的方法。
 
