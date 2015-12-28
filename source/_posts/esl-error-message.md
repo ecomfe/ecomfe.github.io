@@ -1,6 +1,6 @@
 ---
 title: ESL 中的错误提示信息
-date: 2015-12-16
+date: 2015-12-28
 author: errorrik
 author_link: http://errorrik.com/
 tags:
@@ -17,6 +17,10 @@ tags:
 1. 模块结构问题
 2. 初始化运行中的错误
 3. 疏忽导致在模块定义内使用了global require
+
+先厚脸皮求关注。
+
+<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&repo=esl&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
 
 首先，建议大家在开发中追查错误时，使用 chrome 浏览器的开发者工具。因为它对 re-throw 错误的 stack 跟踪与查看支持得比较好。
 
