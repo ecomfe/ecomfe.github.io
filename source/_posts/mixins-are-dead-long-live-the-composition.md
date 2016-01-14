@@ -5,12 +5,12 @@ author: huyao
 author_link: http://weibo.com/ever20110408?is_all=1
 tags:
 - React
-- Mixin
+- mixin
 - JavaScript
 - 高阶组合
 ---
 
-原文：[https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750)
+原文：[Mixins Are Dead. Long Live Composition](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750)
  
   当 React 0.13 推出的时候，大家都震惊了。
   
@@ -37,6 +37,8 @@ tags:
    **在实践中，这是唯一体现 mixin 用处的地方**。mixin 可以向 Flux Store 订阅组件的状态或者作用于更新后的组件 DOM 节点。任何一个组件扩展机制均能获得组件的生命周期，这一点是绝对有必要的。
   
    然而mixin还是有不少弱点：
+
+<!-- more -->
 
    **一个组件和它的 mixin 之间的关联是隐式的**。mixin 通常依赖于定义在组件中的特定方法，但是又没有办法可以从组件的定义中查看到。
 
