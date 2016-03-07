@@ -28,7 +28,7 @@ GitHub.com 现在不再使用字体来输出图标了。我们把代码库中所
 
 ### 对页面渲染的改进
 
-因为我们直接将 SVG 注入 HTML（这也是我们选择这种方式更大的原因），所以不再会出现图标字体下载、缓存、渲染过程中出现的样式闪动。
+因为我们直接将 SVG 注入 HTML，所以不再会出现图标字体下载、缓存、渲染过程中出现的样式闪动（这也是我们选择这种方式更主要的原因）。
 
 ![页面闪动](delivering-octicons-with-svg/jank.gif)
 
@@ -58,7 +58,7 @@ Octicon 在整个 GitHub 的代码库中出现了约 2500 次。在用 SVG 之�
 
 输出
 
-```
+```html
 <svg aria-hidden="true" class="octicon octicon-plus" width="12" height="16" role="img" version="1.1" viewBox="0 0 12 16">
     <path d="M12 9H7v5H5V9H0V7h5V2h2v5h5v2z"></path>
 </svg>
