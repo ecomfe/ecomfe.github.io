@@ -1,6 +1,6 @@
 ---
 title: 使用 SVG 输出 Octicon
-date: 2016-03-02
+date: 2016-03-08
 author: Justineo
 author_link: http://weibo.com/u/1143654280
 tags:
@@ -8,13 +8,14 @@ tags:
 - SVG
 - 图标
 - 字体
+- font
 ---
 
 原文：[https://github.com/blog/2112-delivering-octicons-with-svg](https://github.com/blog/2112-delivering-octicons-with-svg)
 
 GitHub.com 现在不再使用字体来输出图标了。我们把代码库中所有的 Octicon 替换成了 SVG 版本。虽然这些改动并不那么明显，但你马上就能体会到 SVG 图标的优点。
 
-![Octicon 上的对比](delivering-octicons-with-svg/octicon-comparison.png)
+![Octicon 上的对比](/blog/delivering-octicons-with-svg/octicon-comparison.png)
 
 切换到 SVG 以后，图标会作为图片渲染而非文字，这使其在任何分辨率下都能很好地在各种像素值下显示。可以比较一下左侧放大后的字体版本和右侧清晰的 SVG 版本。
 
@@ -30,7 +31,9 @@ GitHub.com 现在不再使用字体来输出图标了。我们把代码库中所
 
 因为我们直接将 SVG 注入 HTML（这也是我们选择这种方式更大的原因），所以不再会出现图标字体下载、缓存、渲染过程中出现的样式闪动。
 
-![页面闪动](delivering-octicons-with-svg/jank.gif)
+![页面闪动](/blog/delivering-octicons-with-svg/jank.gif)
+
+<!-- more -->
 
 ### 可访问性
 
