@@ -1,6 +1,6 @@
 ---
 title: 前端文本截断
-date: 2016-03-09
+date: 2016-03-22
 author: Justineo
 author_link: http://weibo.com/u/1143654280
 tags:
@@ -17,13 +17,15 @@ tags:
 
 这种需求甚至在很多时候还会和某些字符编码长度的概念产生混淆，催生「长度限制 n 个字节，其中英文数字算 1 字节、汉字算 2 字节」这样的奇葩说法。
 
-顺便歪个楼，这种「西文等宽、汉字占两倍宽度」的需求正常情况下只会存在于程序员的代码编辑器里。如果你是这种强迫症晚期，又不想用中易宋体，可以考虑试试 [@Belleve](https://www.zhihu.com/people/be5invis) 制作的 [Inziu](http://code.fosshub.com/Inziu/downloads)。
+顺便歪个楼，这种「西文等宽、汉字占两倍宽度」的需求正常情况下只会存在于程序员的代码编辑器里。如果你是这种强迫症晚期，又不想用中易宋体，可以考虑试试 [Belleve](https://www.zhihu.com/people/be5invis) 制作的 [Inziu](http://code.fosshub.com/Inziu/downloads)。
 
 ## 思路和原理
 
 对于前端来说，数据库存储的限制不应该是我们需要关心的问题。看下前面的「伪需求」，我们实际的需求往往是从视觉角度出发的「超出特定高度截断显示」或「超出特定行数阶段显示」两种。由于实现方式的差异，其实可以分为「单行截断」、「多行截断」、「按高度截断」几种。从成本和效果来看，有「实现难度」、「效果精确度」、「对内容是否有限制」、「是否能响应页面变化」这些需要考虑的细节。本文里不准备列各种实现的代码，仅谈谈一些相关的问题和思路。
 
 要看一些现有的实现方案可以看这几篇：
+
+<!-- more -->
 
 * [ELLIPSE MY TEXT…](http://html5hub.com/ellipse-my-text/)
 * [Line Clampin’ (Truncating Multiple Line Text)](https://css-tricks.com/line-clampin/)
