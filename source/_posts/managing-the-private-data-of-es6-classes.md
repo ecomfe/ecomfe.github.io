@@ -1,10 +1,14 @@
-uthor: huyao
-author_link: http://weibo.com/ever20110408?is_all=1
-tags:
-- ES6
-- Weakmap
-- Symbol
 ---
+title: 如何在ES6中管理类的私有数据
+author: huyao
+author_link: http://weibo.com/ever20110408?is_all=1
+date: 2016-5-13
+tags:
+- JavaScript
+- ES6
+- ESNext
+---
+
 
 原文：[http://www.2ality.com/2016/01/private-data-classes.html](http://www.2ality.com/2016/01/private-data-classes.html)
 
@@ -14,6 +18,8 @@ tags:
 - 遵照命名约定（例如前置下划线）标记私有属性
 - 将私有数据保存在WeakMap中
 - 使用Symbol作为私有属性的键
+
+<!-- more -->
 
 对构造函数来说，前两种方法在 `ES5` 中已经很常见了，后两种方法是 `ES6` 中新出现的。现在我们在同一个案例上分别用这四种方法来实践一下：
 
