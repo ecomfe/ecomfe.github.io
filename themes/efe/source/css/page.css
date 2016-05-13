@@ -600,6 +600,9 @@ and (max-device-width : 480px) {
         max-width: 100%;
         word-break: break-all;
     }
+    .article-index section {
+        display: none;
+    }
     footer {
         margin: 0;
         padding: 20px 0;
