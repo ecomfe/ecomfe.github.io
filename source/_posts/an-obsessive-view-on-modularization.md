@@ -130,12 +130,12 @@ let response = await ajax('GET', '/users/current');
 其实并不是“那么的模块化”，不如尝试变成这样：
 
 ```js
-import {get as getCurrentUser} from 'remote!/users/currentUser';
+import {get as getCurrentUser} from 'restResouce!/users/currentUser';
 
 let response = await getCurrentUser();
 ```
 
-配合模块化的静态依赖分析等特点，将整个系统全部作为模块来管理后，我们甚至可以基于此对Web API进行管理，比如移除已经不再使用的接口等工作变得非常简便。
+配合模块化的静态依赖分析等特点，将整个系统全部作为模块来管理后，我们甚至可以基于此对Web API进行管理，比如移除已经不再使用的接口（其实就是Tree Shaking）等工作变得非常简便。
 
 当然这对于整个系统的设计挑战是非常大的，即便真的理解这是一个很好的模块化方向，也大概没什么工程会照此执行吧。
 
