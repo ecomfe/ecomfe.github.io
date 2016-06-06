@@ -1,5 +1,5 @@
 ---
-title: 使用高阶函数实现类的扩展设计
+title: 强迫症的模块化
 date: 2016-06-05
 author: otakustay
 author_link: http://otakustay.com/
