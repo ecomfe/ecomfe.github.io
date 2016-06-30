@@ -437,4 +437,4 @@ blendMode: 'source-over'
 
 ![](/blog/echarts-3.2.0/img/theme-builder.png)
 
-这个编辑器除了方便我们的设计师配置主题外，希望也能让大家能够便捷地定制自己的主题。[戳这体验](http://echarts.baidu.com/theme-builder.html)
+这个编辑器除了方便我们的设计师配置主题外，希望也能让大家能够便捷地定制自己的主题。[戳这体验](http://echarts.baidu.com/theme-builder/)
