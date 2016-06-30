@@ -10,9 +10,9 @@ tags:
 
 # ECharts 3.2.0 变动介绍
 
-**多图流量党慎入！** 完整的 changelog 见 [这里](http://echarts.baidu.com/changelog.html)
+**多图流量党慎入！** 完整无图的 changelog 见 [这里](http://echarts.baidu.com/changelog.html)
 
-在 6 月 30 这个 ECharts 三周年之际我们发布了 3.2.0，这个版本是 ECharts 进入 3 之后最大的一次升级，新增的特性中有些是大家提了很久的，有些是我们自己想了很久的，有些我们在实现后光看看效果都觉得非常激动，有些可能看不出来区别但是我们也在底层做了很多工作。
+在 6 月 30 这个 ECharts 三周年之际我们发布了 3.2.0，这个版本是 ECharts 进入 3 之后最大的一次升级，新增的特性中有些是大家反复提了好久的，有些是我们自己想了很久的，有些我们在实现后光看看效果都觉得非常激动，有些可能看不出来区别但是我们也在底层做了很多工作。
 
 希望这个开发了长达一个多月时间的新版本不会让大家失望。
 
@@ -34,15 +34,15 @@ tags:
 
 **[散点矩阵与平行坐标轴的联动](http://echarts.baidu.com/gallery/editor.html?c=scatter-matrix)**
 
-![](echarts-3.2.0/img/brush-parallel-sm.gif)
+![](/blog/echarts-3.2.0/img/brush-parallel-sm.gif)
 
 **[K 线图与柱状图的联动](http://echarts.baidu.com/gallery/editor.html?c=candlestick-brush)**
 
-![](echarts-3.2.0/img/brush-candlestick-sm.gif)
+![](/blog/echarts-3.2.0/img/brush-candlestick-sm.gif)
 
 **[平行坐标与地图的联动](http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices)**
 
-![](echarts-3.2.0/img/brush-map-sm.gif)
+![](/blog/echarts-3.2.0/img/brush-map-sm.gif)
 
 brush 组件可以通过矩形选择框快速的进行框选，也可以更细致的使用多边形选择工具，在散点矩阵中，每个切面的散点图形都会联动选中高亮，不同图表间，例如平行坐标与散点矩阵，只要用的是同一组数据，也可以实现联动的选中高亮。
 
@@ -116,7 +116,7 @@ markArea: {
 }
 ```
 
-![](echarts-3.2.0/img/mark-area.png)
+![](/blog/echarts-3.2.0/img/mark-area.png)
 
 或者也可以通过 `'min'`, `'max'` 等特殊值方便的标记处数据的区间范围
 
@@ -136,7 +136,7 @@ markArea: {
 
 如下面的男女分布图用 markArea 分别标出了男性女性的分布区间。
 
-![](echarts-3.2.0/img/mark-area2.png)
+![](/blog/echarts-3.2.0/img/mark-area2.png)
 
 关于这个例子还有两个小改动这里提一下：
 
@@ -149,7 +149,7 @@ markArea: {
 
 #### 首先是折线图现在可以显示成阶梯线图的形式了。如下示例图
 
-![](echarts-3.2.0/img/step-line.png)
+![](/blog/echarts-3.2.0/img/step-line.png)
 
 这个需求之前提的确实挺多，我们这次在折线图中新增了一个 [step](http://echarts.baidu.com/option#series-line.step) 配置项，这个配置项可以是 `'start'` `'middle'` `'end`，分别是在当前点，当前点与下个点的中点，下个点处拐弯。上面图中可以看出不同配置的效果区别。
 
@@ -158,8 +158,9 @@ markArea: {
 
 之前版本的折线图在使用 [visualMap](http://echarts.baidu.com/option.html#visualMap) 组件的时候，编码的颜色只会被作用到拐点图形上，折线和面积区域还是默认的颜色，这个版本中我们做了下优化，使得 [visualMap](http://echarts.baidu.com/option.html#visualMap) 组件编码的颜色也能作用到折线和面积区域上，这么通过文字说可能看不出有什么用，下面是一个 2015 年北京 AQI 的折线图。我们用 visualMap 组件把不同区间段的 AQI 编码成了不同的颜色。
 
-**[2015 年北京 AQI](http://echarts.baidu.com/gallery/editor.html?c=line-aqi)**
-![](echarts-3.2.0/img/line-visual-sm.gif)
+**[2015 年北京 AQI](http://echarts.baidu.com/gallery/editor.html?c=line-aqi)**\
+
+![](/blog/echarts-3.2.0/img/line-visual-sm.gif)
 
 这个例子中可以看到配合 [分段型的 visualMap](http://echarts.baidu.com/option.html#visualMap-piecewise) 我们可以把折线图的不同区间段显示成不同的颜色，这个可能在之前版本需要通过像 [“echarts3的折线图怎么分段显示不同的颜色”
 ](https://segmentfault.com/a/1190000005648860) 这篇文章中提到的比较 trick 的手段才能实现。这个版本中可以非常方便的实现了，而且在 visualMap 组件上我们还能进行交互式的选中高亮某个区间，其它的都置灰等操作。
@@ -195,7 +196,7 @@ option = {
 
 当然配合 [连续型的 visualMap](http://echarts.baidu.com/option.html#visualMap-continuous) 也是没问题的。
 
-![](echarts-3.2.0/img/line-visual-continous.png)
+![](/blog/echarts-3.2.0/img/line-visual-continous.png)
 
 
 ## 更强大的线数据可视化
@@ -217,14 +218,16 @@ series: {
 下面这张图就是在百度地图上用启用了 [polyline](http://echarts.baidu.com/option.html#series-lines.polyline) 属性的线图绘制的北京公交路线图，图中有 1543 条公交路线。每条路线都有几十到上百不等的轨迹点。
 
 **[北京公交路线图](http://echarts.baidu.com/gallery/editor.html?c=lines-bmap-bus)**
-![](echarts-3.2.0/img/lines-bmap-bus.png)
+
+![](/blog/echarts-3.2.0/img/lines-bmap-bus.png)
 
 [polyline](http://echarts.baidu.com/option.html#series-lines.polyline) 的线图也支持轨迹特效的绘制，而且新版本特效配置项新增了一项 [effect.constantSpeed](http://echarts.baidu.com/gallery/editor.html?c=series-lines.effect.constantSpeed) 保证在不同长度的路线中特效点的速度都是相同的。
 
 下面是上图的公交路线加上轨迹特效后的效果。
 
 **[北京公交路线图特效](http://echarts.baidu.com/gallery/editor.html?c=lines-bmap-effect)**
-![](echarts-3.2.0/img/lines-effect-sm.gif)
+
+![](/blog/echarts-3.2.0/img/lines-effect-sm.gif)
 
 
 ## 更加个性化的 dataZoom
@@ -232,7 +235,7 @@ series: {
 
 数据区域缩放组件 dataZoom 也是，新版本我们增加了更丰富的自定义手柄样式和数据预览的样式配置。能配置成什么样子呢？可以直接看下图：
 
-![](echarts-3.2.0/img/data-zoom-custom.png)
+![](/blog/echarts-3.2.0/img/data-zoom-custom.png)
 
 图中的 dataZoom 有自定义的手柄形状，手柄颜色，手柄阴影，数据预览也设置了不同的描边和填充颜色。
 
@@ -280,7 +283,7 @@ toolbox: {
 
 效果如下：
 
-![](echarts-3.2.0/img/datazoom-sm.gif)
+![](/blog/echarts-3.2.0/img/datazoom-sm.gif)
 
 ## 坐标轴动画
 动画一直是我们着重优化，并且引以为豪的一点，ECharts 的图表中有丰富的初始动画，表示数据变化的过渡动画以及突出数据的特效动画。
@@ -289,11 +292,11 @@ toolbox: {
 
 **图例选择**
 
-![](echarts-3.2.0/img/axis-transition-sm.gif)
+![](/blog/echarts-3.2.0/img/axis-transition-sm.gif)
 
 **动态数据**
 
-![](echarts-3.2.0/img/axis-transition-dynamic-sm.gif)
+![](/blog/echarts-3.2.0/img/axis-transition-dynamic-sm.gif)
 
 ## 更丰富的绘制效果
 
@@ -301,8 +304,8 @@ toolbox: {
 
 我们优化了 ZRender 中对于渐变 Gradient 和纹理 Pattern 的支持，因此 ECharts 中也可以更好的支持渐变和纹理作为填充样式。下面两个分别是在背景和图形填充上使用径向渐变和纹理的例子。
 
-![](echarts-3.2.0/img/radial-gradient.png)
-![](echarts-3.2.0/img/pie-pattern.png)
+![](/blog/echarts-3.2.0/img/radial-gradient.png)
+![](/blog/echarts-3.2.0/img/pie-pattern.png)
 
 渐变和纹理的配置都是在之前填充颜色的配置上做了扩展。比如纯色样式的配置是：
 
@@ -374,8 +377,8 @@ blendMode: 'source-over'
 
 下图分别是使用默认`'source-over'`混合模式和叠加`'lighter'`混合模式绘制的 65k 条飞机航线的可视化图。
 
-![](echarts-3.2.0/img/blend-mode-normal.png)
-![](echarts-3.2.0/img/blend-mode-lighter.png)
+![](/blog/echarts-3.2.0/img/blend-mode-normal.png)
+![](/blog/echarts-3.2.0/img/blend-mode-lighter.png)
 **[示例地址](http://echarts.baidu.com/gallery/editor.html?c=lines-airline)**
 
 相较而言可以看到下面混合模式为 `'lighter'` 的视觉冲击力更强，因为数据集中的区域会叠加成亮度很高的颜色（尽管最亮也只能是白色，但是因为旁边颜色的对比，所以这里普通的白色也会让人觉得亮度更高）。
@@ -419,19 +422,19 @@ blendMode: 'source-over'
 
 下面的动图演示的就是有 20k+ 图形的热力图在开启这两个优化后的效果，图中鼠标 hover 高亮，visualMap 组件的联动高亮都很流畅（gif 看起来比实际卡顿一点，右上角一直保持着比较高的帧率）。
 
-<a href="http://echarts.baidu.com/gallery/editor.html?c=heatmap-large"><img src="echarts-3.2.0/img/performance-sm.gif" alt=""></a>
+<a href="http://echarts.baidu.com/gallery/editor.html?c=heatmap-large"><img src="/blog/echarts-3.2.0/img/performance-sm.gif" alt=""></a>
 
 图表的初始动画也是渐进式渲染的效果。下面是更多渐进式渲染的效果图
 
-<a href="http://echarts.baidu.com/gallery/editor.html?c=parallel-nutrients"><img src="echarts-3.2.0/img/progressive-sm.gif" alt=""></a>
+<a href="http://echarts.baidu.com/gallery/editor.html?c=parallel-nutrients"><img src="/blog/echarts-3.2.0/img/progressive-sm.gif" alt=""></a>
 
-![](echarts-3.2.0/img/large-lines-sm.gif)
+![](/blog/echarts-3.2.0/img/large-lines-sm.gif)
 
 
 ## 主题编辑器
 
 最后要提一下的是，ECharts 的工具链中又新增了主题编辑器。看下图
 
-![](echarts-3.2.0/img/theme-builder.png)
+![](/blog/echarts-3.2.0/img/theme-builder.png)
 
 这个编辑器除了方便我们的设计师配置主题外，希望也能让大家能够便捷地定制自己的主题。[戳这体验](http://echarts.baidu.com/theme-builder.html)
