@@ -10,9 +10,9 @@ tags:
 
 # ECharts 3.2.0 变动介绍
 
-**多图流量党慎入！** 完整的 [changelog](http://echarts.baidu.com/changelog.html)
+**多图流量党慎入！** 完整的 changelog 见 [这里](http://echarts.baidu.com/changelog.html)
 
-在 6 月 30 这个 ECharts 三周年之际我们发布了 3.2.0，这个版本是 ECharts 进入 3 之后最大的一次升级，新加的特性中有些是大家提了很久的，有些是我们自己想了很久的，有些我们在实现后光看看效果都觉得非常激动，有些看不出来区别但是我们也在底层做了很多工作。
+在 6 月 30 这个 ECharts 三周年之际我们发布了 3.2.0，这个版本是 ECharts 进入 3 之后最大的一次升级，新增的特性中有些是大家提了很久的，有些是我们自己想了很久的，有些我们在实现后光看看效果都觉得非常激动，有些可能看不出来区别但是我们也在底层做了很多工作。
 
 希望这个开发了长达一个多月时间的新版本不会让大家失望。
 
@@ -20,31 +20,33 @@ tags:
 
 在功能方面，这个版本新增了 brush（刷选），markArea，单轴等组件，除此之外对已有的图表组件，比如折线图，线图，dataZoom，坐标轴等做了或多或少的增强和优化，当然还有一些 bug 的修复。
 
-这个版本在底层的性能上也做了很多的优化工作，首先直观的用数据来说大部分场景底层重绘的效率是原先的 2x~3x。其次是引入了渐进式渲染和单独的高两层防止图形很多的时候交互和重绘带来很严重的阻塞。
+这个版本在底层的性能上也做了很多的优化工作，首先直观的用数据来说大部分场景底层重绘的效率是原先的 2x~3x。其次是引入了渐进式渲染和单独的高亮层防止图形很多的时候交互和重绘带来很严重的阻塞。
+
+同时我们官网还新增了一款[主题编辑器](http://echarts.baidu.com/theme-builder.html) 方便大家编辑自己的主题
 
 <!-- more -->
 
 下面会一一介绍这些新特性
 
-## 新加 brush 组件
+## 新增 brush 组件
 
-首先是这次新加的最重要的交互组件，刷选 brush，先看下面几个 Brushing and Linking 的效果 gif：
+首先是这次新增的最重要的交互组件，刷选 brush，先看下面几个 Brushing and Linking 的效果 gif：
 
-**散点矩阵与平行坐标轴的联动**
+**[散点矩阵与平行坐标轴的联动](http://echarts.baidu.com/gallery/editor.html?c=scatter-matrix)**
 
 ![](echarts-3.2.0/img/brush-parallel-sm.gif)
 
-**K 线图与柱状图的联动**
+**[K 线图与柱状图的联动](http://echarts.baidu.com/gallery/editor.html?c=candlestick-brush)**
 
 ![](echarts-3.2.0/img/brush-candlestick-sm.gif)
 
-**平行坐标与地图的联动**
+**[平行坐标与地图的联动](http://echarts.baidu.com/gallery/editor.html?c=map-parallel-prices)**
 
 ![](echarts-3.2.0/img/brush-map-sm.gif)
 
-brush 组件可以通过选择框快速的进行框选，也可以更细致的使用多边形选择工具，在散点矩阵中，每个切面的散点图形都会联动选中高亮，不同图表间，例如平行坐标与散点矩阵，只要用的是同一组数据，也可以实现联动的选中高亮。
+brush 组件可以通过矩形选择框快速的进行框选，也可以更细致的使用多边形选择工具，在散点矩阵中，每个切面的散点图形都会联动选中高亮，不同图表间，例如平行坐标与散点矩阵，只要用的是同一组数据，也可以实现联动的选中高亮。
 
-有了这个组件后你可以使用多种姿势选中你想要的数据子集，echarts 会联动高亮，抛出的事件中也包含了所有你选中的数据索引列表，你可以根据这份数据列表进行下一步的操作。
+有了这个组件后你可以使用多种姿势选中你想要的数据子集，ECharts 会联动高亮，抛出的事件中也包含了所有你选中的数据索引列表，你可以根据这份数据列表进行下一步的操作。
 
 比如要求个和：
 
@@ -83,11 +85,11 @@ option = {
 }
 ```
 
-上面示例代码可以看到 brush 组件对于图形样式的调整也是跟 visualMap 一样通过编码视觉通道实现的。编码的顺序 legend -> visualMap -> brush，后面的组件都是在前面的基础上二次加工，比如 legend 给不同系列分配了不同的色系，然后 visualMap 组件又在 legend 分配的色系基础根据数据的大小给每个数据有调整了不同的灰度，最后 brush 组件在 visualMap 编码好的颜色基础上调整透明度，将所有选中的图形调整为不透明，将所有非选中的图形不透明度调低。
+上面示例代码可以看到 brush 组件对于图形样式的调整也是跟 visualMap 一样通过编码视觉通道实现的。编码的顺序为 legend -> visualMap -> brush，后面的组件都是在前面的基础上二次加工，比如 legend 给不同系列分配了不同的色系，然后 visualMap 组件又在 legend 分配的色系基础上根据数据的大小给每个数据有调整了不同的灰度，最后 brush 组件在 visualMap 编码好的颜色基础上调整透明度，将所有选中的图形调整为不透明，将所有非选中的图形不透明度调低。
 
 
 
-## 新加 markArea 组件
+## 新增 markArea 组件
 
 之前版本已经有了 markPoint 和 markLine 用来标记点数据和线数据，有时候我们也会需要标记一个范围的数据，比如标出一个区间投放了广告，某个时间段是高峰时间段等等。
 
@@ -138,27 +140,28 @@ markArea: {
 
 关于这个例子还有两个小改动这里提一下：
 
-第一个是新版本开始 marker(markPoint, markLine, markArea) 中数据的每个维度（例如 `xAxis`, `yAxis`）都支持 `'min'`, `'max'`, `'average'` 特殊的统计值。
+第一个是新版本开始 markPoint, markLine, markArea 中数据的每个维度（例如 `xAxis`, `yAxis`）都支持 `'min'`, `'max'`, `'average'` 特殊的统计值。
 
 第二个是新版本样式设置，主要是 `itemStyle` 中的样式，都开始支持 `borderType` 的设置，`borderType` 可以是 `'solid'`, `'dashed'`, `'dotted'`，通过设置该属性可以像上图一样绘制出虚线的边框。
 
 
 ## 更丰富的折线图
 
-#### 首先是折线图现在可以显示成 step 的形式了。如下示例图
+#### 首先是折线图现在可以显示成阶梯线图的形式了。如下示例图
 
 ![](echarts-3.2.0/img/step-line.png)
 
-这个需求之前提的确实挺多，我们这次在折线图中新加了一个 step 配置项，这个配置项可以是 `'start'` `'middle'` `'end`，分别是在当前点，当前点与下个点的中点，下个点处拐弯。上面图中可以看出不同配置的效果区别。
+这个需求之前提的确实挺多，我们这次在折线图中新增了一个 [step](http://echarts.baidu.com/option#series-line.step) 配置项，这个配置项可以是 `'start'` `'middle'` `'end`，分别是在当前点，当前点与下个点的中点，下个点处拐弯。上面图中可以看出不同配置的效果区别。
 
 
 #### 其次是折线图现在能够更好地跟 visualMap 组件结合。
 
 之前版本的折线图在使用 [visualMap](http://echarts.baidu.com/option.html#visualMap) 组件的时候，编码的颜色只会被作用到拐点图形上，折线和面积区域还是默认的颜色，这个版本中我们做了下优化，使得 [visualMap](http://echarts.baidu.com/option.html#visualMap) 组件编码的颜色也能作用到折线和面积区域上，这么通过文字说可能看不出有什么用，下面是一个 2015 年北京 AQI 的折线图。我们用 visualMap 组件把不同区间段的 AQI 编码成了不同的颜色。
 
+**[2015 年北京 AQI](http://echarts.baidu.com/gallery/editor.html?c=line-aqi)**
 ![](echarts-3.2.0/img/line-visual-sm.gif)
 
-这个例子中可以看到配合 [分段型的 visualMap](http://echarts.baidu.com/option.html#visualMap-piecewise) 我们可以把折线图的不同区间段显示成不同的颜色，这个可能在之前版本需要通过像 [echarts3的折线图怎么分段显示不同的颜色
+这个例子中可以看到配合 [分段型的 visualMap](http://echarts.baidu.com/option.html#visualMap-piecewise) 我们可以把折线图的不同区间段显示成不同的颜色，这个可能在之前版本需要通过像 [“echarts3的折线图怎么分段显示不同的颜色”
 ](https://segmentfault.com/a/1190000005648860) 这篇文章中提到的比较 trick 的手段才能实现。这个版本中可以非常方便的实现了，而且在 visualMap 组件上我们还能进行交互式的选中高亮某个区间，其它的都置灰等操作。
 
 配置的示例代码
@@ -196,9 +199,9 @@ option = {
 
 
 ## 更强大的线数据可视化
-之前版本的线图(lines)只支持起点到终点的线数据，对于一条线中有很多点的轨迹数据，比如公交路线，地铁路线，步行路线的轨迹，只能用多组起点到终点的数据去模拟，这种方式性能很差，而且一条路线每一段之间的连接效果差强人意。
+之前版本的[线图](http://echarts.baidu.com/option.html#series-lines)只支持起点到终点的线数据，对于一条线中有很多点的轨迹数据，比如公交路线，地铁路线，步行路线的轨迹，只能用多组起点到终点的数据去模拟，这种方式性能很差，而且一条路线每一段之间的连接效果差强人意。
 
-所以 3.2.0 中新增加了`polyline`属性用来支持多个点的轨迹绘制，并且对数据格式做了一定的调整，因为原先的数据格式并不方便每个数据项指定多个轨迹点。
+所以 3.2.0 中新增加了 [polyline](http://echarts.baidu.com/option.html#series-lines.polyline) 属性用来支持多个点的轨迹绘制，并且对数据格式做了一定的调整，因为原先的数据格式并不方便每个数据项指定多个轨迹点。
 
 ```js
 series: {
@@ -211,14 +214,16 @@ series: {
 }
 ```
 
-下面这张图就是在百度地图上用启用了 `polyline` 属性的线图绘制的北京公交路线图，图中有 1543 条公交路线。每条路线都有几十到上百不等的轨迹点。
+下面这张图就是在百度地图上用启用了 [polyline](http://echarts.baidu.com/option.html#series-lines.polyline) 属性的线图绘制的北京公交路线图，图中有 1543 条公交路线。每条路线都有几十到上百不等的轨迹点。
 
+**[北京公交路线图](http://echarts.baidu.com/gallery/editor.html?c=lines-bmap-bus)**
 ![](echarts-3.2.0/img/lines-bmap-bus.png)
 
-`polyline` 的线图也支持轨迹特效的绘制，而且新版本特效配置项新加了一项 `effect.constantSpeed` 保证在不同长度的路线中特效点的速度都是相同的。
+[polyline](http://echarts.baidu.com/option.html#series-lines.polyline) 的线图也支持轨迹特效的绘制，而且新版本特效配置项新增了一项 [effect.constantSpeed](http://echarts.baidu.com/gallery/editor.html?c=series-lines.effect.constantSpeed) 保证在不同长度的路线中特效点的速度都是相同的。
 
 下面是上图的公交路线加上轨迹特效后的效果。
 
+**[北京公交路线图特效](http://echarts.baidu.com/gallery/editor.html?c=lines-bmap-effect)**
 ![](echarts-3.2.0/img/lines-effect-sm.gif)
 
 
@@ -258,7 +263,7 @@ handleStyle: {
 }
 ```
 
-除了样式没我们对工具栏中的 dataZoom 也做了优化，之前版本工具栏中的 dataZoom 只支持二维的选择，导致很多人困惑为什么折线图用完 dataZoom 很多点都不见了呢，原因就是因为 Y 轴上也被过滤了。
+除了样式没我们对工具栏中的 dataZoom 也做了优化，之前版本工具栏中的 dataZoom 只支持二维的选择，导致很多人困惑为什么折线图用完 dataZoom 很多点都不见了，原因就是因为在 Y 轴上数据也被 dataZoom 过滤了。
 
 现在我们可以将工具栏中的 dataZoom 配置成单轴的选择：
 
@@ -353,7 +358,7 @@ color: {
 
 #### 混合模式
 
-这个版本还新加入了绘制的混合模式的配置，不同的混合模式决定了 canvas 绘制中像素颜色的叠加方式（对 Canvas 混合模式的方式感兴趣的话可以进一步看文章 [Using blend modes in HTML Canvas](http://blogs.adobe.com/webplatform/2014/02/24/using-blend-modes-in-html-canvas/) 和 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation) ）
+这个版本还新增入了绘制的混合模式的配置，不同的混合模式决定了 Canvas 绘制中像素颜色的叠加方式（对 Canvas 混合模式的方式感兴趣的话可以进一步看文章 [Using blend modes in HTML Canvas](http://blogs.adobe.com/webplatform/2014/02/24/using-blend-modes-in-html-canvas/) 和 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation) ）
 
 不同混合模式的设置非常简单：
 
@@ -367,10 +372,11 @@ series: [{
 blendMode: 'source-over'
 ```
 
-下图分别是使用默认`'source-over'`混合模式和叠加`'lighter'`叠加模式绘制的 65k 条飞机航线的可视化图。
+下图分别是使用默认`'source-over'`混合模式和叠加`'lighter'`混合模式绘制的 65k 条飞机航线的可视化图。
 
 ![](echarts-3.2.0/img/blend-mode-normal.png)
 ![](echarts-3.2.0/img/blend-mode-lighter.png)
+**[示例地址](http://echarts.baidu.com/gallery/editor.html?c=lines-airline)**
 
 相较而言可以看到下面混合模式为 `'lighter'` 的视觉冲击力更强，因为数据集中的区域会叠加成亮度很高的颜色（尽管最亮也只能是白色，但是因为旁边颜色的对比，所以这里普通的白色也会让人觉得亮度更高）。
 
@@ -399,7 +405,7 @@ blendMode: 'source-over'
 
 	但是这样简单处理比较坑的是 V8 的 in-place 快排是不稳定的，也就是 z 值相同的图形在排完序后顺序会被打乱，导致不能完全按照添加的顺序绘制。所以我们又额外加了个属性用来表示图形添加的顺序，比较的时候再多做这个判断保证排完序后的顺序，之前一直都是这么处理的，直到最近发现这个多加的判断会使比较函数永远不会返回 0（相等），而这会导致 V8 的排序开销会大几倍到十几倍不等，我们在对上万的图形更新做 profile 时也发现排序的开销一直是最高的。因此我们尝试把内置的排序方法替换成了稳定的 [timsort](https://en.wikipedia.org/wiki/Timsort)，因为 ZRender 的图形大部分是有序的，而 timsort 对有序数组排序的速度也要快很多。换成 timsort 后再 profile 排序的开销就降到几乎可以忽略了。
 
-在上面两个优化后 http://echarts.baidu.com/gallery/editor.html?c=doc-example/bar-large 示例 2 个系列，每个系列 2k 的数据（也就是总共 4k+ 的图形）的初始动画从原先卡顿的 10 fps 提升到了流畅的 30 fps，而且这些 zrender 的优化都对展示效果和上层 echarts 的开发没有什么影响和副作用。
+在上面两个优化后 http://echarts.baidu.com/gallery/editor.html?c=doc-example/bar-large 示例 2 个系列，每个系列 2k 的数据（也就是总共 4k+ 的图形）的初始动画从原先卡顿的 10 fps 提升到了流畅的 30 fps，而且这些 ZRender 的优化都对展示效果和上层 echarts 的开发没有什么影响和副作用。
 
 
 ##### 然后是一些有损的优化
@@ -408,16 +414,24 @@ blendMode: 'source-over'
 
 	所以从 ECharts 3 开始默认去掉了这个优化，3.2.0 开始支持选择性开启。可以通过配置 `hoverLayerThreshold` 属性值，当屏幕中图形数量大于这个值时开启单独的 hover 层，这样只有在有需要的时候通过选择牺牲部分显示效果保证交互的流畅性。
 
-2. 渐进式渲染 Progressive Rendering。通俗点说就是把一大波图形分到不同帧中渲染，从而保证不会因为每一帧太多渲染的图形而导致交互阻塞。新版本中
+2. 渐进式渲染 Progressive Rendering。通俗点说就是把一大波图形分到不同帧中渲染，从而保证不会因为每一帧太多渲染的图形而导致交互阻塞。新版本中可以通过配置 [progressive](http://echarts.baidu.com/option.html#progressive) 和 [progressiveThreshold](http://echarts.baidu.com/option.html#progressiveThreshold) 启用渐进式渲染。
 
 
 下面的动图演示的就是有 20k+ 图形的热力图在开启这两个优化后的效果，图中鼠标 hover 高亮，visualMap 组件的联动高亮都很流畅（gif 看起来比实际卡顿一点，右上角一直保持着比较高的帧率）。
 
-![](echarts-3.2.0/img/performance-sm.gif)
+<a href="http://echarts.baidu.com/gallery/editor.html?c=heatmap-large"><img src="echarts-3.2.0/img/performance-sm.gif" alt=""></a>
 
 图表的初始动画也是渐进式渲染的效果。下面是更多渐进式渲染的效果图
 
-![](echarts-3.2.0/img/progressive-sm.gif)
+<a href="http://echarts.baidu.com/gallery/editor.html?c=parallel-nutrients"><img src="echarts-3.2.0/img/progressive-sm.gif" alt=""></a>
 
 ![](echarts-3.2.0/img/large-lines-sm.gif)
 
+
+## 主题编辑器
+
+最后要提一下的是，ECharts 的工具链中又新增了主题编辑器。看下图
+
+![](echarts-3.2.0/img/theme-builder.png)
+
+这个编辑器除了方便我们的设计师配置主题外，希望也能让大家能够便捷地定制自己的主题。[戳这体验](http://echarts.baidu.com/theme-builder.html)
