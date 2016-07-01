@@ -1,6 +1,6 @@
 ---
 title: ECharts 3.2.0 变动介绍
-date: 2016-06-30
+date: 2016-07-01
 author: pissang
 author_link: https://github.com/pissang
 tags:
@@ -8,9 +8,6 @@ tags:
 - 数据可视化
 ---
 
-# ECharts 3.2.0 变动介绍
-
-**多图流量党慎入！** 完整无图的 changelog 见 [这里](http://echarts.baidu.com/changelog.html)
 
 在 6 月 30 这个 ECharts 三周年之际我们发布了 3.2.0，这个版本是 ECharts 进入 3 之后最大的一次升级，新增的特性中有些是大家反复提了好久的，有些是我们自己想了很久的，有些我们在实现后光看看效果都觉得非常激动，有些可能看不出来区别但是我们也在底层做了很多工作。
 
@@ -22,11 +19,11 @@ tags:
 
 这个版本在底层的性能上也做了很多的优化工作，首先直观的用数据来说大部分场景底层重绘的效率是原先的 2x~3x。其次是引入了渐进式渲染和单独的高亮层防止图形很多的时候交互和重绘带来很严重的阻塞。
 
-同时我们官网还新增了一款[主题编辑器](http://echarts.baidu.com/theme-builder.html) 方便大家编辑自己的主题
+同时我们官网还新增了一款 [主题编辑器](http://echarts.baidu.com/theme-builder.html) 方便大家编辑自己的主题
+
+下面会一一介绍这些新特性。**多图流量党慎入！** 完整无图的 changelog 见 [这里](http://echarts.baidu.com/changelog.html)
 
 <!-- more -->
-
-下面会一一介绍这些新特性
 
 ## 新增 brush 组件
 
