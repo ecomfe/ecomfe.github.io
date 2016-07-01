@@ -54,12 +54,12 @@ brush 组件可以通过矩形选择框快速的进行框选，也可以更细�
 var data = [...];
 
 myChart.on('brushselected', function (params) {
-	// 分别求出每个系列选中数据的和。
-	var seriesSum = params.batch[0].map(function (seriesSelected) {
-		return seriesSelected.dataIndex.reduce(function (sum, dataIndex) {
-			return sum + data[dataIndex].value;
-		}, 0);
-	});
+    // 分别求出每个系列选中数据的和。
+    var seriesSum = params.batch[0].map(function (seriesSelected) {
+        return seriesSelected.dataIndex.reduce(function (sum, dataIndex) {
+            return sum + data[dataIndex].value;
+        }, 0);
+    });
 });
 ```
 
@@ -67,21 +67,21 @@ brush 组件的配置跟其它组件类似。
 
 ```js
 option = {
-	brush: {
-		// 配置联动，'all' 表示所有系列都会联动
-		brushLink: 'all',
-		// 选中的视觉编码设置，支持的编码方式可以参考 visualMap
-		inBrush: {
-			// 选中图形不透明
-			opacity: 1
-		},
-		// 非选中的视觉编码设置
-		outOfBrush: {
-			// 没选中的图形置灰, 不透明度调低
-			color: '#ddd',
-			opacity: 0.5
-		}
-	}
+    brush: {
+        // 配置联动，'all' 表示所有系列都会联动
+        brushLink: 'all',
+        // 选中的视觉编码设置，支持的编码方式可以参考 visualMap
+        inBrush: {
+            // 选中图形不透明
+            opacity: 1
+        },
+        // 非选中的视觉编码设置
+        outOfBrush: {
+            // 没选中的图形置灰, 不透明度调低
+            color: '#ddd',
+            opacity: 0.5
+        }
+    }
 }
 ```
 
@@ -169,28 +169,28 @@ markArea: {
 
 ```js
 option = {
-	...
-	// visualMap 组件配置
-	visualMap: {
-		// 配置不同区间
-		pieces: [{
-			// 小于等于 60 分的显示为 红色
-			// 在之前版本中是通过 min，max 的方式配置，无法表示开区间与闭区间
-			// 新版本改为通过 gt, gte, lt, lte 分别配置大于，大于等于，小于，小于等于
-			lte: 0,
-			color: 'red'
-		}, {
-			// 大于 60 分的显示为蓝色
-			gt: 0,
-			color: 'blue'
-		}]
-	},
-	...
-	series: [{
-		// 折线图系列不需要额外的配置
-		type: 'lines',
-		data: [...]
-	}]
+    ...
+    // visualMap 组件配置
+    visualMap: {
+        // 配置不同区间
+        pieces: [{
+            // 小于等于 60 分的显示为 红色
+            // 在之前版本中是通过 min，max 的方式配置，无法表示开区间与闭区间
+            // 新版本改为通过 gt, gte, lt, lte 分别配置大于，大于等于，小于，小于等于
+            lte: 0,
+            color: 'red'
+        }, {
+            // 大于 60 分的显示为蓝色
+            gt: 0,
+            color: 'blue'
+        }]
+    },
+    ...
+    series: [{
+        // 折线图系列不需要额外的配置
+        type: 'lines',
+        data: [...]
+    }]
 }
 ```
 
@@ -206,12 +206,12 @@ option = {
 
 ```js
 series: {
-	type: 'lines',
-	polyline: true,
-	data: [{
-		// 轨迹的坐标点配置
-		coords: [[lng, lat], [lng, lat]...]
-	} ... ]
+    type: 'lines',
+    polyline: true,
+    data: [{
+        // 轨迹的坐标点配置
+        coords: [[lng, lat], [lng, lat]...]
+    } ... ]
 }
 ```
 
@@ -248,13 +248,13 @@ handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.
 handleSize: '80%',
 // 数据预览的样式设置
 dataBackground: {
-  areaStyle: {
-      color: '#8392A5'
-  },
-  lineStyle: {
-      opacity: 0.8,
-      color: '#8392A5'
-  }
+    areaStyle: {
+        color: '#8392A5'
+    },
+    lineStyle: {
+        opacity: 0.8,
+        color: '#8392A5'
+    }
 },
 // 手柄的样式设置
 handleStyle: {
@@ -272,12 +272,12 @@ handleStyle: {
 
 ```js
 toolbox: {
-	feature: {
-		dataZoom: {
-			// 不选择 Y 轴
-			yAxisIndex: 'none'
-		}
-	}
+    feature: {
+        dataZoom: {
+            // 不选择 Y 轴
+            yAxisIndex: 'none'
+        }
+    }
 }
 ```
 
@@ -311,9 +311,9 @@ toolbox: {
 
 ```js
 itemStyle: {
-	normal: {
-		color: 'red'
-	}
+    normal: {
+        color: 'red'
+    }
 }
 ```
 
@@ -321,17 +321,17 @@ itemStyle: {
 
 ```js
 itemStyle: {
-	normal: {
-		// 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1
-		// 相当于在图形包围盒中的百分比，如果最后一个参数传 true，则该四个值是绝对的像素位置
-		color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-			offset: 0, color: 'red'
-		}, {
-			offset: 1, color: 'blue'
-		}], false),
-		// 纹理填充
-		color: new echarts.graphic.Pattern(imageDom, 'repeat')
-	}
+    normal: {
+        // 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1
+        // 相当于在图形包围盒中的百分比，如果最后一个参数传 true，则该四个值是绝对的像素位置
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0, color: 'red'
+        }, {
+            offset: 1, color: 'blue'
+        }], false),
+        // 纹理填充
+        color: new echarts.graphic.Pattern(imageDom, 'repeat')
+    }
 }
 ```
 
@@ -340,22 +340,22 @@ itemStyle: {
 ```js
 // 线性渐变
 color: {
-	type: 'linear',
-	global: false,
-	x: 0,
-	y: 0,
-	x2: 1,
-	y2: 0,
-	colorStops: [{
-		offset: 0, color: 'red'
-	}, {
-		offset: 1, color: 'blue'
-	}]
+    type: 'linear',
+    global: false,
+    x: 0,
+    y: 0,
+    x2: 1,
+    y2: 0,
+    colorStops: [{
+        offset: 0, color: 'red'
+    }, {
+        offset: 1, color: 'blue'
+    }]
 }
 // 纹理填充
 color: {
-	image: imageDom,
-	repeat: 'repeat'
+    image: imageDom,
+    repeat: 'repeat'
 }
 ```
 
@@ -367,9 +367,9 @@ color: {
 
 ```js
 series: [{
-	...,
-	// 设置为叠加的混合模式
-	blendMode: 'lighter'
+    ...,
+    // 设置为叠加的混合模式
+    blendMode: 'lighter'
 }],
 // 也可以全局设置，source-over 是默认的混合模式
 blendMode: 'source-over'
@@ -398,15 +398,15 @@ blendMode: 'source-over'
 
 1. canvas 状态切换的减少。之前版本为了开发的便捷，每绘制一个图形都会 save 保存当前的 context，然后设置该图形的样式后绘制，最后 restore 恢复初始绘图前的 context，但是 canvas 的状态设置有一定开销，因为需要判断属性值是否合法，特别是`fillStyle`，`strokeStyle` 等颜色的设置，底层还需要解析颜色字符串，同样的，context 的保存和恢复也是不少开销。
 
-	因此我们尝试去掉了每次绘制图形 context 的保存和恢复，然后绘制当前图形的时候，跟前一个绘制的图形对比样式的区别，只设置有变化的样式状态，因为 ECharts 中大部分图形都是相同的颜色和样式，所以可以减少不少状态的设置。这个优化后给大部分场景带来了 2x + 的性能提升。但是也会带来一些坑，比如如果 canvas 状态设置的值是非法的话，canvas 会选择属性值保持不变，这样会导致上一个图形的样式状态会泄露到当前图形，而不是像原先那样属性值会保持默认的值。因此需要额外的判断下属性是否合法。
+    因此我们尝试去掉了每次绘制图形 context 的保存和恢复，然后绘制当前图形的时候，跟前一个绘制的图形对比样式的区别，只设置有变化的样式状态，因为 ECharts 中大部分图形都是相同的颜色和样式，所以可以减少不少状态的设置。这个优化后给大部分场景带来了 2x + 的性能提升。但是也会带来一些坑，比如如果 canvas 状态设置的值是非法的话，canvas 会选择属性值保持不变，这样会导致上一个图形的样式状态会泄露到当前图形，而不是像原先那样属性值会保持默认的值。因此需要额外的判断下属性是否合法。
 
 2. 图形绘制的排序优化。ZRender 的图形有表示前后顺序的 z 属性，因此绘制之前会先根据 z 排序，保证绘制是从后往前的，而不会有错误的叠加关系，正常情况下这个排序逻辑非常简单。
 
-	```js
-	list.sort(function (a, b) { a.z - b.z });
-	```
+    ```js
+    list.sort(function (a, b) { a.z - b.z });
+    ```
 
-	但是这样简单处理比较坑的是 V8 的 in-place 快排是不稳定的，也就是 z 值相同的图形在排完序后顺序会被打乱，导致不能完全按照添加的顺序绘制。所以我们又额外加了个属性用来表示图形添加的顺序，比较的时候再多做这个判断保证排完序后的顺序，之前一直都是这么处理的，直到最近发现这个多加的判断会使比较函数永远不会返回 0（相等），而这会导致 V8 的排序开销会大几倍到十几倍不等，我们在对上万的图形更新做 profile 时也发现排序的开销一直是最高的。因此我们尝试把内置的排序方法替换成了稳定的 [timsort](https://en.wikipedia.org/wiki/Timsort)，因为 ZRender 的图形大部分是有序的，而 timsort 对有序数组排序的速度也要快很多。换成 timsort 后再 profile 排序的开销就降到几乎可以忽略了。
+    但是这样简单处理比较坑的是 V8 的 in-place 快排是不稳定的，也就是 z 值相同的图形在排完序后顺序会被打乱，导致不能完全按照添加的顺序绘制。所以我们又额外加了个属性用来表示图形添加的顺序，比较的时候再多做这个判断保证排完序后的顺序，之前一直都是这么处理的，直到最近发现这个多加的判断会使比较函数永远不会返回 0（相等），而这会导致 V8 的排序开销会大几倍到十几倍不等，我们在对上万的图形更新做 profile 时也发现排序的开销一直是最高的。因此我们尝试把内置的排序方法替换成了稳定的 [timsort](https://en.wikipedia.org/wiki/Timsort)，因为 ZRender 的图形大部分是有序的，而 timsort 对有序数组排序的速度也要快很多。换成 timsort 后再 profile 排序的开销就降到几乎可以忽略了。
 
 在上面两个优化后 http://echarts.baidu.com/gallery/editor.html?c=doc-example/bar-large 示例 2 个系列，每个系列 2k 的数据（也就是总共 4k+ 的图形）的初始动画从原先卡顿的 10 fps 提升到了流畅的 30 fps，而且这些 ZRender 的优化都对展示效果和上层 echarts 的开发没有什么影响和副作用。
 
@@ -415,7 +415,7 @@ blendMode: 'source-over'
 
 1. 特殊的 hover 层。实际上在 ECharts 2 中对于 hover 图形的高亮就是强制把图形放到一个单独的 hover 层中，这样在鼠标 hover 高亮不用刷新整个图层而导致卡顿，但是这种方式因为高亮状态的图形实际上是直接叠加绘制在没有高亮状态的图形上的，所以也有不少的弊端，比如高亮的样式有透明度，高亮的图形形状不能完全覆盖普通状态的图形形状等等情况下都会导致显示不正确，而且大部分场景（1k 不到的图形）下 ECharts 都能做到流畅（30fps+）的高亮重绘，并没有太大使用这个优化的必要。
 
-	所以从 ECharts 3 开始默认去掉了这个优化，3.2.0 开始支持选择性开启。可以通过配置 `hoverLayerThreshold` 属性值，当屏幕中图形数量大于这个值时开启单独的 hover 层，这样只有在有需要的时候通过选择牺牲部分显示效果保证交互的流畅性。
+    所以从 ECharts 3 开始默认去掉了这个优化，3.2.0 开始支持选择性开启。可以通过配置 `hoverLayerThreshold` 属性值，当屏幕中图形数量大于这个值时开启单独的 hover 层，这样只有在有需要的时候通过选择牺牲部分显示效果保证交互的流畅性。
 
 2. 渐进式渲染 Progressive Rendering。通俗点说就是把一大波图形分到不同帧中渲染，从而保证不会因为每一帧太多渲染的图形而导致交互阻塞。新版本中可以通过配置 [progressive](http://echarts.baidu.com/option.html#progressive) 和 [progressiveThreshold](http://echarts.baidu.com/option.html#progressiveThreshold) 启用渐进式渲染。
 
