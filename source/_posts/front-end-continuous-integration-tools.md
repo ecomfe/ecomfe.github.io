@@ -50,7 +50,6 @@ github 上比较主流的持续集成工具有 [Travis CI](https://travis-ci.org
 
 进入 Travis 的 [首页](https://travis-ci.org/) 有个 `Sign Up` 的大按钮，点击进入就行了。第一次会进入一个github的登录页面，可以选择你想要开源的项目所在的组。有可能你不是这个组的Owner，并且这个组还没有开通连接 travis 的服务，需要联系 Owner 去开通。
 
-
 ### 第二步 创建 `.travis.yml`
 
 在项目根目录下创建 travis-ci 的配置文件，如下格式（如果没有这个文件，travis会默认执行 `npm install` 和 `npm test`）：
@@ -138,7 +137,12 @@ after_script:
     - npm run coveralls
 ```
 
-package.json 里面也定义好相关脚本
+在 `.coveralls.yml` 里也增加配置
+```
+service_name: travis-ci
+```
+
+`package.json` 里面也定义好相关脚本
 ```
 "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/karma start ./tool/karma.conf.js",
@@ -257,12 +261,12 @@ module.exports = function (config) {
 
 最后可以把徽章放到 README 里
 ```
-[![Selenium Test Status](https://saucelabs.com/browser-matrix/melon-core.svg)](https://saucelabs.com/u/melon-core)
+[![Selenium Test Status](https://saucelabs.com/browser-matrix/YOUR_USERNAME.svg)](https://saucelabs.com/u/YOUR_USERNAME)
 ```
 
 ## 总结
 
-我们最终效果图，瞬间就高端了很多。
+我们的最终效果图，瞬间就高端了很多。
 
 ![图片](/blog/front-end-continuous-integration-tools/img/conclue.png)
 
