@@ -44,7 +44,7 @@ Melon 项目 karma 配置示例：
 
 > [持续集成](http://baike.baidu.com/link?url=N6-tOlIuf5lpnhD7LFAA5jIlOgD3dGEyTW_XQOEIo5etmYxxtoERwGOEz9q0jCtYWwHpvX4qZb31Hr0X4QvGRa)是一种软件开发实践，即团队开发成员经常集成它们的工作，通过每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试）来验证，从而尽早地发现集成错误。
 
-github 上比较主流的持续集成工具有 [Travis CI](https://Travis-ci.org/) 和 [Circle CI](https://circleci.com/)，下面以 Travis CI 为例：
+GitHub 上比较主流的持续集成工具有 [Travis CI](https://travis-ci.org/) 和 [Circle CI](https://circleci.com/)，下面以 Travis CI 为例：
 
 ### 第一步 注册
 
@@ -78,7 +78,7 @@ script:
 
 每次代码 push 以后，Travis 会自动开始构建，并运行单测，构建成功以后就可以把徽章加到 README 里了
 ```
-[![Build](https://img.shields.io/Travis/react-melon/melon-core.svg?style=flat-square)](https://Travis-ci.org/react-melon/melon-core)
+[![Build](https://img.shields.io/travis/react-melon/melon-core.svg)](https://travis-ci.org/react-melon/melon-core)
 ```
 
 ## 代码覆盖率集成
