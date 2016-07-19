@@ -150,8 +150,8 @@ service_name: travis-ci
 `package.json` 里面也定义好相关脚本
 ```
 "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/karma start ./tool/karma.conf.js",
-    "test-ci": "NODE_ENV=test ./node_modules/.bin/karma start ./tool/karma.ci.conf.js",
+    "test": "./node_modules/.bin/karma start ./tool/karma.conf.js",
+    "test-ci": "./node_modules/.bin/karma start ./tool/karma.ci.conf.js",
     "coveralls": "cat ./coverage/lcov/lcov.info | ./node_modules/.bin/coveralls"
 },
 ```
@@ -257,7 +257,7 @@ module.exports = function (config) {
 };
 ```
 
-** SauceLabs 配置需要注意**
+**SauceLabs 配置需要注意**
 
 * 我们需要手动给 `process.env.SAUCE_USERNAME`  和 `process.env.SAUCE_ACCESS_KEY` 赋值，`accessKey` 对应的是子用户
 * 如果想提交本地的测试结果，需要添加 `build` 参数，用来唯一标识某一次测试（如果在 Travis 上运行就不需要特别指定，会默认使用 Travis 的构建 ID），如果没有指定这个参数，是不会生成结果图的
