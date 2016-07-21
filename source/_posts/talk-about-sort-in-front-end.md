@@ -1,17 +1,16 @@
 ---
 title: 聊聊前端排序的那些事
-date: 2016-06-06
+date: 2016-07-18
 author: shenbin
 author_link: https://github.com/bobshen
 tags:
 - algorithm
-- ECMAScript
-- browser
+- JavaScript
 ---
 
 ## 前言
 
-貌似前端[[1]](#注1)圈一直以来流传着一种误解：前端用不到算法知识。[[2]](#注2)
+貌似前端[[1]](/blog/talk-about-sort-in-front-end/#标注)圈一直以来流传着一种误解：前端用不到算法知识。[[2]](/blog/talk-about-sort-in-front-end/#标注)
 
 长久以来，我也曾受这种说法的影响。直到前阵子遇到一个产品需求，回过头来看，发现事实并非如此。
 
@@ -57,7 +56,7 @@ tags:
 
 #### Firefox中的实现
 
-暂时无法确定Firefox的JavaScript引擎即将使用的数组排序算法会是什么。[[3]](#注3)
+暂时无法确定Firefox的JavaScript引擎即将使用的数组排序算法会是什么。[[3]](/blog/talk-about-sort-in-front-end/#标注)
 
 按照现有的信息，`SpiderMoney` 内部实现了 `归并排序`。
 
