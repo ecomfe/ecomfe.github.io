@@ -1,6 +1,6 @@
 ---
 title: 作曲家与听众
-date: 2016-06-16
+date: 2016-07-22
 author: daaaabeen
 author_link: http://weibo.com/daaaabeen
 tags:
@@ -15,8 +15,7 @@ tags:
 
 想象一下自己是一个十八世纪的年轻宫廷作曲家。你刚刚从学校里出来到维也纳，心里有一个目标：向前辈大师们学习，提高你的技艺。你听过莫扎特的令人震撼的歌剧，巴赫沉重的赋格曲，也梦想着用这种传奇的艺术形式来征服你的听众。
 
-![Source: Wikimedia Commons](/blog/composers-and-audiences/img/pic1.png)
-Source: Wikimedia Commons
+![Source: Wikimedia Commons](/blog/composers-and-audiences/img/pic1.jpg)
 
 你对近期在乐器响度上的进展感到激动——毕竟小提琴的[音孔](https://en.wikipedia.org/wiki/F-hole)在你那个年代才刚刚完善。你还被探索者们所描述的来自远东的陌生记谱法深深吸引，它们完全不像你在学校所学的12个音符音阶。你甚至还听过非洲鼓复杂的韵律，要远远的复杂于欧洲标准锁步打击乐器。
 
@@ -28,7 +27,7 @@ Source: Wikimedia Commons
 
 “你看”，他说，“不久前我们意识到对于不懂意大利语的人来说，像 *播奏（Pizzicato）* 与 *快板（Allegro）* 这样的注解理解起来是比较困难的。此外，它们把页面弄得杂乱，它们让音乐家们在视奏的时候耗费了太多的时间。因此，我们正逐步用表达同样概念的符号来代替它们。”
 
-![](/blog/composers-and-audiences/img/pic2.png)
+![](/blog/composers-and-audiences/img/pic2.jpg)
 
 “啊”，你说，对于如此平淡的主题你有点吃惊。“这确实很有意义。为了能够更好的取悦听众，音乐家应该使用他们最大的潜能来演绎。”
 
