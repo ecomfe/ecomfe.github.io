@@ -1,6 +1,6 @@
 ---
 title: 前端开源项目持续集成三剑客
-date: 2016-7-11
+date: 2016-7-25
 author: cxtom
 author_link: https://github.com/cxtom
 tags:
