@@ -20,7 +20,7 @@ tags:
 
 <!-- more -->
 
-首先，安利一下我们开发的一个基于 [React](https://facebook.github.io/react/) 和 [Masterial Design](https://www.google.com/design/spec/material-design/introduction.html) 的组件库 [Melon](https://github.com/react-melon/melon)，欢迎大家使用，如果能加个星，提个 pr 就更欢迎了。
+首先，安利一下我们开发的一个基于 [React](https://facebook.github.io/react/) 和 [Material Design](https://www.google.com/design/spec/material-design/introduction.html) 的组件库 [Melon](https://github.com/react-melon/melon)，欢迎大家使用，如果能加个星，提个 pr 就更欢迎了。
 
 ## 测试代码的重要性
 
@@ -180,7 +180,7 @@ addons:
 karma 提供了一个调起 Saucelabs 中各个浏览器的插件，可以不需要配置 Travis 就能执行，插件库地址：https://github.com/karma-runner/karma-sauce-launcher 里面已经有了比较详细的 API 文档
 
 下面是一个 karma 配置示例
-```
+```javascript
 var _ = require('lodash');
 
 var karmaConfig = require('./karma/config');
