@@ -7,6 +7,7 @@ tags:
 - 可视分析
 ---
 
+译自：LineUp: Visual Analysis of Multi-Attribute Rankings 
 
 
 ### 前言
