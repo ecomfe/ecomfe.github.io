@@ -541,6 +541,11 @@ article {
 */
 
 
+.fecs-banner-zone img {
+    margin: 10px 0;
+    max-width: 100%;
+}
+
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
@@ -612,6 +617,9 @@ and (max-device-width : 480px) {
         display: none;
     }
     time {
+        display: none;
+    }
+    .fecs-banner-zone {
         display: none;
     }
 }
