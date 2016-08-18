@@ -1,6 +1,6 @@
 ---
 title: 前端 IoC 理念入门
-date: 2015-09-17
+date: 2016-08-19
 author: exodia
 author_link: http://weibo.com/exodia17
 tags:
@@ -27,6 +27,8 @@ IoC 全称 Inversion of Control，中文术语为依赖倒置（反转），包�
 我们用一个例子来说明：我们要实现一个列表 A，能够加载一系列的信息并展示，
 
 于是很自然的我们遵守职责单一功能，将展示和加载两个逻辑拆分成2个类：
+
+<!-- more -->
 
 ```javascript
 // Loader.js
@@ -105,7 +107,7 @@ IoC 正是解决这一类问题的最佳良药，我们再回顾 IoC 的两条�
 
 原有系统的依赖关系图转变结果如下：
 
-![2.png](http://ww1.sinaimg.cn/large/72f96cbajw1f5yhka8k6nj20yq09aaaw.jpg)
+![原有系统的依赖关系图](/blog/introduction-about-ioc-in-frontend/1.jpg)
 
 基于新的依赖架构，List 模块具备了设置不同数据加载逻辑的能力，现在我们可以复用 List 模块再实现列表 B 的 数据加载逻辑并在 main 中组装即可完成列表 B 的功能：
 
@@ -131,7 +133,7 @@ listB.render();
 
 最终的一个依赖关系图如下：
 
-![1.png](http://ww1.sinaimg.cn/large/72f96cbajw1f5yhlxv6hjj20si09iq3l.jpg)
+![最终依赖关系图](/blog/introduction-about-ioc-in-frontend/2.jpg)
 
 至此我们上面演示了应用 IoC 理念对高层模块的一个依赖架构改造，提高了高层模块的可复用性。
 
