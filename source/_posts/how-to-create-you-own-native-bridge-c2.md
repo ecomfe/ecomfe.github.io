@@ -21,6 +21,8 @@ I know that it may look scary, but don’t forget that a journey of a thousand m
 
 我知道这听起来很疯狂，不过我们要牢记『千里之行，始于足下』。对我们来说，第一步就是代码解析，也就是把原始的 JS 代码转化成抽象语法树（AST）的表示形式。业界已经有很多不同的方案可以把原始代码转化成抽象语法树，例如 LL(k), LR(k) 等等，不够为了简单起见，这篇文章里面我不会涉及相关的内容。
 
+<!-- more -->
+
 > Although, for those who are interested, I got all my knowledge about parsers (and compiler theory in general) from the Dragon Book. I just can’t recommend it enough.
 > 不过对于感兴趣的读者，我所有对解析器编译器的知识都是来自传说中的那本『龙书』。
 > I just can’t recommend it enough. (*如何翻译*)
