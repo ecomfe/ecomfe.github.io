@@ -71,7 +71,7 @@ tags:
 
 动手实践的时候到了！首先，我们创建一个空白的 Cocoa 应用，如下图所示：
 
-![](/blog/how-to-create-you-own-native-bridge/4.png)
+![新建 Mac OS X Cocoa Application 窗口](/blog/how-to-create-you-own-native-bridge/4.png)
 
 第一步完成之后，我们就有了一个基础的程序架构。之后，编辑 `AppDelegate.m` 文件里面的 `applicationDidFinishLaunching` 函数，在这个函数里面应该启动一个新的线程来初始化 JS 引擎，代码如下：
 
