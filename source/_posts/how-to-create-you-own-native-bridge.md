@@ -59,11 +59,11 @@ tags:
 
 好了，最后总结一下：
 
-1. 因为需要在主线程中绘制 UI，所以我们需要一个 Cocoa 类型的应用
+1. 因为需要在主线程中绘制 UI，所以我们需要一个 Cocoa 类型的应用；
 
-2. 当程序启动的时候，我们需要创建一个 JS 线程来初始化 JS 引擎，然后执行我们打包在一起的 JS 代码。之前说过，我们给 JSVM 上下文打过补丁，暴露了一些额外的 API 来操作 UI 层。
+2. 当程序启动的时候，我们需要创建一个 JS 线程来初始化 JS 引擎，然后执行我们打包在一起的 JS 代码。之前说过，我们给 JSVM 上下文打过补丁，暴露了一些额外的 API 来操作 UI 层；
 
-3. 一旦JS线程需要绘制UI的时候，就给主线程发一个命令，主线程收到之后，Objective C 代码就开始执行对应的绘制逻辑。
+3. 一旦JS线程需要绘制UI的时候，就给主线程发一个命令，主线程收到之后，Objective C 代码就开始执行对应的绘制逻辑；
 
 4. 最后，Objective C 执行一系列的回调函数，从而把最终的执行结果传递通过 JS 线程 传递给我们在 JS 里面逻辑。
 
@@ -92,7 +92,7 @@ tags:
 
 我们是通过创建一个 `NSThread` 的实例来启动一个新的线程的，`_jsvmThread` 就是 `NSThread` 的一个实例。后续如果要执行 C++ 回调函数的时候，我们需要 `NSThread` 实例的引用，因此通过 `_jsvmThread` 变量保存了下来。
 
-关于 Selector 的问题，根据 Apple 的文档所述，是一个用来选择一个对象要执行那个方法的名称，或是在源码编译后用来代替这个名称的唯一标识符。更多细节建议还是参考[Apple的官方文档](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Selector.html)
+关于 Selector 的问题，根据 Apple 的文档所述，是一个用来选择一个对象要执行那个方法的名称，或是在源码编译后用来代替这个名称的唯一标识符。更多细节建议还是参考[Apple的官方文档](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Selector.html)。
 
 换句话说，当创建了 `NSThread` 之后就会执行当前实例上面的 `runJSVMThread` 方法来完成 JS引擎 的初始化工作：
 
@@ -110,13 +110,13 @@ tags:
 
 正如在代码中看到的，我这里用了 ChakraCore 而没有选择 V8。原因是：
 
-1. 编译 V8 花了我1个多小时的时间，然后又花了2个小时才能把 HelloWorld 运行起来
+1. 编译 V8 花了我1个多小时的时间，然后又花了2个小时才能把 HelloWorld 运行起来；
 
-2. 编译 ChakraCore 以及运行 HelloWorld 总共花了 10 多分钟的时间
+2. 编译 ChakraCore 以及运行 HelloWorld 总共花了 10 多分钟的时间。
 
 > 由于我们只是编写一个原型，所以我把 ChakraCore 提供的更好的开发体验放在了首位。
 
-ChakraProxy 初始化之后，我们必须通过一个 runloop 来保证线程不会退出（如果没有这个机制的话，线程的代码执行完毕之后就结束了），如果想要对 Runloop 有更深的了解，建议还是去参考一下 [Apple官方的文档](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html) 
+ChakraProxy 初始化之后，我们必须通过一个 runloop 来保证线程不会退出（如果没有这个机制的话，线程的代码执行完毕之后就结束了），如果想要对 Runloop 有更深的了解，建议还是去参考一下 [Apple官方的文档](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html)。
 
 现在我们的程序可以正常启动了，而且还启动了一个新的线程等待 UI 绘制的命令。现在我们来着手实现 ChakraProxy 这个类。
 
@@ -150,6 +150,6 @@ ChakraProxy 的逻辑很简单，简单来说就是用来整合 Objective C 和 
 
 显而易见，ChakraProxy 除了输出一行日志之外，什么也没有做，但是我们可以在此基础上开展更多的工作了。在下一篇我们会添加更多的功能，比如整合 ChakraCore，基本的桥接模型，以及其他好多好多内容。
 
-与此同时，可以从[我的 Github](http://github.com/Kureev/ExampleBridge) 下面获取实例代码来本地运行测试看看
+与此同时，可以从[我的 Github](http://github.com/Kureev/ExampleBridge) 下面获取实例代码来本地运行测试看看。
 
 如果想要了解更多关于 Runtime，Context，Scope 以及如何通过 C++ 扩充 JS 的功能，那就敬请期待下一篇吧。
