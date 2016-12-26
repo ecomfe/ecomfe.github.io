@@ -1,6 +1,6 @@
 ---
 title: How you create your own Native Bridge
-date: 2016-10-22
+date: 2016-12-26
 author: leeight
 author_link: https://github.com/leeight
 tags:
@@ -11,7 +11,7 @@ tags:
 
 原文地址：https://medium.com/@kureevalexey/how-to-create-you-own-native-bridge-93a8d4a40bd2#.fnruczgl6
 
-![1.png](how-to-create-you-own-native-bridge/1.png)
+![1.png](/blog/how-to-create-you-own-native-bridge/1.png)
 
 I’ve been using React Native for a while before I started to dive into the codebase to see how it works. Since then I’ve made quite a few contributions to the project and even managed to become a part of react-native core team.
 
@@ -57,7 +57,7 @@ All these things can be run in the same (main) thread, but it’ll cause certain
 
 上述所有的逻辑都可以在同一个线程（主线程）中运行，但是可能会导致一些性能问题。为了避免性能问题，我门给通过 Objective C 进行 UI 渲染的工作专设了一个新的线程。
 
-![2.png](how-to-create-you-own-native-bridge/2.png)
+![2.png](/blog/how-to-create-you-own-native-bridge/2.png)
 
 Even though this approach makes sense, it doesn’t work.
 
@@ -78,7 +78,7 @@ In the main thread, Objective C process is given a command and renders an approp
 
 在主线程中，（JS 线程）发来的指令通过 Objective C 渲染出对应的界面元素。如果成功，Objective C 会回调一个从 C++ 传递过来的函数（代表 JSVM 对 JS 逻辑的回调）。
 
-![3.png](how-to-create-you-own-native-bridge/3.png)
+![3.png](/blog/how-to-create-you-own-native-bridge/3.png)
 
 ### Final architecture
 ### 最终的架构
@@ -105,7 +105,7 @@ Now, let’s try to combine all these together:
 Time for the hands on experience! First of all, let’s create a blank OS X Cocoa Application:
 动手实践的时候到了！首先，我们创建一个空白的 Cocoa 应用，如下图所示：
 
-![4.png](how-to-create-you-own-native-bridge/4.png)
+![4.png](/blog/how-to-create-you-own-native-bridge/4.png)
 
 Once this step is done, you have your foundation. Now, if you open your AppDelegate.m, you will find two application lifetime hooks: applicationDidFinishLaunching and applicationWillTerminate. Our application should spawn a new thread at the moment of creation, so let’s change our applicationDidFinishLaunching to do the trick:
 第一步完成之后，我们就有了一个基础的程序架构。之后，编辑 `AppDelegate.m` 文件里面的 `applicationDidFinishLaunching` 函数，在这个函数里面应该启动一个新的线程来初始化 JS 引擎，代码如下：
