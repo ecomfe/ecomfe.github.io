@@ -1,0 +1,145 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>react-native-code-push-ios</title></head><body><article class="markdown-body"><hr>
+
+<p>title: React Native Code Push iOS
+date: 2017-01-14
+author: ielgnaw
+author_link: ielgnaw.com
+tags:</p>
+
+<ul>
+<li>practice</li>
+</ul>
+
+<h2>
+<a id="user-content---react-native" class="anchor" href="#--react-native" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>- React Native</h2>
+
+<p>最近研究了下 React Native 的 Code Push 热更新，这里做个记录，便于之后查阅，先来 iOS 版本~</p>
+
+<ol>
+<li>
+<p>安装 code-push-cli 工具</p>
+
+<p><code>npm install code-push-cli@latest -g</code></p>
+</li>
+<li>
+<p>初始化 react native 工程</p>
+
+<p><code>react-native init CodePushExample</code></p>
+</li>
+<li>
+<p>在工程内安装 react-native-code-push</p>
+
+<p><code>cd CodePushExample &amp;&amp; yarn add react-native-code-push</code></p>
+</li>
+<li>
+<p>add link</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> react-native 0.27+</span>
+react-native link react-native-code-push
+
+<span class="pl-c"><span class="pl-c">#</span> react-native &lt;0.27</span>
+rnpm link react-native-code-push</pre></div>
+
+<p><a href="/blog/react-native-code-push-ios/14842860020237.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842860020237.jpg" alt="" style="max-width:100%;"></a></p>
+
+<blockquote>
+<p>? What is your CodePush deployment key for Android
+? What is your CodePush deployment key for iOS</p>
+</blockquote>
+
+<p>均先按回车忽略</p>
+</li>
+<li><p>修改代码，把 <code>index.ios.js</code> 和 <code>index.android.js</code> 里面的代码改为 <code>require('./demo');</code>，同时在同级增加 <code>demo.js</code>，内容如当前 repo 所示。</p></li>
+<li><p>用 xcode 打开 <code>CodePushExample/ios/CodePushExample.xcodeproj</code>，同时把 <code>CodePushExample/node_modules/react-native-code-push/ios/CodePush.xcodeproj</code> 这个文件拖入到 xcode 工程 Project navigator 的 Libraries 中。
+<a href="/blog/react-native-code-push-ios/14842869760170.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842869760170.jpg" width="100%" height="100%" style="max-width:100%;"></a>
+<a href="/blog/react-native-code-push-ios/14842870115096.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842870115096.jpg" alt="" style="max-width:100%;"></a></p></li>
+<li>
+<p>在 xcode 项目面板中选择根节点 <code>CodePushExample</code>，然后选择 <code>Build Phases</code> tab，把 Libraries/CodePush.xcodeproj/Products/libCodePush.a 拖入到 Link Binary With Libraries 中（注意，如果在 Libraries/CodePush.xcodeproj/Products/libCodePush.a 时候红色字体显示，说明 CodePush.xcodeproj 尚未 build，需要先 build）</p>
+
+<p><a href="/blog/react-native-code-push-ios/14842873616006.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842873616006.jpg" width="100%" height="100%" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>点击 Link Binary With Libraries 里面的加号，在弹出框中选择 libz.tbd，然后加入 iOS 10.2/libz.tbd</p>
+
+<p><a href="/blog/react-native-code-push-ios/14842876200900.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842876200900.jpg" width="100%" height="100%" style="max-width:100%;"></a>
+<a href="/blog/react-native-code-push-ios/14842876827942.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842876827942.jpg" width="100%" height="100%" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>在 Build Settings tab 里，搜索 <code>Header Search Paths</code>，然后编辑，添加 <code>$(SRCROOT)/../node_modules/react-native-code-push/ios</code>，下拉框中选择 <code>recursive</code></p>
+
+<p><a href="/blog/react-native-code-push-ios/14842878430684.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842878430684.jpg" alt="" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>执行 <code>code-push register</code></p>
+
+<p><a href="/blog/react-native-code-push-ios/14842926044159.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842926044159.jpg" width="100%" height="100%" style="max-width:100%;"></a>
+<a href="/blog/react-native-code-push-ios/14842926201047.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842926201047.jpg" width="100%" height="100%" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>执行 <code>code-push login</code></p>
+
+<p><a href="/blog/react-native-code-push-ios/14842927576256.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842927576256.jpg" width="100%" height="100%" style="max-width:100%;"></a>
+<a href="/blog/react-native-code-push-ios/14842927646508.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842927646508.jpg" width="100%" height="100%" style="max-width:100%;"></a>
+<a href="/blog/react-native-code-push-ios/14842927893539.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842927893539.jpg" width="100%" height="100%" style="max-width:100%;"></a>
+<a href="/blog/react-native-code-push-ios/14842928483218.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842928483218.jpg" width="100%" height="100%" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>执行 <code>code-push app add &lt;appname&gt;-ios</code></p>
+
+<p>这里的  不需要和项目的名称相同，后面加上 <code>-ios</code> 只是为了名字上与 android 版本作区分。如我在这里使用的是如下名称</p>
+
+<div class="highlight highlight-source-shell"><pre>code-push app add wlexample-ios</pre></div>
+
+<p>执行结果如下：
+<a href="/blog/react-native-code-push-ios/14842932307722.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842932307722.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p>我们可以通过这个命令查询发布的信息 <code>code-push deployment ls wlexample-ios -k</code>
+<a href="/blog/react-native-code-push-ios/14842933123165.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842933123165.jpg" alt="" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>xcode 修改 Info.plist，如下：</p>
+
+<p><a href="/blog/react-native-code-push-ios/14842934651681.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842934651681.jpg" alt="" style="max-width:100%;"></a></p>
+
+<ul>
+<li>修改 <code>CodePushDeploymentKey</code> 的值为第 12 步生成的 <strong>Production</strong> 的 Deployment Key</li>
+<li>添加 <code>Staging</code> 项，值为第 12 步生成的 <strong>Staging</strong> 的 Deployment Key</li>
+<li>修改 <code>Bundle versions string, short</code> 的值为 <code>x.x.x</code> 三位形式</li>
+</ul>
+</li>
+<li>
+<p>关闭 <code>Dead Code Stripping</code></p>
+
+<p><a href="/blog/react-native-code-push-ios/14842939189125.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842939189125.jpg" alt="" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>运行程序，注意使用 <code>Release</code> Build</p>
+
+<p><a href="/blog/react-native-code-push-ios/14842937573518.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842937573518.jpg" alt="" style="max-width:100%;"></a>
+初次运行是这样的结果：
+<a href="/blog/react-native-code-push-ios/14842947420429.gif" target="_blank"><img src="/blog/react-native-code-push-ios/14842947420429.gif" alt="" style="max-width:100%;"></a>
+查询发布信息 <code>code-push deployment ls wlexample-ios -k</code>，结果如下
+<a href="/blog/react-native-code-push-ios/14842946090807.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842946090807.jpg" alt="" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>现在让我们修改源代码，如下修改</p>
+
+<p><a href="/blog/react-native-code-push-ios/14842948563587.gif" target="_blank"><img src="/blog/react-native-code-push-ios/14842948563587.gif" alt="" style="max-width:100%;"></a>    </p>
+</li>
+<li>
+<p>发布更新，注意名字和我们之前 <code>code-push app add</code> 时的名字一致</p>
+
+<div class="highlight highlight-source-shell"><pre>code-push release-react wlexample-ios ios -d Production</pre></div>
+
+<p><a href="/blog/react-native-code-push-ios/14842950991102.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842950991102.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p>再次查询发布信息 <code>code-push deployment ls wlexample-ios -k</code>
+<a href="/blog/react-native-code-push-ios/14842951376848.jpg" target="_blank"><img src="/blog/react-native-code-push-ios/14842951376848.jpg" alt="" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>在模拟器中重启程序。<strong>不需要在 xcode 中重新 build 了</strong></p>
+
+<p><a href="/blog/react-native-code-push-ios/14842952679367.gif" target="_blank"><img src="/blog/react-native-code-push-ios/14842952679367.gif" alt="" style="max-width:100%;"></a></p>
+</li>
+</ol>
+</article></body></html>
