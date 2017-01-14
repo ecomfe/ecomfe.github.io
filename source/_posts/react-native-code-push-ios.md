@@ -8,7 +8,12 @@ tags:
 - React Native
 ---
 
+
 最近研究了下 React Native 的 Code Push 热更新，这里做个记录，便于之后查阅，先来 iOS 版本~
+
+
+<!-- more -->
+
 
 1. 安装 code-push-cli 工具
 
