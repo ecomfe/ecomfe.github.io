@@ -1,9 +1,12 @@
 title: Vitual DOM 的内部工作原理
 date: 2017-02-19
 author: ludafa
+author_link: https://github.com/jinzhubaofu
 tags:
 - VitualDOM
 - JavaScript
+- React
+- Preact
 ---
 
 原文：[The Inner Workings Of Virtual DOM](https://medium.com/@rajaraodv/the-inner-workings-of-virtual-dom-666ee7ad47cf)
