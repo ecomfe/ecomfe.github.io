@@ -1,6 +1,6 @@
 ---
 title: How you create your own Native Bridge - JSVM and the first adventure
-date: 2016-10-24
+date: 2017-04-05
 author: leeight
 author_link: https://github.com/leeight
 tags:
@@ -11,7 +11,7 @@ tags:
 
 原文地址：https://medium.com/@kureevalexey/how-to-create-your-own-native-bridge-bfa050e708fc#.ykryuzmun
 
-![JSVM and the first adventure](how-to-create-you-own-native-bridge-c2/1.png)
+![JSVM and the first adventure](/blog/how-to-create-you-own-native-bridge-c2/1.png)
 
 What do you know about JavaScript engines? Did you ever try to embed one? In this chapter I’m going to guide you through the dark spooky forest of hosted objects, virtual machines, interpreters and other evil spirits that we call JavaScript engines.
 
@@ -30,7 +30,7 @@ I know that it may look scary, but don’t forget that a journey of a thousand m
 However, I will tell you more about the abstract syntax tree concept. An AST is a structural representation of your code in a tree format where every node represents a language construct (e.g. expressions, statements, variables, literals etc). You can play with it using ESPrima praser demo page or ASTExplorer.
 尽管如此，我还是想对 AST 多说一句。简单来说 AST 是代码另外一种结构化的表达形式，树中的每个节点可以表达编程语言中一种构型(*不太准确*)，比如：表达式，语句，变量，字面量等等。你可以借助 ESPrima 或者 ASTExplorer 来直观的看到 AST 的表达形式。
 
-![Abstract syntax tree inside ChakraCore forest](how-to-create-you-own-native-bridge-c2/2.png)
+![Abstract syntax tree inside ChakraCore forest](/blog/how-to-create-you-own-native-bridge-c2/2.png)
 
 First of all, a JavaScript engine has to parse (tokenize) a source code to produce an array of tokens. These tokens are supplied to a syntactic analysis tool that builds an AST based on a given language grammar. Once an AST is built, JavaScript engine will compile it either to machine code directly (V8 behaves this way) or to intermediate representation, which is an another level of abstraction over machine code.
 
@@ -40,13 +40,13 @@ In this experiment I committed to use ChakraCore which uses a bytecode as it’s
 
 在我们使用的 ChakraCore 中，它的 IR 表达形式是字节码，但是字节码无法被直接执行，最终还是需要被转化成机器码才可以。
 
-![A bytecode river](how-to-create-you-own-native-bridge-c2/3.png)
+![A bytecode river](/blog/how-to-create-you-own-native-bridge-c2/3.png)
 
 In order to bridge the gap, ChakraCore includes a bytecode interpreter. On ChakraCore’s bytecode each instruction starts with a 1-byte bytecode that represents which operation should be executed (a.k.a. opcode), and therefore the interpreter may have up to 256 instructions. Some bytecodes may take multiple bytes, and may be arbitrarily complicated
 
 为了能够执行字节码，ChakraCore （很多其它 JS 引擎）引入了字节码解释器。ChakraCore 设计字节码指令的时候，开始的第一个字节用来定义应该执行何种操作（也就是常说的 `opcode`），然后解释器可以执行最多 256 个指令。有些指令操作可能需要多个字节才能够表达，而且可能异常复杂（*不太准确*）
 
-![On the way to the “Interpreter” ship](how-to-create-you-own-native-bridge-c2/4.png)
+![On the way to the “Interpreter” ship](/blog/how-to-create-you-own-native-bridge-c2/4.png)
 
 That was a very short overview of the JS execution flow. Probably you noticed that in this article we don’t talk about inner code optimizations (like JIT or AoT). Although it’s a very interesting topic, I decided to omit it in order to make this article easier to grasp.
 
@@ -89,7 +89,7 @@ Once these steps are done, we can include it into our application:
 2. Select ExampleBridge project in the Project navigator and switch to the target:
 2. 选择 ExampleBridge 项目，然后在项目属性中切换到 `target` 配置项目：
 
-![ExampleBridge target is selected](how-to-create-you-own-native-bridge-c2/5.png)
+![ExampleBridge target is selected](/blog/how-to-create-you-own-native-bridge-c2/5.png)
 
 Link your compiled ChakraCore files:
 链接一下 ChakraCore 的编译产物：
@@ -108,7 +108,7 @@ And your icu4u files (from /usr/local/Cellar/icu4c/<version>/include):
 Your result should look like this:
 最终的结果看起应该是这样子的：
 
-![All libraries are linked properly](how-to-create-you-own-native-bridge-c2/6.png)
+![All libraries are linked properly](/blog/how-to-create-you-own-native-bridge-c2/6.png)
 
 > Note: order of these dependencies is very important!
 > 注意：链接库的顺序很重要，别弄错了！
@@ -247,7 +247,7 @@ Try to not to be overwhelmed by the amount of function parameters, in this artic
 One thing, that may make you feel confused is a dispatch_async call. We use this function in order to schedule a block (statement inside ^{}) to be executed in the main dispatch queue (see [GCD documentation for details](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html)).
 上面代码里面有一个地方可能比较费解，就是 dispatch_async 的调用。我们用这个函数是为了在主线程调度队列里面调度执行一个 block，更多内容请参考[官方的文档](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html)
 
-![Traveling to the Main Thread island](how-to-create-you-own-native-bridge-c2/7.png)
+![Traveling to the Main Thread island](/blog/how-to-create-you-own-native-bridge-c2/7.png)
 
 Now, once “render” function is invoked, it sends a block to the main thread. Inside the block we have a renderElementOfType call, which is responsible for a final element creation:
 现在一旦在 JS 里面调用 render 函数，就会把一个 block 发送到主线程。在这个 block 里面我们调用了 renderElementOfType 方法，然后开始绘制 UI。
@@ -330,7 +330,7 @@ So once we get a UIManager instance, we generate a uuid for our window and put i
 And you know what? That’s it! If you create a main.js file, add it to the bundle and type something like bridge.render('Window', 400, 400);, you’ll see a 400x400 window at the application startup!
 好的，结束了，我们现在只需要准备一个 main.js，内容是 `bridge.render('Window', 400, 400)`，然后把它添加到 bundle 里面去，编译，运行整个项目，我们就能看到一个 400x400 的应用窗口出现了。
 
-![Empty 400x400 window, created from JavaScript](how-to-create-you-own-native-bridge-c2/8.png)
+![Empty 400x400 window, created from JavaScript](/blog/how-to-create-you-own-native-bridge-c2/8.png)
 
 Buy hey, it has nothing about React yet! What do we need to provide for a React-like interface to our platform? How to return references from Objective-C to JS? All these questions will be answered in the Chapter 3!
 不过到这里还没有跟 React 扯上任何关系。如果要运行 React 的应用，在我们的平台上还缺少什么呢？如果把一些引用从 Objective C 返回给 JS 呢？这些问题我们会在第三篇文章里面回答。
