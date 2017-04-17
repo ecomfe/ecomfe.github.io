@@ -1,6 +1,6 @@
 ---
 title: React Native Code Push iOS
-date: 2017-01-14
+date: 2017-04-10
 author: ielgnaw
 author_link: ielgnaw.com
 tags:
@@ -9,7 +9,7 @@ tags:
 ---
 
 
-最近研究了下 React Native 的 Code Push 热更新，这里做个记录，便于之后查阅，先来 iOS 版本~
+最近研究了下 React Native 的 Code Push 热更新，先来 iOS 版本~
 
 
 <!-- more -->

@@ -1,5 +1,5 @@
 title: Vitual DOM 的内部工作原理
-date: 2017-02-19
+date: 2017-04-14
 author: ludafa
 author_link: https://github.com/jinzhubaofu
 tags:
@@ -31,6 +31,8 @@ tags:
 5. 再次渲染
 6. 删除 DOM 元素
 7. 替换 DOM 元素
+
+<!-- more -->
 
 ## 演示程序
 
