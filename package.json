@@ -18,6 +18,12 @@
     "hexo-renderer-pandoc": "*",
     "hexo-generator-feed": "^1.0.1",
     "hexo-generator-sitemap": "^1.0",
-    "hexo-browsersync": "^0.1.0"
-  }
+    "hexo-browsersync": "^0.1.0",
+    "snyk": "^1.30.1"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
