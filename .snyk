@@ -1,0 +1,44 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:ms:20170412':
+    - hexo-server > morgan > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-server > compression > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > serve-index > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > connect > finalhandler > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > localtunnel > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io > socket.io-parser > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io-client > socket.io-parser > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io > socket.io-client > socket.io-parser > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > connect > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io > engine.io > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io > socket.io-adapter > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io-client > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io > socket.io-client > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io-client > engine.io-client > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > socket.io > socket.io-client > engine.io-client > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > serve-static > send > ms:
+        patched: '2017-05-22T08:10:13.382Z'
+    - hexo-browsersync > browser-sync > serve-static > send > debug > ms:
+        patched: '2017-05-22T08:10:13.382Z'
