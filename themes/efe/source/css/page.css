@@ -386,6 +386,10 @@ article .figure img {
     display: block;
 }
 
+article img {
+    max-width: 100%;
+}
+
 article .caption {
     margin: .5em 0;
     padding: 0 1em;
@@ -486,6 +490,18 @@ article hr {
     color: #ccc;
     height: 4px;
     padding: 0;
+}
+
+article iframe {
+    border: none;
+}
+
+/*
+ Lazy load in echarts articles
+ */
+article .ec-lazy {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
 /*
