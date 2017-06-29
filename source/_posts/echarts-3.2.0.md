@@ -245,13 +245,13 @@ handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.
 handleSize: '80%',
 // 数据预览的样式设置
 dataBackground: {
-  areaStyle: {
-      color: '#8392A5'
-  },
-  lineStyle: {
-      opacity: 0.8,
-      color: '#8392A5'
-  }
+    areaStyle: {
+        color: '#8392A5'
+    },
+    lineStyle: {
+        opacity: 0.8,
+        color: '#8392A5'
+    }
 },
 // 手柄的样式设置
 handleStyle: {
