@@ -5,6 +5,8 @@ tags:
     - ECharts
     - 教程
     - 水球图
+author:
+    羡辙
 ---
 
 水球图是一种适合于展现单个百分比数据的图表类型，ECharts 的[水球图插件](https://github.com/ecomfe/echarts-liquidfill)使你能够通过非常简单的配置，实现酷炫的数据展示效果。
