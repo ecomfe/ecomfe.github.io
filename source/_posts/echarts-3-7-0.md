@@ -98,6 +98,8 @@ echarts v3.7 以后，支持了富文本标签，能够：
   style="width: 100%; height: 400px"
 ></div>
 
+**PS：上面这个而是饼图使用的反面教材**
+
 具体设置，可参见：[legend.type](http://echarts.baidu.com/option.html#legend.type)。
 
 
