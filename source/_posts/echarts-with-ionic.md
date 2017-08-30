@@ -11,7 +11,7 @@ layout: post
 ---
 
 
-在这个教程中，我们将使用 [ionic](http://ionicframework.com/) 创建原生应用，并用 [ECharts](http://echarts.baidu.com) 创建饼图和水球图。ionic 项目开发语言是 TypeScript，而 ECharts 的官方版本是基于 JavaScript 的，本教程将带你轻松实现在 TypeScript 中创建 ECharts 图表。
+在这个教程中，我们将使用 [Ionic](http://ionicframework.com/) 创建原生应用，并用 [ECharts](http://echarts.baidu.com) 创建饼图和水球图。Ionic 项目开发语言是 TypeScript，而 ECharts 的官方版本是基于 JavaScript 的，本教程将带你轻松实现在 TypeScript 中创建 ECharts 图表。
 
 最终，我们将实现这样的效果：
 
@@ -19,23 +19,23 @@ layout: post
 
 这篇教程将会教你：
 
-- 安装 ionic
+- 安装 Ionic
 - 在 TypeScript 中使用 ECharts
-- 在 ionic 项目中创建 ECharts 图表
-- 在 ionic 项目中创建 ECharts 水球图
+- 在 Ionic 项目中创建 ECharts 图表
+- 在 Ionic 项目中创建 ECharts 水球图
 
 它不会教你：
 
 - [ECharts](http://echarts.baidu.com) 是什么
-- [ionic](http://ionicframework.com/) 是什么
+- [Ionic](http://ionicframework.com/) 是什么
 - [Angular](https://angular.io/) 是什么
 - [TypeScript](https://www.typescriptlang.org/) 是什么
 
-## 新建 ionic 项目
+## 新建 Ionic 项目
 
-ionic 官网有详细的[安装教程](http://ionicframework.com/docs/intro/installation/)，这里我们简单介绍一下我们的操作步骤。
+Ionic 官网有详细的[安装教程](http://ionicframework.com/docs/intro/installation/)，这里我们简单介绍一下我们的操作步骤。
 
-首先，安装全局的 ionic 和 cordova npm 包，前者是用来在命令行操作 ionic 的，后者是提供从网页到原生应用的底层支持的库。
+首先，安装全局的 Ionic 和 Cordova npm 包，前者是用来在命令行操作 Ionic 的，后者是提供从网页到原生应用的底层支持的库。
 
 ```sh
 $ npm install -g ionic cordova
@@ -60,7 +60,7 @@ $ ionic serve
 
 <img class="single-img" src="/blog/echarts-with-ionic/2017-08-29-echarts-with-ionic-init.png" alt="初始化项目运行结果">
 
-> 目前 ionic 3 的运行需要 Node 6.0+，可以通过 nvm 安装并切换 Node 版本。
+> 目前 Ionic 3 的运行需要 Node 6.0+，可以通过 nvm 安装并切换 Node 版本。
 >
 > 首先运行 `node -v` 查看 Node 版本，如果不是 6.0+，可以运行 `npm i -g nvm; nvm install 6; nvm use 6`。
 
@@ -97,12 +97,10 @@ typings 实际上是为 JavaScript 的库提供了一个接口声明的作用，
   templateUrl: 'home.html'
 })
 export class HomePage {
-
   constructor(public navCtrl: NavController) {
     console.log(echarts); // This is ok
     console.log(echarts.version); // Compile-time error
   }
-
 }
 ```
 
@@ -116,12 +114,10 @@ export class HomePage {
   templateUrl: 'home.html'
 })
 export class HomePage {
-
   constructor(public navCtrl: NavController) {
     const ec = echarts as any;
     console.log(ec.version); // '3.7.0'
   }
-
 }
 ```
 
@@ -151,7 +147,7 @@ page-home {
 
 但是，我们不能在 `HomePage` 的构造函数中初始化图表，因为这时候页面还没有构建， `document.getElementById('chart')` 返回的是 `null`。
 
-正确的做法是，在 `ionViewDidEnter` 这个 ionic 特定的函数中初始化图表，它将在进入这个页面后调用。这时候页面中已经有这个 DIV 并且正确的宽高了。整个 `home.ts` 文件是这样的：
+正确的做法是，在 `ionViewDidEnter` 这个 Ionic 特定的函数中初始化图表，它将在进入这个页面后调用。这时候页面中已经有这个 DIV 并且正确的宽高了。整个 `home.ts` 文件是这样的：
 
 ```ts
 import { Component } from '@angular/core';
@@ -162,16 +158,13 @@ import * as echarts from 'echarts';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
   constructor() {
   }
-
   ionViewDidEnter() {
     const ec = echarts as any;
     const container = document.getElementById('chart');
     console.log(container.offsetWidth, container.offsetHeight);
   }
-
 }
 ```
 
@@ -180,7 +173,6 @@ export class HomePage {
 ```ts
 const ec = echarts as any;
 const container = document.getElementById('chart');
-
 const chart = ec.init(container);
 chart.setOption({
     series: {
@@ -219,16 +211,13 @@ npm install --save echarts-liquidfill
 import { Component } from '@angular/core';
 import * as echarts from 'echarts';
 import 'echarts-liquidfill';
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
   constructor() {
   }
-
   ionViewDidEnter() {
     const ec = echarts as any;
     const container = document.getElementById('chart');
@@ -241,7 +230,6 @@ export class HomePage {
       }
     });
   }
-
 }
 ```
 
