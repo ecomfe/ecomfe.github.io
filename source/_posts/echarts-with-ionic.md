@@ -15,7 +15,7 @@ layout: post
 
 最终，我们将实现这样的效果：
 
-<img class="single-img" src="/blog/2017-08-29-echarts-with-ionic-bottle.gif" alt="运行结果">
+<img class="single-img" src="/blog/echarts-with-ionic/2017-08-29-echarts-with-ionic-bottle.gif" alt="运行结果">
 
 这篇教程将会教你：
 
@@ -58,7 +58,7 @@ $ ionic serve
 
 `ionic serve` 会编译你的代码（什么？你还没写？没关系，模板都帮你写好了），并且起一个本地的服务器，自动打开一个浏览器运行代码。看到的效果类似这样：
 
-<img class="single-img" src="/blog/2017-08-29-echarts-with-ionic-init.png" alt="初始化项目运行结果">
+<img class="single-img" src="/blog/echarts-with-ionic/2017-08-29-echarts-with-ionic-init.png" alt="初始化项目运行结果">
 
 > 目前 ionic 3 的运行需要 Node 6.0+，可以通过 nvm 安装并切换 Node 版本。
 >
@@ -201,7 +201,7 @@ chart.setOption({
 
 运行结果：
 
-<img class="single-img" src="/blog/2017-08-29-echarts-with-ionic-pie.png" alt="饼图">
+<img class="single-img" src="/blog/echarts-with-ionic/2017-08-29-echarts-with-ionic-pie.png" alt="饼图">
 
 ## 使用水球图
 
@@ -247,13 +247,13 @@ export class HomePage {
 
 这样就能得到水球图啦！
 
-<img class="single-img" src="/blog/2017-08-29-echarts-with-ionic-liquidfill.png" alt="水球图">
+<img class="single-img" src="/blog/echarts-with-ionic/2017-08-29-echarts-with-ionic-liquidfill.png" alt="水球图">
 
 是不是超简单的？
 
 如果我们再配置一下水球图，就能得到更好玩的结果啦：
 
-<img class="single-img" src="/blog/2017-08-29-echarts-with-ionic-bottle.gif" alt="水球图">
+<img class="single-img" src="/blog/echarts-with-ionic/2017-08-29-echarts-with-ionic-bottle.gif" alt="水球图">
 
 图标来自 <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 的 <a href="http://www.freepik.com" title="Freepik">Freepik</a>，基于 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 发布。
 
