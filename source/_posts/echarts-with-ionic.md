@@ -1,9 +1,9 @@
 ---
 date: 2017-08-29
-title: 使用 ECharts 与 ionic 创建原生应用
+title: 使用 ECharts 与 Ionic 创建原生应用
 tags:
   - ECharts
-  - ionic
+  - Ionic
   - 数据可视化
   - 教程
 author: 羡辙
