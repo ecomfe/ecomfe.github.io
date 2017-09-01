@@ -17,6 +17,8 @@ layout: post
 
 <img class="single-img" src="/blog/echarts-with-ionic/2017-08-29-echarts-with-ionic-bottle.gif" alt="运行结果">
 
+<!-- more -->
+
 这篇教程将会教你：
 
 - 安装 Ionic
