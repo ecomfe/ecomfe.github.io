@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>ES Decorators简介 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>ES Decorators简介</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://otakustay.com" title="otakustay">otakustay</a>
+    
+</span>
+
+        <time datetime="2015-07-16T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-07-17</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/ESNext/">ESNext</a>, <a href="/tags/ES6/">ES6</a></span>
+
+
+    </div>
+
+    
+        <p>我跟你说，我最讨厌“简介”这种文章了，要不是语文是体育老师教的，早就换标题了！</p>
+<p><a href="https://github.com/wycats/javascript-decorators" target="_blank" rel="noopener">Decorators</a>是ECMAScript现在处于<a href="https://github.com/tc39/ecma262" target="_blank" rel="noopener">Stage 1</a>的一个提案。当然ECMAScript会有很多新的特性，特地介绍这一个是因为它能够在实际的编程中提供很大的帮助，甚至于改变不少功能的设计。</p>
+<h3 id="先说说怎么回事">先说说怎么回事</h3>
+<p>如果光从概念上来介绍的话，官方是这么说的：</p>
+<blockquote>
+<p>Decorators make it possible to annotate and modify classes and properties at design time.</p>
+</blockquote>
+<p>我翻译一下：</p>
+<blockquote>
+<p>装饰器让你可以在设计时对类和类的属性进行注解和修改。</p>
+</blockquote>
+<p>什么鬼，说人话！</p>
+<p>所以我们还是用一段代码来看一下好了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memoize</span>(<span class="params">target, key, descriptor</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> cache = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    <span class="keyword">let</span> oldMethod = descriptor.value;</span><br><span class="line">    descriptor.value = <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> hash = args[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span> (cache.has(hash)) &#123;</span><br><span class="line">            <span class="keyword">return</span> cache.get(hash);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> value = oldMethod.apply(<span class="keyword">this</span>, args);</span><br><span class="line">        cache.set(hash, value);</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    @memoize;</span><br><span class="line">    getFooById(id) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>别去试上面的代码，瞎写的，估计跑不起来就是了。这个代码的作用其实看函数的命名就能明白，我们要给<code>Foo#getFooById</code>方法加一个缓存，缓存使用第一个参数作为对应的键。</p>
+<p>可以看出来，上面代码的重点在于：</p>
+<a id="more"></a>
+<ol style="list-style-type: decimal">
+<li>有一个<code>memoize</code>函数。</li>
+<li>在类的某个方法上加了<code>@memoize;</code>这样一个标记。</li>
+</ol>
+<p>而这个<code>@memoize</code>就是所谓的Decorator，我称之为装饰器。一个装饰器有以下特点：</p>
+<ol style="list-style-type: decimal">
+<li>首先它是一个函数。</li>
+<li>这个函数会接收3个参数，分别是<code>target</code>、<code>key</code>和<code>descriptor</code>，具体的作用后面再说。</li>
+<li>它可以修改<code>descriptor</code>做一些额外的逻辑。</li>
+</ol>
+<p>看到了基本用法其实并不能说明什么，我们有几个核心的问题有待说明：</p>
+<h4 id="有几种装饰器">有几种装饰器</h4>
+<p>现阶段官方说有2种装饰器，但从实际使用上来看是有4种，分别是：</p>
+<ul>
+<li>放在<code>class</code>上的“类装饰器”。</li>
+<li>放在属性上的“属性装饰器”，这需要配合另一个Stage 0的<a href="https://gist.github.com/jeffmo/054df782c05639da2adb" target="_blank" rel="noopener">类属性语法</a>提案，或者只能放在对象字面量上了。</li>
+<li>放在方法上的“方法装饰器”。</li>
+<li>放在<code>getter</code>或<code>setter</code>上的“访问器装饰器”。</li>
+</ul>
+<p>其中类装饰器只能放在<code>class</code>上，而另外3种可以同时放在<code>class</code>和属性或者对象字面量的属性上，比如这样也是可以的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = &#123;</span><br><span class="line">    @memoize</span><br><span class="line">    getFooById(id) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>不过注意放在对象字面量时，装饰器后面不能写分号，这是个比较怪异的问题，后面还会说到更怪异的情况，我也在和提案的作者沟通这是为啥。</p>
+<p>之所以这么分，是因为不同情况下，装饰器接收的3个参数代表的意义并不相同。</p>
+<h4 id="装饰器的3个参数是什么">装饰器的3个参数是什么</h4>
+<p>装饰器接收3个参数，分别是<code>target</code>、<code>key</code>和<code>descriptor</code>，他们各自分别是什么值，用一段代码就能很容易表达出来：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">target, key, descriptor</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(target);</span><br><span class="line">    <span class="built_in">console</span>.log(target.hasOwnProperty(<span class="string">'constructor'</span>));</span><br><span class="line">    <span class="built_in">console</span>.log(target.constructor);</span><br><span class="line">    <span class="built_in">console</span>.log(key);</span><br><span class="line">    <span class="built_in">console</span>.log(descriptor);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar</span> </span>&#123;</span><br><span class="line">    @log;</span><br><span class="line">    bar() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// function Bar() &#123; ...</span></span><br><span class="line"><span class="comment">// bar</span></span><br><span class="line"><span class="comment">// &#123;"enumerable":false,"configurable":true,"writable":true&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这是使用<a href="babeljs.io">babel</a>转换的JavaScript的输出，从这里可以看到：</p>
+<ol style="list-style-type: decimal">
+<li><code>key</code>很明显就是当前方法名，我们可以推断出来用于属性的时候就是属性名</li>
+<li><code>descriptor</code>显然是一个<code>PropertyDescriptor</code>，就是我们用于<code>defineProperty</code>时的那个东西。</li>
+<li><code>target</code>确实不是那么容易看出来，所以我用了3行代码。首先这是一个对象，然后是一个有<code>constructor</code>属性的对象，最后<code>constructur</code>指向的是<code>Bar</code>这个函数。所以我们也能推测出来这货就是<code>Bar.prototype</code>没跑了。</li>
+</ol>
+<p>那如果装饰器放在对象字面量上，而不是类上呢？这边就不再给代码，直接放结论了：</p>
+<ol style="list-style-type: decimal">
+<li><code>key</code>和<code>descriptor</code>和放在类属性/方法上一样没变，这当然也不应该变。</li>
+<li><code>target</code>是<code>Object</code>对象，相信我你不会想用这个参数的。</li>
+</ol>
+<p>当装饰器放在属性、方法、访问器上时，都符合上面的原则，但放在类上的时候，有一些不同：</p>
+<ol style="list-style-type: decimal">
+<li><code>key</code>和<code>descriptor</code>不会提供，只有<code>target</code>参数。</li>
+<li><code>target</code>会变成<code>Bar</code>这个方法，而不是其<code>prototype</code>。</li>
+</ol>
+<p>其实对于属性、方法和访问器，真正有用的就是<code>descriptor</code>，其它几个无视问题也不大就是了。而对于类，由于<code>target</code>是唯一能用的，所以会需要它。</p>
+<p>对于这一环节，我们<strong>需要特别注意一点</strong>，由于<code>target</code>是类的<code>prototype</code>，所以往它上面添加属性是，要注意继承时是会被继承下去的，而子类上再加同样属性又会有覆盖甚至对象、数组同引用混在一起的问题。这和我们平时尽量不在<code>prototype</code>上放对象或者数组的思路是一致的，要避免这一问题。</p>
+<h4 id="装饰器在什么时候执行">装饰器在什么时候执行</h4>
+<p>既然装饰器本身是一个函数，那么自然要有函数被执行的时候。</p>
+<p>现阶段，装饰器只能放在一个类或者一个对象上，我们可以用代码看一下什么时候执行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 既然装饰器是函数，我当然可以用函数工厂了</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'before class'</span>);</span><br><span class="line"></span><br><span class="line">@log(<span class="string">'class Bar'</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar</span> </span>&#123;</span><br><span class="line">    @log(<span class="string">'class method bar'</span>);</span><br><span class="line">    bar() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    @log(<span class="string">'class getter alice'</span>);</span><br><span class="line">    get alice() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    @log(<span class="string">'class property bob'</span>);</span><br><span class="line">    bob = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after class'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bar = &#123;</span><br><span class="line">    @log(<span class="string">'object method bar'</span>)</span><br><span class="line">    bar() &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">before class</span><br><span class="line">class method bar</span><br><span class="line">class getter alice</span><br><span class="line">class property bob</span><br><span class="line">class Bar</span><br><span class="line">after class</span><br><span class="line">object method bar</span><br></pre></td></tr></table></figure>
+<p>从输出上，我们可以看到几个规则：</p>
+<ul>
+<li>装饰器是在声明期就起效的，并不需要类进行实例化。类实例化并不会致使装饰器多次执行，因此不会对实例化带来额外的开销。</li>
+<li>按编码时的声明顺序执行，并不会将属性、方法、访问器进行重排序。</li>
+</ul>
+<p>因为以上这2个规则，我们需要<strong>特别注意一点</strong>，在装饰器运行时，你所能得到的环境是空的，在<code>Bar.prototype</code>或者<code>Bar</code>上的属性是获取不到的，也就是说整个<code>target</code>里其实只有<code>constructor</code>这一个属性。换句话说，装饰器运行时所有的属性和方法均<strong>未定义</strong>。</p>
+<h4 id="descriptor里有啥">descriptor里有啥</h4>
+<p>我们都知道，<code>PropertyDescriptor</code>的基本内容如下：</p>
+<ul>
+<li><code>configurable</code>控制是不是能删、能修改<code>descriptor</code>本身。</li>
+<li><code>writable</code>控制是不是能修改值。</li>
+<li><code>enumerable</code>控制是不是能枚举出属性。</li>
+<li><code>value</code>控制对应的值，方法只是一个<code>value</code>是函数的属性。</li>
+<li><code>get</code>和<code>set</code>控制访问咕噜的读和写逻辑。</li>
+</ul>
+<p>根据装饰器放的位置不同，<code>descriptor</code>参数中就会有上面的这些属性，其中前3个是必然存在的，随后根据放在属性、方法上还是放在访问器上决定是<code>value</code>还是<code>get/set</code>。</p>
+<p>再说说类属性的情况，由于类属性本身是一个比装饰器更不靠谱的Stage 0的提案，所以情况就会变成2个提案的相互作用了。</p>
+<p>当装饰器用于类属性时，<code>descriptor</code>将变成一个叫“类属性描述符”的东西，其区别在于没有<code>value</code>和<code>get</code>或<code>set</code>，且多出一个<code>initializer</code>属性，类型是函数，在类构造函数执行时，<code>initializer</code>返回的值作为属性的值，也就是说一个<code>foo</code>属性对应代码是类似这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">let</span> descriptor = <span class="built_in">Object</span>.getPropertyDescriptor(<span class="keyword">this</span>, <span class="string">'foo'</span>);</span><br><span class="line">        <span class="keyword">this</span>.foo = descriptor.initializer.call(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以我们也可以写很简单的装饰器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomize</span>(<span class="params">target, key, descriptor</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> raw = descriptor.initializer;</span><br><span class="line">    descriptor.initializer = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> value = raw.call(<span class="keyword">this</span>);</span><br><span class="line">        value += <span class="string">'-'</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">1e6</span>);</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Alice</span> </span>&#123;</span><br><span class="line">    @randomize;</span><br><span class="line">    name = <span class="string">'alice'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log((<span class="keyword">new</span> Alice()).name); <span class="comment">// alice-776521</span></span><br></pre></td></tr></table></figure>
+<h3 id="再说说怎么用">再说说怎么用</h3>
+<p>在基本把概念说完后，其实我们并没有说装饰器怎么用，虽然前面有一些代码，但并不能逻辑完善地说明问题。</p>
+<h4 id="descriptor的使用">descriptor的使用</h4>
+<p>对于属性、方法、访问器的装饰器，真正的作用在于对<code>descriptor</code>这个属性的修改。我们拿一些原始的例子来看，比如你要给一个对象声明一个属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> property = &#123;</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(foo, <span class="string">'foo'</span>, property);</span><br></pre></td></tr></table></figure>
+<p>但是我们现在又不高兴了，我们希望这个属性是只读的，OK这是个非常简单的问题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> property = &#123;</span><br><span class="line">    writable: <span class="literal">false</span>, <span class="comment">// 加一行解决问题</span></span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(foo, <span class="string">'foo'</span>, property);</span><br></pre></td></tr></table></figure>
+<p>但是有时候，我们面对几百几千个属性，真心不想一个一个写<code>writable: false</code>，看着也不容易明白。或者这个<code>descriptor</code>根本是其他地方给我们的，我们只有<code>defineProperty</code>的权利，无法修改原来的东西，所以我们希望是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(foo, <span class="string">'foo'</span>, readOnly(property));</span><br></pre></td></tr></table></figure>
+<p>通过函数式的编程进行函数转换，既能读代码时就看出来这是只读的，又能用在所有以前的<code>descriptor</code>上而不需要改以前的代码，将“定义”和“使用”分离了开来。</p>
+<p>而装饰器无非是将这件事放到了语法的层面上，我们有一个机会在类或者属性、访问器、方法定义的时候去修改它的<code>descriptor</code>，这种对“元数据”的修改使得我们有很大的灵活性，包括但不局限于：</p>
+<ol style="list-style-type: decimal">
+<li>通过<code>descriptor.value</code>的修改直接给改成不同的值，适用于方法的装饰器。</li>
+<li>通过<code>descriptor.get</code>或<code>descriptor.set</code>修改逻辑，适用于访问器的装饰器。</li>
+<li>通过<code>descriptor.initializer</code>修改属性值，适用于属性的装饰器。</li>
+<li>修改<code>configurable</code>、<code>writable</code>、<code>enumerable</code>控制属性本身的特性，常见的就是修改为只读。</li>
+</ol>
+<p>装饰器是最后的修改<code>descriptor</code>的机会，再往后如果<code>configurable</code>被设为<code>false</code>的话，就再也没机会去改变这些元数据了。</p>
+<h4 id="类装饰器的使用">类装饰器的使用</h4>
+<p>类装饰器不大一样，因为没有<code>descriptor</code>给你，你唯一能获得的是<strong>类本身</strong>，也就是一个函数。</p>
+<p>但是有了类本身，我们可以做一件事，就是继承：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">countInstance</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> counter = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">target</span> </span>&#123;</span><br><span class="line">        <span class="keyword">constructor</span>(...args) &#123;</span><br><span class="line">            <span class="keyword">super</span>(...args);</span><br><span class="line">            <span class="keyword">let</span> count = counter.get(target) || <span class="number">0</span>;</span><br><span class="line">            counter.set(target, count + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> getInstanceCount() &#123;</span><br><span class="line">            <span class="keyword">return</span> counter.get(target) || <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@countInstance</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bob</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Bob();</span><br><span class="line"><span class="keyword">new</span> Bob();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Bob.getInstanceCount()); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h4 id="实际的使用场景">实际的使用场景</h4>
+<p>上面的代码可能都很扯谈，谁会有这种奇怪的需求，所以举一些真正实用的代码来看看。</p>
+<p>一个比较可能的场合是在制作一个视图类的时候，我们可以：</p>
+<ul>
+<li>通过访问器装饰器来声明类属性与DOM元素之间的绑定关系。</li>
+<li>通过方法装饰器指定方法处理某个DOM元素的某个事件。</li>
+<li>通过类装饰器指定一个类为视图处理类，且在<code>DOMContentLoaded</code>时执行。</li>
+</ul>
+<p>参考代码如下，以一个简单的登录表单为例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> DOM_EVENTS = <span class="built_in">Symbol</span>(<span class="string">'domEvents'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">view</span>(<span class="params">ViewClass</span>) </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">AutoView</span> <span class="keyword">extends</span> <span class="title">ViewClass</span> </span>&#123;</span><br><span class="line">        initialize() &#123;</span><br><span class="line">            <span class="keyword">super</span>.initialize();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 注册所有事件</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> &#123;id, type, handler&#125; <span class="keyword">of</span> <span class="keyword">this</span>[DOM_EVENTS]) &#123;</span><br><span class="line">                <span class="keyword">let</span> element = <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">                element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> executeView = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> view = <span class="keyword">new</span> AutoView();</span><br><span class="line">        view.initialize();</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'DOMConentLoaded'</span>, executeView);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> AutoView;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dom</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">target, key, descriptor</span>) </span>&#123;</span><br><span class="line">        descriptor.get = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">document</span>.getElementById(id || key);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">event</span>(<span class="params">id, type</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (target, key, descriptor) &#123;</span><br><span class="line">        <span class="comment">// 注意target是prototype，所以如果原来已经有了对象要做复制，不能直接污染</span></span><br><span class="line">        target[DOM_EVENTS] = target.hasOwnProperty(DOM_EVENTS) ? target[DOM_EVENTS].slice() : [];</span><br><span class="line"></span><br><span class="line">        target[DOM_EVENTS].push(&#123;id, type, <span class="attr">handler</span>: descriptor.value&#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@view</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginForm</span> </span>&#123;</span><br><span class="line">    @dom()</span><br><span class="line">    get username() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    @dom()</span><br><span class="line">    get password() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    @dom()</span><br><span class="line">    get captcha() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    @dom(<span class="string">'captcha-code'</span>)</span><br><span class="line">    get captchaImage() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    @event(<span class="string">'form'</span>, <span class="string">'submit'</span>)</span><br><span class="line">    [<span class="built_in">Symbol</span>()](e) &#123;</span><br><span class="line">        <span class="keyword">let</span> isValid = <span class="keyword">this</span>.validateForm();</span><br><span class="line">        <span class="keyword">if</span> (!isValid) &#123;</span><br><span class="line">            e.preventDefault();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @event(<span class="string">'captcha-code'</span>, <span class="string">'click'</span>)</span><br><span class="line">    [<span class="built_in">Symbol</span>()]() &#123;</span><br><span class="line">        <span class="comment">// 点击刷新验证码</span></span><br><span class="line">        <span class="keyword">this</span>.captchaImage.src = <span class="keyword">this</span>.captchaImage.src + <span class="string">'x'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    validateForm() &#123;</span><br><span class="line">        <span class="keyword">let</span> isValid = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.username.value.trim()) &#123;</span><br><span class="line">            showError(username, <span class="string">'请输入用户名'</span>);</span><br><span class="line">            isValid = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.password.value.trim()) &#123;</span><br><span class="line">            showError(username, <span class="string">'请输入密码'</span>);</span><br><span class="line">            isValid = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.captcha.value.trim()) &#123;</span><br><span class="line">            showError(username, <span class="string">'请输入验证码'</span>);</span><br><span class="line">            isValid = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> isValid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种编程方式我们经常称之为“声明式编程”，好处是更为直观，且能够通过装饰器等手段复用逻辑。</p>
+<p>这只是一个很简单直观的例子，我们用装饰器可以做更多的事，有待在实际开发中慢慢发掘，同时<a href="https://github.com/mako-taco/DecorateThis" target="_blank" rel="noopener">DecorateThis</a>项目给我们做了不少的示范，虽然我觉得这个库提供的装饰器并没有什么卯月……</p>
+<h3 id="题外话的概念和坑">题外话的概念和坑</h3>
+<p>到这边基本把装饰器的概念和使用都讲了，我理解有不少FE一时不好接受这些（QWrap那边的人倒应该能非常迅速地接受这种函数式的玩法），后面说一些题外话，主要是装饰器与其它语言类似功能的比较，以及一些坑爹的坑。</p>
+<h4 id="和其它语言的比较">和其它语言的比较</h4>
+<p>大部分开发者都会觉得装饰器这个语法很眼熟，因为我们在Java中有<a href="https://en.wikipedia.org/wiki/Java_annotation" target="_blank" rel="noopener">Annotation</a>这个东西，而在C#中也有<a href="https://msdn.microsoft.com/en-us/library/aa288454(v=vs.71).aspx" target="_blank" rel="noopener">Attribute</a>这个东西。</p>
+<p>所以我说为啥一个语言搞一个东西还要名字不一样啊……我推荐PHP也来一个，就叫<code>GreenHat</code>好了……</p>
+<p>不过有些同学可能会受此误导，其实装饰器和Java、C#里的东西不一样。</p>
+<p>其区别在于Annotation和Attribute是一种元数据的声明，仅包含信息（数据），而不包含任何逻辑，必须有外部的逻辑来读取这些信息产生分支才有作用，比如<code>@override</code>这个Annotation相对应的逻辑在编译器是实现，而不是在对应的class中实现。</p>
+<p>而装饰器，和Python的相同功能同名（赤裸裸的抄袭），其核心是一段逻辑，起源于<a href="https://en.wikipedia.org/wiki/Decorator_pattern" target="_blank" rel="noopener">装饰器设计模式</a>，让你有机会去改变一个方法、属性、类的逻辑，<a href="http://stackoverflow.com/questions/15347136/is-a-python-decorator-the-same-as-java-annotation-or-java-with-aspects" target="_blank" rel="noopener">StackOverflow上Python的回答</a>能比较好地解释这个区别。</p>
+<h4 id="几个坑">几个坑</h4>
+<p>在我看来，装饰器现在有几个坑得注意一下。</p>
+<p>首先，语法上很奇怪，特别是在装饰器后面的分号上。属性、访问器、方法的装饰器后面是可以加分号的，并且个人推荐加上，不然你可能遇到这样的问题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    @bar</span><br><span class="line">    [<span class="number">1</span> + <span class="number">2</span>]() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码到底是<code>@bar</code>作为装饰器的方法呢，还是<code>@bar[1 + 2]()</code>后跟着一个空的Block<code>{}</code>呢？</p>
+<p>但是，放在类上的装饰器，以及放在对象字面量的属性、访问器、方法上的装饰器，是不能加分号的， 不然就是语法错误。我不明白为啥就不能加分号，以至于这个语法简直精神分裂……</p>
+<p>其次，如果你把装饰器用在类的属性上，建议<strong>一定加上分号</strong>，看看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    @bar</span><br><span class="line">    foo = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>想一想如果因为特性比较新，压缩工具一个没做好没给补上分号压成了一行，这是一个怎么样的代码……</p>
+<h3 id="总结">总结</h3>
+<p>我不写总结，就酱。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/promises-anti-pattern/" class="article-prev">前一篇: 谈谈使用 promise 时候的一些反模式</a>
+    
+    
+    <a href="/blog/comparison-of-html-linting-tool/" class="article-next">后一篇: HTML代码风格检查工具对比</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/introduction-to-es-decorator/" data-title="ES Decorators简介" data-url="http://efe.baidu.com/blog/introduction-to-es-decorator/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>雪碧图在缩放场景下的特殊处理 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>雪碧图在缩放场景下的特殊处理</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/curarchy" title="curarchy">curarchy</a>
+    
+</span>
+
+        <time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-12</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/图片/">图片</a>, <a href="/tags/CSS/">CSS</a></span>
+
+
+    </div>
+
+    
+        <p>回想n年前刚写前端的时候，在处理一个'鼠标hover切换背景图会闪'的问题时，将两张背景图合成一张图片，顺利解决问题。这应该是我第一次用到雪碧图的情况。</p>
+<div class="figure">
+<img src="/blog/sprite-scale/img/1.png" alt="雪碧图作为背景在切换时不会有因为需要等待下载而产生的闪现"><p class="caption">雪碧图作为背景在切换时不会有因为需要等待下载而产生的闪现</p>
+</div>
+<p>如今，打开一个站点，呈现铺天盖地的图片资源的页面随处可见。而多数站点更会用一套包含几十个风格统一的图标的图标库，加之移动端的占比与日俱增，雪碧图这项技术被运用的就越来越普遍。</p>
+<a id="more"></a>
+<h2 id="最简单最实用的使用方法">最简单，最实用的使用方法</h2>
+<p>得益于伪元素的功劳，在不破坏页面结构，不增加多余标签的情况下，通过::after创建一个你所需要图标大小的伪元素，并将所需要的图标通过background-position定位到指定的空间，对应的图标变顺利地呈现出来。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.message</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(../img/sprite.png) scroll <span class="number">0px</span> -<span class="number">86px</span> no-repeat transparent;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">text-indent</span>: -<span class="number">9999px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">22px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="figure">
+<img src="/blog/sprite-scale/img/2.png" alt="通过伪元素实现的图标"><p class="caption">通过伪元素实现的图标</p>
+</div>
+<h2 id="一些问题">一些问题</h2>
+<p>看上去貌似是一个完美的解决方案，然而真的是这样么？我们来看一个例子：</p>
+<div class="figure">
+<img src="/blog/sprite-scale/img/3.png" alt="一个界面"><p class="caption">一个界面</p>
+</div>
+<p>目前有这么一个简单的页面（无视它的设计合理性吧），拿到手后撸起袖子就写。切图切着切着貌似哪里不对。。。恩！三个铃铛不是同一个图片大小不同而已么？明显有优化的余地啊！只要切一个图来个调整下尺寸不就解决了么~~</p>
+<p>恩恩恩。在普通的页面中，来个backgroud-size妥妥地解决。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.message</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(../img/message.png) no-repeat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.large</span> &#123;</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">64px</span> <span class="number">64px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.normal</span> &#123;</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">32px</span> <span class="number">32px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.small</span> &#123;</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">16px</span> <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当我们按部就班地把属性设置到雪碧图上时，可以发现，呈现出的效果完全不是之前设想的那样。尺寸、定位完全不对。哪里出了问题了呢？原理很简单。background-size并不感知icon的存在，我们想只针对icon进行配置，而这个属性其实是作用于整个雪碧图上的。</p>
+<h2 id="随之而来的解决方案">随之而来的解决方案</h2>
+<p>回想整个渲染执行的流程：</p>
+<ol style="list-style-type: decimal">
+<li>background-size 作用于整个雪碧图，对其尺寸缩放。</li>
+<li>background-position 定位。</li>
+</ol>
+<p>那么要得到正确的效果的话，以放大两倍为例，需要做到：</p>
+<ol style="list-style-type: decimal">
+<li><p>将伪元素的尺寸扩大2倍</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.message</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: originWidth * <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">height</span>: originHeight * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>将整个雪碧图的尺寸扩大2倍</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.message</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">background-size</span>: originSpriteWidth * <span class="number">2</span>, originspriteHeight * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>将坐标偏移量相应扩大2倍</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.message</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">background-position</span>: originBackgroundPositionX * <span class="number">2</span>, originBackgroundPositionY * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<div class="figure">
+<img src="/blog/sprite-scale/img/4.png" alt="图片"><p class="caption">图片</p>
+</div>
+<p>综上，如果想在雪碧图内实现缩放逻辑，必须通过</p>
+<ul>
+<li>雪碧图长宽</li>
+<li>该图标原始长宽</li>
+<li>该图标在雪碧图中的偏移量</li>
+</ul>
+<p>总共6个变量去实现。用动态样式语言的话，或许可以得到这么一个通用函数：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">雪碧图icon</span></span><br><span class="line"><span class="comment">img: 图片路径</span></span><br><span class="line"><span class="comment">spriteWidth: 合成的雪碧图的宽度</span></span><br><span class="line"><span class="comment">spriteHeight: 合成的雪碧图的长度</span></span><br><span class="line"><span class="comment">originWidth: 使用图片的原始宽度</span></span><br><span class="line"><span class="comment">originHeight: 使用图片的原始长度</span></span><br><span class="line"><span class="comment">width: 需要呈现的宽度</span></span><br><span class="line"><span class="comment">height: 需要呈现的长度</span></span><br><span class="line"><span class="comment">offsetX: 雪碧图中的x轴偏移位置</span></span><br><span class="line"><span class="comment">offsetY: 雪碧图中的y轴偏移位置</span></span><br><span class="line"><span class="comment">horizontal: 水平定位</span></span><br><span class="line"><span class="comment">hDuration: 水平定位偏移</span></span><br><span class="line"><span class="comment">vertical: 垂直定位</span></span><br><span class="line"><span class="comment">vDuration: 垂直定位偏移</span></span><br><span class="line"><span class="comment">relativePos: 相对定位</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="selector-class">.pseudo-icon-sprite</span> (@<span class="keyword">img</span>,</span><br><span class="line">    @spriteWidth, @spriteHeight,</span><br><span class="line">    @originWidth, @originHeight,</span><br><span class="line">    @width, @height,</span><br><span class="line">    @offsetX, @offsetY,</span><br><span class="line">    @horizontal:left, @hDuration:<span class="number">0</span>,</span><br><span class="line">    @vertical:center, @vDuration:<span class="number">0</span>,</span><br><span class="line">    @relativePos:relative) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上，我们完成了把雪碧图中的图标缩放后呈现在页面上的这一目标。</p>
+<p>怎么样，看到这个解决方案，有没有一种把代码删光，把大中小三个图标都塞进雪碧图的冲动？</p>
+<h2 id="冷静一下再想想方案">冷静一下，再想想方案</h2>
+<p>不就是缩放么？background-size会扯出这么多问题，不是还有个transform么？会出现同样的问题么？ 那么要得到正确的效果的话，以放大两倍为例，需要做到： 恩？好像就加一行代码？</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.message</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="selector-tag">transform</span>: <span class="selector-tag">scale</span>(2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好吧，就是这样。两者区别也很简单，因为一个作用在元素上，一个作用在雪碧图上，所以后者会带出n多副作用。</p>
+<p>那么如果需要缩放到固定尺寸时，还需要知晓原始尺寸，通过计算得到一个缩放系数，这样才能最终达到所需的效果。</p>
+<h2 id="最后的总结">最后的总结</h2>
+<p>回顾一下，一个简单的缩放需求，出现了三种解决方案：</p>
+<ol style="list-style-type: decimal">
+<li>最无脑的全部放进雪碧图中</li>
+<li>最冗长的修改background-size</li>
+<li>以及最简短的transform变形</li>
+</ol>
+<p>一般情况下，还是无视第二种方案吧。那么在1和3两者中间，则各有取舍。现在回想整个寻求解决方案的过程，个人还是比较倾向方案1的，毕竟，几乎没有什么出错的可能。而且都是同一张雪碧图，并没有更多的请求数，只是多了点图片大小而已。</p>
+<h3 id="相关参考资料">相关参考资料</h3>
+<p><a href="http://efe.baidu.com/blog/automatic-sprite/">一种雪碧图自动化方案的设想</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-size" target="_blank" rel="noopener">MDN:background-size</a></p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/talk-about-sort-in-front-end/" class="article-prev">前一篇: 聊聊前端排序的那些事</a>
+    
+    
+    <a href="/blog/an-obsessive-view-on-modularization/" class="article-next">后一篇: 强迫症的模块化</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/sprite-scale/" data-title="雪碧图在缩放场景下的特殊处理" data-url="http://efe.baidu.com/blog/sprite-scale/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

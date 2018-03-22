@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<a class="rss" title="RSS Feed" href="/atom.xml"><i class="fa fa-rss-square"></i></a>
+<main>
+<a class="fecs-banner-zone" rel="fecs" href="http://fecs.baidu.com/" target="_blank"><img alt="知识共享许可协议" src="/img/fecs-banner.png"></a>
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/front-end-continuous-integration-tools/">前端开源项目持续集成三剑客</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/cxtom" title="cxtom">cxtom</a>
+    
+</span>
+
+        <time datetime="2016-07-24T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-25</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/Travis-CI/">Travis CI</a>, <a href="/tags/tesing/">tesing</a>, <a href="/tags/Coveralls/">Coveralls</a>, <a href="/tags/Saucelabs/">Saucelabs</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>开发业务代码的时候，我们总能发现一些通用的功能。这时候，作为一个在互联网时代富有分享精神的程序员，就会想要把项目开源出去，让更多的小伙伴去使用，偶尔可能会有大神评论，能学到很多。 在 GitHub 上， README 是最先让人看到的，一些应用广泛的项目的 README ，除了非常详细的文字介绍，还常常会带有很多小徽章，比如 <code>Vue</code> 的这个 README 的开头：</p>
+<div class="figure">
+<img src="/blog/front-end-continuous-integration-tools/img/vue.png" alt="Vue"><p class="caption">Vue</p>
+</div>
+<p>这些徽章 (badage) 展示了<strong>代码的测试覆盖率</strong>、<strong>构建状态</strong>、<strong>在各个浏览器中的运行情况</strong>，这会让项目显得更加专业和有说服力。本文以笔者集齐了一套徽章的亲身经历，总结了过程中的主要流程和一些踩到的坑，欢迎大家补充，让我们的项目流行起来！</p>
+        <a class="article-readmore" href="/blog/front-end-continuous-integration-tools/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/composers-and-audiences/">作曲家与听众</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/daaaabeen" title="daaaabeen">daaaabeen</a>
+    
+</span>
+
+        <time datetime="2016-07-21T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-22</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/用户体验/">用户体验</a>, <a href="/tags/工具疲劳/">工具疲劳</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>原文：<a href="http://www.pocketjavascript.com/blog/2016/1/25/composers-and-audiences" target="_blank" rel="noopener">Composers and audiences</a></p>
+<p>(没错，这篇文章是关于 JavaScript 的，在这个比喻里 YY 一会吧。)</p>
+<p>想象一下自己是一个十八世纪的年轻宫廷作曲家。你刚刚从学校里出来到维也纳，心里有一个目标：向前辈大师们学习，提高你的技艺。你听过莫扎特的令人震撼的歌剧，巴赫沉重的赋格曲，也梦想着用这种传奇的艺术形式来征服你的听众。</p>
+<div class="figure">
+<img src="/blog/composers-and-audiences/img/pic1.jpg" alt="Source: Wikimedia Commons"><p class="caption">Source: Wikimedia Commons</p>
+</div>
+<p>你对近期在乐器响度上的进展感到激动——毕竟小提琴的<a href="https://en.wikipedia.org/wiki/F-hole" target="_blank" rel="noopener">音孔</a>在你那个年代才刚刚完善。你还被探索者们所描述的来自远东的陌生记谱法深深吸引，它们完全不像你在学校所学的12个音符音阶。你甚至还听过非洲鼓复杂的韵律，要远远的复杂于欧洲标准锁步打击乐器。</p>
+        <a class="article-readmore" href="/blog/composers-and-audiences/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/talk-about-sort-in-front-end/">聊聊前端排序的那些事</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/bobshen" title="shenbin">shenbin</a>
+    
+</span>
+
+        <time datetime="2016-07-17T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-18</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/algorithm/">algorithm</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <h2 id="前言">前言</h2>
+<p>貌似前端<a href="/blog/talk-about-sort-in-front-end/#标注">[1]</a>圈一直以来流传着一种误解：前端用不到算法知识。<a href="/blog/talk-about-sort-in-front-end/#标注">[2]</a></p>
+<p>长久以来，我也曾受这种说法的影响。直到前阵子遇到一个产品需求，回过头来看，发现事实并非如此。</p>
+        <a class="article-readmore" href="/blog/talk-about-sort-in-front-end/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/sprite-scale/">雪碧图在缩放场景下的特殊处理</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/curarchy" title="curarchy">curarchy</a>
+    
+</span>
+
+        <time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-12</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/图片/">图片</a>, <a href="/tags/CSS/">CSS</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>回想n年前刚写前端的时候，在处理一个'鼠标hover切换背景图会闪'的问题时，将两张背景图合成一张图片，顺利解决问题。这应该是我第一次用到雪碧图的情况。</p>
+<div class="figure">
+<img src="/blog/sprite-scale/img/1.png" alt="雪碧图作为背景在切换时不会有因为需要等待下载而产生的闪现"><p class="caption">雪碧图作为背景在切换时不会有因为需要等待下载而产生的闪现</p>
+</div>
+<p>如今，打开一个站点，呈现铺天盖地的图片资源的页面随处可见。而多数站点更会用一套包含几十个风格统一的图标的图标库，加之移动端的占比与日俱增，雪碧图这项技术被运用的就越来越普遍。</p>
+        <a class="article-readmore" href="/blog/sprite-scale/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/an-obsessive-view-on-modularization/">强迫症的模块化</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://otakustay.com/" title="otakustay">otakustay</a>
+    
+</span>
+
+        <time datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-05</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/ESNext/">ESNext</a>, <a href="/tags/设计/">设计</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>在ES2015发布后，JavaScript最终也有了一个标准的模块化方案，而同时从webpack开始，也带来了一波“一切皆模块”的潮流。整个2015-2016的前端发展中，除去在UI层不断的努力和突破外，几乎每一件事都和模块化脱不开关系。</p>
+<p>本文也试图从几个方面简单地说一下模块化，并分析一些在模块化实施中产生的误区。</p>
+        <a class="article-readmore" href="/blog/an-obsessive-view-on-modularization/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/echarts-3.2.0/">ECharts 3.2.0 变动介绍</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/pissang" title="pissang">pissang</a>
+    
+</span>
+
+        <time datetime="2016-06-30T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-01</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/数据可视化/">数据可视化</a>, <a href="/tags/ECharts/">ECharts</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>在 6 月 30 这个 ECharts 三周年之际我们发布了 3.2.0，这个版本是 ECharts 进入 3 之后最大的一次升级，新增的特性中有些是大家反复提了好久的，有些是我们自己想了很久的，有些我们在实现后光看看效果都觉得非常激动，有些可能看不出来区别但是我们也在底层做了很多工作。</p>
+<p>希望这个开发了长达一个多月时间的新版本不会让大家失望。</p>
+<h2 id="新版本都有哪些东西">新版本都有哪些东西？</h2>
+<p>在功能方面，这个版本新增了 brush（刷选），markArea，单轴等组件，除此之外对已有的图表组件，比如折线图，线图，dataZoom，坐标轴等做了或多或少的增强和优化，当然还有一些 bug 的修复。</p>
+<p>这个版本在底层的性能上也做了很多的优化工作，首先直观的用数据来说大部分场景底层重绘的效率是原先的 2x~3x。其次是引入了渐进式渲染和单独的高亮层防止图形很多的时候交互和重绘带来很严重的阻塞。</p>
+<p>同时我们官网还新增了一款 <a href="http://echarts.baidu.com/theme-builder.html" target="_blank" rel="noopener">主题编辑器</a> 方便大家编辑自己的主题</p>
+<p>下面会一一介绍这些新特性。<strong>多图流量党慎入！</strong> 完整无图的 changelog 见 <a href="http://echarts.baidu.com/changelog.html" target="_blank" rel="noopener">这里</a></p>
+        <a class="article-readmore" href="/blog/echarts-3.2.0/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+
+
+</main>
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>前端文本截断 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>前端文本截断</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/u/1143654280" title="Justineo">Justineo</a>
+    
+</span>
+
+        <time datetime="2016-03-21T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-03-22</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/文本截断/">文本截断</a>, <a href="/tags/ellipsis/">ellipsis</a>, <a href="/tags/text-overflow/">text-overflow</a></span>
+
+
+    </div>
+
+    
+        <h2 id="误区">误区</h2>
+<p>在设计产品时，由于不少产品经理、工程师并没有「字符不一定等宽」的概念，往往会给出「超过 n 个字符截断显示，英文数字算一个字符，汉字算两个字符」这样的需求。要知道，这里面的问题有很多：</p>
+<p>为了显示效果，前端往往会采用优先西文字体族的 <code>font-family</code> 设置，即西文字符用西文字体，汉字用中文字体，这就很容易使得文本的宽度不好根据字符数来控制。首先，非代码的内容本身就不一定适合用等宽西文字体显示。其次即使用了等宽西文字体，汉字也基本不可能正好是其两倍宽。满足这个需求的，只能放弃西文字体，让西文字符也使用中文字体，并且使用中易系列的几个字体了（比如 SimSun，也就是 Windows 下的「宋体」）。（丑不说，还只能满足 Windows 下的需求。）</p>
+<p>这种需求甚至在很多时候还会和某些字符编码长度的概念产生混淆，催生「长度限制 n 个字节，其中英文数字算 1 字节、汉字算 2 字节」这样的奇葩说法。</p>
+<p>顺便歪个楼，这种「西文等宽、汉字占两倍宽度」的需求正常情况下只会存在于程序员的代码编辑器里。如果你是这种强迫症晚期，又不想用中易宋体，可以考虑试试 <a href="https://www.zhihu.com/people/be5invis" target="_blank" rel="noopener">Belleve</a> 制作的 <a href="http://code.fosshub.com/Inziu/downloads" target="_blank" rel="noopener">Inziu</a>。</p>
+<h2 id="思路和原理">思路和原理</h2>
+<p>对于前端来说，数据库存储的限制不应该是我们需要关心的问题。看下前面的「伪需求」，我们实际的需求往往是从视觉角度出发的「超出特定高度截断显示」或「超出特定行数阶段显示」两种。由于实现方式的差异，其实可以分为「单行截断」、「多行截断」、「按高度截断」几种。从成本和效果来看，有「实现难度」、「效果精确度」、「对内容是否有限制」、「是否能响应页面变化」这些需要考虑的细节。本文里不准备列各种实现的代码，仅谈谈一些相关的问题和思路。</p>
+<p>要看一些现有的实现方案可以看这几篇：</p>
+<a id="more"></a>
+<ul>
+<li><a href="http://html5hub.com/ellipse-my-text/" target="_blank" rel="noopener">ELLIPSE MY TEXT…</a></li>
+<li><a href="https://css-tricks.com/line-clampin/" target="_blank" rel="noopener">Line Clampin’ (Truncating Multiple Line Text)</a></li>
+<li><a href="http://www.mobify.com/blog/multiline-ellipsis-in-pure-css/" target="_blank" rel="noopener">CSS Ellipsis: How to Manage Multi-Line Ellipsis in Pure CSS</a></li>
+</ul>
+<h3 id="text-overflow-ellipsis"><code>text-overflow: ellipsis</code></h3>
+<p>我想这个没有什么好多说的，自从 Firefox 7 开始支持这个 CSS 属性以后，这已经成为了 99% 情况下实现单行文本截断的不二之选。实现难度几乎为零、截断效果精准、内容中也可以有图片、链接等其他内容，而且在宽度变化时能够自动响应，<a href="http://caniuse.com/#feat=text-overflow" target="_blank" rel="noopener">兼容性也非常好</a>（当然在低版本 IE 下可能会遇到一些需要额外套一层元素的特殊情况）。要支持 Firefox 7 以下的版本怎么办？尽量把需求拍回去吧。实在不行再考虑别的方案。</p>
+<p>但是如果附加上其他的需求，纯 CSS 的方案可能也有不能满足的情况。比如有时候我们可能想仅在文字被截断时才在鼠标移入后通过浮层显示全部文本，又有时行末有不能被截掉的但宽度不定的内容。</p>
+<h3 id="计算内容宽度">计算内容宽度</h3>
+<p>百度以前的 Tangram 库在 1.x 版本中有一个 <code>textOverflow</code> 方法，会根据给定的宽度对单行文本进行截断。大致的做法是计算每个字符的宽度，找到加上 <code>...</code> 正好小于指定宽度的边界，然后截去后续字符。为了提高性能，预先计算并缓存了 ASCII 字符（不等宽）的宽度和一个汉字（汉字等宽）的宽度，其他字符再实时去计算。计算宽度时是在指定元素内添加了一个 <code>div</code> 元素，并继承了原元素的所有文字排版相关的 CSS 属性。但事实上如果内容中本来就混杂了各种不同样式的文本，计算起来可能并不准确（比如有 <code>div:first-child</code>、<code>::first-letter</code> 上的样式）。这个方案当时是兼容所有浏览器的，但是处理的内容基本只能是纯文本，而且完备性也有一定缺陷。</p>
+<p>同样，如果利用 <code>scrollWidth</code> 来判断内容是否横向溢出也是可行的，可以在溢出时不断截掉尾部的内容，直到剩余内容加上省略号可以完整显示。实现起来应该比前一种方案更简洁一些，也更准确，但前一种方案预先计算完宽度后截取内容时不需要再实时读取 UI 上的确切宽度，所以性能要比这种高一些。</p>
+<h3 id="计算内容行数">计算内容行数</h3>
+<p>在 WebKit 浏览器下实现限制显示行数可以使用非标准实现 <code>-webkit-line-clamp</code> 这个 CSS 属性，这个也是大家熟知的。在移动端应用的场景可能还多一些，桌面端很难只支持 WebKit 浏览器。当 CSS 无法直接解决这个问题时，用 JavaScript 如何解决这个问题呢？</p>
+<p>比较容易想到的是用高度除以行高，在不给定行高的情况下，需要通过 <code>getComputedStyle</code> 来获取实际行高。但当 <code>line-height</code> 取默认值时计算值为 <code>normal</code>，数值并不一定是确定值。所以通过 <code>line-height</code> 进行计算适用于自行指定行高数值的场景。例如在 <code>Clamp.js</code> 中，对 <code>normal</code> 值就是<a href="https://github.com/josephschmitt/Clamp.js/blob/master/clamp.js#L100" target="_blank" rel="noopener">假设所有浏览器默认值为 <code>1.2</code></a>的来处理。更别说可能有超出行高的图片等内容，使得高度并非行高乘以行数。</p>
+<p>除此之外，据我所知可以用来比较<strong>精确</strong>地判断内容行数的方法主要有下面两个。这类方法的特点是行高并不需要是一个固定值，比如中间有内嵌的图标改变了行高。暂且不讨论限定不确定高度的行数本身是否合理（因为我们显示内容时高度的限制往往并非来源于行数，而是来源于高度的限制），来看看具体的做法。</p>
+<h4 id="利用-element.getclientrects">利用 <code>Element.getClientRects()</code></h4>
+<p>根据测试，在 IE8+ 及其他现代浏览器下这个方法对于 <code>display: inline</code> 的元素有一个特性：调用结果返回的 <code>DOMRectList</code> 对象的 <code>length</code> 等于元素渲染后的行数。这样，我们可以把需要计算行数的内容放在一个 <code>display: inline</code> 的容器内（比如原来是 <code>&lt;p&gt;</code> 元素内的文本，现在更改为 <code>p &gt; span</code> 这种结构），对该 <code>&lt;span&gt;</code> 元素调用 <code>elem.getClientRects().length</code> 即可获得行数。</p>
+<p>可是目前在 WebKit 下，有一个<strong>疑似</strong>的 bug：当这个 <code>display: inline</code> 的容器内有子元素，<code>getClientRects</code> 的结果会包含这些子元素的轮廓，导致计数错误。既然规范并没有详细描述这个方法的计算逻辑，为什么说是一个<strong>疑似 bug</strong> 呢？因为当给容器加上一些特定的样式，计算结果又会和我们预期的结果相符了。详情可参考这个 <a href="https://code.google.com/p/chromium/issues/detail?id=557563" target="_blank" rel="noopener">issue</a> 和 <a href="http://jsbin.com/juxihisisu/edit?html,css,js,output" target="_blank" rel="noopener">demo</a>。</p>
+<h4 id="利用-selection.modify">利用 <code>Selection.modify()</code></h4>
+<p>这是一个非标准的 DOM 接口，但是 WebKit 和 Gecko 都进行了实现（IE/Edge 都不支持）。</p>
+<p>大致原理是：当我们把选区定位到某个元素的开头，然后执行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selection.modify(<span class="string">'extend'</span>, <span class="string">'forward'</span>, <span class="string">'lineboundary'</span>);</span><br></pre></td></tr></table></figure>
+<p>可以把选区扩展到一行的末尾，然后再用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selection.modify(<span class="string">'extend'</span>, <span class="string">'forward'</span>, <span class="string">'character'</span>);</span><br></pre></td></tr></table></figure>
+<p>往后扩展一个字符，如果此时的 <code>selection.focusNode</code> 还在容器内，且 <code>selection.focusOffset</code> 有变化，说明下一行还有内容。循环往复就可得到指定元素的「行数」。</p>
+<p>在浏览器兼容性上，显然这个方法也有较大的局限，仅比 CSS 方法多支持了 Firefox 而已。但比上一个方法的好处在于，由于可以立刻找到折行的字符位置，所以截取时不需要通过截调末尾内容反复重试行数。</p>
+<h3 id="计算内容高度">计算内容高度</h3>
+<p>给容器指定高度以后，通过比较 <code>scrollHeight</code> 和 <code>clientHeight</code> 可以方便地测试元素内容的高度是否溢出容器范围。如果超出了指定高度，反复截去尾部内容直到不再溢出。</p>
+<h3 id="截取内容">截取内容</h3>
+<p>如果内容是纯文本，那么很简单，依次删除末尾字符，再检查内容是否超出宽度/行数/高度限制就行了。文本较长的话可以用二分法优化一下执行效率。同时如果缓存下内容，可以在内容区域宽度变大时，根据情况来重新填入之前截取掉的文本，做到类似 CSS 的自适应效果。</p>
+<p>而如果内容中有其他的 HTML 元素，事情就没这么好办了。可行的方法是，始终找到剩余内容最后的叶子节点，如果是文本节点，删除末尾字符；否则直接移除该节点。宽度变大时如果要恢复之前的内容就没这么简单了，首先要保留之前所有移除元素的引用（因为上面可能有事件监听），然后文本可以重新填入，元素节点也要按之前删除前的 DOM 结构重新恢复。那么在之前移除时我们可能就需要记录每一步的操作，恢复时逆向执行回来。理论上是可行的，实现起来可能会复杂一些。</p>
+<h2 id="总结">总结</h2>
+<p>可以看到，基于 CSS 的方案非常精确，而且在页面布局变化、浏览器视口大小变化时更容易响应，但只能满特定的场景。用 JS 的方案在灵活性上有时更胜一筹，但要做的工作就多了很多。而且如果需要处理的内容很多，用 JS 的方法可能会带来性能瓶颈，毕竟一般读取 UI 实际显示样式的接口调用代价都比较大。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/echarts-map-tutorial/" class="article-prev">前一篇: ECharts 实现地图散点图（上）</a>
+    
+    
+    <a href="/blog/delivering-octicons-with-svg/" class="article-next">后一篇: 使用 SVG 输出 Octicon</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/text-truncating/" data-title="前端文本截断" data-url="http://efe.baidu.com/blog/text-truncating/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

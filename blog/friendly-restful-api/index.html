@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>设计易用的RESTFul API | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>设计易用的RESTFul API</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        shenbin
+    
+</span>
+
+        <time datetime="2015-10-15T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-10-16</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/REST/">REST</a>, <a href="/tags/HTTP/">HTTP</a></span>
+
+
+    </div>
+
+    
+        <p>早期互联网很大一部分是静态文件的堆积。因此，我们上网访问的其实都是一个个静态的资源。通过 <code>URL</code> 的定义，可以很方便地找到资源。</p>
+<p>随着互联网应用规模的扩大，以及应用复杂度的提高，之前的静态资源已经不能满足需求，网站返回给访问者的内容需要通过动态的方式生成（例如通过获取数据库的内容），同时还支持由访问者控制希望看到的内容。 传统的用于定位资源位置的 <code>URL</code> 的定义变得复杂起来。</p>
+<p>本篇内容偏向于 <code>Web API</code> 设计中，有关 <code>URL</code> 部分的讨论。</p>
+<a id="more"></a>
+<h3 id="习以为常的一些url">习以为常的一些URL</h3>
+<p>在Ajax还未发展起来前，网站应用的复杂度就已经变得相当复杂。因此当我们访问很多网站时，观察地址栏以及网络传输时，不难见到类似这样的请求。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/index.jsp?page=10&amp;catelog=food&amp;create_time=20151001</span><br></pre></td></tr></table></figure>
+<p>这样的请求存在一个问题：<strong>无法很好地描述一个资源</strong>。</p>
+<ol style="list-style-type: decimal">
+<li>无法知晓参数之间的层级关系，从请求串来看它们的关系是并列的</li>
+<li>无法知晓某个参数具体服务于页面中的哪一部分</li>
+<li>由于HTTP是无状态的，因此通过请求也无法准确知晓对于资源状态的影响是什么</li>
+</ol>
+<p>以上这些弊端对于描述一个资源是不友好的，特别当应用规模扩大时，会产生较大的对于接口的理解成本与使用成本。</p>
+<p>自从Ajax技术兴起，接口的表现形式又有了一些变化。由于页面内容可以实现异步控制，因此通过统一的地址参数与服务器通信的模型改变为，特定的接口指定特定的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/index.jsp?page=10&amp;catelog=food&amp;create_time=20151001</span><br><span class="line"></span><br><span class="line">=&gt;</span><br><span class="line"></span><br><span class="line">http://xxx.com/index.jsp?catelog=food</span><br><span class="line">http://xxx.com/items.action?page=10&amp;create_time=20151001</span><br></pre></td></tr></table></figure>
+<p>这在一定程度上解决了参数混杂的问题，但是请求资源的层级关系仍然无法做到合理的区分。</p>
+<h3 id="api设计原则">API设计原则</h3>
+<p>一般来说，设计良好的 <code>Web API</code> 会至少满足如下几条原则：</p>
+<ol style="list-style-type: decimal">
+<li>参数职责单一</li>
+<li>意图清晰，便于开发者调用</li>
+<li>易于访问者输入</li>
+</ol>
+<h3 id="rest原则">REST原则</h3>
+<p>虽然原则看起来简单易懂，但是现实应用中需要面对各种场景，实际上缺少一个相对统一的规范。</p>
+<p>不过在满足基本原则的基础上，还是存在一些事实上的行业标准。业内用得比较多的是 <code>REST</code>。</p>
+<h4 id="rest是什么">REST是什么</h4>
+<p><code>REST</code> 不仅是一份API设计准则，更是一套软件实现架构，用于指导客户端与服务器端之间的交互。 最早由 <em>Roy Thomas Fielding</em> 于2000年在他的博士论文中提出这个概念。</p>
+<p><code>REST</code> 即<code>Representational State Transfer</code>的缩写。它的理论比较抽象不太具体，理解它主要在于理解这些概念：资源、表现层、状态转换。</p>
+<p>对于这些名词的解释，主要参考了 <em>阮一峰</em> 在博客中的描述。</p>
+<h5 id="资源">资源</h5>
+<p>资源表示了存储在网络上的一个特定实体，可以是一段文本、一张图片，也可以一种服务。每个资源由一个特定的URI进行描述。因此我们在浏览器中输入一个特定的URI表示通过浏览器访问某个资源。</p>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/index.html 表示访问一个超文本资源</span><br><span class="line">http://xxx.com/music.mp3 表示访问一个多媒体资源</span><br></pre></td></tr></table></figure>
+<h5 id="表现层">表现层</h5>
+<p>按照字面意思翻译，表现层表示一个资源的外在表现形式。当然这段话非常学术，不是很好理解。</p>
+<p>通俗地理解表现层，大概可以认为它是一个资源以某种文件格式进行包装返回给访问者的形式。</p>
+<p>例如一段文本，既可以以普通文本，也可以以超文本的格式承载，在客户端分别以不同的形式进行展示。但是在网络上确实对应的是同一个资源。</p>
+<p>一般与表现层关联最大的是应用服务器与Web服务器，通过设置 <code>Content-Type</code> 的HTTP响应给予资源不同的表现形式。</p>
+<h5 id="状态转换">状态转换</h5>
+<p>客户端对于服务器端的访问可能会引起资源的状态变化。</p>
+<p>比如：增加一条记录、修改一条记录。 这些操作都会引起状态的变化，因此需要客户端可以合理地操作。</p>
+<p>由于HTTP的无状态特性，所有描述访问者状态的内容都保存在服务器端，因此客户端需要通过某种手段引起服务器端资源的状态变化。</p>
+<p>客户端可以使用的手段之一，是HTTP协议。HTTP协议包含几种对于资源操作的描述，<code>REST</code> 对应地可以使用其中四个动词：<code>GET</code>、<code>POST</code>、<code>PUT</code>、<code>DELETE</code>。 分别与应用服务器的 <code>CRUD</code> 操作进行对应。</p>
+<p>这样对于某次请求的描述就包含了：访问什么资源、以什么样的形式封装资源、资源的操作后状态是什么。<strong>所有网络请求的本质都认为是对于资源的操作</strong>。</p>
+<h4 id="restful-api">RESTFul API</h4>
+<p>基于REST原则设计的API，一般称为 <code>RESTFul API</code>，需要遵守以下这些原则。</p>
+<ol style="list-style-type: decimal">
+<li>URL描述的是一个特定资源。<em>因此描述需要名词，不能出现动词。因为动词描述的不再是资源本身，而是行为</em></li>
+<li>利用HTTP请求的动词表示对于资源操作的行为</li>
+</ol>
+<p>同时，对于URL的设计一般还有约定俗成的以下补充。</p>
+<ol style="list-style-type: decimal">
+<li>对于资源的描述的名词应该是层级嵌套的方式，比如 <code>/company/department/projects</code>。<em>通过这种对于信息层级描述的方式，更利于实体的抽象，以及增加客户端与服务器端开发人员对于整个系统模块认知的一致性</em></li>
+<li>路径终点的命名考虑用复数形式，比如 <code>/books</code>。<em>一般一个URL路径表示的资源会映射为数据库一系列表的记录的集合，因此使用复数更直观</em></li>
+</ol>
+<p>符合RESTFul API的接口简单示意如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET  /books （获取所有书列表）</span><br><span class="line">GET  /books/1 (获取编号为1的书)</span><br><span class="line">GET  /books/1/summary (获取编号为1的书目的简介信息)</span><br><span class="line">POST  /books （增加一本书）</span><br><span class="line">PUT  /books/1 （修改编号为1的书）</span><br><span class="line">DELETE  /books/2 （删除编号2的书）</span><br></pre></td></tr></table></figure>
+<h3 id="restful-api设计的折衷">RESTFul API设计的折衷</h3>
+<p><code>REST</code> 原则可以用于优化系统架构，指导系统设计采用更清晰的实体划分。 但是实际项目的使用场景迥异，一味地照搬原则并不能完全满足所有场景的需求。在某些情况下，应用 <code>REST</code> 需要针对性地进行一些补充。</p>
+<h4 id="api版本化">API版本化</h4>
+<p>API版本化的应用在实际开发中是有实际意义的。</p>
+<p>接口一般情况下是相对稳定的，但是也会随着业务需求的变更而发生变化。 另外还可能是业务需求并未发生变更，为了更好地组合资源，在接口层面进行了抽象和组合。 这种情况下，会要求服务器端实现一套新的接口实现，同时还需要保持原有接口可用。</p>
+<p>从本质来看，接口的变化其实反映的是接口使用者感知的“资源表现层”的变化。对于相同的资源，在URL上可以反映为多个不同的名词描述。 但是这样会带来一些使用上的弊端。</p>
+<ol style="list-style-type: decimal">
+<li>接口的使用者需要感知一个新的实体名称，提高了理解与使用成本</li>
+<li>新的实体名称未必能够直观表达接口更新后的状态（无法区分接口的新旧）</li>
+</ol>
+<p>所以比较常见的做法是在接口上增加版本信息。API的版本化也有两种做法，各有利弊。</p>
+<ol style="list-style-type: decimal">
+<li>请求头增加API信息</li>
+<li>将API体现于URL</li>
+</ol>
+<p>使用前者的理由在于，虽然接口版本不同，但是很多时候其实描述的是相同的资源，在描述的资源地址中增加版本号信息会破坏 <code>REST原则</code>。这是偏学术层面的理由。</p>
+<p>使用后者的理由在于，版本号信息体现在URL会使接口更加直观与易用。同时版本号作为接口服务器信息的补充方式存在，可以理解为并非对于资源本体的描述。</p>
+<p>事实上，在实际项目中出于灵活性考虑，也会将两种方式结合使用的。例如 <code>Github</code> 的 <code>API v3</code> 就同时支持了<a href="https://developer.github.com/v3/" target="_blank" rel="noopener">两种方式</a></p>
+<h4 id="实体别名">实体别名</h4>
+<p>在实体层级关系较多的系统中，某些实体对外可访问的接口是通过上层实体关联暴露的。比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET  /bookstores/1/catelogs/2/saleBooks</span><br></pre></td></tr></table></figure>
+<p><code>saleBook</code> 是作为 <code>bookstore</code> 关联的 <code>catelog</code> 的下层关联实体存在。因此接口使用者感知的是三个实体的关联关系。</p>
+<p>出于使用的便捷性考虑，用户也可以只需要理解一个实体名称 <code>saleBook</code>。虽然架构上或者物理上仍然作为下层关联实体存在，但是在接口上可以重新设计为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET  /saleBooks/1/2</span><br></pre></td></tr></table></figure>
+<p>这时，我们称 <code>saleBook</code> 为 <code>bookstore/catelog/saleBook</code> 的一个别名。</p>
+<p>但是需要注意的是，在一般情况下，除非URL特别长导致难以理解或者调用，不建议过度使用别名。</p>
+<p>理由：别名会导致使用者减少了对于实体间关系本质的理解，同时别名还占用了额外的命名空间，可能会和未来出现的某个新的实体的名称重复，或者由于相似命名造成额外的理解成本。</p>
+<h4 id="自定义视图">自定义视图</h4>
+<p>资源是某些特定的数据的聚合，它向外暴露的结构应该是固定不变的。但是在实际应用场景中，同一个接口的不同调用方可能需要用到不同的数据视图。</p>
+<p>如果为每个调用方设计一套独立的接口自然能够满足需求，但是缺点同样也很明显。</p>
+<ol style="list-style-type: decimal">
+<li>每个接口需要实现独立的业务逻辑，增加了开发成本</li>
+<li>增加了接口数量，提高了后期维护成本</li>
+</ol>
+<p>因此，允许调用方自定义资源的视图是一种可行的解决方案。 针对同一个描述资源的接口，具体返回的字段由请求参数进行约定。参数来自调用方，服务器端将资源组装成不同的视图返回调用者。</p>
+<p>在具体实现上，接口的可指定视图参数更类似于存储资源这方支持数据查询接口的约定。比如接口的查询条件在定义上与关系型数据库的查询条件比较类似。</p>
+<p>这种方式应用比较广泛，在各种系统中都可见。比如指定特定的查询条件，以及指定需要返回的特定字段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET  /books?catelogs=JS&amp;fields=name,price,author,rate&amp;orderBy=rate&amp;order=desc</span><br></pre></td></tr></table></figure>
+<h4 id="慎用删除">慎用删除</h4>
+<p><code>RESTFul</code> 的设计原则中，对资源的删除操作往往会用 <code>HTTP</code> 的 <code>DELETE</code> 动词来描述。但是实际大部分业务场景下，删除操作并不会被使用到。 一般会出于以下几方面的考虑：</p>
+<ol style="list-style-type: decimal">
+<li>资源的删除会导致系统逻辑一旦出错缺少完全回滚的机制</li>
+<li>企业越来越注重对于用户的数据挖掘</li>
+</ol>
+<p>因此我们一般认为业务型系统架构中对于资源采用非物理性删除更优于物理性删除。例如为资源增加一个状态的描述，调用者期望的删除其实对应的是状态的变更。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DELETE  /books/1</span><br><span class="line"></span><br><span class="line">=&gt;</span><br><span class="line"></span><br><span class="line">PUT  /books/1/status</span><br><span class="line">status=0</span><br></pre></td></tr></table></figure>
+<p>这种接口定义的资源操作没有发生真实的删除，而仅仅是某些数值的变更。另外通过应用层的业务逻辑辅助屏蔽不希望调用者查看的数据。最终通过一种“模拟删除”的行为同样满足了对“删除”操作的需求。</p>
+<p>从 <code>REST</code> 设计原则的角度来看，这种方式其实只是利用 <code>PUT</code> 操作替代了 <code>DELETE</code> 操作的效果，资源其实还是真实存在的，并未破坏 <code>HTTP</code> 动词的语义，也没有打破 <code>REST</code> 设计原则。</p>
+<h3 id="总结">总结</h3>
+<p><code>RESTFul</code> 架构在指导抽象业务实体以及组织系统模块方面有着巨大的优势，目前在流量端系统中也已经得到比较多的应用。</p>
+<p>但同时我们也可以看到，部分系统的接口设计也存在一些欠缺，比如</p>
+<ol style="list-style-type: decimal">
+<li>对部分资源的描述使用了动词</li>
+<li>资源的层级划分不合理</li>
+<li>接口设计时未考虑版本化</li>
+</ol>
+<p>其中对于资源层级的合理划分，可以帮助前后端对于系统理解保持一致；</p>
+<p>大部分流量端系统目前都是前后端分离部署的，但是接口未实现版本化，意味着</p>
+<ol style="list-style-type: decimal">
+<li>一旦出现需要修改某个接口定义时，不得不约定新接口，增加了冗余的资源定义</li>
+<li>在不约定新接口的情况下，前后端必须要同时部署</li>
+<li>前后端部署分离时，可能在中间的某个阶段，系统的服务可能是会出现错误的</li>
+</ol>
+<p>而接口实现版本化意味着可以实现真正的前后端分离部署。</p>
+<p>以上这些都等待我们在之后的迭代开发去逐步优化。</p>
+<h3 id="参考文章">参考文章</h3>
+<ol style="list-style-type: decimal">
+<li><a href="http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#versioning" target="_blank" rel="noopener">Best Practices for Designing a Pragmatic RESTful API</a></li>
+<li><a href="https://bourgeois.me/rest/" target="_blank" rel="noopener">Some REST best practices</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">理解RESTFul架构</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">RESTFul API设计指南</a></li>
+</ol>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/javascript-private-implement/" class="article-prev">前一篇: 在 JavaScript 中实现私有成员的语法特性</a>
+    
+    
+    <a href="/blog/lineup/" class="article-next">后一篇: LineUp：多属性排序的可视分析</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/friendly-restful-api/" data-title="设计易用的RESTFul API" data-url="http://efe.baidu.com/blog/friendly-restful-api/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

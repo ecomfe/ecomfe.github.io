@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>全息机器人项目的技术方案选型过程 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>全息机器人项目的技术方案选型过程</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/justjava" title="ielgnaw">ielgnaw</a>
+    
+</span>
+
+        <time datetime="2015-09-16T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-09-17</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/优化/">优化</a>, <a href="/tags/practice/">practice</a></span>
+
+
+    </div>
+
+    
+        <p>前段时间上线了全息机器人项目，线上访问可直接在手机百度 APP 中语音搜索 <code>百度神灯</code> 即可（请在wifi环境下访问）。项目部分截图如下：</p>
+<div class="figure">
+<img src="/blog/hologram-exp/hologram.png">
+</div>
+<p>通过部分截图可以看出，这个项目主要是两部分，一部分正常的动画引导页面（前四个截图所示），另外一部分是全息播放页面（最后一个截图所示）。其中动画引导页面共有十一个，全息播放页面有四个，进入每个全息页面前都会一些动画引导的页面。</p>
+<p>这篇文章主要从 <code>方案制定</code>，<code>遇到的问题以及应对方法</code> 等方面来对项目中这两部分做一个介绍。</p>
+<h3 id="正常动画部分">正常动画部分</h3>
+<h4 id="方案制定">方案制定</h4>
+<p>在没有老旧 IE 的情况下，做动画的选择是比较多的，<code>SVG</code>，<code>CSS3</code>，<code>CANVAS</code> 等等。最开始拿到这个项目的时候，结合这三种各自的特点，最终选择了主要动画由 <code>CANVAS</code> 来实现，具体原因如下：</p>
+<a id="more"></a>
+<ol style="list-style-type: decimal">
+<li><p>SVG。大家都知道 <a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank" rel="noopener"><code>SVG</code></a> 是一种在内存中持久保存的保留模式矢量图形，这个特性让 <code>SVG</code> 有很多优势：不受像素影响，无论屏幕分辨率如何，<code>SVG</code> 图形的表现都十分良好；<code>SVG</code> 对动画支持较好，JS 可以完全控制 <code>SVG DOM</code> 元素；可被 <code>CSS</code> 样式化等等。但同时 <code>SVG</code> 也有一些缺点：<code>SVG DOM</code> 结构如果过多，那么会比正常的图形慢；无法动态的修改动画内容；不能与 HTML 内容集成等等。我们这个项目是一个移动端的单页应用，十一个页面加上四个全息播放页面，总的来看，如果用 <code>SVG</code> 的话，页面上 <code>SVG DOM</code> 元素过多，而且几乎每个节点上都会有一些动画效果，动画效果是比较开放的，元素的很多几何属性都会改变，会不断的触发页面的 <code>reflow</code>。整体来看，对性能的消耗比较大，因此放弃了这个方案。</p></li>
+<li><p>CSS3。<code>CSS3</code> 做动画的手段主要是 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank" rel="noopener"><code>transition</code></a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank" rel="noopener"><code>animation</code></a>（<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms" target="_blank" rel="noopener"><code>transform</code></a> 本质上并不是动画属性，它是一个静态属性，一旦写进 style 里，将会直接显示效果，没有任何变化过程，主要用途是用来做元素的变形）。<code>transition</code>属性是一个简单的动画属性，方便易用，可以说它是 <code>animation</code> 的简化版本。<code>animation</code> 是 <code>CSS3</code> 制作动画的终极武器，通过 <code>@keyframes</code> 定义时间轴和关键帧，可以比较精确的控制动画中任何一个时间点的属性效果，还可以通过 <code>animation-fill-mode</code> 属性来控制动画结束时的样式。 <code>CSS3</code> 动画在性能上是很不错的，不依懒于主线程，还可以吃进 GPU 加速的 BUFF。从这些方面来看，应该毋庸置疑的选择 <code>CSS3</code> 来实现。但是 <code>CSS3</code> 同样有一些缺点：无法在程序运行至某个时间点去动态定义或者修改动画内容；各个不同的动画之间无法保持同步；无法非常精确的控制各个动画之间的衔接。针对我们这个项目的特点，我们也放弃 <code>CSS3</code> 来作为主要动画实现方式，仅仅只是在简单、各个动画无衔接的地方来使用 <code>CSS3</code>。</p></li>
+<li><p>CANVAS。<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank" rel="noopener"><code>CANVAS</code></a> 是一种不会在内存中保存的即时模式图形。在绘制 2D 图形时，页面渲染性能比较高，而且受图形复杂度的影响不大，只是和图形的分辨率有关，比较适合基于像素的图形操作；DOM 元素唯一，对页面结构几乎没有影响；和 DOM 元素结合起来非常方便。虽然对文本的渲染支持很差，但是文本元素可以通过 DOM 元素来 HACK。另外还有个原因是我们对 <code>CANVAS</code> 这块有一些积累，更熟悉一些。</p></li>
+</ol>
+<p>综合以上的分析，我们最终选择 CANVAS + CSS3 + DOM 的方案来实现整个项目中的正常动画部分，CANVAS 来实现主体部分动画、CSS3 实现一些简单无依赖的动画、而简单的按钮以及文本元素则直接采用 DOM 来实现。</p>
+<p>从最终上线的效果来看，在动画的流畅性上的确不如 <code>CSS3</code>，偶尔会出现一些小卡顿，但总体来说是在可接受的范围内。（后续会使用 <code>CSS3</code> 来重构这块）</p>
+<p>在正常动画这部分，没有遇到什么困难，所以接下来的部分着重一下全息播放这部分。</p>
+<h3 id="全息播放部分">全息播放部分</h3>
+<p>全息播放这部分本质上就是 N 张图片，每隔一段时间切换图片来达到动画播放的效果。首选方案应该就是视频了，但是我们没有采用视频，主要原因是因为在播放视屏的时候，实际上是调用手机自带播放器来播放，一开始会出现上下两个导航条（上方是进度控制导航，下方是音量控制导航），这完全不符合设计要求。那么另外一种方案就是用图片了，通过不断的切换图片来达到动画播放的效果。</p>
+<p>全息播放这部分，一共是分为四组，第一组 415 张，第二组 675 张，第三组 281 张，第四组 497 张。而且最开始设计师给的图质量比较高，1242 * 1242 px（当时和 UE、PM 沟通压缩图片并未允许）。</p>
+<p>通过上面的描述，主要的问题大家应该可以看出来，就是性能。要加载这么多高质量的图片，而且要以动画形式来展现，如何保证程序不崩溃，是一个很大的问题。下面就结合加载和渲染两个方面来说一说我们做过的尝试以及最终上线的方案。</p>
+<h4 id="加载">加载</h4>
+<p>加载无非是两种方式，一种是直接加载图片，另一种是事先做一些处理，譬如生成 base64 文件，然后去加载 base64 文件。</p>
+<ul>
+<li>直接加载图片
+<ul>
+<li>直接用 JS 加载图片。JS 加载图片通过 new Image 来实现，图片过多，占用设备资源太大无法及时得到释放，而且加载完成后立马就开始播放动画。这种方案在 Android 大部分机器上都会导致 crash。</li>
+<li>通过 DOM 元素加载图片。
+<ul>
+<li>创建 N 个 img 元素。通过 documentFragment 动态 append 到 document.body 上。这种方式避免了 new Image 带来的资源消耗，但是这种方式无法精确的判断出所有图片是否完全加载成功，把 documentFragment append 到 document.body 上以后，立马就开始了播放逻辑，而播放的帧率比较快，因此播到某一帧的时候，这一帧的图片可能还没有加载成功，所以如果是通过 <code>canvas.drawImage</code> 来渲染的话会导致 crash，通过其他方式渲染的话，会导致跳帧。</li>
+<li>创建一个 img 元素。这种方式和上面那种有同样的问题，无法判断 img 是否加载成功，也会导致跳帧。</li>
+<li>创建一个 div 元素，设置 background-image。这种方式也会有无法判断 img 是否加在成功的问题，而且这种方式在 Android 下会有跳帧现象。</li>
+</ul></li>
+</ul></li>
+<li>加载事先生成好的 base64 文件
+<ul>
+<li>把每一组全息的图片分为十组（由于倒计时是十秒），然后把这十组图片分别生成 base64 字符并存为一个 JSON 文件（即每个 JSON 文件中是 N / 10 张图片的 base64 内容，其中 N 为当前这组全息图片的个数），其中 key 为图片的名称，value 为 base64 串。这个方案相对于直接加载图片的方案来说，有一些进步，它避免了 new Image 的消耗，同时也避免了使用 DOM 元素导致无法精确检测图片是否加载成功的问题，但是这个方案同样会导致 crash，说明此方案还有优化的空间。它导致 crash 的原因是，在加载之前，我们先实例化一个 Object，然后开始加载，每加载完成一个文件的时候，就把这个文件的 key 和 value 设置到之前实例化的这个对象中，由于我们的 JSON 文件比较大，导致这个 Object 会越来越大，JS 对比较大的 Object 做一些 set, get 操作时，对内存资源占用比较高，而且紧接着就是动画播放，资源继续高负荷的占用无法被释放，因此还是会 crash。这也给我们一个启发，就是这种图片特别多特别大的需求上，性能上能省就必须得省。</li>
+<li>按组区分，四组全息，就生成四个 base64 文件，这次我们不在文件内容的格式上做任何处理，就生成纯的字符串，写入文件中，仅仅只是以 <code>\n</code> 区分每张图片的 base64 串而已。加载的时候，也不做任何的处理，事先存的是文本，那么加载过来的就是文本，不是什么对象了，加载完成直接挂载到模块导出对象上，不会有其他影响性能的地方，这样加载的事情就完成了。<strong>这也是我们最终采用的方案</strong>。</li>
+</ul></li>
+</ul>
+<h4 id="渲染">渲染</h4>
+<p>在渲染这块，我们先后尝试过如下几种方案：</p>
+<ul>
+<li>canvas.drawImage。每一帧里直接调用 canvas.drawImage。这种方案在中低端 Android 机型中直接 crash；在 iPhone6/6p 机型中，如果开启很多其他应用的话，也会造成系统资源不够用，导致 crash。</li>
+<li>动态创建 N 个 img 元素，render 前设置好每一个 img 元素的 src，然后通过 documentFragment append 到 document.body 上，每一帧切换相邻两个 img 元素的 opacity（前一个设置为 0，后一个设置为 1），形成动画效果。这种方式同样在中低端 Android 机型上 crash。</li>
+<li>创建一个 img 元素，每一帧变化对应的 img 元素的 src，这种方式不会 crash，但是会出现大幅度的跳帧，原因是切换 src 的时候，当前 src 的图片还没加载完就已经跳到下一帧了。</li>
+<li>创建一个 div 元素，每一帧变化对应的 div 元素的 background-image，这种方式也不会 crash，但是也会出现跳帧，原因和上面创建一个 img 元素的方式一样，同时这种方案在 Android 下会出现闪烁。</li>
+<li>创建一个 img 元素，每一帧变化 src 属性，同时切换透明度防止闪烁。这种方案也是采用原生 DOM 的形式，最重要的是使用直接加载 base64 字符串的方式来加载的，加载的性能损耗已经降到最低，同时也能保证 img 的 src 加载成功后才触发回调。<strong>这个方案结合上面的加载 base64 纯文本是我们最终全息部分的实现方案</strong>。（考虑到用户的设备性能参差不齐，最终我们还是针对 iPhone 和 Android 做了不同程度压缩图片处理）</li>
+</ul>
+<p>到这里，加载和渲染的主要问题我们解决了。接下来在上线后的自测过程中又出现了一个问题，由于这个项目最终是要在手机百度 APP 上以语音搜索的形式进入，手百 APP 语音搜索后打开的运营页面是运行在他们的 O2O 框架中，这个框架网页渲染能力比手百 APP 要差一些，而且有一个很奇葩的特点，就是当 url 发生变化时（包括加上一个 <code>#</code>），框架就认为页面重新渲染了，就会去触发页面上 ajax 请求，而在 IOS 端，为了良好的用户体验，加载请求的时候框架会在 APP 自动生成一个 <code>正在加载...</code> 的 loading 提示。所以当时我们的问题就是切换页面时，突然出现一个 <code>正在加载...</code> 的提示框，而且会持续一段时间，我们判断这个请求是在加载预先生成好的 base64 文本文件，后来把加载所有 base64 文本文件的请求全部写在第一个页面。但这也没用，到那个页面切换的时候还会出现，然后经过排查，才知道是切换页面的 <code>a</code> 标签元素没有阻止默认事件，导致页面 url 上出现了 <code>#</code>，框架会触发 ajax 请求，阻止了默认事件之后，这个问题也就解决了。</p>
+<p>主要的问题就是上面这些了，当然也有一些其他的问题，比如 base64 文件存放在哪，如何去加载？最开始我们把文件放在 edp bcs 上（线上服务器对 baidu 域名有白名单，不会跨域），直接 ajax 加载，后来发现 edp bcs 上传的服务器没有开启 <code>gzip</code>，对文件大小有影响。因此放到了一个静态资源服务器上，这个服务器会跨域，所以最终采用 jsonp 去加载这些 base64 文本文件。</p>
+<p>还有就是 android audio 的播放问题，播放音频，我们采用的是 <code>Howler</code>，但在某些 android 系统上无法播放，后来我们采用的是切换到需要播放音频的页面时，动态创建 audio 标签来实现播放。</p>
+<h3 id="总结">总结</h3>
+<p>全息这个项目比较极端，但正因为如此，积累了特殊、丰富的经验，后续再遇上此类项目时，定会处理得游刃有余。</p>
+<h3 id="参考">参考</h3>
+<ul>
+<li><a href="http://blogs.adobe.com/webplatform/2014/03/18/css-animations-and-transitions-performance/" target="_blank" rel="noopener">css-animations-and-transitions-performance</a></li>
+</ul>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/lineup/" class="article-prev">前一篇: LineUp：多属性排序的可视分析</a>
+    
+    
+    <a href="/blog/android-mirror-proxy-based-on-baidu-cloud/" class="article-next">后一篇: 基于百度网盘构建的Android SDK镜像</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/hologram-exp/" data-title="全息机器人项目的技术方案选型过程" data-url="http://efe.baidu.com/blog/hologram-exp/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

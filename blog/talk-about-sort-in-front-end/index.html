@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>聊聊前端排序的那些事 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>聊聊前端排序的那些事</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/bobshen" title="shenbin">shenbin</a>
+    
+</span>
+
+        <time datetime="2016-07-17T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-18</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/algorithm/">algorithm</a></span>
+
+
+    </div>
+
+    
+        <h2 id="前言">前言</h2>
+<p>貌似前端<a href="/blog/talk-about-sort-in-front-end/#标注">[1]</a>圈一直以来流传着一种误解：前端用不到算法知识。<a href="/blog/talk-about-sort-in-front-end/#标注">[2]</a></p>
+<p>长久以来，我也曾受这种说法的影响。直到前阵子遇到一个产品需求，回过头来看，发现事实并非如此。</p>
+<a id="more"></a>
+<h2 id="前端排序">前端排序</h2>
+<h3 id="前端排序的场景">前端排序的场景</h3>
+<p>前端将排序条件作为请求参数传递给后端，后端将排序结果作为请求响应返回前端，这是一种常见设计。但是对于有些产品则不是那么适用。</p>
+<p>试想一个场景：你在使用美食类APP时，是否会经常切换排序方式，一会儿按照价格排序，一会儿按照评分排序。</p>
+<p>实际生产中，受限于服务器成本等因素，当单次数据查询成为整体性能瓶颈时，也会考虑通过将排序在前端完成的方式来优化性能。</p>
+<h3 id="排序算法">排序算法</h3>
+<p>感觉这个没什么介绍的必要，作为计算机科学的一种基础算法，描述就直接照搬<a href="https://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">Wikipedia</a>。</p>
+<p>这里存在这一段内容纯粹是为了承(cou)上(man)启(zi)下(shu)。</p>
+<h3 id="javascript的排序">JavaScript的排序</h3>
+<p>既然说到前端排序，自然首先会想到JavaScript的原生接口 <code>Array.prototype.sort</code>。</p>
+<p>这个接口自<strong>ECMAScript 1st Edition</strong>起就存在。让我们看看最新的规范中关于它的描述是什么样的。</p>
+<h4 id="array.prototype.sort规范">Array.prototype.sort规范</h4>
+<p><code>Array.prototype.sort(compareFn)</code></p>
+<blockquote>
+<p>The elements of this array are sorted. The sort is not necessarily stable (that is, elements that compare equal do not necessarily remain in their original order). If comparefn is not undefined, it should be a function that accepts two arguments x and y and returns a negative value if x &lt; y, zero if x = y, or a positive value if x &gt; y.</p>
+</blockquote>
+<p>显然，规范并没有限定sort内部实现的排序算法是什么。甚至接口的实现都不需要是<strong>稳定排序</strong>的。这一点很关键，接下来会多次涉及。</p>
+<p>在这样的背景下，前端排序这件事其实取决于各家浏览器的具体实现。那么，当今主流的浏览器关于排序是怎么实现的呢？接下来，我们分别简单对比一下<code>Chrome</code>、<code>Firefox</code>和<code>Microsoft Edge</code>。</p>
+<h4 id="chrome中的实现">Chrome中的实现</h4>
+<p>Chrome的JavaScript引擎是<strong>v8</strong>。由于它是开源的，所以可以直接看<a href="https://github.com/v8/v8/blob/master/src/js/array.js#L755" target="_blank" rel="noopener">源代码</a>。</p>
+<p>整个 <code>array.js</code> 都是用<strong>JavaScript</strong>语言实现的。排序方法部分很明显比曾经看到过的快速排序要复杂得多，但显然核心算法还是<strong>快速排序</strong>。算法复杂的原因在于v8出于性能考虑进行了很多优化。(接下来会展开说)</p>
+<h4 id="firefox中的实现">Firefox中的实现</h4>
+<p>暂时无法确定Firefox的JavaScript引擎即将使用的数组排序算法会是什么。<a href="/blog/talk-about-sort-in-front-end/#标注">[3]</a></p>
+<p>按照现有的信息，SpiderMoney内部实现了<strong>归并排序</strong>。</p>
+<h4 id="microsoft-edge中的实现">Microsoft Edge中的实现</h4>
+<p>Microsoft Edge的JavaScript引擎<strong>Chakra</strong>的核心部分代码已经于2016年初在Github开源。</p>
+<p>通过看<a href="https://github.com/Microsoft/ChakraCore/blob/master/lib/Common/DataStructures/quicksort.h" target="_blank" rel="noopener">源代码</a>可以发现，Chakra的数组排序算法实现的也是<strong>快速排序</strong>。而且相比较于v8，它就只是实现了纯粹的快速排序，完全没有v8中的那些性能优化的踪影。</p>
+<h3 id="javascript数组排序的问题">JavaScript数组排序的问题</h3>
+<p>众所周知，<strong>快速排序</strong>是一种<strong>不稳定</strong>的排序算法，而<strong>归并排序</strong>是一种<strong>稳定</strong>的排序算法。由于不同引擎在算法选择上的差异，导致前端依赖 <code>Array.prototype.sort</code> 接口实现的JavaScript代码，在浏览器中实际执行的排序效果是不一致的。</p>
+<p>排序稳定性的差异需要有特定的场景触发才会存在问题；在很多情况下，不稳定的排序也不会造成影响。</p>
+<p>假如实际项目开发中，对于数组的排序没有稳定性的需求，那么其实看到这里为止即可，浏览器之间的实现差异不那么重要。</p>
+<p>但是若项目要求排序必须是稳定的，那么这些差异的存在将无法满足需求。我们需要为此进行一些额外的工作。</p>
+<p>举个例子：</p>
+<pre><code>某市的机动车牌照拍卖系统，最终中标的规则为：
+
+    1. 按价格进行倒排序；
+    2. 相同价格则按照竞标顺位（即价格提交时间）进行正排序。
+
+排序若是在前端进行，那么采用快速排序的浏览器中显示的中标者很可能是不符合预期的</code></pre>
+<h2 id="探究差异的背后">探究差异的背后</h2>
+<p>寻找解决办法之前，我们有必要先探究一下出现问题的原因。</p>
+<h3 id="chrome为什么采用快速排序">Chrome为什么采用快速排序</h3>
+<p>其实这个情况从一开始便存在。</p>
+<p>Chrome测试版于<a href="https://zh.wikipedia.org/wiki/Google_Chrome#.E7.99.BC.E5.B8.83" target="_blank" rel="noopener">2008年9月2日发布</a>，然而发布后不久，就有开发者向Chromium开发组提交<a href="https://bugs.chromium.org/p/v8/issues/detail?id=90" target="_blank" rel="noopener">#90 Bug</a>反馈v8的数组排序实现不是稳定排序的。</p>
+<p>这个Bug ISSUE讨论的时间跨度很大。一直到2015年11月10日，仍然有开发者对v8的数组排序实现问题提出评论。</p>
+<p>同时我们还注意到，该ISSUE曾经已被关闭。但是于2013年6月被开发组成员重新打开，作为<strong>ECMAScript Next</strong>规范讨论的参考。</p>
+<p>而<a href="https://mail.mozilla.org/pipermail/es-discuss/2013-June/031276.html" target="_blank" rel="noopener">es-discuss</a>的最后结论是这样的</p>
+<blockquote>
+<p>It does not change. Stable is a subset of unstable. And vice versa, every unstable algorithm returns a stable result for some inputs. Mark's point is that requiring &quot;always unstable&quot; has no meaning, no matter what language you chose.</p>
+<p>/Andreas</p>
+</blockquote>
+<p>正如本文前段所引用的已定稿<strong>ECMAScript 2015</strong>规范中的描述。</p>
+<h4 id="时代特点">时代特点</h4>
+<p>IMHO，Chrome发布之初即被报告出这个问题可能是有其特殊的时代特点。</p>
+<p>上文已经说到，Chrome第一版是<strong>2008年9月</strong>发布的。根据<a href="http://gs.statcounter.com/#browser-ww-monthly-200809-200809-bar" target="_blank" rel="noopener">statcounter</a>的统计数据，那个时期市场占有率最高的两款浏览器分别是 <strong>IE</strong>(那时候只有<strong>IE6</strong>和<strong>IE7</strong>)和<strong>Firefox</strong>，市场占有率分别达到了<strong>67.16%</strong>和<strong>25.77%</strong>。也就是说，两个浏览器加起来的市场占有率超过了<strong>90%</strong>。</p>
+<p>而根据另一份<a href="http://ofb.net/~sethml/is-sort-stable.html" target="_blank" rel="noopener">浏览器排序算法稳定性的统计</a>数据显示，这两款超过了<strong>90%</strong>市场占有率的浏览器都采用了稳定的数组排序。所以Chrome发布之初被开发者质疑也是合情合理的。</p>
+<h4 id="符合规范">符合规范</h4>
+<p>从<a href="https://bugs.chromium.org/p/v8/issues/detail?id=90" target="_blank" rel="noopener">Bug ISSUE</a>讨论的过程中，可以大概理解开发组成员对于引擎实现采用快速排序的一些考量。</p>
+<p>其中一点，他们认为引擎必须遵守<strong>ECMAScript</strong>规范。由于规范不要求稳定排序的描述，故他们认为v8的实现是完全符合规范的。</p>
+<h4 id="性能考虑">性能考虑</h4>
+<p>另外，他们认为v8设计的一个重要考量在于引擎的性能。</p>
+<p><strong>快速排序</strong>相比较于<strong>归并排序</strong>，在整体性能上表现更好：</p>
+<ul>
+<li>更高的计算效率。快速排序在实际计算机执行环境中比同等时间复杂度的其他排序算法更快（不命中最差组合的情况下）</li>
+<li>更低的空间成本。前者仅有 <strong>O(㏒n)</strong> 的空间复杂度，相比较后者 <strong>O(n)</strong> 的空间复杂度在运行时的内存消耗更少</li>
+</ul>
+<h5 id="v8在数组排序算法中的性能优化">v8在数组排序算法中的性能优化</h5>
+<p>既然说v8非常看中引擎的性能，那么在数组排序中它做了哪些事呢？</p>
+<p>通过阅读源代码，还是粗浅地学习了一些皮毛。</p>
+<blockquote>
+<p>混合插入排序</p>
+</blockquote>
+<p>快速排序是分治的思想，将大数组分解，逐层往下递归。但是若递归深度太大，为了维持递归调用栈的内存资源消耗也会很大。优化不好甚至可能造成栈溢出。</p>
+<p>目前v8的实现是设定一个阈值，对最下层的10个及以下长度的小数组使用<strong>插入排序</strong>。</p>
+<p>根据代码注释以及<strong>Wikipedia</strong>中的描述，虽然插入排序的平均时间复杂度为 <strong>O(n²)</strong> 差于快速排序的 <strong>O(n㏒n)</strong>。但是在运行环境，小数组使用插入排序的效率反而比快速排序会更高，这里不再展开。</p>
+<p>v8代码示例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> QuickSort = <span class="function"><span class="keyword">function</span> <span class="title">QuickSort</span>(<span class="params">a, from, to</span>) </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="comment">// Insertion sort is faster for short arrays.</span></span><br><span class="line">        <span class="keyword">if</span> (to - <span class="keyword">from</span> &lt;= <span class="number">10</span>) &#123;</span><br><span class="line">            InsertionSort(a, <span class="keyword">from</span>, to);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>三数取中</p>
+</blockquote>
+<p>正如已知的，快速排序的阿克琉斯之踵在于，最差数组组合情况下会算法退化。</p>
+<p>快速排序的算法核心在于选择一个基准<strong>(pivot)</strong>，将经过比较交换的数组按基准分解为两个数区进行后续递归。试想如果对一个已经有序的数组，每次选择基准元素时总是选择第一个或者最后一个元素，那么每次都会有一个数区是空的，递归的层数将达到 <strong>n</strong>，最后导致算法的时间复杂度退化为 <strong>O(n²)</strong>。因此<strong>pivot</strong>的选择非常重要。</p>
+<p>v8采用的是<strong>三数取中(median-of-three)</strong>的优化：除了头尾两个元素再额外选择一个元素参与基准元素的竞争。</p>
+<p>第三个元素的选取策略大致为：</p>
+<ol style="list-style-type: decimal">
+<li>当数组长度小于等于1000时，选择折半位置的元素作为目标元素。</li>
+<li>当数组长度超过1000时，每隔200-215个<em>(非固定，跟着数组长度而变化)</em>左右选择一个元素来先确定一批候选元素。接着在这批候选元素中进行一次排序，将所得的中位值作为目标元素</li>
+</ol>
+<p>最后取三个元素的中位值作为<strong>pivot</strong>。</p>
+<p>v8代码示例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> GetThirdIndex = <span class="function"><span class="keyword">function</span>(<span class="params">a, from, to</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> t_array = <span class="keyword">new</span> InternalArray();</span><br><span class="line">    <span class="comment">// Use both 'from' and 'to' to determine the pivot candidates.</span></span><br><span class="line">    <span class="keyword">var</span> increment = <span class="number">200</span> + ((to - <span class="keyword">from</span>) &amp; <span class="number">15</span>);</span><br><span class="line">    <span class="keyword">var</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">from</span> += <span class="number">1</span>;</span><br><span class="line">    to -= <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="keyword">from</span>; i &lt; to; i += increment) &#123;</span><br><span class="line">        t_array[j] = [i, a[i]];</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    t_array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> comparefn(a[<span class="number">1</span>], b[<span class="number">1</span>]);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> third_index = t_array[t_array.length &gt;&gt; <span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> third_index;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> QuickSort = <span class="function"><span class="keyword">function</span> <span class="title">QuickSort</span>(<span class="params">a, from, to</span>) </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        ......</span><br><span class="line">        <span class="keyword">if</span> (to - <span class="keyword">from</span> &gt; <span class="number">1000</span>) &#123;</span><br><span class="line">            third_index = GetThirdIndex(a, <span class="keyword">from</span>, to);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            third_index = <span class="keyword">from</span> + ((to - <span class="keyword">from</span>) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原地排序</p>
+</blockquote>
+<p>在温习快速排序算法时，我在网上看到了很多用JavaScript实现的例子。</p>
+<p>但是发现一大部分的代码实现如下所示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> quickSort = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">　　<span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span> arr; &#125;</span><br><span class="line">　　<span class="keyword">var</span> pivotIndex = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>);</span><br><span class="line">　　<span class="keyword">var</span> pivot = arr.splice(pivotIndex, <span class="number">1</span>)[<span class="number">0</span>];</span><br><span class="line">　　<span class="keyword">var</span> left = [];</span><br><span class="line">　　<span class="keyword">var</span> right = [];</span><br><span class="line">　　<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">　　　　<span class="keyword">if</span> (arr[i] &lt; pivot) &#123;</span><br><span class="line">　　　　　　left.push(arr[i]);</span><br><span class="line">　　　　&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">　　　　　　right.push(arr[i]);</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">　　<span class="keyword">return</span> quickSort(left).concat([pivot], quickSort(right));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>以上代码的主要问题在于：利用 <code>left</code> 和 <code>right</code> 两个数区存储递归的子数组，因此它需要 <strong>O(n)</strong> 的额外存储空间。这与理论上的平均空间复杂度 <strong>O(㏒n)</strong> 相比差距较大。</p>
+<p>额外的空间开销，同样会影响实际运行时的整体速度。这也是快速排序在实际运行时的表现可以超过同等时间复杂度级别的其他排序算法的其中一个原因。所以一般来说，性能较好的快速排序会采用<strong>原地(in-place)排序</strong>的方式。</p>
+<p>v8源代码中的实现是对原数组进行元素交换。</p>
+<h3 id="firefox为什么采用归并排序">Firefox为什么采用归并排序</h3>
+<p>它的背后也是有故事的。</p>
+<p>Firefox其实在一开始发布的时候对于数组排序的实现并不是采用稳定的排序算法，这块有据可考。</p>
+<p>Firefox(Firebird)最初版本实现的数组排序算法是<strong>堆排序</strong>，这也是一种不稳定的排序算法。因此，后来有人对此提交了一个<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=224128" target="_blank" rel="noopener">Bug</a>。</p>
+<p>Mozilla开发组内部针对这个问题进行了一系列<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=224128#c2" target="_blank" rel="noopener">讨论</a>。</p>
+<p>从讨论的过程我们能够得出几点</p>
+<ol style="list-style-type: decimal">
+<li>同时期 Mozilla的竞争对手是<strong>IE6</strong>，从上文的统计数据可知IE6是稳定排序的</li>
+<li>JavaScript之父<em>Brendan Eich</em>觉得<strong>Stability is good</strong></li>
+<li>Firefox在采用<strong>堆排序</strong>之前采用的是<strong>快速排序</strong></li>
+</ol>
+<p>基于开发组成员倾向于实现稳定的排序算法为主要前提，<strong>Firefox3</strong>将<strong>归并排序</strong>作为了数组排序的新实现。</p>
+<h2 id="解决排序稳定性的差异">解决排序稳定性的差异</h2>
+<p>以上说了这么多，主要是为了讲述各个浏览器对于排序实现的差异，以及解释为什么存在这些差异的一些比较表层的原因。</p>
+<p>但是读到这里，读者可能还是会有疑问：如果我的项目就是需要依赖稳定排序，那该怎么办呢？</p>
+<h3 id="解决方案">解决方案</h3>
+<p>其实解决这个问题的思路比较简单。</p>
+<p>浏览器出于不同考虑选择不同排序算法。可能某些偏向于追求极致的性能，某些偏向于提供良好的开发体验，但是有规律可循。</p>
+<p>从目前已知的情况来看，所有主流浏览器（包括IE6，7，8）对于数组排序算法的实现基本可以枚举：</p>
+<ol style="list-style-type: decimal">
+<li>归并排序 / Timsort</li>
+<li>快速排序</li>
+</ol>
+<p>所以，我们将快速排序经过定制改造，变成稳定排序的是不是就可以了？</p>
+<p>一般来说，针对对象数组使用不稳定排序会影响结果。而其他类型数组本身使用稳定排序或不稳定排序的结果是相等的。因此方案大致如下：</p>
+<pre><code>将待排序数组进行预处理，为每个待排序的对象增加自然序属性，不与对象的其他属性冲突即可。
+自定义排序比较方法compareFn，总是将自然序作为前置判断相等时的第二判断维度。</code></pre>
+<p>面对归并排序这类实现时由于算法本身就是稳定的，额外增加的自然序比较并不会改变排序结果，所以方案兼容性比较好。</p>
+<p>但是涉及修改待排序数组，而且需要开辟额外空间用于存储自然序属性，可想而知v8这类引擎应该不会采用类似手段。不过作为开发者自行定制的排序方案是可行的。</p>
+<h3 id="方案代码示例">方案代码示例</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> INDEX = <span class="built_in">Symbol</span>(<span class="string">'index'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getComparer</span>(<span class="params">compare</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> result = compare(left, right);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result === <span class="number">0</span> ? left[INDEX] - right[INDEX] : result;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params">array, compare</span>) </span>&#123;</span><br><span class="line">    array = array.map(</span><br><span class="line">        (item, index) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> item === <span class="string">'object'</span>) &#123;</span><br><span class="line">                item[INDEX] = index;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> item;</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> array.sort(getComparer(compare));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上只是一个简单的满足稳定排序的算法改造示例。</p>
+<p>之所以说简单，是因为实际生产环境中作为数组输入的数据结构冗杂，需要根据实际情况判断是否需要进行更多样的排序前类型检测。</p>
+<h2 id="后言">后言</h2>
+<p>必须看到，这几年越来越多的项目正在往富客户端应用方向转变，前端在项目中的占比变大。随着未来浏览器计算能力的进一步提升，它允许进行一些更复杂的计算。伴随职责的变更，前端的形态也可能会发生一些重大变化。</p>
+<p>行走江湖，总要有一技傍身。</p>
+<h2 id="标注">标注</h2>
+<ol style="list-style-type: decimal">
+<li>前端现在已经是一个比较宽泛的概念。本文中的前端主要指的是以浏览器作为载体，以<strong>JavaScript</strong>作为编程语言的环境</li>
+<li>本文无意于涉及算法整体，谨以常见的排序算法作为切入点</li>
+<li>在确认Firefox数组排序实现的算法时，搜到了SpiderMoney的一篇<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=715181" target="_blank" rel="noopener">排序相关的Bug</a>。大致意思是讨论过程中有人建议用极端情况下性能更好的<strong>Timsort算法</strong>替换<strong>归并排序</strong>，但是Mozilla的工程师表示由于Timsort算法存在<strong>License</strong>授权问题，没办法在Mozilla的软件中直接使用算法，等待对方的后续回复</li>
+</ol>
+<h2 id="参考文档">参考文档</h2>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" class="uri" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/排序算法</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Google_Chrome#.E7.99.BC.E5.B8.83" class="uri" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Google_Chrome#.E7.99.BC.E5.B8.83</a></li>
+<li><a href="https://github.com/v8/v8/blob/master/src/js/array.js#L755" target="_blank" rel="noopener">https://github.com/v8/v8/blob/master/src/js/array.js</a></li>
+<li><a href="https://bugs.chromium.org/p/v8/issues/detail?id=90" class="uri" target="_blank" rel="noopener">https://bugs.chromium.org/p/v8/issues/detail?id=90</a></li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=224128" class="uri" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=224128</a></li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=715181" class="uri" target="_blank" rel="noopener">https://bugzilla.mozilla.org/show_bug.cgi?id=715181</a></li>
+<li><a href="https://mail.mozilla.org/pipermail/es-discuss/2013-June/031276.html" class="uri" target="_blank" rel="noopener">https://mail.mozilla.org/pipermail/es-discuss/2013-June/031276.html</a></li>
+<li><a href="https://github.com/Microsoft/ChakraCore/blob/master/lib/Common/DataStructures/quicksort.h" class="uri" target="_blank" rel="noopener">https://github.com/Microsoft/ChakraCore/blob/master/lib/Common/DataStructures/quicksort.h</a></li>
+<li><a href="http://gs.statcounter.com/#browser-ww-monthly-200809-200809-bar" class="uri" target="_blank" rel="noopener">http://gs.statcounter.com/#browser-ww-monthly-200809-200809-bar</a></li>
+<li><a href="http://ofb.net/~sethml/is-sort-stable.html" class="uri" target="_blank" rel="noopener">http://ofb.net/~sethml/is-sort-stable.html</a></li>
+</ul>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/composers-and-audiences/" class="article-prev">前一篇: 作曲家与听众</a>
+    
+    
+    <a href="/blog/sprite-scale/" class="article-next">后一篇: 雪碧图在缩放场景下的特殊处理</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/talk-about-sort-in-front-end/" data-title="聊聊前端排序的那些事" data-url="http://efe.baidu.com/blog/talk-about-sort-in-front-end/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

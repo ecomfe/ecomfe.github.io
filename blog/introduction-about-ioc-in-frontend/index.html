@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>前端 IoC 理念入门 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>前端 IoC 理念入门</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/exodia17" title="exodia">exodia</a>
+    
+</span>
+
+        <time datetime="2016-08-18T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-08-19</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/IoC/">IoC</a>, <a href="/tags/DI/">DI</a></span>
+
+
+    </div>
+
+    
+        <h2 id="背景">背景</h2>
+<p>近几年，前端应用（WebApp）正朝着大规模方向发展，在这个过程中我们会对项目拆解成多个模块/组件来组合使用，以此提高我们代码的复用性，最终提高研发效率。</p>
+<p>在编写一个复杂组件的时候，总会依赖其他组件来协同完成某个逻辑功能。组件越复杂，依赖越多，可复用性就越差，我们可以借助软件工程中优秀的编程理念来提高复杂组件的可复用性，以下将详述其中之一的依赖倒置理念。</p>
+<h2 id="什么是-ioc">什么是 IoC</h2>
+<p>IoC 全称 Inversion of Control，中文术语为依赖倒置（反转），包含两个准则：</p>
+<ol style="list-style-type: decimal">
+<li><p>高层次的模块不应该依赖于低层次的模块，他们都应该依赖于抽象。</p></li>
+<li><p>抽象不应该依赖于具体实现，具体实现应该依赖于抽象</p></li>
+</ol>
+<p>其背后的核心思想还是：面向接口编程。</p>
+<p>我们用一个例子来说明：我们要实现一个列表 A，能够加载一系列的信息并展示，</p>
+<p>于是很自然的我们遵守职责单一功能，将展示和加载两个逻辑拆分成2个类：</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Loader.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Loader</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(url) &#123;</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> load() &#123;</span><br><span class="line">        <span class="keyword">let</span> result = <span class="keyword">await</span> fetch(<span class="keyword">this</span>.url);</span><br><span class="line">        <span class="keyword">return</span> result.text();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// List.js</span></span><br><span class="line"><span class="keyword">import</span> Loader <span class="keyword">from</span> <span class="string">'./Loader'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">List</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(container) &#123;</span><br><span class="line">        <span class="keyword">this</span>.container = container;</span><br><span class="line">        <span class="keyword">this</span>.loader = <span class="keyword">new</span> Loader(<span class="string">'list.json'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> render() &#123;</span><br><span class="line">        <span class="keyword">let</span> items = <span class="keyword">await</span> <span class="keyword">this</span>.loader.load();</span><br><span class="line">        <span class="keyword">this</span>.container.textContent = items;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">'./List'</span>;</span><br><span class="line"><span class="keyword">let</span> list = <span class="keyword">new</span> List(<span class="built_in">document</span>.getElementById(<span class="string">'a'</span>));</span><br><span class="line">List.render();</span><br></pre></td></tr></table></figure>
+<p>列表 A 很快开发完毕，于是你要继续开发下一个列表 B，B 的功能和 A 类似，也是加载数据展示数据，区别在于 B 的数据来源是一个第三方的服务，他们提供一个 js sdk 给你调用能够返回数据信息。很自然的我们想到 A 的展示逻辑是可以复用的，对于数据加载这个逻辑我们重新实现一个 ThirdLoader 来专门加载第三方服务就是了，但回到 List 模块，我们发现在其构造函数中写死了对 Loader 的依赖：this.loader = new Loader(‘/list’); 导致无法对 List 设置第三方数据加载逻辑。这个问题就在于 List 依赖了具体的实现而不是依赖一个 Loader 接口。</p>
+<p>IoC 正是解决这一类问题的最佳良药，我们再回顾 IoC 的两条准则，看看如何利用 IoC 理念解决这类问题：</p>
+<p><code>1. 高层次的模块不应该依赖于低层次的模块，他们都应该依赖于抽象</code></p>
+<p>上述代码中，列表模块是高层次的模块，Loader 是低层次模块， 高层次的 List 依赖了低层次的 Loader，违背了该准则。好在准则也提供了解决方案：<strong>应该依赖于抽象</strong>。那什么是抽象？ 放在我们编程语言中正是广为周知的接口，放在 JS 语言中，接口则是隐式的。</p>
+<p>我们正好实践下该准则：</p>
+<ol style="list-style-type: decimal">
+<li><p>我们定义一个隐式的接口 ILoader，ILoader 声明了一个 load 方法，该方法签名是返回一个包含请求结果的 Promise。</p></li>
+<li><p>将 List 模块对 Loader 模块的依赖调整为对 ILoader 接口的依赖：我们在 List 模块中移除对 Loader 模块的依赖(即移除 import 语句)，同时构造函数中增加一个参数，该参数是一个实现了 ILoader 接口的实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">List</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(container, loader) &#123;</span><br><span class="line">        <span class="keyword">this</span>.container = container;</span><br><span class="line">        <span class="keyword">this</span>.loader = loader;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> render() &#123;</span><br><span class="line">        <span class="keyword">this</span>.container.textContent = <span class="keyword">await</span> <span class="keyword">this</span>.loader.load();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>为了完成列表 A 的功能，我们还要改造 main.js，将实现了 ILoader 的 Loader 模块实例化传递给 List 模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">'./List'</span>;</span><br><span class="line"><span class="keyword">import</span> Loader <span class="keyword">from</span> <span class="string">'./Loader'</span>;</span><br><span class="line"><span class="keyword">let</span> list = <span class="keyword">new</span> List(<span class="built_in">document</span>.getElementById(<span class="string">'a'</span>), <span class="keyword">new</span> Loader(<span class="string">'list.json'</span>));</span><br><span class="line">list.render();</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>至此，我们完成了对 List 模块的一次改造，List 从对具体实现 Loader 的依赖变成了对抽象接 口 ILoader 的依赖，而 List 模块中对 Loader 模块的导入和实例化过程转移到了 main.js， 这一过程就是我们的依赖倒置，依赖创建的控制权交给了外部(main.js)，而在 main.js 中查找创建依赖并将依赖传递给 List 模块的这一过程我们称之为依赖注入(Denpendency Injection)。</p>
+<p>我们再来看看 IoC 的第二个准则：<code>抽象不应该依赖于具体实现，具体实现应该依赖于抽象</code>，我们的 ILoader 接口显然不会依赖于任何具体实现，而 Loader 这个具体实现了依赖于 ILoader 接口，完全符合了 IoC 的第二个准则。</p>
+<p>原有系统的依赖关系图转变结果如下：</p>
+<div class="figure">
+<img src="/blog/introduction-about-ioc-in-frontend/1.jpg" alt="原有系统的依赖关系图"><p class="caption">原有系统的依赖关系图</p>
+</div>
+<p>基于新的依赖架构，List 模块具备了设置不同数据加载逻辑的能力，现在我们可以复用 List 模块再实现列表 B 的 数据加载逻辑并在 main 中组装即可完成列表 B 的功能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ThirdLoader.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">'../third/sdk'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ThirdServiceLoader</span> </span>&#123;</span><br><span class="line">    <span class="keyword">async</span> load() &#123;</span><br><span class="line">        <span class="keyword">return</span> request();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">'./List'</span>;</span><br><span class="line"><span class="keyword">import</span> Loader <span class="keyword">from</span> <span class="string">'./Loader'</span>;</span><br><span class="line"><span class="keyword">import</span> ThirdLoader <span class="keyword">from</span> <span class="string">'./ThirdLoader'</span>;</span><br><span class="line"><span class="keyword">let</span> listA = <span class="keyword">new</span> List(<span class="built_in">document</span>.getElementById(<span class="string">'a'</span>), <span class="keyword">new</span> Loader(<span class="string">'list.json'</span>));</span><br><span class="line">listA.render();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> listB = <span class="keyword">new</span> List(<span class="built_in">document</span>.getElementById(<span class="string">'b'</span>), <span class="keyword">new</span> ThirdLoader());</span><br><span class="line">listB.render();</span><br></pre></td></tr></table></figure>
+<p>最终的一个依赖关系图如下：</p>
+<div class="figure">
+<img src="/blog/introduction-about-ioc-in-frontend/2.jpg" alt="最终依赖关系图"><p class="caption">最终依赖关系图</p>
+</div>
+<p>至此我们上面演示了应用 IoC 理念对高层模块的一个依赖架构改造，提高了高层模块的可复用性。</p>
+<h3 id="ioc-小结">IoC 小结</h3>
+<p>总结我们最开始遇到的问题：类 A 直接依赖类 B，假如要将类 A 改为依赖类 C，则必须通过修改类 A 的代码来达成。这种场景下，类 A 一般是高层模块，负责复杂的业务逻辑；类 B 和类 C 是低层模块，负责基本的原子操作；假如修改类 A，会给程序带来不必要的风险。</p>
+<p>IoC 解决方案：将类 A 修改为依赖接口 I，类 B 和类 C 各自实现接口 I，类 A 通过接口 I 间接与类 B 或者类 C 发生联系，则会大大降低修改类 A 的几率。</p>
+<h2 id="利用-uioc-框架简化依赖注入过程">利用 uioc 框架简化依赖注入过程</h2>
+<p>在上一节中我们抽象了 List 中的数据加载逻辑，而依赖注入这一过程转移到了应用的入口文件 main.js 中，这也导致了我们需要在 main.js 中手动创建并组装各个依赖，随着项目规模的增加，依赖数量必然也是成规模上升，手动组装模块显然是一件繁琐的事；再加上模块对依赖注入的方式，依赖的创建方式，依赖的实例数量等都有多方面的需求，于是就有了 IoC 框架来帮助我们解决这些问题，简化依赖注入这个过程，最终让业务开发者精力集中在业务逻辑层。</p>
+<p>接下来我要安利一下如何利用我们开发的 <a href="https://github.com/ecomfe/uioc" target="_blank" rel="noopener">uioc</a> 框架来实现依赖注入，在这之前先介绍一下 uioc 中的一些术语：</p>
+<ul>
+<li><p>组件：是完成一项或一系列功能的集合，对外提供相关功能的接口。</p></li>
+<li><p>注册组件：即声明一个组件如何创建（类，工厂方法），创建时需要什么样的依赖，创建完毕后又需要哪些依赖，组件是单例的还是多例的。</p></li>
+<li><p>获取组件：IoC 容器根据组件的注册信息创建并返回组件的过程。</p></li>
+</ul>
+<p>整个应用在 IoC 中就被看成是一系列组件的组装和获取调用：注册组件 -&gt; 获取组件 -&gt; 调用组件方法完成业务逻辑，基于以上概念我们来着手改造前面的例子：</p>
+<ol style="list-style-type: decimal">
+<li><p>安装 uioc：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install uioc --save</span><br></pre></td></tr></table></figure></li>
+<li><p>新建一个 config.js 文件用来存放组件的注册信息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config.js</span></span><br><span class="line"><span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">'./List'</span>;</span><br><span class="line"><span class="keyword">import</span> Loader <span class="keyword">from</span> <span class="string">'./Loader'</span>;</span><br><span class="line"><span class="keyword">import</span> ThirdLoader <span class="keyword">from</span> <span class="string">'./ThirdLoader'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    listA: &#123;</span><br><span class="line">        creator: List,</span><br><span class="line">        args: [<span class="built_in">document</span>.getElementById(<span class="string">'a'</span>), &#123;<span class="attr">$ref</span>: <span class="string">'loader'</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    listB: &#123;</span><br><span class="line">        creator: List,</span><br><span class="line">        args: [<span class="built_in">document</span>.getElementById(<span class="string">'b'</span>), &#123;<span class="attr">$ref</span>: <span class="string">'thirdLoader'</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    loader: &#123;</span><br><span class="line">        creator: Loader,</span><br><span class="line">        args: [<span class="string">'list.json'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    thirdLoader: &#123;</span><br><span class="line">        creator: ThirdLoader</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面的代码我们声明了4个组件配置：listA, listB, loader, thirdLoader。 其中组件配置中的 creator 表示创建组件的类，组件 listA, listB 对应的 creator 都是 List，那如何给 listA 和 listB 分别注入不同的 loader 实现呢？这个工作由 args 配置来完成，args 是一个数组，表示要传递给组件构造函数的参数配置。</p>
+<p>args 中的第一个元素是一个 dom 节点，作为 List 的容器；第二元素中使用了 <code>$ref</code> 关键字，其作用是声明该参数是一个组件，<code>$ref</code> 对应的值则是组件名称。 listA 第二个参数为 loader 组件，listB 则是 thirdLoader。</p>
+<p>在获取组件时，uioc 会先创建该关键字声明的组件，接着调用 creator 将 dom 节点和 $ref 对应的组件按其在 args 声明的顺序作为参数传入。</p></li>
+<li><p>最后我们在 main.js 中实例化一个 IoC 容器并传入组件注册信息，最后通过容器获取组件并渲染页面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;IoC&#125; <span class="keyword">from</span> <span class="string">'uioc'</span>;</span><br><span class="line"><span class="keyword">import</span> config <span class="keyword">from</span> <span class="string">'./config'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例化 IoC 容器</span></span><br><span class="line"><span class="keyword">let</span> ioc = <span class="keyword">new</span> IoC(config);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取应用初始化需要的组件</span></span><br><span class="line">ioc.getComponent([<span class="string">'listA'</span>, <span class="string">'listB'</span>]).then(<span class="function">(<span class="params">[listA, listB]</span>) =&gt;</span> &#123;</span><br><span class="line">    listA.render();</span><br><span class="line">    listB.render();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>至此我们借助了 uioc 对原应用进行了依赖注入的改造，通过配置化的方式完成了整个应用的组装。</p>
+<p>上述示例中完整的代码可以查看：<a href="https://github.com/ecomfe/uioc/tree/develop/examples/simple-es6-module" class="uri" target="_blank" rel="noopener">https://github.com/ecomfe/uioc/tree/develop/examples/simple-es6-module</a></p>
+<p>事实上 uioc 还提供了更多强大的功能：</p>
+<ol style="list-style-type: decimal">
+<li>结合前端 AMD Loader 的异步组件模块加载</li>
+<li>多种注入方式</li>
+<li>实例生命周期管理</li>
+<li>aop 支持</li>
+<li>多种依赖类型支持</li>
+<li>不同的组件创建方式</li>
+<li>插件机制</li>
+</ol>
+<p>细节参考：<a href="https://github.com/ecomfe/uioc/wiki/Index" class="uri" target="_blank" rel="noopener">https://github.com/ecomfe/uioc/wiki/Index</a></p>
+<h2 id="总结">总结</h2>
+<p>本文首先介绍了如何利用 IoC 理念改造模块，从而提高模块的复用性；最后通过 uioc 框架简化了依赖的创建和注入，来帮助我们更方便的实施 IoC 理念。</p>
+<p>关于 uioc 框架，非常欢迎任何人一起与我(d_xinxin@163.com)讨论和吐槽，也可以通过 issue 和 pr 的方式来完善 uioc。 要是觉得不错的话，就顺手赏个 star 呗 ：）</p>
+<iframe src="https://ghbtns.com/github-btn.html?user=ecomfe&amp;repo=uioc&amp;type=star&amp;count=true&amp;size=large" frameborder="0" scrolling="0" width="160px" height="30px">
+</iframe>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/how-to-create-you-own-native-bridge/" class="article-prev">前一篇: 如何编写自己的 Native Bridge</a>
+    
+    
+    <a href="/blog/front-end-continuous-integration-tools/" class="article-next">后一篇: 前端开源项目持续集成三剑客</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/introduction-about-ioc-in-frontend/" data-title="前端 IoC 理念入门" data-url="http://efe.baidu.com/blog/introduction-about-ioc-in-frontend/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

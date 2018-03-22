@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>How you create your own Native Bridge - JSVM and the first adventure | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>How you create your own Native Bridge - JSVM and the first adventure</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/leeight" title="leeight">leeight</a>
+    
+</span>
+
+        <time datetime="2017-04-04T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2017-04-05</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/React-Native/">React Native</a>, <a href="/tags/JS-Engine/">JS Engine</a>, <a href="/tags/Objective-C/">Objective C</a></span>
+
+
+    </div>
+
+    
+        <p>原文地址：https://medium.com/<span class="citation">@kureevalexey/how-to-create-your-own-native-bridge-bfa050e708fc</span>#.ykryuzmun</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge-c2/1.png" alt="JSVM and the first adventure"><p class="caption">JSVM and the first adventure</p>
+</div>
+<p>What do you know about JavaScript engines? Did you ever try to embed one? In this chapter I’m going to guide you through the dark spooky forest of hosted objects, virtual machines, interpreters and other evil spirits that we call JavaScript engines.</p>
+<p>你之前对 JS 引擎是否有过了解？有没有试着在自己的项目里面嵌入一个 JS 引擎玩玩儿？在这篇文章里面，我会给你一些指引，以便可以顺利通过含有 Hosted Objects, Virtual Machines, Interpreters 以及一些其它稀奇古怪玩意儿的『魔法森林』。（<em>不太准确</em>）</p>
+<p>I know that it may look scary, but don’t forget that a journey of a thousand miles starts with a single step. In our case it’ll be a step into code parsing. At this stage our JavaScript source is getting converted to a structure called abstract syntax tree (AST). There are many different techniques to parse your code (LL(k), LR(k) etc) and convert it to AST, but for the sake of simplicity I want to keep it out of this article.</p>
+<p>我知道这听起来很疯狂，不过我们要牢记『千里之行，始于足下』。对我们来说，第一步就是代码解析，也就是把原始的 JS 代码转化成抽象语法树（AST）的表示形式。业界已经有很多不同的方案可以把原始代码转化成抽象语法树，例如 LL(k), LR(k) 等等，不够为了简单起见，这篇文章里面我不会涉及相关的内容。</p>
+<a id="more"></a>
+<blockquote>
+<p>Although, for those who are interested, I got all my knowledge about parsers (and compiler theory in general) from the Dragon Book. I just can’t recommend it enough. 不过对于感兴趣的读者，我所有对解析器编译器的知识都是来自传说中的那本『龙书』。 I just can’t recommend it enough. (<em>如何翻译</em>)</p>
+</blockquote>
+<p>However, I will tell you more about the abstract syntax tree concept. An AST is a structural representation of your code in a tree format where every node represents a language construct (e.g. expressions, statements, variables, literals etc). You can play with it using ESPrima praser demo page or ASTExplorer. 尽管如此，我还是想对 AST 多说一句。简单来说 AST 是代码另外一种结构化的表达形式，树中的每个节点可以表达编程语言中一种构型(<em>不太准确</em>)，比如：表达式，语句，变量，字面量等等。你可以借助 ESPrima 或者 ASTExplorer 来直观的看到 AST 的表达形式。</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge-c2/2.png" alt="Abstract syntax tree inside ChakraCore forest"><p class="caption">Abstract syntax tree inside ChakraCore forest</p>
+</div>
+<p>First of all, a JavaScript engine has to parse (tokenize) a source code to produce an array of tokens. These tokens are supplied to a syntactic analysis tool that builds an AST based on a given language grammar. Once an AST is built, JavaScript engine will compile it either to machine code directly (V8 behaves this way) or to intermediate representation, which is an another level of abstraction over machine code.</p>
+<p>首先，JS 引擎会把我们的代码进行词法解析，得到一组 Token，之后这些 Token 会交给语法分析器来构造抽象语法树（AST）。一旦抽象语法树（AST）构造成功之后，JS 引擎就会直接把它编译成机器码（比如 V8 就是这么做的）或者转化成 IR 的表达形式（也就是机器码只上的另外一种抽象形式）</p>
+<p>In this experiment I committed to use ChakraCore which uses a bytecode as it’s intermediate language. But it can’t be executed straight away: our target machine doesn’t know how to process it.</p>
+<p>在我们使用的 ChakraCore 中，它的 IR 表达形式是字节码，但是字节码无法被直接执行，最终还是需要被转化成机器码才可以。</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge-c2/3.png" alt="A bytecode river"><p class="caption">A bytecode river</p>
+</div>
+<p>In order to bridge the gap, ChakraCore includes a bytecode interpreter. On ChakraCore’s bytecode each instruction starts with a 1-byte bytecode that represents which operation should be executed (a.k.a. opcode), and therefore the interpreter may have up to 256 instructions. Some bytecodes may take multiple bytes, and may be arbitrarily complicated</p>
+<p>为了能够执行字节码，ChakraCore （很多其它 JS 引擎）引入了字节码解释器。ChakraCore 设计字节码指令的时候，开始的第一个字节用来定义应该执行何种操作（也就是常说的 <code>opcode</code>），然后解释器可以执行最多 256 个指令。有些指令操作可能需要多个字节才能够表达，而且可能异常复杂（<em>不太准确</em>）</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge-c2/4.png" alt="On the way to the “Interpreter” ship"><p class="caption">On the way to the “Interpreter” ship</p>
+</div>
+<p>That was a very short overview of the JS execution flow. Probably you noticed that in this article we don’t talk about inner code optimizations (like JIT or AoT). Although it’s a very interesting topic, I decided to omit it in order to make this article easier to grasp.</p>
+<p>上述内容就是关于 JS 引擎如何执行 JS 的一个简单介绍，这里面并没有涉及到一些代码优化方面的内容（比如 JIT 或者 AoT 之类的技术），尽管如此，这也是一个很有意思的课题，不过我还是决定尽快结束这部分的内容，以便可以进入正题。</p>
+<h2 id="embedding-chakracore">Embedding ChakraCore</h2>
+<h2 id="准备嵌入-chakracore">准备嵌入 ChakraCore</h2>
+<p>Now, when we have some knowledge about ChakraCore, we can start embedding it into our application. So first of all we need to install ChakraCore dependencies:</p>
+<p>到现在为止，我们对 ChakraCore 已经有了基本的了解，所以要着手把它嵌入到我们的 Cocoa 应用中去了。 第一步要做的事情是安装相关的依赖，以便可以把 ChakraCore 编译出来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ xcode-select --install</span><br><span class="line">$ brew install cmake icu4c</span><br></pre></td></tr></table></figure>
+<p>And ChakraCore itself. I will show how to include it as a submodule: 然后获取 ChakraCore 的源代码，并且把它设置成我们项目的一个子模块（其实不是必须的，只是为了方便起见）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir modules &amp;&amp; <span class="variable">$_</span></span><br><span class="line">$ git submodule add https://github.com/Microsoft/ChakraCore</span><br></pre></td></tr></table></figure>
+<p>Then build it from the source: 最后执行如下命令来编译源码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ChakraCore</span><br><span class="line">$ ./build.sh --static --icu=/usr/<span class="built_in">local</span>/Cellar/icu4c/&lt;version&gt;/include --<span class="built_in">test</span>-build -j=2</span><br></pre></td></tr></table></figure>
+<p>Once these steps are done, we can include it into our application: 如果一切顺利的话，我们就可以在前一篇文章里面提到的项目中引用编译的产物了：</p>
+<ol style="list-style-type: decimal">
+<li>Open the project we created in the previous chapter</li>
+<li>用 XCode 打开前一篇文章里面提到的项目</li>
+<li>Select ExampleBridge project in the Project navigator and switch to the target:</li>
+<li>选择 ExampleBridge 项目，然后在项目属性中切换到 <code>target</code> 配置项目：</li>
+</ol>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge-c2/5.png" alt="ExampleBridge target is selected"><p class="caption">ExampleBridge target is selected</p>
+</div>
+<p>Link your compiled ChakraCore files: 链接一下 ChakraCore 的编译产物：</p>
+<ul>
+<li>libChakra.Pal.a</li>
+<li>libChakra.Common.Core.a</li>
+<li>libChakra.Jsrt.a</li>
+</ul>
+<p>And your icu4u files (from /usr/local/Cellar/icu4c/<version>/include): 以及 icu4u 的几个库文件（地址是 /usr/local/Cellar/icu4c/<version>/include）：</version></version></p>
+<ul>
+<li>libicudata.a</li>
+<li>libicui18n.a</li>
+<li>libicuuc.a</li>
+</ul>
+<p>Your result should look like this: 最终的结果看起应该是这样子的：</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge-c2/6.png" alt="All libraries are linked properly"><p class="caption">All libraries are linked properly</p>
+</div>
+<blockquote>
+<p>Note: order of these dependencies is very important! 注意：链接库的顺序很重要，别弄错了！</p>
+</blockquote>
+<h2 id="getting-started-with-chakracore">Getting started with ChakraCore</h2>
+<h2 id="开始使用-chakracore">开始使用 ChakraCore</h2>
+<p>We come to the very interesting part of our journey. To the place where we need all our knowledge about JavaScript engines and the way they work. Yes, dear reader, you’re right! We’re about to start using ChakraCore! 终于开始介绍最有意思的部分了，为了能理解后续的内容，我们需要前面的背景知识以便对 JS 引擎的工作原理有一个基本的了解。幸运的是，我们做到了，下面就开始介绍如何来使用 ChakraCore。</p>
+<h3 id="bootstrapping-chakracore">Bootstrapping ChakraCore</h3>
+<h3 id="初始化-chakracore">初始化 ChakraCore</h3>
+<p>First of all, open your ChakraProxy.m file and find the NSLog statement that we added in the previous chapter. Let’s replace it by something that makes more sense: 首先，打开 <code>ChakraProxy.m</code> 文件找到 <code>NSLog</code> 这一行，然后把它替换成下面的几句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@implementation ChakraProxy</span><br><span class="line"></span><br><span class="line">-(void)run &#123;</span><br><span class="line">    unsigned currentSourceContext = 0;</span><br><span class="line">    </span><br><span class="line">    NSString *filepath = [[NSBundle mainBundle] pathForResource:@&quot;main&quot; ofType:@&quot;js&quot;];</span><br><span class="line">    NSError *error;</span><br><span class="line">    NSString *fileContents = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&amp;error];</span><br><span class="line">    </span><br><span class="line">    if (error) &#123;</span><br><span class="line">        NSLog(@&quot;Error reading file: %@&quot;, error.localizedDescription);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    const char *script = [fileContents cStringUsingEncoding:NSASCIIStringEncoding];</span><br><span class="line">    </span><br><span class="line">    // Create a runtime</span><br><span class="line">    JsCreateRuntime(JsRuntimeAttributeNone, nullptr, &amp;runtime);</span><br><span class="line">    </span><br><span class="line">    // Create a context</span><br><span class="line">    JsCreateContext(runtime, &amp;context);</span><br><span class="line">    JsSetCurrentContext(context);</span><br><span class="line">    </span><br><span class="line">    // Run script</span><br><span class="line">    JsRunScriptUtf8(script, currentSourceContext++, &quot;&quot;, nullptr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>I don’t expect you to be familiar with Objective C, so let me guide you through this code: 我不指望你对 Objective C 能有多熟悉，所以还是需要简单的介绍一下上面的代码是做啥的：</p>
+<ul>
+<li>Line 6–8: Read a content of main.js file from the bundle. <a href="https://developer.apple.com/reference/foundation/bundle" target="_blank" rel="noopener">More about bundles here</a>.</li>
+<li><p>第 6 行 - 第 8 行：从 <a href="https://developer.apple.com/reference/foundation/bundle" target="_blank" rel="noopener">Bundle</a> 里面读取 main.js 的内容。</p></li>
+<li>Line 14: ChakraCore is an engine, written in C++, so it doesn’t understand NSString format. However, we used Objective C approach to read a file content and now we have to deal with NSString to const char* conversion. So, that’s how we do it.</li>
+<li><p>第 14 行：因为 ChakraCore 是 C++ 开发的，它提供的接口不支持 NSString 类型的参数，所以我们通过 Objective C 读取了文件内容之后，还需要把 NSString 类型转化为 const char * 类型，以便可以正常调用 ChakraCore 提供的 API。</p></li>
+<li>Line 24: That’s my custom C++ function. I use it in order to reduce a cognitive payload of run method and move a function description to the different section of this article.</li>
+<li><p>第 24 行：调用自定义的 C++ 函数 <code>JsRunScriptUtf8</code>，目的是为了减少 <code>run</code> 方法的代码行数，另外也为了后面也可以单独介绍这个函数的实现。</p></li>
+</ul>
+<p>Hope it doesn’t look very complex to you. Anyway, there are still some unclear places in this code: 希望上面的内容没有那么复杂，不过上面的代码里面还是有几个没有澄清的概念：</p>
+<h3 id="runtime">Runtime</h3>
+<h3 id="运行时runtime">运行时（Runtime）</h3>
+<p>Runtime (line 17) represents a complete JavaScript execution environment. Each runtime that is created has its own isolated garbage-collected heap and, by default, its own just-in-time (JIT) compiler thread and garbage collector (GC) thread. (see <a href="https://github.com/Microsoft/ChakraCore/wiki/JavaScript-Runtime-%28JSRT%29-Overview#concepts" target="_blank" rel="noopener">ChakraCore JSRT overview</a>) 第 17 行的运行时（Runtime）代表的是一个 JS 的执行环境。运行时之间是相互隔离的，每个运行时（Runtime）有自己的 GC 堆栈，自己的 JIT 编译线程 和 GC 垃圾回收线程，更多的内容请参考 <a href="https://github.com/Microsoft/ChakraCore/wiki/JavaScript-Runtime-%28JSRT%29-Overview#concepts" target="_blank" rel="noopener">ChakraCore JSRT overview</a></p>
+<h3 id="execution-context">Execution Context</h3>
+<h3 id="执行上下文execution-context">执行上下文（Execution Context）</h3>
+<p>Context (line 20–21) is an execution environment that allows separate, unrelated, JavaScript applications to run in a single instance of runtime. You must explicitly specify the context in which you want any JavaScript code to be run. (see <a href="https://github.com/v8/v8/wiki/Embedder%27s%20Guide#contexts" target="_blank" rel="noopener">V8 Embedder’s Guide</a>)</p>
+<p>第 20 行 - 第 21 行 的执行上下文（Execution Context）允许在同一个运行时（Runtime）中执行独立的，不相关的 JS 代码。（<em>不太准确</em>）当执行 JS 代码的时候，必须显示的声明在哪个执行上下文中去运行。更多的内容请参考<a href="https://github.com/v8/v8/wiki/Embedder%27s%20Guide#contexts" target="_blank" rel="noopener">V8 Embedder’s Guide</a></p>
+<h3 id="extending-global-scope">Extending global scope</h3>
+<h3 id="扩展全局对象">扩展全局对象</h3>
+<p>Now, when ChakraCore is set up, it’s time to build a bridge. In the previous chapter I briefly mentioned that we’re going to use hosted objects to expose C++ functions to JavaScript. So let’s write a function that will do it for us: ChakraCore 初始化之后，我们就需要考虑如何把 <code>bridge</code> 构造出来。在前一篇文章里面，我简单的提到了使用 <code>Hosted Object</code> 来把 C++ 的一些函数暴露给 JS，所以我们考虑通过 <code>SetupGlobalEnvironment</code> 来完成这部分工作，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">JsErrorCode SetupGlobalEnvironment() &#123;</span><br><span class="line">    JsValueRef globalObject;</span><br><span class="line">    JsGetGlobalObject(&amp;globalObject);</span><br><span class="line">    </span><br><span class="line">    JsValueRef bridgeObject;</span><br><span class="line">    JsCreateObject(&amp;bridgeObject);</span><br><span class="line">    </span><br><span class="line">    ChakraUtils::setObjectProperty(globalObject, &apos;bridge&apos;, bridgeObject);</span><br><span class="line">    ChakraUtils::setObjectFunctionProperty(bridgeObject, &apos;render&apos;, render);</span><br><span class="line">    </span><br><span class="line">    return JsNoError;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If you rewrite the code above to JavaScript, it’ll look like this: 如果用 JS 来实现上面的逻辑，代码可能看起来是这样子的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function SetupGlobalEnvironment() &#123;</span><br><span class="line">  var globalObject = JsGetGlobalObject();</span><br><span class="line">  var bridge = &#123;</span><br><span class="line">    render: render,</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  globalObject.bridge = bridge;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As you can see from the snippet above, we use a special ChakraCore function JsGetGlobalObject to get context’s “global” object. Once it is there, we extend it by a custom hosted object called “bridge” to expose our C++ “render” function to JS. This approach is similar to the one we used in our web applications back in a day. I’m talking about namespaces, when you move all your application modules under window.app or a similar object in order to scope them by an organic global variable. In this code we do the same, but instead of modules we expose a custom C++ function. You are probably wondering why in the code above I use ChakraUtils. It’s a self-written wrapper over a standard ChakraCore API. I won’t go though the code, but you can find my implementation on the github. 从上面的代码可以看到，我们调用了 ChakraCore 提供的 JsGetGlobalObject API 来获取执行上下文（Execution Context）中全局 （<code>global</code>）对象，然后在它上面添加了一个名字是 <code>bridge</code> 的对象，在 <code>bridge</code> 这个对象上面通过 C++ 扩展了一个 <code>render</code> 的方法，如今在 Web 开发中也大量采用类似的技术。这里我要额外提一下命名空间（namespace），当我们把所有应用的代码都挂到 <code>window.app</code> 或者类似一个对象上面的时候，目的是为了使用一个全局对象来控制他们的作用范围（<em>不太准确</em>）。另外，你可能有些疑惑，为啥上面会用到 ChakraUtils，实际上它只是封装了一下 ChakraCore 的API，所以这里不会过多的介绍，你可以从我的 github 上面看到它具体的实现。</p>
+<p>However, the “render” function is still has to be defined. It should fit a JS function interface and perform an async dispatch to the main thread. The simplest implementation will look like this: 尽管如此，前面提到的 <code>render</code> 这个函数还没有实现，我们需要完成这部分工作。它的实现逻辑应该符合 JS 函数的接口，当调用的时候给主线程派发一个异步的操作。最简单的实现代码可能看起来是这样子的：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">JsValueRef <span class="title">render</span><span class="params">(JsValueRef callee, <span class="keyword">bool</span> isConstructCall, JsValueRef *arguments, <span class="keyword">unsigned</span> <span class="keyword">short</span> argumentCount, <span class="keyword">void</span> *callbackState)</span> </span>&#123;    </span><br><span class="line">    NSString *type = [NSString stringWithUTF8String:ChakraUtils::toString(arguments[<span class="number">1</span>])];</span><br><span class="line">    <span class="keyword">float</span> w &#123;ChakraUtils::toFloat(arguments[<span class="number">2</span>])&#125;;</span><br><span class="line">    <span class="keyword">float</span> h &#123;ChakraUtils::toFloat(arguments[<span class="number">3</span>])&#125;;</span><br><span class="line">    </span><br><span class="line">    dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        id delegate = [[NSApplication sharedApplication] delegate];</span><br><span class="line">                       </span><br><span class="line">        [delegate renderElementOfType:type size:NSMakeSize((CGFloat)w, (CGFloat)h)];</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> JS_INVALID_REFERENCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Try to not to be overwhelmed by the amount of function parameters, in this article we’re about to use only one — arguments. The code above will read the first two parameters passed to the function from JavaScript and invoke an Objective-C AppDelegate method called renderElementOfType . No callbacks, no return values. Let’s keep it simple for now. 不要被上面函数参数的数量吓到，实际上在这篇文章里面，我们只用到了一个参数，也就是 <code>arguments</code>。上面的代码主要完成的工作是读取 JS 调用 render 函数时候传递的参数，然后调用 Objective C AppDelegate 里面 renderElementOfType 方法传递过去。不需要考虑返回值，不需要考虑回掉函数。</p>
+<p>One thing, that may make you feel confused is a dispatch_async call. We use this function in order to schedule a block (statement inside ^{}) to be executed in the main dispatch queue (see <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html" target="_blank" rel="noopener">GCD documentation for details</a>). 上面代码里面有一个地方可能比较费解，就是 dispatch_async 的调用。我们用这个函数是为了在主线程调度队列里面调度执行一个 block，更多内容请参考<a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html" target="_blank" rel="noopener">官方的文档</a></p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge-c2/7.png" alt="Traveling to the Main Thread island"><p class="caption">Traveling to the Main Thread island</p>
+</div>
+<p>Now, once “render” function is invoked, it sends a block to the main thread. Inside the block we have a renderElementOfType call, which is responsible for a final element creation: 现在一旦在 JS 里面调用 render 函数，就会把一个 block 发送到主线程。在这个 block 里面我们调用了 renderElementOfType 方法，然后开始绘制 UI。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)renderElementOfType:(NSString *)name size:(NSSize)size &#123;</span><br><span class="line">    GGWindow *window = [[GGWindow alloc] init];</span><br><span class="line">    [window openWithSize:NSMakeSize((CGFloat)size.width, (CGFloat)size.height)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You may notice, that we hardcode window and don’t even use a name property. We’ll get back to this part in the third chapter. Other than that, this code should be pretty straight-forward: we create a CGWindow instance and call openWithSize method with a given params. 你可能注意到了，上面 renderElementOfType 函数里面我们对 window 硬编码了，什么还没来得及给它起名字，不过在第三篇文章里面我们还会介绍这部分的内容。除此之外，其它的部分应该很容易理解了，创建了一个 CGWindow 实例，然后调用 openWithSize 方法。</p>
+<p>But when you call this function, you don’t see a window. Why? Because window is a local variable and it will be deallocated once you leave the function scope. So in order to see a window, we have to store a reference to this window somewhere outside of the function. Let’s create a UIManager class that will manage our UI references: 不过我们并没有看到窗口出现，为什么呢？因为 window 是一个局部变量，一旦 renderElementOfType 函数执行完毕，window 就会被释放掉了。所以为了能看到创建的窗口，必须把 CGWindow 的实例存在 renderElementOfType 函数之外的某个地方，保证窗口的引用不会被释放。所以我们创建了 UIManager 这个类，来管理所有 UI 的引用，代码如下：</p>
+<p><strong>EBUIManager.h</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface EBUIManager : NSObject</span><br><span class="line"></span><br><span class="line">+ (instancetype)sharedInstance;</span><br><span class="line">- (void)addValue:(id)value forKey:(NSString *)key;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><strong>EBUIManager.m</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;EBUIManager.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation EBUIManager</span><br><span class="line"></span><br><span class="line">NSMutableDictionary *registry;</span><br><span class="line"></span><br><span class="line">+ (instancetype)sharedInstance &#123;</span><br><span class="line">    static EBUIManager *sharedInstance = nil;</span><br><span class="line">    @synchronized (self) &#123;</span><br><span class="line">        if (!sharedInstance) &#123;</span><br><span class="line">            sharedInstance = [[self alloc] init];</span><br><span class="line">            registry = [NSMutableDictionary new];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return sharedInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)addValue:(id)value forKey:(NSString *)key &#123;</span><br><span class="line">    [registry setValue:value forKey:key];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>You’re probably wondering what does a sharedInstance mean? It’s one of the ways to create a singleton in Objective C. It’s not necessary to make UIManager a singleton, but to me it feels like a right way to do it. 你了能对上面的 sharedInstance 比较疑惑，它到底是干什么的呢？实际上那是在 Objective C 里面创建一个单例的方式，虽然对于 UIManager 来说，单例不是必须的，不过对我来说，让 UIManager 成为单例是一种很直观的方式。</p>
+<p>This class has the only one public API method: addValue. In the next chapter I’m going to add some more (like deleteValue), but let’s keep it as simple as possible for now. UIManager 对外提供了唯一的接口 addValue。在下一章会给 UIManager 添加更多的接口（比如 deleteValue 之类的），不过现在为了简单起见，我们只需要 addValue 这一个接口。</p>
+<p>Let’s update our renderElementOfType function to start using our storage: 现在就可以修改一下之前 renderElementOfType 的实现了，需要用 UIManager 来管理一下 CGWindow 的实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)renderElementOfType:(NSString *)name size:(NSSize)size &#123;</span><br><span class="line">    EBWindow *window = [[EBWindow alloc] init];</span><br><span class="line">    EBUIManager *manager = [EBUIManager sharedInstance];</span><br><span class="line">    [window openWithSize:NSMakeSize((CGFloat)size.width, (CGFloat)size.height)];</span><br><span class="line">    NSString *uuid = [[NSUUID UUID] UUIDString];</span><br><span class="line">    [manager addValue:window forKey:uuid];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>So once we get a UIManager instance, we generate a uuid for our window and put it in the storage by addValue. Inside the manager we generate a strong reference to the given object which prevents it from being deallocated (see ARC). 我们给每个 CGWindow 的实例生成一个 UUID，然后调用 UIManager 的 addValue 方法来保存这些实例的引用。在 UIManager 内部，我们用『强引用』(strong reference)的方式来保存 CGWindow 实例的引用，从而可以避免被释放，更多内容请参考 <a href="https://en.wikipedia.org/wiki/Automatic_Reference_Counting" target="_blank" rel="noopener">ARC 的官方文档</a></p>
+<p>And you know what? That’s it! If you create a main.js file, add it to the bundle and type something like bridge.render('Window', 400, 400);, you’ll see a 400x400 window at the application startup! 好的，结束了，我们现在只需要准备一个 main.js，内容是 <code>bridge.render('Window', 400, 400)</code>，然后把它添加到 bundle 里面去，编译，运行整个项目，我们就能看到一个 400x400 的应用窗口出现了。</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge-c2/8.png" alt="Empty 400x400 window, created from JavaScript"><p class="caption">Empty 400x400 window, created from JavaScript</p>
+</div>
+<p>Buy hey, it has nothing about React yet! What do we need to provide for a React-like interface to our platform? How to return references from Objective-C to JS? All these questions will be answered in the Chapter 3! 不过到这里还没有跟 React 扯上任何关系。如果要运行 React 的应用，在我们的平台上还缺少什么呢？如果把一些引用从 Objective C 返回给 JS 呢？这些问题我们会在第三篇文章里面回答。</p>
+<p>In the meanwhile, you can play around with the code from this article. 与此同时，你可以从我们的 github 账户中把<a href="https://github.com/Kureev/ExampleBridge/releases/tag/2.0" target="_blank" rel="noopener">代码</a> checkout 本地测试，运行一下看看效果。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/react-native-code-push-ios/" class="article-prev">前一篇: React Native Code Push iOS</a>
+    
+    
+    <a href="/blog/echarts-3-5-0/" class="article-next">后一篇: ECharts v3.5 发布：新增日历坐标系、坐标轴指示器；同时统计扩展 v1.0 发布</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/how-to-create-you-own-native-bridge-c2/" data-title="How you create your own Native Bridge - JSVM and the first adventure" data-url="http://efe.baidu.com/blog/how-to-create-you-own-native-bridge-c2/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

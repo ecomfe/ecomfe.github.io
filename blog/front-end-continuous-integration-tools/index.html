@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>前端开源项目持续集成三剑客 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>前端开源项目持续集成三剑客</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/cxtom" title="cxtom">cxtom</a>
+    
+</span>
+
+        <time datetime="2016-07-24T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-25</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/Travis-CI/">Travis CI</a>, <a href="/tags/tesing/">tesing</a>, <a href="/tags/Coveralls/">Coveralls</a>, <a href="/tags/Saucelabs/">Saucelabs</a></span>
+
+
+    </div>
+
+    
+        <p>开发业务代码的时候，我们总能发现一些通用的功能。这时候，作为一个在互联网时代富有分享精神的程序员，就会想要把项目开源出去，让更多的小伙伴去使用，偶尔可能会有大神评论，能学到很多。 在 GitHub 上， README 是最先让人看到的，一些应用广泛的项目的 README ，除了非常详细的文字介绍，还常常会带有很多小徽章，比如 <code>Vue</code> 的这个 README 的开头：</p>
+<div class="figure">
+<img src="/blog/front-end-continuous-integration-tools/img/vue.png" alt="Vue"><p class="caption">Vue</p>
+</div>
+<p>这些徽章 (badage) 展示了<strong>代码的测试覆盖率</strong>、<strong>构建状态</strong>、<strong>在各个浏览器中的运行情况</strong>，这会让项目显得更加专业和有说服力。本文以笔者集齐了一套徽章的亲身经历，总结了过程中的主要流程和一些踩到的坑，欢迎大家补充，让我们的项目流行起来！</p>
+<a id="more"></a>
+<p>首先，安利一下我们开发的一个基于 <a href="https://facebook.github.io/react/" target="_blank" rel="noopener">React</a> 和 <a href="https://www.google.com/design/spec/material-design/introduction.html" target="_blank" rel="noopener">Material Design</a> 的组件库 <a href="https://github.com/react-melon/melon" target="_blank" rel="noopener">Melon</a>，欢迎大家使用，如果能加个星，提个 pr 就更欢迎了。</p>
+<h2 id="测试代码的重要性">测试代码的重要性</h2>
+<blockquote>
+<p>靠人工来保证项目的维护总是不出差错是不靠谱的，人总有健忘和糊涂的时候，尤其是当项目越来越复杂时，一个人甚至可能无法全部了解项目的全部逻辑，这时我们就要依靠测试来保证项目的可靠性，这里的测试包括但不限于，单元功能测试，UI 测试，兼容性测试等等。</p>
+</blockquote>
+<p>关于单测框架已经有很多教程和文档，一个测试体系大体应该包含四部分</p>
+<ul>
+<li>测试运行器 Test Runner: <a href="https://github.com/ecomfe/edp-test" target="_blank" rel="noopener">edp-test</a> <a href="https://github.com/karma-runner/karma" target="_blank" rel="noopener">karma</a></li>
+<li>测试框架 Testing Framework: <a href="http://jasmine.github.io/" target="_blank" rel="noopener">jasmine</a> <a href="https://mochajs.org/" target="_blank" rel="noopener">mocha</a> <a href="https://qunitjs.com/" target="_blank" rel="noopener">qunit</a> <a href="https://facebook.github.io/jest/" target="_blank" rel="noopener">Jest</a></li>
+<li>断言库 Assertion library: <a href="https://www.npmjs.com/package/expect.js" target="_blank" rel="noopener">expect.js</a> <a href="https://www.npmjs.com/package/should" target="_blank" rel="noopener">should</a> <a href="https://www.npmjs.com/package/chai" target="_blank" rel="noopener">chai</a></li>
+<li>覆盖率 Coverage library: <a href="https://github.com/gotwarlost/istanbul" target="_blank" rel="noopener">istanbul</a></li>
+</ul>
+<p>其中，<code>jasmine</code> 是一个比较完整的测试框架，还自带了丰富的断言函数，在编写测试用例的时候不再需要单独去引用断言库。以 Melon 项目为例，笔者使用的是 <code>karma+jasmine+istanbul</code> 的组合，由于这是基于 React 的库，并且代码是 ES6 编写的，因此需要加上 <code>browserify</code> <code>babelify</code> 这些插件。</p>
+<p>Melon 项目 karma 配置示例： <a href="https://github.com/react-melon/melon-core/blob/master/tool/karma/config.js" class="uri" target="_blank" rel="noopener">https://github.com/react-melon/melon-core/blob/master/tool/karma/config.js</a></p>
+<p>有了一整套测试体系，编写完代码的测试用例，就可以开始应用下面的三个工具帮你生成徽章了</p>
+<h2 id="持续集成">持续集成</h2>
+<blockquote>
+<p><a href="http://baike.baidu.com/link?url=N6-tOlIuf5lpnhD7LFAA5jIlOgD3dGEyTW_XQOEIo5etmYxxtoERwGOEz9q0jCtYWwHpvX4qZb31Hr0X4QvGRa" target="_blank" rel="noopener">持续集成</a>是一种软件开发实践，即团队开发成员经常集成它们的工作，通过每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试）来验证，从而尽早地发现集成错误。</p>
+</blockquote>
+<p>GitHub 上比较主流的持续集成工具有 <a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a> 和 <a href="https://circleci.com/" target="_blank" rel="noopener">Circle CI</a>，下面以 Travis CI 为例：</p>
+<h3 id="第一步-注册">第一步 注册</h3>
+<p>进入 Travis 的 <a href="https://travis-ci.org/" target="_blank" rel="noopener">首页</a> 有个 <code>Sign Up</code> 的大按钮，点击进入就行了。第一次会进入一个github的登录页面，可以选择你想要开源的项目所在的组。有可能你不是这个组的Owner，并且这个组还没有开通连接 Travis 的服务，需要联系 Owner 去开通。</p>
+<h3 id="第二步-创建-.travis.yml">第二步 创建 <code>.travis.yml</code></h3>
+<p>在项目根目录下创建 Travis 的配置文件，如下（如果没有这个文件，Travis 会默认执行 <code>npm install</code> 和 <code>npm test</code>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">    - 4</span><br><span class="line">install:</span><br><span class="line">|</span><br><span class="line">    npm install -g npm@latest</span><br><span class="line">    npm --version</span><br><span class="line">    npm install --registry http://registry.npmjs.org</span><br><span class="line">script:</span><br><span class="line">    - npm run test-ci</span><br></pre></td></tr></table></figure>
+<p>这是按照 <a href="http://yaml.org/" target="_blank" rel="noopener">YAML</a> 的语法来写的，通过这个配置文件，我们需要告诉 Travis 服务器，我们的代码是用什么语言编写的（language）、每次构建之前需要运行什么命令来安装依赖包（install）、怎么执行测试程序（script）。对于 Node.js 我们还需要指定 Node 的版本，我们也可以设置多个 Node 版本来检测一些 Node 端工具的兼容性。当 <code>node_js</code> 配置设置了多个时，Travis 会同时创建多个 Job 来运行。 更多的配置可以参考 Travis 的<a href="https://docs.travis-ci.com/user/getting-started/" target="_blank" rel="noopener">官方文档</a></p>
+<p>这里有一个坑，如果安装的时候不指定 npm 源，Babel 的有一些依赖包都会神奇得挂掉，导致构建直接终止，当你的项目出现这种问题了，不妨试试加一下 <code>--registry http://registry.npmjs.org</code></p>
+<p>如果觉得每次都安装 npm 包太费时，Travis 有 <code>cache</code> 的功能，可以看<a href="https://docs.Travis-ci.com/user/caching/" target="_blank" rel="noopener">文档</a>配置</p>
+<h3 id="第三步-提交代码">第三步 提交代码</h3>
+<p>每次代码 push 以后，Travis 会自动开始构建，并运行单测，构建成功以后就可以把徽章加到 README 里了 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![Build](https://img.shields.io/travis/react-melon/melon-core.svg)](https://travis-ci.org/react-melon/melon-core)</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码覆盖率集成">代码覆盖率集成</h2>
+<p>写完整单元测试代码是维护一个快速迭代项目不出差错的有效方法，代码覆盖率报告可以为编写测试程序提供参考。通过一些工具，还可以及时的把你的代码的测试情况及时的反馈给用户，让用户感知你的测试是否完备。</p>
+<p>第二位剑客登场： <strong><a href="http://coveralls.io/" target="_blank" rel="noopener">Coveralls</a></strong> 它可以帮你生成一个展示代码覆盖率的徽章： <a href="https://coveralls.io/github/react-melon/melon-core" target="_blank" rel="noopener"><img src="https://coveralls.io/repos/github/react-melon/melon-core/badge.svg" alt="Coverage Status"></a></p>
+<h3 id="第一步-注册-1">第一步 注册</h3>
+<p>打开 <a href="http://coveralls.io/" target="_blank" rel="noopener">Coveralls 官网</a>，点击红框中的按钮再打开的页面中选择 <code>GITHUB SIGN UP</code>，后面类似 Travis CI。</p>
+<p><img src="/blog/front-end-continuous-integration-tools/img/coveralls.png" alt="图片"> <img src="/blog/front-end-continuous-integration-tools/img/coveralls2.png" alt="图片"></p>
+<p>注册完成以后，就可以在 Dashboard 里面看到自己所有在 GitHub 上的代码库了。</p>
+<h3 id="第二步-创建-.coveralls.yml">第二步 创建 <code>.coveralls.yml</code></h3>
+<p>进入 Coveralls 中相关代码库的的<a href="https://coveralls.io/github/react-melon/melon-core" target="_blank" rel="noopener">详情页</a>，如果你有权限，可以看到一个 <code>TOKEN</code> 的格子，把这个 token 复制一下。在项目的根目录新建一个文件 <code>.coveralls.yml</code> ，这是 Coveralls 的配置文件，在文件里写上对应的 token，如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo_token: xxxxxxx</span><br></pre></td></tr></table></figure></p>
+<div class="figure">
+<img src="/blog/front-end-continuous-integration-tools/img/coveralls3.png" alt="图片"><p class="caption">图片</p>
+</div>
+<h3 id="第三步-生成测试报告">第三步 生成测试报告</h3>
+<p>给 Coveralls 上传的测试报告需要有统一的 <code>lcov</code> 格式，大部分的单测框架都支持生成这种报告的生成，以 karma 为例 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">coverageReporter: &#123;</span><br><span class="line">    dir: path.join(__dirname, &apos;coverage&apos;),</span><br><span class="line">    reporters: [</span><br><span class="line">        &#123;type: &apos;html&apos;&#125;,</span><br><span class="line">        &#123;type: &apos;lcov&apos;, subdir: &apos;lcov&apos;&#125;  // lcov</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h3 id="第四步-上传报告">第四步 上传报告</h3>
+<p>首先安装上传的工具，然后执行一下上传的命令，就可以在网页上看到了 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm i coveralls --save-dev</span><br><span class="line">$ cat ./coverage/lcov/lcov.info | ./node_modules/.bin/coveralls</span><br></pre></td></tr></table></figure></p>
+<p>最后把徽章放到 README 里 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![Coverage Status](https://img.shields.io/coveralls/react-melon/melon-core/master.svg)](https://coveralls.io/github/react-melon/melon-core)</span><br></pre></td></tr></table></figure></p>
+<h3 id="travis-coveralls">Travis + Coveralls</h3>
+<p>运用 Travis，可以实现自动上传代码覆盖率报告，实现也很简单：</p>
+<p>在 <code>.tarvis.yml</code> 里面增加一个配置 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">after_script:</span><br><span class="line">    - npm run coveralls</span><br></pre></td></tr></table></figure></p>
+<p>在 <code>.coveralls.yml</code> 里也增加配置，指定使用的是 Travis 的服务 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service_name: travis-ci</span><br></pre></td></tr></table></figure></p>
+<p><code>package.json</code> 里面也定义好相关脚本 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;./node_modules/.bin/karma start ./tool/karma.conf.js&quot;,</span><br><span class="line">    &quot;test-ci&quot;: &quot;./node_modules/.bin/karma start ./tool/karma.ci.conf.js&quot;,</span><br><span class="line">    &quot;coveralls&quot;: &quot;cat ./coverage/lcov/lcov.info | ./node_modules/.bin/coveralls&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h2 id="跨浏览器集成测试">跨浏览器集成测试</h2>
+<p>浏览器端使用的库，在各个浏览器端的兼容性也是非常重要的。很多项目会选择使用 PhantomJS / jsdom 作为浏览器环境来运行代码，这样虽然方便，但是毕竟是模拟的，无法完全替代真实的浏览器环境，比如 IE、FireFox 用的都不是 Webkit 的内核，IE 还有好几个版本。 咱们的第三位剑客 <a href="https://saucelabs.com/" target="_blank" rel="noopener">SauceLabs</a>，就提供了多重浏览器环境（包括 PC 端和移动端），帮助你在多个浏览器中自动运行脚本。</p>
+<h3 id="添加子用户">添加子用户</h3>
+<p>Saucelabs 注册了一个用户以后，没法和 GitHub 关联起来，它是通过创建子用户的方法来手动关联的，每一个项目都需要创建一个子用户，并且有不同的 <code>accessKey</code>。（而且每个子用户都需要一个不同的邮箱来注册。。。）</p>
+<h3 id="通用方法">通用方法</h3>
+<p>可以查看官方的 <a href="https://wiki.saucelabs.com/display/DOCS/Using+Sauce+Labs+with+Continuous+Integration+Platforms" target="_blank" rel="noopener">文档</a></p>
+<p>在 <code>.travis.yml</code> 中增加配置，Travis 会在运行测试脚本之前自动安装 Saucelabs 需要的环境 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">addons:</span><br><span class="line">  sauce_connect:</span><br><span class="line">    username: &quot;Your Sauce Labs username&quot;</span><br><span class="line">    access_key: &quot;Your Sauce Labs access key&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="karma-sauce-launcher">karma-sauce-launcher</h3>
+<p>karma 提供了一个调起 Saucelabs 中各个浏览器的插件，可以不需要配置 Travis 就能执行，插件库地址：https://github.com/karma-runner/karma-sauce-launcher 里面已经有了比较详细的 API 文档</p>
+<p>下面是一个 karma 配置示例 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> karmaConfig = <span class="built_in">require</span>(<span class="string">'./karma/config'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> customLaunchers = &#123;</span><br><span class="line">    <span class="comment">// pc</span></span><br><span class="line">    slChrome: &#123;</span><br><span class="line">        base: <span class="string">'SauceLabs'</span>,</span><br><span class="line">        browserName: <span class="string">'chrome'</span>,</span><br><span class="line">        platform: <span class="string">'Windows 7'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    slFirefox: &#123;</span><br><span class="line">        base: <span class="string">'SauceLabs'</span>,</span><br><span class="line">        browserName: <span class="string">'firefox'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// ie family</span></span><br><span class="line">    slIE11: &#123;</span><br><span class="line">        base: <span class="string">'SauceLabs'</span>,</span><br><span class="line">        browserName: <span class="string">'internet explorer'</span>,</span><br><span class="line">        platform: <span class="string">'Windows 8.1'</span>,</span><br><span class="line">        version: <span class="string">'11'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    slIE10: &#123;</span><br><span class="line">        base: <span class="string">'SauceLabs'</span>,</span><br><span class="line">        browserName: <span class="string">'internet explorer'</span>,</span><br><span class="line">        platform: <span class="string">'Windows 8'</span>,</span><br><span class="line">        version: <span class="string">'10'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    slIE9: &#123;</span><br><span class="line">        base: <span class="string">'SauceLabs'</span>,</span><br><span class="line">        browserName: <span class="string">'internet explorer'</span>,</span><br><span class="line">        version: <span class="string">'9'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// mac safari</span></span><br><span class="line">    slMacSafari: &#123;</span><br><span class="line">        base: <span class="string">'SauceLabs'</span>,</span><br><span class="line">        browserName: <span class="string">'safari'</span>,</span><br><span class="line">        platform: <span class="string">'OS X 10.10'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// mobile</span></span><br><span class="line">    slIosSafari: &#123;</span><br><span class="line">        base: <span class="string">'SauceLabs'</span>,</span><br><span class="line">        browserName: <span class="string">'iphone'</span>,</span><br><span class="line">        platform: <span class="string">'OS X 10.9'</span>,</span><br><span class="line">        version: <span class="string">'9.1'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    slAndroid: &#123;</span><br><span class="line">        base: <span class="string">'SauceLabs'</span>,</span><br><span class="line">        browserName: <span class="string">'android'</span>,</span><br><span class="line">        platform: <span class="string">'Linux'</span>,</span><br><span class="line">        version: <span class="string">'4.3'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">config</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Use ENV vars on Travis and sauce.json locally to get credentials</span></span><br><span class="line">    <span class="keyword">if</span> (!process.env.SAUCE_USERNAME) &#123;</span><br><span class="line">        process.env.SAUCE_USERNAME = <span class="built_in">require</span>(<span class="string">'./sauce'</span>).username;</span><br><span class="line">        process.env.SAUCE_ACCESS_KEY = <span class="built_in">require</span>(<span class="string">'./sauce'</span>).accessKey;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    config.set(_.extend(karmaConfig, &#123;</span><br><span class="line">        frameworks: [<span class="string">'browserify'</span>, <span class="string">'mocha'</span>, <span class="string">'es5-shim'</span>],</span><br><span class="line">        sauceLabs: &#123;</span><br><span class="line">            <span class="string">'testName'</span>: <span class="string">'Melon Core Unit Tests'</span>,</span><br><span class="line">            <span class="string">'public'</span>: <span class="string">'public'</span>  <span class="comment">// 这个配置需要设置为 public，不然我们生成的徽章就只有自己能看到了</span></span><br><span class="line">        &#125;,</span><br><span class="line">        customLaunchers: customLaunchers,</span><br><span class="line">        browsers: <span class="built_in">Object</span>.keys(customLaunchers),</span><br><span class="line">        reporters: [<span class="string">'coverage'</span>, <span class="string">'mocha'</span>, <span class="string">'saucelabs'</span>],</span><br><span class="line">        singleRun: <span class="literal">true</span></span><br><span class="line">    &#125;));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>SauceLabs 配置需要注意</strong></p>
+<ul>
+<li>我们需要手动给 <code>process.env.SAUCE_USERNAME</code> 和 <code>process.env.SAUCE_ACCESS_KEY</code> 赋值，<code>accessKey</code> 对应的是子用户</li>
+<li>如果想提交本地的测试结果，需要添加 <code>build</code> 参数，用来唯一标识某一次测试（如果在 Travis 上运行就不需要特别指定，会默认使用 Travis 的构建 ID），如果没有指定这个参数，是不会生成结果图的</li>
+<li><code>public</code> 需要手动配置为 <code>public: 'public'</code>，否则默认只有自己能看到测试结果</li>
+<li>移动端浏览器的 <code>browserName</code> 是 <code>android</code> 或 <code>iphone</code>，<code>version</code> 参数不是指的浏览器的版本号，而是系统的版本号</li>
+</ul>
+<p>最后可以把徽章放到 README 里 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![Selenium Test Status](https://saucelabs.com/browser-matrix/YOUR_USERNAME.svg)](https://saucelabs.com/u/YOUR_USERNAME)</span><br></pre></td></tr></table></figure></p>
+<h2 id="徽章的样式">徽章的样式</h2>
+<p>大部分的图标都是用了 <a href="http://shields.io/" target="_blank" rel="noopener">Shield IO</a> 的服务，它提供了一些参数可以设置徽章的样式，以 Coveralls 为例</p>
+<p><img src="https://img.shields.io/coveralls/react-melon/melon-core/master.svg?style=plastic" alt="Coveralls Status"> https://img.shields.io/coveralls/react-melon/melon-core/master.svg?style=plastic</p>
+<p><img src="https://img.shields.io/coveralls/react-melon/melon-core/master.svg?style=flat" alt="Coveralls Status"> https://img.shields.io/coveralls/react-melon/melon-core/master.svg?style=flat</p>
+<p><img src="https://img.shields.io/coveralls/react-melon/melon-core/master.svg?style=flat-square" alt="Coveralls Status"> https://img.shields.io/coveralls/react-melon/melon-core/master.svg?style=flat-square</p>
+<p><img src="https://img.shields.io/coveralls/react-melon/melon-core/master.svg?style=social" alt="Coveralls Status"> https://img.shields.io/coveralls/react-melon/melon-core/master.svg?style=social</p>
+<h2 id="总结">总结</h2>
+<p>我们的最终效果图，瞬间就高端了很多。</p>
+<div class="figure">
+<img src="/blog/front-end-continuous-integration-tools/img/conclue.png" alt="图片"><p class="caption">图片</p>
+</div>
+<h2 id="参考文档">参考文档</h2>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI2NzExNTczMw==&amp;mid=2653284934&amp;idx=1&amp;sn=af82495f35adea9b919e27a20749145e&amp;scene=1&amp;srcid=0708AigCqTI0RpFMJT6MhAcp&amp;key=77421cf58af4a65386d8a3d36fb7fb3f6a6a4631beb5f8a87c8448d85f1135802d43e85b216f113efa06f19f479902d5&amp;ascene=0&amp;uin=MzAyNjk4MDU1&amp;devicetype=iMac+MacBookPro11%2C1+OSX+OSX+10.10.5+build(14F1808)&amp;version=11020201&amp;pass_ticket=hXS2sgF6aJfo9PbSLZf0ltuHlOg6150rr%2FOnA%2FyFI4Ze2rlQsKd9wrzsPz5yZH%2FV#rd" target="_blank" rel="noopener">一个靠谱的前端开源项目需要什么？</a></p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/introduction-about-ioc-in-frontend/" class="article-prev">前一篇: 前端 IoC 理念入门</a>
+    
+    
+    <a href="/blog/composers-and-audiences/" class="article-next">后一篇: 作曲家与听众</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/front-end-continuous-integration-tools/" data-title="前端开源项目持续集成三剑客" data-url="http://efe.baidu.com/blog/front-end-continuous-integration-tools/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

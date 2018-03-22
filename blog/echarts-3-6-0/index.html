@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>ECharts v3.6 发布：自定义系列、极坐标柱状图 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>ECharts v3.6 发布：自定义系列、极坐标柱状图</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        宿爽
+    
+</span>
+
+        <time datetime="2017-05-24T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2017-05-25</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/数据可视化/">数据可视化</a>, <a href="/tags/ECharts/">ECharts</a>, <a href="/tags/新版本/">新版本</a></span>
+
+
+    </div>
+
+    
+        <p>在 ECharts 新发布的 <a href="https://github.com/ecomfe/echarts/releases/tag/3.6.0" target="_blank" rel="noopener">3.6 版本</a>中，新增了 <a href="http://echarts.baidu.com/option.html#series-custom" target="_blank" rel="noopener">自定义系列（custom series）</a>，能让用户定制渲染逻辑，从而在已有坐标系中创造新的图表。此外还有极坐标柱状图、自定义维度映射、dataZoom 等其他一些增强。</p>
+<p><img src="/blog/echarts-3-6-0/banner.png" width="100%"></p>
+<a id="more"></a>
+<h2 id="自定义系列">自定义系列</h2>
+<p>图表的类型多种多样，有些大众有些小众，echarts 难于内置得支持所有类型的图表。所以推出了 <a href="http://echarts.baidu.com/option.html#series-custom" target="_blank" rel="noopener">自定义系列（custom series）</a>。</p>
+<p>自定义系列可以自定义系列中的图形元素渲染。从而能扩展出不同的图表。同时，echarts 会统一管理图形的创建删除、动画、与其他组件（如 <a href="http://echarts.baidu.com/option.html#dataZoom" target="_blank" rel="noopener">dataZoom</a>、<a href="http://echarts.baidu.com/option.html#visualMap" target="_blank" rel="noopener">visualMap</a>）的联动，使用户不必纠结这些细节。</p>
+<strong>例如，下面的例子使用 custom series 扩展出了 x-range 图：</strong>
+<div class="ec-lazy" data-thumb="http://echarts.baidu.com/gallery/data/thumb/custom-profile.png" data-src="http://echarts.baidu.com/gallery/view.html?c=custom-profile&amp;edit=1&amp;reset=1" style="width: 100%; height: 300px">
+
+</div>
+<p>可以注意到，里面须用户自定义的渲染逻辑，在 <code>renderItem</code> 这个函数中，并不十分复杂。但是得到的功能是比较完备的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    ...,</span><br><span class="line">    series: [&#123;</span><br><span class="line">        type: <span class="string">'custom'</span>,</span><br><span class="line">        renderItem: <span class="function"><span class="keyword">function</span> (<span class="params">params, api</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> categoryIndex = api.value(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">var</span> start = api.coord([api.value(<span class="number">1</span>), categoryIndex]);</span><br><span class="line">            <span class="keyword">var</span> end = api.coord([api.value(<span class="number">2</span>), categoryIndex]);</span><br><span class="line">            <span class="keyword">var</span> height = api.size([<span class="number">0</span>, <span class="number">1</span>])[<span class="number">1</span>] * <span class="number">0.6</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                type: <span class="string">'rect'</span>,</span><br><span class="line">                shape: echarts.graphic.clipRectByRect(&#123;</span><br><span class="line">                    x: start[<span class="number">0</span>],</span><br><span class="line">                    y: start[<span class="number">1</span>] - height / <span class="number">2</span>,</span><br><span class="line">                    width: end[<span class="number">0</span>] - start[<span class="number">0</span>],</span><br><span class="line">                    height: height</span><br><span class="line">                &#125;, &#123;</span><br><span class="line">                    x: params.coordSys.x,</span><br><span class="line">                    y: params.coordSys.y,</span><br><span class="line">                    width: params.coordSys.width,</span><br><span class="line">                    height: params.coordSys.height</span><br><span class="line">                &#125;),</span><br><span class="line">                style: api.style()</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;,</span><br><span class="line">        data: data</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<strong>下面的两个例子使用 custom series 扩展出了 error-chart 图：</strong>
+<div class="ec-lazy" data-thumb="http://echarts.baidu.com/gallery/data/thumb/custom-error-bar.png" data-src="http://echarts.baidu.com/gallery/view.html?c=custom-error-bar&amp;edit=1&amp;reset=1" style="width: 100%; height: 300px">
+
+</div>
+<div class="ec-lazy" data-thumb="http://echarts.baidu.com/gallery/data/thumb/custom-error-scatter.png" data-src="http://echarts.baidu.com/gallery/view.html?c=custom-error-scatter&amp;edit=1&amp;reset=1" style="width: 100%; height: 400px">
+
+</div>
+<p><strong>下面是其他一些例子：</strong></p>
+<div class="ec-lazy" data-thumb="http://echarts.baidu.com/gallery/data/thumb/custom-bar-trend.png" data-src="http://echarts.baidu.com/gallery/view.html?c=custom-bar-trend&amp;edit=1&amp;reset=1" style="width: 100%; height: 300px">
+
+</div>
+<div class="ec-lazy" data-thumb="http://echarts.baidu.com/gallery/data/thumb/custom-profit.png" data-src="http://echarts.baidu.com/gallery/view.html?c=custom-profit&amp;edit=1&amp;reset=1" style="width: 100%; height: 300px">
+
+</div>
+<div class="ec-lazy" data-thumb="http://echarts.baidu.com/gallery/data/thumb/custom-hexbin.png" data-src="http://echarts.baidu.com/gallery/view.html?c=custom-hexbin&amp;edit=1&amp;reset=1" style="width: 100%; height: 500px">
+
+</div>
+<h2 id="极坐标柱状图">极坐标柱状图</h2>
+<p>极坐标中的柱状图，可以按径向排布或者切向排布。</p>
+<div class="ec-lazy" data-thumb="http://echarts.baidu.com/gallery/data/thumb/bar-polar-stack.png" data-src="http://echarts.baidu.com/gallery/view.html?c=bar-polar-stack&amp;edit=1&amp;reset=1" style="width: 100%; height: 300px">
+
+</div>
+<div class="ec-lazy" data-thumb="http://echarts.baidu.com/gallery/data/thumb/bar-polar-stack-radial.png" data-src="http://echarts.baidu.com/gallery/view.html?c=bar-polar-stack-radial&amp;edit=1&amp;reset=1" style="width: 100%; height: 300px">
+
+</div>
+<p>使用时，只需要将系列的 <code>coordinateSystem</code> 设置为 <code>'polar'</code>，将原先笛卡尔坐标系中使用的 <code>xAxis</code> 和 <code>yAxis</code> 替换成 <code>radiusAxis</code> 和 <code>angleAxis</code>，就能使用极坐标系的柱状图了。</p>
+<h2 id="其他">其他</h2>
+<p>此外，</p>
+<ul>
+<li>支持了<a href="http://echarts.baidu.com/option.html#series-scatter.encode" target="_blank" rel="noopener">encode</a> 设定，可以指定 <a href="http://echarts.baidu.com/option.html#series-scatter.data" target="_blank" rel="noopener">data</a> 中哪些维度映射到坐标系中哪个轴，或者哪些维度在 <a href="http://echarts.baidu.com/option.html#tooltip" target="_blank" rel="noopener">tooltip</a> 以及 <a href="http://echarts.baidu.com/option.html#series-scatter.label" target="_blank" rel="noopener">label</a> 中显示。</li>
+<li>支持了 <a href="http://echarts.baidu.com/option.html#series-scatter.dimensions" target="_blank" rel="noopener">dimensions</a> 设定，能指定 <a href="http://echarts.baidu.com/option.html#series-scatter.data" target="_blank" rel="noopener">data</a> 中每个维度的名称和类型。名称可以显示在默认 <a href="http://echarts.baidu.com/option.html#tooltip" target="_blank" rel="noopener">tooltip</a> 中。</li>
+<li><code>dataZoom</code> 组件进行了增强。比如，支持了『按住 <code>'ctrl'</code>/<code>'alt'</code>/<code>'shift'</code> 和滚轮时才能出发缩放平移』功能，避免和页面的滚动冲突（参见 <a href="http://echarts.baidu.com/option.html#dataZoom-inside.moveOnMouseMove" target="_blank" rel="noopener">moveOnMouseMove</a> 和 <a href="http://echarts.baidu.com/option.html#dataZoom-inside.zoomOnMouseWheel" target="_blank" rel="noopener">zoomOnMouseWheel</a>。另外支持了 <a href="http://echarts.baidu.com/option.html#dataZoom.minSpan" target="_blank" rel="noopener">minSpan</a> 和 <a href="http://echarts.baidu.com/option.html#dataZoom.maxSpan" target="_blank" rel="noopener">maxSpan</a> 等细节配置。</li>
+</ul>
+<p>更多的升级信息，参见 <a href="http://echarts.baidu.com/changelog.html" target="_blank" rel="noopener">changelog</a>。</p>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+(function () {
+
+    if (typeof jQuery === 'undefined') {
+        return;
+    }
+
+    var $ = jQuery;
+    var env = window['MD_ENV'];
+    var $ = jQuery;
+    var useThumb = env && (env.os.phone || env.os.tablet);
+
+    var blockList = $('.ec-lazy');
+    var $win = $(window);
+
+    blockList.each(function (index, block) {
+        block = $(block);
+        var src = block.attr('data-src');
+        block.attr('data-src', src);
+    });
+
+    // Lazy load.
+    $win.on('scroll', showBlock);
+
+    $(showBlock);
+
+    function initThumb(block, $block, blockThumb, blockSrc) {
+        $block.css('lineHeight', $block.height() + 'px');
+        block.innerHTML = [
+            '<img style="width:100%;height:auto;margin:0;padding:0;vertical-align:middle;" src="', blockThumb, '"/>',
+            // for vertial middle
+            '<div style="vertical-align: middle; height: 100%; width: 0"></div>',
+            '<div style="cursor:pointer;thumb-btn;position:absolute;bottom:10px;width:100%;height:22px;line-height:22px;text-align:center;">',
+                '<em style="font-style:normal;border-radius:3px;padding:3px 5px;margin:3px 5px;color:white;background:#337ab7;font-size:12px;line-height:1.5;">点击图片加载真实图表</em>',
+            '</div>',
+            '<div class="ec-lazy-block-mask" style="cursor:pointer;position:absolute;left:0;top:0;width:100%;height:100%;margin:0;"></div>'
+        ].join('');
+        $block.find('.ec-lazy-block-mask').on('click', function () {
+            initIFrame(block, $block, blockThumb, blockSrc);
+        });
+    }
+
+    function initIFrame(block, $block, blockThumb, blockSrc) {
+        block.innerHTML = [
+            '<iframe style="overflow:hidden;width:100%;height:100%;margin:0;padding:0;" src="' , blockSrc, '">',
+            'frameborder="no" border="0" marginwidth="0" marginheight="0"',
+            'scrolling="no" hspace="0" vspace="0"></iframe>'
+        ].join('');
+    }
+
+    function showBlock() {
+        blockList.each(function (idx, block) {
+            var $block = $(block);
+
+            var blockSrc = $block.attr('data-src');
+            var blockThumb = $block.attr('data-thumb');
+
+            if (!blockSrc) {
+                return;
+            }
+
+            $block.css({
+                position: 'relative',
+                overflow: 'hidden',
+                textAlign: 'center',
+                padding: 0
+            });
+
+            var winScrollTop = $win.scrollTop();
+            var blockTop = block.offsetTop;
+
+            var winHeight = $win.height();
+            var winBottom = winScrollTop + winHeight;
+            var blockBottom = blockTop + $block.height();
+
+            if (winBottom >= blockTop && winBottom <= (blockBottom + winHeight)) {
+                $block.attr('data-src', '');
+                (useThumb && blockThumb)
+                    ? initThumb(block, $block, blockThumb, blockSrc)
+                    : initIFrame(block, $block, blockThumb, blockSrc);
+            }
+        });
+    }
+})();
+</script>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/building-realistic-map-with-echarts-gl/" class="article-prev">前一篇: 在 ECharts GL 中绘制三维地图</a>
+    
+    
+    <a href="/blog/echarts-statistical-extension-tutorial/" class="article-next">后一篇: ECharts 统计扩展教程</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/echarts-3-6-0/" data-title="ECharts v3.6 发布：自定义系列、极坐标柱状图" data-url="http://efe.baidu.com/blog/echarts-3-6-0/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

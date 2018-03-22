@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<a class="rss" title="RSS Feed" href="/atom.xml"><i class="fa fa-rss-square"></i></a>
+<main>
+<a class="fecs-banner-zone" rel="fecs" href="http://fecs.baidu.com/" target="_blank"><img alt="知识共享许可协议" src="/img/fecs-banner.png"></a>
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/comparison-of-html-linting-tool/">HTML代码风格检查工具对比</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://nighca.me/" title="nighca">nighca</a>
+    
+</span>
+
+        <time datetime="2015-07-13T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-07-14</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/HTML/">HTML</a>, <a href="/tags/Lint/">Lint</a>, <a href="/tags/NodeJS/">NodeJS</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>作为一个前端，不可避免同时与三个语言打交道：JS、CSS 和 HTML。而 HTML，超文本标记语言，是其中可编程性最弱的，一直以来得到的关注都较少。加上浏览器对 HTML 逆天的容错支持，即使是错误百出的文档也可以在浏览器里边表现得中规中矩。这样的背景下，绝大部分被产出的 HTML 代码都存在着各种各样的小问题，比如缺少必要的元信息（meta），比如混乱的 class、id 或属性的取值格式；这些问题或影响页面在不同浏览器下的表现，或增大了页面的开发、维护成本。</p>
+<p>因此，选用一个合适的工具对 HTML 代码进行质量控制会是一件很有意义的事情。本文选择了 Bootlint、AriaLinter、htmllint、HTMLHint 及 htmlcs 这五个目前最活跃的相关项目进行对比。除此之外还存在如 tidy、W3C/Mozilla HTML validator 等工具，但它们专注于 HTML 规范，几乎不涉及代码风格上的检查，这里就不做比较。</p>
+<p>对比角度将主要包括以下几个方面：</p>
+<ul>
+<li>使用及配置</li>
+<li>规则实现及自定义</li>
+<li>性能</li>
+<li>亮点</li>
+</ul>
+<p>为了后续说明的便利，这里先对语法风格的规则进行简单的分类，第一类包括 <code>attr-value-double-quotes</code>（使用双引号包围属性值）， <code>max-length</code>（限制单行最大长度）， <code>tag-pair</code>（要求需要显式闭合的标签显式闭合）等；第二类包括 <code>script-in-tail</code>（JavaScript 内容要求在页面最后嵌入）, <code>title-required</code>（要求 title 标签）, <code>id-class-ad-disabled</code>（不允许在 id 或 class 的值中出现 ad_，ad-，_ad，-ad 等）等。这两类规则有很明显的区别，第一类偏重于代码格式（遵循与否都不影响最终语义），这里叫它格式规则；对应地，第二类偏重语义，即最终 document 的表现，这里叫它语义规则。一般情况下，前者更适合在语法分析阶段做，而后者更适合在分析完后基于分析结果（AST / document）进行。</p>
+        <a class="article-readmore" href="/blog/comparison-of-html-linting-tool/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/ioc-in-modulization/">IoC 在前端模块化中的实践应用</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/exodia17" title="exodia">exodia</a>
+    
+</span>
+
+        <time datetime="2015-07-09T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-07-10</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/模块化/">模块化</a>, <a href="/tags/IoC/">IoC</a>, <a href="/tags/DI/">DI</a>, <a href="/tags/依赖注入/">依赖注入</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <h3 id="前端模块化背景">前端模块化背景</h3>
+<p>在大部分单页式应用中，前端代码都是以 MV* 的结构来组织的，好处自然不必多说。在开始一个项目时，我们往往会将项目的业务功能纵向切分成多个子业务功能， 以模块的形式分配给团队各个开发人员，以达到最大的并行开发。随着业务的发展，新的项目也越来越多，我们会发现很多新的项目和现有的项目是有不少功能交集的。</p>
+<p>从业务角度来看，一个项目就是由各个模块组合而成：A 项目由 m1, m2, m3 组合而成， B 项目则可能由 m1, m3, m4 组合而成。</p>
+<p>在业务上将各个功能拆分明确后，很明显的 m1, m3 两个功能在 A 项目都是存在的，从工程角度来说，开发 B 项目的时候如果能够直接将A项目已经开发完毕的 m1, m3 直接复用， 那么必然是能够带来很明显的人力节约。</p>
+<p>接下来就是从技术上去实现功能的复用，对于后端来说，通常的做法是服务化接口，而对于前端来说，我们目前的方案正是前端模块化：将功能打包为模块，发布至内部中央仓库， 使用方通过自己的方式（如：npm, bower, link[import], 百度的 edp, fis 等）导入模块包使用。</p>
+<p>按照前端模块化的思路，开发新项目时，开发人员的工作从原来的开发所有功能变为：接入已有的功能模块，开发不存在的功能模块。</p>
+        <a class="article-readmore" href="/blog/ioc-in-modulization/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/xhr-compatibility-and-baidubce-sdk/">XHR 和 baidubce-sdk</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/leeight" title="leeight">leeight</a>
+    
+</span>
+
+        <time datetime="2015-07-05T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-07-06</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/XHR/">XHR</a>, <a href="/tags/baidubce/">baidubce</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <h3 id="content-type">Content-Type</h3>
+<p>在开发 <a href="https://www.npmjs.com/package/baidubce-sdk" target="_blank" rel="noopener">baidubce-sdk</a> 的时候，遇到了在不同浏览器（主要是 Firefox 和 Chrome）下调用 <code>xhr.setRequestHeader</code> 设置 <code>Request Header</code> 之后，内部的处理逻辑有一些细微的差别，导致<code>baidubce-sdk</code>无法正常的工作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.setRequestHeader(<span class="string">'Content-Type'</span>, <span class="string">'foo/bar'</span>);</span><br><span class="line"><span class="comment">// 当Method !== 'GET' 的时候</span></span><br><span class="line">xhr.open(<span class="string">'POST'</span>, <span class="string">''</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.send(<span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+<p>对于上面这段儿代码，因为我们显式的设置了<code>Content-Type</code>，所以我们期望的是服务器收到的 <code>Request Header</code> 中 <code>Content-Type</code> 应该是 <code>foo/bar</code>，实际上在 <code>Firefox</code> 里面会自动添加 <code>charset=UTF-8</code>，也就是服务器得到的信息是 <code>foo/bar; charset=UTF-8</code></p>
+        <a class="article-readmore" href="/blog/xhr-compatibility-and-baidubce-sdk/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/js-lints/">JavaScript 代码静态质量检查</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/wfsr" title="我佛山人">我佛山人</a>
+    
+</span>
+
+        <time datetime="2015-07-01T06:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-07-01</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/Lint/">Lint</a>, <a href="/tags/Hint/">Hint</a>, <a href="/tags/Check/">Check</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>自鸿蒙初判，<a href="http://en.wikipedia.org/wiki/Brendan_Eich" target="_blank" rel="noopener">Brendan Eich</a> 10 天捏出 Mocha 之后，即便进化成 ECMAScript，这个语言依旧毁誉相随。那些经过重重劫难，侥幸渡劫成功的苦主标识了诸多天坑（见 <a href="http://bonsaiden.github.io/JavaScript-Garden/" target="_blank" rel="noopener">JavaScript Garden</a>） —— 当然，你也可以称之 feature。据无责任乱猜，Douglas Crockford 也没少踩坑，于是才有了蝴蝶书《JavaScript: The Good Parts》，下雨天与 <code>JSLint</code> 一起使用会更配哟。</p>
+<div class="figure">
+<img src="/blog/js-lints/guide.vs.good-parts.png">
+</div>
+<p>《JavaScript: The Definitive Guide》 V.S. 《JavaScript: The Good Parts》</p>
+<p>时至今日，代码的静态质量检查在项目质量保障方面的重要性与必要性已毋庸置疑。越来越多的开发者意识到了这一点，纷纷在项目构建流程或者源码控制系统中添加静态检查的 <code>hook</code>。本文将依时间顺序，选出 <code>JavaScript</code> 史上的主要几个 <code>Linter</code> 作横向比较，最终属意谁家，那就见仁见智了。</p>
+        <a class="article-readmore" href="/blog/js-lints/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/flattening-arrow-code/">扁平化箭形代码</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/wfsr" title="我佛山人">我佛山人</a>
+    
+</span>
+
+        <time datetime="2015-07-01T05:30:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-07-01</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/重构/">重构</a></span>
+
+
+    </div>
+
+    
+        <p>作为<a href="http://efe.baidu.com/blog/replace-nested-conditional-with-guard-clauses/">《嵌套条件的重构》</a> 的姊妹篇，补充说明箭形代码的缺点，并以函数分解的方式扁平化箭形代码。</p>
+<p>原文：<a href="http://blog.codinghorror.com/flattening-arrow-code/" target="_blank" rel="noopener">Flattening Arrow Code</a></p>
+<p>经常看到这种代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (rowCount &gt; rowIdx) &#123;</span><br><span class="line">    <span class="keyword">if</span> (drc[rowIdx].table.columns.contains(<span class="string">"avalId"</span>)) &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (attributes[attrVal.attributeClassId] == <span class="literal">null</span>) &#123;</span><br><span class="line">              <span class="comment">// do stuff</span></span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(attributes[attrVal.attributeClassId])) &#123;</span><br><span class="line">                  <span class="comment">// do stuff</span></span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">if</span> (!isChecking) &#123;</span><br><span class="line">                      <span class="comment">// do stuff</span></span><br><span class="line">                  &#125;</span><br><span class="line">                  <span class="keyword">else</span> &#123;</span><br><span class="line">                      <span class="comment">// do stuff</span></span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          rowIdx++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (rowIdx &lt; rowCount &amp;&amp; <span class="built_in">parseInt</span>(drc[rowIdx], <span class="number">10</span>) === Id);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        rowIdx++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> rowIdx;</span><br></pre></td></tr></table></figure>
+<p>太多的条件嵌套使代码变成一个箭头的样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if</span><br><span class="line">    if</span><br><span class="line">        if</span><br><span class="line">            if</span><br><span class="line">                do something</span><br><span class="line">            endif</span><br><span class="line">        endif</span><br><span class="line">    endif</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+<p>当你在1280x1024 分辨率下阅读代码时会超出右边边界。这就是箭头反模式。</p>
+<p>我重构的首要任务之一是把这样的箭形代码 “扁平化”。那些锋利的尖钩很危险！箭形代码有着很高的圈复杂度 -- 衡量贯穿代码有多少不同路径：</p>
+<blockquote>
+<p>研究表明程序的质量与它的圈复杂度（<a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity" target="_blank" rel="noopener">WIKI</a>, <a href="http://baike.baidu.com/link?url=NhIy14F1G0pKk9NeWcromnkCAJzqZofWwvMweET_R6JolBvlX4Mf2CcLLclZ4GtPqg9Y66SDXzZ09CfIpvd6Ja" target="_blank" rel="noopener">百度百科</a>）有关。低圈复杂度的程序更简单易懂，修改时的风险也更低。模块的圈复杂度与它的可测试性也是高度相关的。</p>
+</blockquote>
+<p>在适当的地方，我通过以下方式扁平化箭形代码：</p>
+<ol style="list-style-type: decimal">
+<li>替换条件为 <code>guard clauses</code>，这个代码..</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (SomeNecessaryCondition) &#123;</span><br><span class="line">    <span class="comment">// function body code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>.. 改成 <code>guard clause</code> 会更好：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!SomeNecessaryCondition) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> RequiredConditionMissingException;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// function body code</span></span><br></pre></td></tr></table></figure>
+<ol start="2" style="list-style-type: decimal">
+<li>用函数来分解条件块。在上例中，我们把 do..while 循环里的条件分解。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    validateRowAttribute(drc[rowIdx]);</span><br><span class="line">    rowIdx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (rowIdx &lt; rowCount &amp;&amp; <span class="built_in">parseInt</span>(drc[rowIdx], <span class="number">10</span>) === Id);</span><br></pre></td></tr></table></figure>
+<ol start="3" style="list-style-type: decimal">
+<li>将否定检查转为肯定检查。主要规则是把肯定比较置前，让否定比较自然落到 else 中。我认为这样可读性肯定更好，更重要的是，避免 “我永远不会不做” 句式。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(attributes[attrVal.attributeClassId])) &#123;</span><br><span class="line">    <span class="comment">// do stuff</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// do stuff</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4" style="list-style-type: decimal">
+<li>总是尽快从函数返回。一旦工作完成，马上退出。这个并非永远合适的 -- 你可能需要清理资源。但无论如何，你必须放弃只应在底部有一个出口的错误想法。</li>
+</ol>
+<p>目的是让代码在垂直方向滚动多些...而不是在水平方向上。</p>
+
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/position-sticky/">position:sticky实现iOS6+下的粘性布局</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/u/1898659961" title="oddjohn">oddjohn</a>
+    
+</span>
+
+        <time datetime="2015-06-23T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-06-24</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/Mobile/">Mobile</a>, <a href="/tags/fixed/">fixed</a>, <a href="/tags/iOS/">iOS</a>, <a href="/tags/sticky/">sticky</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>用户总是希望在窗口明显的地方方便找到自己想要的操作项，例如停留在浏览器窗口顶端的菜单栏，筛选栏等。所以我们会把用户最常用到或者我们希望用户注意到的内容一直展现在窗口的可视区域，让用户能够一眼就看到。这当中常需要用到一种页面滚动然后元素固定在窗口的某个位置的布局方式（下面简称<strong>粘性布局</strong>）。</p>
+<p>要实现这种粘性布局，我们常常都是通过js来模拟，实现方案是通过js监听window的<code>scroll</code>事件，当需要固定的元素滚动到窗口顶部时，把元素的position属性设置为fixed，否则，取消fixed，简单的js代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">'.nav'</span>);</span><br><span class="line"><span class="keyword">var</span> navOffsetY = nav.offsetTop;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onScroll</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.scrollY &gt;= navOffsetY ? nav.classList.add(<span class="string">'fixed'</span>) : nav.classList.remove(<span class="string">'fixed'</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, onScroll);</span><br></pre></td></tr></table></figure>
+<p>上面的实现在桌面浏览器的表现还是挺好的，但是在移动端浏览器上粘顶的效果就显得不那么平滑了。</p>
+        <a class="article-readmore" href="/blog/position-sticky/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+
+    <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/archives/page/8/">&lt;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/archives/page/10/">10</a><a class="page-number" href="/archives/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/14/">14</a><a class="extend next" rel="next" href="/archives/page/10/">&gt;</a>
+    </nav>
+
+
+</main>
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

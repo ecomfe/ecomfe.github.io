@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>使用 SVG 输出 Octicon | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>使用 SVG 输出 Octicon</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/u/1143654280" title="Justineo">Justineo</a>
+    
+</span>
+
+        <time datetime="2016-03-07T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-03-08</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/CSS/">CSS</a>, <a href="/tags/font/">font</a>, <a href="/tags/SVG/">SVG</a>, <a href="/tags/图标/">图标</a>, <a href="/tags/字体/">字体</a></span>
+
+
+    </div>
+
+    
+        <p>原文：<a href="https://github.com/blog/2112-delivering-octicons-with-svg" class="uri" target="_blank" rel="noopener">https://github.com/blog/2112-delivering-octicons-with-svg</a></p>
+<p>GitHub.com 现在不再使用字体来输出图标了。我们把代码库中所有的 Octicon 替换成了 SVG 版本。虽然这些改动并不那么明显，但你马上就能体会到 SVG 图标的优点。</p>
+<div class="figure">
+<img src="/blog/delivering-octicons-with-svg/octicon-comparison.png" alt="Octicon 上的对比"><p class="caption">Octicon 上的对比</p>
+</div>
+<p>切换到 SVG 以后，图标会作为图片渲染而非文字，这使其在任何分辨率下都能很好地在各种像素值下显示。可以比较一下左侧放大后的字体版本和右侧清晰的 SVG 版本。</p>
+<h2 id="为何使用-svg">为何使用 SVG？</h2>
+<h3 id="图标字体渲染问题">图标字体渲染问题</h3>
+<p>图标字体从来只是一种 hack。我们之前使用一个自定义字体，并将图标作为 Unicode 符号。这样图标字体就可以通过打包后的 CSS 来引入。只要简单地在任意元素上添加一个 class，图标就可以显示出来。然后我们只使用 CSS 就能即时改变图标的尺寸和颜色了。</p>
+<p>不幸的是，虽然这些图标是矢量图形，但在 1x 显示屏下的渲染效果并不理想。在基于 WebKit 的浏览器下，图标可能会在某些窗口宽度下变得模糊。因为此时图标是作为文本输出的，本来用于提高文本可读性的次像素渲染技术反而使图标看起来糟糕许多。</p>
+<h3 id="对页面渲染的改进">对页面渲染的改进</h3>
+<p>因为我们直接将 SVG 注入 HTML，所以不再会出现图标字体下载、缓存、渲染过程中出现的样式闪动（这也是我们选择这种方式更主要的原因）。</p>
+<div class="figure">
+<img src="/blog/delivering-octicons-with-svg/jank.gif" alt="页面闪动"><p class="caption">页面闪动</p>
+</div>
+<a id="more"></a>
+<h3 id="可访问性">可访问性</h3>
+<p>就像在<a href="https://speakerdeck.com/ninjanails/death-to-icon-fonts" target="_blank" rel="noopener">《图标字体已死》</a>一文中所述，有些用户会覆盖掉 GitHub 的字体。对于患有读写障碍的用户，某些特定字体是更加容易阅读的。对于修改字体的用户来说，我们基于字体的图标就被渲染成了空白方框。这搞乱了 GitHub 页面布局，而且也不提供任何信息。而不管字体覆盖与否，SVG 都可以正常显示。对于读屏器用户来说，SVG 能让我们选择是读出 <code>alt</code> 属性还是直接完全跳过。</p>
+<h3 id="图形尺寸更合适">图形尺寸更合适</h3>
+<p>我们目前对每个图标在所有尺寸下提供单一的图形。因为站点的加载依赖了图标字体的下载，我们曾被迫把图标集限制在最重要的 16px 尺寸下。这让每个符号在视觉上做出一些让步，因为我们是针对 16px 方格进行优化的。当在新页面或营销页上缩放这些图标时，显示的还是 16px 的版本。而 SVG 可以方便地 fork 全部的图标集，在我们指定的每个尺寸提供更合适的图形。当然对图标字体也可以这么做，但这样用户需要下载两倍的数据量，可能更多。</p>
+<h3 id="便于创作">便于创作</h3>
+<p>打包自定义字体是复杂的。一些 web 应用因此而生，我们内部也自己搞了一个。而用 SVG 的话，添加一个新图标会变得像把一个 SVG 文件拖入一个目录这样轻而易举。</p>
+<h3 id="可添加动画效果">可添加动画效果</h3>
+<p>并非一定要加动画，而是有了添加动画的可能性。而且 SVG 动画也的确在例如<a href="http://codepen.io/aaronshekey/pen/wMZBgK" target="_blank" rel="noopener">预加载动画</a>等地方有实际应用。</p>
+<h2 id="如何实现">如何实现</h2>
+<p>Octicon 在整个 GitHub 的代码库中出现了约 2500 次。在用 SVG 之前，我们简单地用 <code>&lt;span class=&quot;octicon octicon-alert&quot;&gt;&lt;/span&gt;</code> 这样简单的标签来引入。要切换到 SVG，我们先给添加了一个用来往 HTML 内直接注入 SVG 路径的 Rails helper。我们先用这个 helper 让员工测试了不同的 SVG 输出方式，然后才对外发布。</p>
+<h3 id="helper-的用法">Helper 的用法</h3>
+<p>输入 <code>&lt;%= octicon(:symbol =&gt; &quot;plus&quot;) %&gt;</code></p>
+<p>输出</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span> <span class="attr">class</span>=<span class="string">"octicon octicon-plus"</span> <span class="attr">width</span>=<span class="string">"12"</span> <span class="attr">height</span>=<span class="string">"16"</span> <span class="attr">role</span>=<span class="string">"img"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 12 16"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M12 9H7v5H5V9H0V7h5V2h2v5h5v2z"</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="我们的方案">我们的方案</h3>
+<p>可以看见，我们最终上线的方案是往页面 HTML 中直接注入 SVG。这样就可以灵活地实时调整 CSS 的 <code>fill:</code> 声明来修改颜色。</p>
+<p>我们现在有一个 SVG 图形的目录而不是一个图标字体，我们通过挑选，将里面这些符号的路径用 helper 直接注入到 HTML 里。比如，通过 <code>&lt;%= octicon(:symbol =&gt; &quot;alert&quot;) %&gt;</code> 来调用 helper 就可以的到一个警告图标。Helper 会查找同名的文件名，并且注入 SVG。</p>
+<p>我们尝试过好几种在页面中添加 SVG 图标的方法，其中有些由于受到 GitHub 生产环境的限制而失败了。</p>
+<ol style="list-style-type: decimal">
+<li>外部 .svg 文件——最开始我们尝试提供一个单一的外部“SVG 仓库”，然后用 <code>&lt;use&gt;</code> 元素来引入 SVG 拼图中的单个图形。在我们当前的跨域安全策略和资源管道条件下，提供在外部提供 SVG 拼图很难做到。</li>
+<li>SVG 背景——这种方式无法实时调整图标的颜色。</li>
+<li>用 <code>&lt;img&gt;</code> 与 <code>src</code> 属性来引入 SVG——这种方式无法实时调整图标的颜色。</li>
+<li>将“SVG 仓库”整个嵌入到每个视图，然后使用 <code>&lt;use&gt;</code> ——把每个 SVG 都嵌入到整个 GitHub.com 的每个单页想想就不对，特别是有时候这个页面一个图标都没用到。</li>
+</ol>
+<h3 id="性能">性能</h3>
+<p>在切换到 SVG 以后，我们还没发现<a href="https://cloud.githubusercontent.com/assets/54012/13176951/eedb1330-d6e3-11e5-8dfb-99932ff7ee25.png" target="_blank" rel="noopener">页面加载和性能</a>上有任何不良影响。我们之前曾预计渲染时间会大幅下降，但往往性能和人的感知更相关。由于 SVG 图标被渲染为了指定宽高的图像，页面也不再会像之前那样<a href="http://jankfree.org/" target="_blank" rel="noopener">闪动</a>了。</p>
+<p>同时由于我们不再输出字体相关的 CSS，我们还能<a href="https://cloud.githubusercontent.com/assets/54012/13176888/70d42346-d6e3-11e5-88eb-0ca0a393392c.png" target="_blank" rel="noopener">干掉一些多余的 CSS 代码</a>。</p>
+<h3 id="缺点和坑">缺点和坑</h3>
+<ul>
+<li>Firefox 对 SVG 仍然有像素值计算的问题，虽然图标字体也有相同的问题。</li>
+<li>如果你需要 SVG 有背景色，你可能需要在外面包一层额外的 div。</li>
+<li>由于 SVG 是作为图片提供的，某些 CSS 的覆盖问题也需要重新考量。如果你看到我们的页面布局有任何奇怪的地方，请告知。</li>
+<li>IE 浏览器下，需要对 <code>svg</code> 元素指定宽高属性，才能正常显示大小。</li>
+<li>在技术方案升级过程中，我们层同时输出 SVG 和图标字体。在我们仍然为每个 SVG 图标指定 font-family 时会导致 IE 崩溃。在完全转用 SVG 以后，这个问题就解决了。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>通过换掉图标字体，我们能更方便、更快速、更有可访问性地提供图标了。而且它们看起来也更棒了。享受吧。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/text-truncating/" class="article-prev">前一篇: 前端文本截断</a>
+    
+    
+    <a href="/blog/mixins-are-dead-long-live-the-composition/" class="article-next">后一篇: Mixin 已死，Composition 万岁</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/delivering-octicons-with-svg/" data-title="使用 SVG 输出 Octicon" data-url="http://efe.baidu.com/blog/delivering-octicons-with-svg/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

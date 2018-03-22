@@ -386,6 +386,10 @@ article .figure img {
     display: block;
 }
 
+article img {
+    max-width: 100%;
+}
+
 article .caption {
     margin: .5em 0;
     padding: 0 1em;
@@ -488,6 +492,18 @@ article hr {
     padding: 0;
 }
 
+article iframe {
+    border: none;
+}
+
+/*
+ Lazy load in echarts articles
+ */
+article .ec-lazy {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
 /*
 @media only screen
 and (min-device-width : 320px)
@@ -540,6 +556,11 @@ article {
 }
 */
 
+
+.fecs-banner-zone img {
+    margin: 10px 0;
+    max-width: 100%;
+}
 
 @media only screen
 and (min-device-width : 320px)
@@ -600,6 +621,9 @@ and (max-device-width : 480px) {
         max-width: 100%;
         word-break: break-all;
     }
+    .article-index section {
+        display: none;
+    }
     footer {
         margin: 0;
         padding: 20px 0;
@@ -609,6 +633,9 @@ and (max-device-width : 480px) {
         display: none;
     }
     time {
+        display: none;
+    }
+    .fecs-banner-zone {
         display: none;
     }
 }

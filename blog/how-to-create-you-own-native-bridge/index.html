@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>如何编写自己的 Native Bridge | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>如何编写自己的 Native Bridge</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/leeight" title="leeight">leeight</a>
+    
+</span>
+
+        <time datetime="2016-12-25T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-12-26</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/React-Native/">React Native</a>, <a href="/tags/JS-Engine/">JS Engine</a>, <a href="/tags/Objective-C/">Objective C</a></span>
+
+
+    </div>
+
+    
+        <p>原文地址：<a href="https://medium.com/@kureevalexey/how-to-create-you-own-native-bridge-93a8d4a40bd2#.fnruczgl6" target="_blank" rel="noopener">How you create your own Native Bridge</a></p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge/1.png">
+</div>
+<p>和很多人一样，在我弄清楚 React Native 的实现机制之前，其实已经在实际项目中用过一段儿时间了。不过在我学习 React Native 实现机制的过程中，逐渐开始给这个项目贡献代码，最终成为核心开发者中的一员。</p>
+<p>尽管如此，这个项目中的 Native Bridge 对我来说还是很神秘的，它到底是通过什么『魔法』打通了 JavaScript 和 Objective C 这两种不同编程语言之间的边界。正因为缺少对这部分内容的了解，才促使我花了一些时间做了这些调研，然后把我的理解通过这几篇文章分享给大家。</p>
+<p>毋庸置疑，在没有一个对项目清晰的规划设计之前就写代码是没有任何意义的。架构设计对于软件开发来说是很重要的一步，我会讲解整个思考过程，详细解释我们做的一些决策以及背后的原因。</p>
+<a id="more"></a>
+<h2 id="第一章设计一个架构">第一章：设计一个架构</h2>
+<h3 id="第一个迭代">第一个迭代</h3>
+<p>在开始一个新项目之前，首先需要确定一下在这个项目中应该采用哪些技术方案：</p>
+<p>在我们这个场景下，选择的技术方法如下：</p>
+<ol style="list-style-type: decimal">
+<li>Objective C 来控制 Cocoa UI</li>
+<li>C++ 来和 JSVM 交互</li>
+<li>JSVM (V8 或 Chakra)</li>
+<li>JavaScript</li>
+<li>React + 自定义渲染器</li>
+</ol>
+<p>我默认主要的执行逻辑是用 C++ 写的，它内部有一个自定义全局上下文的 JS 引擎（基本上所有主流的 JS 引擎 都提供扩展内置函数的能力），所以当看到自定义全局上下文的时候不要惊讶，其实并没有什么特殊的地方，只是通过 C++ 扩充了一些内置的 JS 函数，稍候我们会介绍相关的内容。</p>
+<p>一旦我们调用这些自定义的 JS 函数，JS 虚拟机就会执行我们在 C++ 里面实现的那部分代码，然后就可以继续调用 Objective C 的代码来绘制 UI。听起来有点儿复杂，但是不要灰心，很快就看到曙光了。</p>
+<p>上述所有的逻辑都可以在同一个线程（主线程）中运行，但是可能会导致一些性能问题。为了避免性能问题，我门给通过 Objective C 进行 UI 渲染的工作专设了一个新的线程。</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge/2.png">
+</div>
+<p>尽管听起来比较合理，可是实际上却并不管用。</p>
+<p>问题在于 Apple 限制了只可以在主线程中渲染 UI，这也就导致我们只能在主线程中去执行 Objective C 的代码。可惜的是，这样应用的入口就和平台绑定了（至少要让它跑在其他平台上会变的非常复杂）。但事已至此，我们只能调整我们最初的设计，来满足这项限制。</p>
+<h3 id="修正方案">修正方案</h3>
+<p>如果必须在主线程渲染 UI，那我们就接受这个限制。不过我们要运行一个 Cocoa 应用，而非 C++ 的程序。在它启动时我们创建一个包含了 JSVM 的后台线程来运行打包好的 JS 代码。和前一种方法里一样，因为有 JSVM 的存在，我们可以在 JS 代码中调用 C++ 写的函数。一旦这样的函数被调用，主线程就会收到指令并绘制 UI。</p>
+<p>在主线程中，（JS 线程）发来的指令通过 Objective C 渲染出对应的界面元素。如果成功，Objective C 会回调一个从 C++ 传递过来的函数（代表 JSVM 对 JS 逻辑的回调）。</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge/3.png">
+</div>
+<h3 id="最终的架构">最终的架构</h3>
+<p>好了，最后总结一下：</p>
+<ol style="list-style-type: decimal">
+<li><p>因为需要在主线程中绘制 UI，所以我们需要一个 Cocoa 类型的应用；</p></li>
+<li><p>当程序启动的时候，我们需要创建一个 JS 线程来初始化 JS 引擎，然后执行我们打包在一起的 JS 代码。之前说过，我们给 JSVM 上下文打过补丁，暴露了一些额外的 API 来操作 UI 层；</p></li>
+<li><p>一旦JS线程需要绘制UI的时候，就给主线程发一个命令，主线程收到之后，Objective C 代码就开始执行对应的绘制逻辑；</p></li>
+<li><p>最后，Objective C 执行一系列的回调函数，从而把最终的执行结果传递通过 JS 线程 传递给我们在 JS 里面逻辑。</p></li>
+</ol>
+<h3 id="搭建基础平台">搭建基础平台</h3>
+<p>动手实践的时候到了！首先，我们创建一个空白的 Cocoa 应用，如下图所示：</p>
+<div class="figure">
+<img src="/blog/how-to-create-you-own-native-bridge/4.png" alt="新建 Mac OS X Cocoa Application 窗口"><p class="caption">新建 Mac OS X Cocoa Application 窗口</p>
+</div>
+<p>第一步完成之后，我们就有了一个基础的程序架构。之后，编辑 <code>AppDelegate.m</code> 文件里面的 <code>applicationDidFinishLaunching</code> 函数，在这个函数里面应该启动一个新的线程来初始化 JS 引擎，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)applicationDidFinishLaunching:(NSNotification *)aNotification &#123;</span><br><span class="line">    _jsvmThread = [[NSThread alloc] initWithTarget:self</span><br><span class="line">                                          selector:@selector(runJSVMThread)</span><br><span class="line">                                            object:nil];</span><br><span class="line">    [_jsvmThread start];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在你可能有两个疑问：</p>
+<ol style="list-style-type: decimal">
+<li><p><code>_jsvmThread</code>是个什么鬼？</p></li>
+<li><p><code>@selector(runJSVMThread)</code> 是什么意思？</p></li>
+</ol>
+<p>我们是通过创建一个 <code>NSThread</code> 的实例来启动一个新的线程的，<code>_jsvmThread</code> 就是 <code>NSThread</code> 的一个实例。后续如果要执行 C++ 回调函数的时候，我们需要 <code>NSThread</code> 实例的引用，因此通过 <code>_jsvmThread</code> 变量保存了下来。</p>
+<p>关于 Selector 的问题，根据 Apple 的文档所述，是一个用来选择一个对象要执行那个方法的名称，或是在源码编译后用来代替这个名称的唯一标识符。更多细节建议还是参考<a href="https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Selector.html" target="_blank" rel="noopener">Apple的官方文档</a>。</p>
+<p>换句话说，当创建了 <code>NSThread</code> 之后就会执行当前实例上面的 <code>runJSVMThread</code> 方法来完成 JS引擎 的初始化工作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)runJSVMThread &#123;</span><br><span class="line">    [[[ChakraProxy alloc] init] run];</span><br><span class="line">    </span><br><span class="line">    NSRunLoop *runloop = [NSRunLoop currentRunLoop];</span><br><span class="line">    </span><br><span class="line">    while (true) &#123;</span><br><span class="line">        [runloop runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正如在代码中看到的，我这里用了 ChakraCore 而没有选择 V8。原因是：</p>
+<ol style="list-style-type: decimal">
+<li><p>编译 V8 花了我1个多小时的时间，然后又花了2个小时才能把 HelloWorld 运行起来；</p></li>
+<li><p>编译 ChakraCore 以及运行 HelloWorld 总共花了 10 多分钟的时间。</p></li>
+</ol>
+<blockquote>
+<p>由于我们只是编写一个原型，所以我把 ChakraCore 提供的更好的开发体验放在了首位。</p>
+</blockquote>
+<p>ChakraProxy 初始化之后，我们必须通过一个 runloop 来保证线程不会退出（如果没有这个机制的话，线程的代码执行完毕之后就结束了），如果想要对 Runloop 有更深的了解，建议还是去参考一下 <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html" target="_blank" rel="noopener">Apple官方的文档</a>。</p>
+<p>现在我们的程序可以正常启动了，而且还启动了一个新的线程等待 UI 绘制的命令。现在我们来着手实现 ChakraProxy 这个类。</p>
+<p>ChakraProxy 的逻辑很简单，简单来说就是用来整合 Objective C 和 C++ 代码的一个封装：</p>
+<p><strong>ChakraProxy.h</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface ChakraProxy : NSObject</span><br><span class="line"></span><br><span class="line">-(void)run;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><strong>ChakraProxy.m</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;ChakraProxy.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation ChakraProxy</span><br><span class="line"></span><br><span class="line">-(void)run &#123;</span><br><span class="line">  NSLog(@&quot;Hello from the JSVM thread!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>显而易见，ChakraProxy 除了输出一行日志之外，什么也没有做，但是我们可以在此基础上开展更多的工作了。在下一篇我们会添加更多的功能，比如整合 ChakraCore，基本的桥接模型，以及其他好多好多内容。</p>
+<p>与此同时，可以从<a href="http://github.com/Kureev/ExampleBridge" target="_blank" rel="noopener">我的 Github</a> 下面获取实例代码来本地运行测试看看。</p>
+<p>如果想要了解更多关于 Runtime，Context，Scope 以及如何通过 C++ 扩充 JS 的功能，那就敬请期待下一篇吧。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/echarts-3-4-0/" class="article-prev">前一篇: ECharts 3.4 版本发布：新增象形柱图、主题河流图、水球图</a>
+    
+    
+    <a href="/blog/introduction-about-ioc-in-frontend/" class="article-next">后一篇: 前端 IoC 理念入门</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/how-to-create-you-own-native-bridge/" data-title="如何编写自己的 Native Bridge" data-url="http://efe.baidu.com/blog/how-to-create-you-own-native-bridge/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

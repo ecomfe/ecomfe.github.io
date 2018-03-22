@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>ECharts 实现地图散点图（上） | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>ECharts 实现地图散点图（上）</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        小红
+    
+</span>
+
+        <time datetime="2016-04-27T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-04-28</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/ECharts/">ECharts</a>, <a href="/tags/教程/">教程</a>, <a href="/tags/地图/">地图</a></span>
+
+
+    </div>
+
+    
+        <p>ECharts 作为国内应用最广泛的前端可视化生成工具，提供了丰富的图表展现方式和便捷的图表操作。 ECharts 支持 geoJson 格式的地图，并且官网上提供了现成的 world，china 及全国34个省市自治区地图的下载。这篇文章中我们将会讲解如何使用 ECharts 实现一个中国地图上绘制的散点图。</p>
+<a id="more"></a>
+<h2 id="一初始准备">一、初始准备</h2>
+<h4 id="新建html">1. 新建html</h4>
+<p>首先，新建项目目录 echartsMapDemo，在其中新建一个 html 文件 <code>index.html</code>。</p>
+<p>echartsMapDemo/index.html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">title</span>&gt;</span>ECharts map Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="引入echarts文件">2.引入echarts文件</h4>
+<p>从 <a href="http://echarts.baidu.com/download.html" target="_blank" rel="noopener">echarts官网</a> 下载最新完整开发包（目前最新版本是3.1.4）。</p>
+<p>将下载好的包放置在 <code>echartsMapDemo/dep</code> 目录下并在 html 中以 script 标签引入：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>ECharts map Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/dep/echarts.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="创建图标容器">3.创建图标容器</h4>
+<p>在 html 中定义一个 div 作为地图的容器，高度设为 500px 。别忘了，一定要保证容器高度不为 0：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>ECharts map Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"map-wrap"</span> <span class="attr">style</span>=<span class="string">"height: 500px;"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 这里以后是地图 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/dep/echarts.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后，我们还需要一个地图文件，echart 提供两种格式的地图数据，一种是 js 格式，一种是 JSON 格式。下文中我们会分别使用这两种方式实现。</p>
+<p>同样去 <a href="http://echarts.baidu.com/download-map.html" target="_blank" rel="noopener">官网</a> 上下载，这里选择下载中国地图 china.js 或 china.json 。你也可以根据需要选择其他省份地图或世界地图</p>
+<p>好了，准备工作完成，现在就开始绘制地图了~</p>
+<h2 id="二绘制地图">二、绘制地图</h2>
+<p>echart 提供两种格式的地图数据，一种是 js 格式，一种是 JSON 格式。下面分别介绍两种格式的用法：</p>
+<h3 id="引用js格式地图数据">引用js格式地图数据：</h3>
+<h4 id="在官网上下载-js-格式中国地图-china.js将下载好的-china.js-放在-echartsmapdemomapjs-目录下以-script-标签引入到-html-中">1.在<a href="http://echarts.baidu.com/download-map.html" target="_blank" rel="noopener">官网</a>上下载 js 格式中国地图 china.js，将下载好的 china.js 放在 <code>echartsMapDemo/map/js</code> 目录下，以 script 标签引入到 html 中:</h4>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>ECharts map Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"map-wrap"</span> <span class="attr">style</span>=<span class="string">"height: 500px;"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 这里以后是地图 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/dep/echarts.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/map/js/china.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="在js中用-echarts.init-方法初始化一个-echarts-实例在-init-中传入图表容器-dom-对象">2.在js中用 <code>echarts.init()</code> 方法初始化一个 ECharts 实例，在 init() 中传入图表容器 Dom 对象，</h4>
+<p>同时定义一个变量 <code>option</code>，作为图表的配置项：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化echarts示例mapChart</span></span><br><span class="line"><span class="keyword">var</span> mapChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'map-wrap'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// mapChart的配置</span></span><br><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="通过配置-option新建一个地理坐标系-geo-地图类型为中国地图">3.通过配置 option，新建一个地理坐标系 <code>geo</code> ，地图类型为中国地图。</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">	geo: &#123;</span><br><span class="line">      	map: <span class="string">'china'</span></span><br><span class="line">  	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>geo.map 属性定义该地理坐标系中的地图数据，这里我们要用 china.js ，设置map值为 'china'。</p>
+<p>这里需要注意，中国地图的map值为 'china' ，世界地图的map值为 'world' ，但如果要引用省市自治区地图 map 值为<strong>简体中文</strong>，例如 beijing.js，map 值为'北京'。</p>
+<h4 id="调用-setoptionoption-为图表设置配置项">4.调用 <code>setOption(option)</code> 为图表设置配置项。</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapChart.setOption(option);</span><br></pre></td></tr></table></figure>
+<h3 id="引用json格式地图数据">引用JSON格式地图数据：</h3>
+<h4 id="同样在官网下载json格式的地图数据放在echartsmapdemomapjson目录下">1.同样在<a href="http://echarts.baidu.com/download-map.html" target="_blank" rel="noopener">官网</a>下载JSON格式的地图数据，放在<code>echartsMapDemo/map/json</code>目录下</h4>
+<h4 id="json数据通过异步方式加载加载完成后需要手动注册地图">2.json数据通过异步方式加载，加载完成后需要手动注册地图</h4>
+<p>这里我们使用 jQuery 的 $.get() 方法异步加载 china.json （首先要在html中引用 jquery ，这里省略操作说明），在回调函数中，以上述同样的方法初始化一个 mapCharts 、注册地图并设置 option：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$.get(<span class="string">'map/json/china.json'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chinaJson</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">		echarts.registerMap(<span class="string">'china'</span>, chinaJson); <span class="comment">// 注册地图</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">var</span> mapChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'map-wrap'</span>));</span><br><span class="line"></span><br><span class="line">  		<span class="keyword">var</span> option = &#123;</span><br><span class="line">  			geo: &#123;</span><br><span class="line">      			map: <span class="string">'china'</span></span><br><span class="line">  			&#125;</span><br><span class="line">  		&#125;</span><br><span class="line"></span><br><span class="line"> 		 	mapChart.setOption(option);</span><br><span class="line"></span><br><span class="line">  	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在就可以在页面中看到中国地图了：</p>
+<div class="figure">
+<img src="/blog/echarts-map-tutorial/echarts-map-tutorial-china-js-1.png" alt="地图"><p class="caption">地图</p>
+</div>
+<p>为了突出散点效果，先为地图改个颜色</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">	geo: &#123;</span><br><span class="line">        map: <span class="string">'china'</span>,</span><br><span class="line"></span><br><span class="line">        itemStyle: &#123;					<span class="comment">// 定义样式</span></span><br><span class="line">            normal: &#123;					<span class="comment">// 普通状态下的样式</span></span><br><span class="line">                areaColor: <span class="string">'#323c48'</span>,</span><br><span class="line">                borderColor: <span class="string">'#111'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            emphasis: &#123;					<span class="comment">// 高亮状态下的样式</span></span><br><span class="line">                areaColor: <span class="string">'#2a333d'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">	backgroundColor: <span class="string">'#404a59'</span>,  		<span class="comment">// 图表背景色</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>换装后的地图：</p>
+<div class="figure">
+<img src="/blog/echarts-map-tutorial/echarts-map-tutorial-china-js-2.png" alt="中国地图底图"><p class="caption">中国地图底图</p>
+</div>
+<h2 id="三绘制散点图">三、绘制散点图</h2>
+<hr>
+<h4 id="新建散点图series">1.新建散点图series</h4>
+<p>在 option 中添加一个 series ， series 的类型为散点图 <code>scatter</code> ，坐标系为地理坐标系 <code>geo</code> 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">	geo: &#123;</span><br><span class="line">      	...</span><br><span class="line">  	&#125;,</span><br><span class="line">	backgroundColor: <span class="string">'#404a59'</span>,</span><br><span class="line"></span><br><span class="line">	series: [</span><br><span class="line">		&#123;</span><br><span class="line">			name: <span class="string">'销量'</span>, <span class="comment">// series名称</span></span><br><span class="line">			type: <span class="string">'scatter'</span>, <span class="comment">// series图表类型</span></span><br><span class="line">			coordinateSystem: <span class="string">'geo'</span> <span class="comment">// series坐标系类型</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="添加数据">2.添加数据</h4>
+<p>ECharts 中 series.data 是定义图表数据内容的数组，其中每个项数据格式为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	name: <span class="string">'北京'</span>,    <span class="comment">// 数据项名称，在这里指地区名称</span></span><br><span class="line"></span><br><span class="line">	value: [        <span class="comment">// 数据项值</span></span><br><span class="line">		<span class="number">116.46</span>,     <span class="comment">// 地理坐标，经度</span></span><br><span class="line">		<span class="number">39.92</span>,      <span class="comment">// 地理坐标，纬度</span></span><br><span class="line">		<span class="number">340</span>         <span class="comment">// 北京地区的数值</span></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先我们将需要渲染的数据转换成上述数据格式，存在一个变量中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myData = [</span><br><span class="line"></span><br><span class="line">	&#123;<span class="attr">name</span>: <span class="string">'海门'</span>, <span class="attr">value</span>: [<span class="number">121.15</span>, <span class="number">31.89</span>, <span class="number">90</span>]&#125;,</span><br><span class="line">  	&#123;<span class="attr">name</span>: <span class="string">'鄂尔多斯'</span>, <span class="attr">value</span>: [<span class="number">109.781327</span>, <span class="number">39.608266</span>, <span class="number">120</span>]&#125;,</span><br><span class="line">  	&#123;<span class="attr">name</span>: <span class="string">'招远'</span>, <span class="attr">value</span>: [<span class="number">120.38</span>, <span class="number">37.35</span>, <span class="number">142</span>]&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'舟山'</span>, <span class="attr">value</span>: [<span class="number">122.207216</span>, <span class="number">29.985295</span>, <span class="number">123</span>]&#125;,</span><br><span class="line">  	...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>然后，将 myData 赋值给 series.data：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">	geo: &#123;</span><br><span class="line">      	...</span><br><span class="line">  	&#125;,</span><br><span class="line">  	backgroundColor: <span class="string">'#404a59'</span>,</span><br><span class="line">	series: [</span><br><span class="line">		&#123;</span><br><span class="line">			name: <span class="string">'销量'</span>,</span><br><span class="line">			type: <span class="string">'scatter'</span>,</span><br><span class="line">			coordinateSystem: <span class="string">'geo'</span>,</span><br><span class="line"></span><br><span class="line">			data: myData <span class="comment">// series数据内容</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>数据添加完成，就可以在图表中看到渲染出的散点了：</p>
+<div class="figure">
+<img src="/blog/echarts-map-tutorial/echarts-map-tutorial-scatter-1.png" alt="散点图1"><p class="caption">散点图1</p>
+</div>
+<h4 id="添加视觉映射组件">3.添加视觉映射组件</h4>
+<p><a href="http://echarts.baidu.com/option.html#visualMap" target="_blank" rel="noopener">视觉映射组件</a>是标识某一数据范围内数据及颜色对应关系的控件，视觉映射组件分为连续型和分段型，这里我们选用连续型 <code>type:continuous</code> 。同时，通过视觉映射组件可以实现 ECharts 值域漫游功能，即通过拖拽控件手柄选择不同数值范围，达到对图表数据的筛选显示。 在 <code>visualMap</code> 属性中设置值域控件的相关配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	visualMap: &#123;</span><br><span class="line">		type: <span class="string">'continuous'</span>, <span class="comment">// 连续型</span></span><br><span class="line">		min: <span class="number">0</span>,       		<span class="comment">// 值域最小值，必须参数</span></span><br><span class="line">		max: <span class="number">200</span>,			<span class="comment">// 值域最大值，必须参数</span></span><br><span class="line">		calculable: <span class="literal">true</span>,	<span class="comment">// 是否启用值域漫游</span></span><br><span class="line">		inRange: &#123;</span><br><span class="line">             	color: [<span class="string">'#50a3ba'</span>,<span class="string">'#eac736'</span>,<span class="string">'#d94e5d'</span>]</span><br><span class="line">                             <span class="comment">// 指定数值从低到高时的颜色变化</span></span><br><span class="line">          &#125;,</span><br><span class="line">		textStyle: &#123;</span><br><span class="line">			color: <span class="string">'#fff'</span>	<span class="comment">// 值域控件的文本颜色</span></span><br><span class="line">		&#125;</span><br><span class="line">     	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>添加了值域控件的图表效果：</p>
+<div class="figure">
+<img src="/blog/echarts-map-tutorial/echarts-map-tutorial-china-js-2.png" alt="散点图2"><p class="caption">散点图2</p>
+</div>
+<p>这样一个基于中国地图的散点图就基本实现了，如果想要继续完善图表，可以为它添加标题，图例，高亮提示等控件，配置方式在这里查看（<a href="http://echarts.baidu.com/option.html#title" target="_blank" rel="noopener">ECharts 配置项手册</a>），在此不再详细说明。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/managing-the-private-data-of-es6-classes/" class="article-prev">前一篇: 如何在ES6中管理类的私有数据</a>
+    
+    
+    <a href="/blog/text-truncating/" class="article-next">后一篇: 前端文本截断</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/echarts-map-tutorial/" data-title="ECharts 实现地图散点图（上）" data-url="http://efe.baidu.com/blog/echarts-map-tutorial/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

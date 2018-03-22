@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<a class="rss" title="RSS Feed" href="/atom.xml"><i class="fa fa-rss-square"></i></a>
+<main>
+<a class="fecs-banner-zone" rel="fecs" href="http://fecs.baidu.com/" target="_blank"><img alt="知识共享许可协议" src="/img/fecs-banner.png"></a>
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/echarts-3.2.0/">ECharts 3.2.0 变动介绍</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="https://github.com/pissang" title="pissang">pissang</a>
+    
+</span>
+
+        <time datetime="2016-06-30T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-07-01</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/数据可视化/">数据可视化</a>, <a href="/tags/ECharts/">ECharts</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>在 6 月 30 这个 ECharts 三周年之际我们发布了 3.2.0，这个版本是 ECharts 进入 3 之后最大的一次升级，新增的特性中有些是大家反复提了好久的，有些是我们自己想了很久的，有些我们在实现后光看看效果都觉得非常激动，有些可能看不出来区别但是我们也在底层做了很多工作。</p>
+<p>希望这个开发了长达一个多月时间的新版本不会让大家失望。</p>
+<h2 id="新版本都有哪些东西">新版本都有哪些东西？</h2>
+<p>在功能方面，这个版本新增了 brush（刷选），markArea，单轴等组件，除此之外对已有的图表组件，比如折线图，线图，dataZoom，坐标轴等做了或多或少的增强和优化，当然还有一些 bug 的修复。</p>
+<p>这个版本在底层的性能上也做了很多的优化工作，首先直观的用数据来说大部分场景底层重绘的效率是原先的 2x~3x。其次是引入了渐进式渲染和单独的高亮层防止图形很多的时候交互和重绘带来很严重的阻塞。</p>
+<p>同时我们官网还新增了一款 <a href="http://echarts.baidu.com/theme-builder.html" target="_blank" rel="noopener">主题编辑器</a> 方便大家编辑自己的主题</p>
+<p>下面会一一介绍这些新特性。<strong>多图流量党慎入！</strong> 完整无图的 changelog 见 <a href="http://echarts.baidu.com/changelog.html" target="_blank" rel="noopener">这里</a></p>
+        <a class="article-readmore" href="/blog/echarts-3.2.0/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/echarts-map-tutorial-2/">ECharts 实现地图散点图（下）</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        小红
+    
+</span>
+
+        <time datetime="2016-06-12T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-06-13</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/ECharts/">ECharts</a>, <a href="/tags/教程/">教程</a>, <a href="/tags/地图/">地图</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>上一篇我们介绍了如何使用 ehcarts 内置地图实现地图上绘制的散点图，这篇中，我们将讲解如何在百度地图上绘制散点图。</p>
+        <a class="article-readmore" href="/blog/echarts-map-tutorial-2/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/echarts-map-tutorial/">ECharts 实现地图散点图（上）</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        小红
+    
+</span>
+
+        <time datetime="2016-04-27T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2016-04-28</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/ECharts/">ECharts</a>, <a href="/tags/教程/">教程</a>, <a href="/tags/地图/">地图</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>ECharts 作为国内应用最广泛的前端可视化生成工具，提供了丰富的图表展现方式和便捷的图表操作。 ECharts 支持 geoJson 格式的地图，并且官网上提供了现成的 world，china 及全国34个省市自治区地图的下载。这篇文章中我们将会讲解如何使用 ECharts 实现一个中国地图上绘制的散点图。</p>
+        <a class="article-readmore" href="/blog/echarts-map-tutorial/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/whats-new-in-ec3/">ECharts 3 带来了什么</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://echarts.baidu.com/" title="echarts">echarts</a>
+    
+</span>
+
+        <time datetime="2015-12-03T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-12-04</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/数据可视化/">数据可视化</a>, <a href="/tags/ECharts/">ECharts</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <style>
+    .ec-lazy {
+        position: relative;
+        padding: 0;
+        text-align: center;
+    }
+    .ec-lazy img {
+        vertical-align: middle;
+    }
+    .ec-lazy iframe {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border-width: 0;
+        overflow: visible;
+        visibility: visible;
+    }
+    .ec-lazy .thumb-btn {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        height: 22px;
+        line-height: 22px;
+        text-align: center;
+    }
+    .ec-lazy .thumb-btn em {
+        font-style: normal;
+        border-radius: 3px;
+        padding: 3px 5px;
+        margin: 3px 5px;
+        color: white;
+        background: #337ab7;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    .ec-lazy .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<p>ECharts 在 github 上沉寂了数个月，想必很多小伙伴充满了各种疑问，ECharts是不是不维护了？你们以后是不是不做了？别着急，其实这几个月，我们的设计师、工程师一直厉兵秣马，加班加点，没有周末，没有女朋友地疯狂工作中。</p>
+<p>终于，ECharts 的又一个重大版本即将出炉，在 ECharts 3 正式版发行前，我们选择了今天，12.3，一个能够隐喻我们一步一步从1.0到2.0再到3.0走来的日子，提前给广大用户带来 ECharts 3 的测试版。</p>
+<p>那 ECharts 3 究竟会有哪些新的特征，我们用数月究竟在颠覆着自己的什么呢？接下来让我们一一为您道来：</p>
+<h2 id="焕然一新的面貌">焕然一新的面貌</h2>
+<div class="figure">
+<img src="/blog/whats-new-in-ec3/img/first.png" alt="焕然一新的面貌"><p class="caption">焕然一新的面貌</p>
+</div>
+<p>从底层的技术架构到上层的外观展现，都进行了较大的升级。无需多言，请看下面的诸多例子。</p>
+        <a class="article-readmore" href="/blog/whats-new-in-ec3/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/echarts-2.2.2/">ECharts 发布 2.2.2</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://weibo.com/u/1403623137" title="diysimon">diysimon</a>
+    
+</span>
+
+        <time datetime="2015-04-29T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-04-30</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/数据可视化/">数据可视化</a>, <a href="/tags/ECharts/">ECharts</a></span>
+
+
+    </div>
+
+    
+    <section>
+        <p>在五一劳动节的前一天，ECharts发布了一个非常2的版本，2.2.2。在本版本中，我们一共做了以下重大升级：</p>
+<ul>
+<li>新增韦恩图(venn)及Treemap</li>
+<li>发布 ECharts 在线构建工具</li>
+<li>新增对数轴</li>
+</ul>
+<p>并且修复了一些反馈较多、优先级较高的问题：</p>
+<ul>
+<li>增加了大规模折线图添加数据抽希策略配置。<a href="https://github.com/ecomfe/echarts/issues/1370" target="_blank" rel="noopener">解决原有抽希策略导致的数据精度缺失问题</a></li>
+<li>symbolSize 支持通过数组分别设置宽高</li>
+<li>修复 <a href="https://github.com/ecomfe/echarts/issues/1308" target="_blank" rel="noopener">mac safari饼图性能问题</a></li>
+<li>支持 z, zlevel 的配置</li>
+</ul>
+        <a class="article-readmore" href="/blog/echarts-2.2.2/">阅读全部</a>
+    </section>
+    
+</article>
+
+
+
+    <article class="article-index">
+    
+        <h2><a href="/blog/echarts-course/">ECharts基础教程视频发布</a></h2>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://errorrik.com/" title="errorrik">errorrik</a>
+    
+</span>
+
+        <time datetime="2015-03-26T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-03-27</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/数据可视化/">数据可视化</a>, <a href="/tags/ECharts/">ECharts</a></span>
+
+
+    </div>
+
+    
+        <div class="figure">
+<img src="/blog/echarts-course/ec.jpg">
+</div>
+<p><a href="http://echarts.baidu.com" target="_blank" rel="noopener">ECharts</a>的创始人，<a href="http://weibo.com/u/1808084593" target="_blank" rel="noopener">Kener-林峰</a>在网易云课堂上发布了<a href="http://study.163.com/course/courseMain.htm?courseId=1016007" target="_blank" rel="noopener">《ECharts基础教程》</a>视频，定价<code>99元</code>。是的，你没看错，这次不是免费的。</p>
+<p>在EFE，我们要求所有业务无关的技术产品必须开源。我们知道即使开源也可能没什么人会和你一起玩，但开源代表的是我们开放的态度，欢迎别人一起玩，欢迎大家用，更欢迎大家监督，这对我们自己也是一种鞭策。所以ECharts一开始就是开源的，而且是BSD协议，可以免费用在任何地方。相比之下，HighCharts商业使用是要收费的，这是越来越多的用户开始使用ECharts的原因之一。但是更重要的，ECharts能有今天的成绩，是因为林峰。</p>
+<p>作为林峰的战友，我目睹了他在这两年多来的努（wan）力（ming）。我经常能够看到他晚上两点im工具的头像还是亮的。有时候他会凌晨三四点钟梦到一个feature，兴奋得睡不着，又为了不打扰到家人，就开车到公司来干。这时候公司的地下停车场还没开门，车就只能停在地上。我相信这是梦想和他本身的热情。</p>
+<p>和很多技术geek不同，他很注重技术产品的API易用性。大家在谈论一个lib怎么拆分才能更好扩展的时候，他会更关注提供的API是怎样别人用的才更舒服。我也看到很多技术产品本身很厉害但是例子和文档都不全导致感兴趣的人无从下手，这些脏活累活的周边重要度甚至超过了产品本身，但技术人员往往排斥这些事情。他和别人不同，他花费了很大的时间和精力去制作了ECharts的官网、文档、上百个例子、还有《Why ECharts》的展示页。这也是ECharts能有这么多用户的重要因素。我一直想用static site generator去重构ECharts的官网，但看着这么多页面，最终还是没有找到勇气和足够大块的时间下手。</p>
+<p>他能够把握ECharts每个feature发布的时间，每次发布都有很多独有的亮点，能吸引不少用户。当然这都是后话，对他而言，心里的想法很多，就是做一些，发布一版，再做一些，再发布，很自然的事情。</p>
+<p>从发布1.0、2.0、再上了GitHub Explore后，ECharts的用户呈现了爆发式的增长，每天收到的开源中国、GitHub issue、邮件都有很多，而且很大一部分是问一些比较显而易见能够在官网上找到答案或例子的问题。我对ECharts的使用不熟，只能回一些简单的问题，光是“ECharts商用是不是免费”的邮件我已经回过好多封了。我看到林峰每天依旧很忙，但是ECharts的进步速度确实在放慢，他每天花很多时间在回复一些显而易见的问题上。然后他和我说，太多重复的问题了，我要做一个视频教程系列，以后就不用回答这些问题了。所以大家可以看到，<a href="http://study.163.com/course/courseMain.htm?courseId=1016007" target="_blank" rel="noopener">《ECharts基础教程》</a>的第一篇就是《如何使用官网》。</p>
+<p>人可以有不止一个梦想。两周以前，林峰离开了EFE，离开了数据可视化，去追逐更高的梦想和天空。然后他发出了在春节放假期间录制的<a href="http://study.163.com/course/courseMain.htm?courseId=1016007" target="_blank" rel="noopener">《ECharts基础教程》</a>，定价<code>99元</code>。我们讨论过这个问题，我个人觉得他定价是比较低的，现在的物价请人吃饭都要至少一百块。我们相信：</p>
+<ul>
+<li>还是有人愿意为了知识买单的。</li>
+<li>如果你花钱了，你就会有动力去看完。免费的东西会有很多人不珍惜。自己约的x就要努力x完。</li>
+<li>如果你觉得贵，就当是买了一份ECharts咯。ECharts的用户大多是工程师。如果工程师自己都不愿意为技术产品买单，谁会为你的劳动买单呢？</li>
+</ul>
+
+    
+</article>
+
+
+
+
+    <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/tags/ECharts/page/2/">&lt;</a><a class="page-number" href="/tags/ECharts/">1</a><a class="page-number" href="/tags/ECharts/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/tags/ECharts/page/4/">4</a><a class="extend next" rel="next" href="/tags/ECharts/page/4/">&gt;</a>
+    </nav>
+
+
+</main>
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

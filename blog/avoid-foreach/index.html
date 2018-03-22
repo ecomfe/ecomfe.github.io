@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>避免使用 forEach | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>避免使用 forEach</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        yaochang
+    
+</span>
+
+        <time datetime="2015-07-27T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2015-07-28</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/JavaScript/">JavaScript</a>, <a href="/tags/forEach/">forEach</a></span>
+
+
+    </div>
+
+    
+        <p>原文：<a href="http://aeflash.com/2014-11/avoid-foreach.html" class="uri" target="_blank" rel="noopener">http://aeflash.com/2014-11/avoid-foreach.html</a></p>
+<blockquote>
+<p>遍历集合，会产生副作用。——如 <a href="http://swannodette.github.io/mori/#each" target="_blank" rel="noopener">mori.each 文档</a>所说</p>
+</blockquote>
+<p>首先声明，本文和性能无关。执行 <code>for</code> 循环总是比执行 <code>Array.forEach</code> 快。如果性能测试显示迭代的开销足够显著并且性能优先，那么你绝对应该使用 <code>for</code> 循环而不是 <code>forEach</code>（总是使用 <code>for</code> 循环是典型的过早优化。<code>forEach</code> 仍然可以在 1 微秒内遍历长度为 50 的数组）。本文和编码风格有关，是我对 <code>forEach</code> 和其它 <code>Array.prototype</code> 方法的思考，与性能无关。</p>
+<a id="more"></a>
+<h3 id="foreach-为副作用而生">forEach 为副作用而生</h3>
+<p>当人们想要把代码重构成一个更加实用的风格时，往往首选 <code>[].forEach</code> 或 <code>_.each</code>。<code>forEach</code> 直接模拟最基本的 <code>for</code> 循环——遍历数组并且执行一些操作——所以它是一个很机械的转换。但是就像 <code>for</code> 循环一样，<code>forEach</code> 在程序的某个地方必定会产生副作用。它必须修改父作用域中的对象，或者调用一个外部方法，或者使用迭代函数以外的其它变量。使用 <code>forEach</code> 也意味着你的迭代函数和它所在的作用域产生了耦合。</p>
+<p>在编程中，我们通常认为副作用是不好的。他们使程序更难理解，可能导致 bug 的产生，而且难以重构。当然，<code>forEach</code> 在大项目中引起的副作用是微不足道的，但是这些副作用是不必要的。</p>
+<p>当然也有一些副作用是无法避免的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这种情况完全可以接受。</p>
+<h3 id="foreach-隐藏了迭代的意图"><code>forEach</code> 隐藏了迭代的意图</h3>
+<p>阅读 <code>forEach</code> 代码段的时候，你并不能马上知道它的作用，只知道它会在某个地方产生副作用，然后必须阅读这段代码或者注释才明白。这是一个非语义的方法。</p>
+<p>除了 <code>forEach</code>，还有更好的迭代方法。比如 <code>map</code>——在使用迭代函数以后会返回一个新数组；比如 <code>filter</code>——返回由符合条件的元素组成的新数组；比如 <code>some</code>（或者 <code>_.any</code>）——如果数组中至少有一个元素满足要求时返回 <code>true</code>；比如 <code>every</code>（或者 <code>_.all</code>）——如果数组中所有元素满足要求时返回 <code>true</code>；比如 <code>reduce</code>——遍历数组并且使用数组中的所有元素进行某种操作迭代生成一个新的变量，数组中的很多方法都可以用 <code>reduce</code> 来实现。ES5 的数组方法非常强大，希望你对此并不陌生。<a href="https://lodash.com/" target="_blank" rel="noopener">Lodash</a>/Underscore 库增强了 ES5 的方法，增加了很多有用且语义化的迭代函数（此外还提供了可用于对象的数组原型方法的更优实现）。</p>
+<h3 id="重构">重构</h3>
+<p>下面是一些实际项目中使用 <code>each</code> 的例子，看看如何更好地重构它们。</p>
+<h4 id="例-1">例 1</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">    obj[item.key] = item;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这是一个很常见的操作——将数组转换为对象。由于迭代函数依赖 <code>obj</code>，所以 <code>forEach</code> 跟它所在的作用域耦合在一起。迭代函数不能在它的闭包作用域之外执行。我们换个方式来重写它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = arr.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">newObj, item</span>) </span>&#123;</span><br><span class="line">    newObj[item.key] = item;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;, &#123;&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在归并函数只依赖于它的形参，没有别的。<code>reduce</code> 无副作用——遍历集合，并且只产出一个东西。它是 ES5 方法中最不语义的方法，但它很灵活，可以用来实现所有其余的函数。</p>
+<p>Lodash 还有更语义化的写法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj  = _.zipObject(_.pluck(arr, <span class="string">'key'</span>), arr);</span><br></pre></td></tr></table></figure>
+<p>这里需要遍历2次，但是看起来更直观。</p>
+<blockquote>
+<p>译者注：实际上有更好的方法 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = _.indexBy(arr, <span class="string">'key'</span>);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="例-2">例 2</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> replacement = <span class="string">'foo'</span>;</span><br><span class="line"><span class="keyword">var</span> replacedUrls = urls;</span><br><span class="line"></span><br><span class="line">urls.forEach(<span class="function"><span class="keyword">function</span> <span class="title">replaceToken</span>(<span class="params">url, index</span>) </span>&#123;</span><br><span class="line">    replacedUrls[index] = url.replace(<span class="string">'&#123;token&#125;'</span>, replacement);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>用 <code>map</code> 重构：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> replacement = <span class="string">'foo'</span>;</span><br><span class="line"><span class="keyword">var</span> replacedUrls;</span><br><span class="line"></span><br><span class="line">replacedUrls = urls.map(<span class="function"><span class="keyword">function</span> (<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> url.replace(<span class="string">'&#123;token&#125;'</span>, replacement);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>map</code> 函数仍然依赖于 <code>replacement</code> 的作用域，但是迭代的意图更加清晰。前一种方法改变了 <code>urls</code> 数组，而 <code>map</code> 函数则分配了一个新的数组。需要注意的是，它对 <code>urls</code> 的修改不易被察觉，其它地方可能仍然期望 <code>urls</code> 中会含有 <code>{token}</code>。采用分配新数组的方法可以防止这个小细节引发的问题，代价就是需要多一点内存开销。</p>
+<h4 id="例-3">例 3</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">_.each(<span class="keyword">this</span>.values, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id = <span class="string">'radio_button_'</span> + self.groupName + <span class="string">'_'</span> + value.id;</span><br><span class="line"></span><br><span class="line">    html += <span class="string">''</span></span><br><span class="line">        + <span class="string">'&lt;li&gt;'</span></span><br><span class="line">        +   <span class="string">'&lt;input type="radio" name="'</span> + self.groupName + <span class="string">'" id="'</span> + id + <span class="string">'" value="'</span> + value.id + <span class="string">'"&gt;'</span></span><br><span class="line">        +   <span class="string">'&lt;label for="'</span> + id + <span class="string">'"&gt;'</span> + value.description + <span class="string">'&lt;/label&gt;'</span></span><br><span class="line">        + <span class="string">'&lt;/li&gt;'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!touchEnabled) &#123;</span><br><span class="line">        <span class="keyword">var</span> tooltip = value.getTooltip();</span><br><span class="line">        <span class="keyword">if</span> (tooltip) &#123;</span><br><span class="line">            self.tooltips.push(tooltip);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这个例子稍微复杂一点。这段代码实际上做了两件事：拼接 HTML 字符串，为每一个 <code>value</code> 创建 <code>tooltips</code>。其实迭代函数没必要这么复杂——或者如 Rich Hickey 所说的 「<a href="http://www.infoq.com/presentations/Simple-Made-Easy" target="_blank" rel="noopener">complected</a>」。它将两种操作放在一个函数里，而实际上没有必要。第一部分操作是典型的 <code>reduce</code> 函数的应用范围，所以我们把这两部分操作分开：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html;</span><br><span class="line"><span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">html = _.reduce(<span class="keyword">this</span>.values, <span class="function"><span class="keyword">function</span> (<span class="params">str, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id = <span class="string">'radio_button_'</span> + self.groupName + <span class="string">'_'</span> + value.id;</span><br><span class="line"></span><br><span class="line">    str += <span class="string">''</span></span><br><span class="line">        + <span class="string">'&lt;li&gt;'</span></span><br><span class="line">        +   <span class="string">'&lt;input type="radio" name="'</span> + self.groupName + <span class="string">'" id="'</span> + id + <span class="string">'" value="'</span> + value.id + <span class="string">'"&gt;'</span></span><br><span class="line">        +   <span class="string">'&lt;label for="'</span> + id + <span class="string">'"&gt;'</span> + value.description + <span class="string">'&lt;/label&gt;'</span></span><br><span class="line">        + <span class="string">'&lt;/li&gt;'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;, <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line">_.each(<span class="keyword">this</span>.values, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!touchEnabled) &#123;</span><br><span class="line">        <span class="keyword">var</span> tooltip = value.getTooltip();</span><br><span class="line">        <span class="keyword">if</span> (tooltip) &#123;</span><br><span class="line">            self.tooltips.push(tooltip);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>现在第一部分就可以接受了。在 <code>values</code> 上迭代，最后生成 HTML 字符串。它仍然依赖于 <code>self.groupName</code>，不过可以通过偏函数（<a href="https://en.wikipedia.org/wiki/Partial_application" target="_blank" rel="noopener">partial application</a>）来避免。</p>
+<blockquote>
+<p>译者注：Underscore 中提供了偏函数 <code>_.partial</code> 可以帮助我们解决这个问题，相应的代码如下：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> part = _.partial(<span class="function"><span class="keyword">function</span> (<span class="params">groupName, str, value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ....</span></span><br><span class="line">&#125;, self.groupName);</span><br><span class="line"></span><br><span class="line">_.reduce(<span class="keyword">this</span>.values, part, <span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+<p>现在来看一下第二部分。如果 <code>touchEnabled</code> 为假，可以得到 <code>tooltip</code>。这时不确定会不会返回一个有效的 <code>tooltip</code>，因此将每个实例对应的 <code>tooltip</code> 放进数组中的操作是带条件的。我们可以把多个方法串联起来解决这个问题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!touchEnabled) &#123;</span><br><span class="line">    <span class="keyword">this</span>.tooltips = <span class="keyword">this</span>.tooltips.concat(</span><br><span class="line">        <span class="keyword">this</span>.values</span><br><span class="line">            .map(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> value.getTooltip();</span><br><span class="line">            &#125;)</span><br><span class="line">            .filter(_.identity)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们将 touch 检查移到循环的外面，因为只需要检查一次就够了。然后对集合使用 <code>map</code> 方法，在每次迭代中调用 <code>getTooltip()</code>，然后过滤掉不符合条件的值。最后结果合并到 <code>tooltips</code> 数组。这种方法每次都会创建临时数组，但是正如我在其它例子中所说的，表达清晰更重要。</p>
+<p>你可以定义一个辅助函数把上面的内联函数去掉：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dot = _.curry(<span class="function"><span class="keyword">function</span> (<span class="params">methodName, object</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> object[methodName]();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">this</span>.tooltips = <span class="keyword">this</span>.tooltips.concat(</span><br><span class="line">    <span class="keyword">this</span>.values</span><br><span class="line">        .map(dot(<span class="string">'getTooltip'</span>))</span><br><span class="line">        .filter(_.identity)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>这样更简洁直观。</p>
+<blockquote>
+<p>译者注：这里其实可以直接用 <code>_.invoke</code> 函数和 <code>_.union</code> 函数，更加简洁。 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.tooltips = _.union(<span class="keyword">this</span>.tooltips, _.filter(_.invoke(<span class="keyword">this</span>.values, <span class="string">'getTooltip'</span>), _.identity));</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="例-4">例 4</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> matches = [];</span><br><span class="line"><span class="keyword">var</span> nonMatches = [];</span><br><span class="line"></span><br><span class="line">values.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (matchesSomething(value)) &#123;</span><br><span class="line">        matches.push(value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        nonMatches.push(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这个例子看起来很简单——基于判断条件将数组拆分成两个。但还不够简单。我会这样重写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> matches = values.filter(matchesSomething);</span><br><span class="line"><span class="keyword">var</span> nonMatches = values.filter(not(matchesSomething));</span><br></pre></td></tr></table></figure>
+<p>迭代函数实际上在做两件事，拆分成两个迭代函数更加清晰。如果确实有成千上万的值，或者 <code>matchesSomething</code> 操作非常耗时，我会保留第一种方案。</p>
+<blockquote>
+<p>译者注：这段代码其实可以用 <code>reduce</code> 加以改进：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = values.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">result, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (matchesSomething(value)) &#123;</span><br><span class="line">        result.matches.push(value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        result.nonMatches.push(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, &#123;<span class="attr">matches</span>: [], <span class="attr">nonMatches</span>: []&#125;);</span><br></pre></td></tr></table></figure>
+<p>重构时你会发现多了些东西，如果这些东西使程序更简单，那就没问题。多个简单的东西组合起来会比一个大而复杂的东西更容易理解。</p>
+<h3 id="转换器">转换器</h3>
+<p>让我们再看一下例 3 的最终代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.tooltips = <span class="keyword">this</span>.tooltips.concat(</span><br><span class="line">    <span class="keyword">this</span>.values</span><br><span class="line">        .map(dot(<span class="string">'getTooltip'</span>))</span><br><span class="line">        .filter(_.identity)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><code>map</code> 和 <code>filter</code> 的串联操作意味着临时数组的创建和删除。对于元素较少的数组来说是可以接受的，额外的开销可以忽略不计。但是如果这个数组包含了数千个元素，或者要做很多次的映射和过滤操作呢？这时单一的迭代函数又变得诱人了。</p>
+<p>幸运的是，随着 <a href="http://blog.cognitect.com/blog/2014/8/6/transducers-are-coming" target="_blank" rel="noopener">Transducers</a>（其实是 transform 和 reducer 的合成词，transform 是变换，reducer 就是 JS 中的 reducer）的出现，你可以任性地将很多 <code>map</code> 和 <code>filter</code> 函数放在一个迭代中。也就是说，先在第一个元素上应用所有变换（<code>map</code> 和 <code>filter</code> 或者其它），然后依次处理其它元素。本文中不会深入研究 Transducers 的原理（<a href="http://phuu.net/2014/08/31/csp-and-transducers.html" target="_blank" rel="noopener">这里有关于它的介绍</a>），不过经过 Transducers 改造以后会是这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="built_in">require</span>(<span class="string">'transducers-js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> tooltips = t.transduce(</span><br><span class="line">    t.comp( <span class="comment">// 变换函数</span></span><br><span class="line">        t.map(dot(<span class="string">'getTooltip'</span>)),</span><br><span class="line">        t.filter(_.identity),</span><br><span class="line">        <span class="comment">// 想加多少map和filter就加多少</span></span><br><span class="line">        t.map(someFunction),</span><br><span class="line">        t.filter(somePredicate)</span><br><span class="line">    ),</span><br><span class="line">    concat, <span class="comment">// reducer</span></span><br><span class="line">    [], <span class="comment">// 初始值</span></span><br><span class="line">    values <span class="comment">// 输入</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>它看上去有点不一样，和 <code>reduce</code> 类似，但是它只涉及到一个迭代器，而且只分配了一个唯一的数组。你想加入多少 <code>map</code> 和 <code>filter</code>，就加入多少，它只会迭代一次。通过使用其它函数替换 <code>concat</code>，你也可以让它返回任何类型的结果。如果你想了解更多，那就深入地研究一下 <code>Transducers</code> 吧。</p>
+<blockquote>
+<p>译者注：有了 ES6 的 Generator，这事就是原生支持的了。</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<ul>
+<li><p><code>forEach</code> 总会产生副作用。如果你想避免产生副作用，那就不要使用它了。</p></li>
+<li><p><code>forEach</code> 隐藏了迭代的意图。推荐使用更加语义化的迭代方法，例如 <code>map</code>、<code>filter</code> 和 <code>some</code>。</p></li>
+<li><p>如果每次迭代包含了太多操作，将它们拆分到不同的函数中。</p></li>
+<li><p>通过多个方法的串联调用，将不同的数据转换隔离开来。如果性能不可接受，那就使用 Transducers 重构它。</p></li>
+<li><p>改造后的程序最终会多了操作，但是如果你处理得当，那么每一步都会更容易理解。</p></li>
+<li><p>如果你确实需要循环产生的副作用，完全可以用 <code>forEach</code>。</p></li>
+<li><p>最后，如果性能测试表明更加语义化的迭代函数是性能瓶颈或者被频繁执行， 那就用 <code>for</code> 循环好了。</p></li>
+</ul>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/css-lints/" class="article-prev">前一篇: CSS 代码静态质量检查</a>
+    
+    
+    <a href="/blog/promises-anti-pattern/" class="article-next">后一篇: 谈谈使用 promise 时候的一些反模式</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/avoid-foreach/" data-title="避免使用 forEach" data-url="http://efe.baidu.com/blog/avoid-foreach/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

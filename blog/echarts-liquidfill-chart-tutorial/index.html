@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>ECharts 水球图教程 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>ECharts 水球图教程</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        羡辙
+    
+</span>
+
+        <time datetime="2017-02-20T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2017-02-21</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/ECharts/">ECharts</a>, <a href="/tags/教程/">教程</a>, <a href="/tags/水球图/">水球图</a></span>
+
+
+    </div>
+
+    
+        <p>水球图是一种适合于展现单个百分比数据的图表类型，ECharts 的<a href="https://github.com/ecomfe/echarts-liquidfill" target="_blank" rel="noopener">水球图插件</a>使你能够通过非常简单的配置，实现酷炫的数据展示效果。</p>
+<p><img src="/blog/echarts-liquidfill-chart-tutorial/echarts-liquidfill-chart-tutorial.gif" width="100%"></p>
+<a id="more"></a>
+<p>那么，今天我们就一起来学习一下，如何使用 ECharts 水球图。</p>
+<h2 id="第一步引入-javascript-文件">第一步：引入 JavaScript 文件</h2>
+<p>ECharts 的水球图是一个<em>插件</em>类型的图表。这意味着，在 ECharts 官网下载的完整版本将不包含水球图——这保证了不需要使用该图表的用户能够获得一个尽可能小的代码版本。使用时，需要在引入 <code>echarts.js</code> 之后，另外引入水球图对应的 <code>echarts-liquidfill.js</code>，可以在 <a href="https://github.com/ecomfe/echarts-liquidfill/tree/gh-pages/dist" target="_blank" rel="noopener">GitHub</a> 找到最新版本。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"echarts.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"echarts-liquidfill.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">// 使用水球图的代码</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="第二步指定-dom-元素作为图表容器">第二步：指定 DOM 元素作为图表容器</h2>
+<p>和创建 ECharts 的其他图表一样，我们需要指定 DOM 中的一个有高度和宽度的元素作为图表的容器——也就是图表将会绘制的位置。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"liquidfill-chart"</span> <span class="attr">style</span>=<span class="string">"width=100%; height = 400px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>传入该 DOM 元素，使用 ECharts 初始化图表：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'liquidfill-chart'</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="第三步设置水球图参数">第三步：设置水球图参数</h2>
+<p>和其他 ECharts 图表一样，水球图提供将系列的 <code>type</code> 指定为 <code>'liquidFill'</code>（注意大小写）来表明这是一个水球图类型。</p>
+<p>一个简单的配置项可以是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    series: [&#123;</span><br><span class="line">        type: <span class="string">'liquidFill'</span>,</span><br><span class="line">        data: [<span class="number">0.6</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;;</span><br><span class="line">chart.setOption(option);</span><br></pre></td></tr></table></figure>
+<p>这样，就能得到文章开头的水球图效果了：</p>
+<iframe style="width: 100%; height: 350px" src="http://gallery.echartsjs.com/view.html?cid=liquidfill-basic">
+</iframe>
+<blockquote>
+<p>如果发现图表没有正确显示，你可以检查以下几种可能：</p>
+<ul>
+<li>JS 文件是否正确加载；</li>
+<li><code>echarts</code> 变量是否存在；</li>
+<li>控制台是否报错（如果报错显示 <code>liquidFill</code> 系列不存在，则很可能 <code>echarts-liquidfill.js</code> 没有正确加载）；</li>
+<li>DOM 元素在 <code>echarts.init</code> 的时候是否有高度和宽度。</li>
+</ul>
+</blockquote>
+<p>可以发现，在上面的代码中，我们只指定了图表类型为 <code>'liquidFill'</code>，以及把数据设置为 <code>[0.6, 0.5, 0.4, 0.3]</code>（对应生成的四个波浪），而其他的参数都是预设的。</p>
+<p>即使不配置很多参数，预设的参数也可以使你获得一个优雅的水球图效果。而如果有特定的需求，ECharts 水球图又支持非常高度定制的效果。下面我们具体说明如何定制化你的水球图。</p>
+<h2 id="第四步定制化水球图">第四步：定制化水球图</h2>
+<p>水球图支持非常高度定制化的需求，包括颜色（<code>color</code>）、大小（<code>radius</code>）、波的振幅（<code>amplitude</code>）、波长（<code>waveLength</code>）、相位（<code>phase</code>）、周期（<code>period</code>）、移动方向（<code>direction</code>）、形状（<code>shape</code>）、动画（<code>waveAnimation</code>）等等，完整的配置项参数参见<a href="https://github.com/ecomfe/echarts-liquidfill#api" target="_blank" rel="noopener">水球图 API</a>。文档有针对每个配置项的详细说明，这里我们来介绍一些重要的参数。</p>
+<h3 id="形状与动画">形状与动画</h3>
+<iframe style="width: 100%; height: 600px" src="http://gallery.echartsjs.com/view.html?cid=xry0tUfcBe">
+</iframe>
+<p>除了默认的圆形（<code>'circle'</code>）水球图，还可以将 <code>shape</code> 设置为 ECharts <em>Symbol</em> 的其他类型：<code>'rect'</code>、<code>'roundRect'</code>、<code>'triangle'</code>、<code>'diamond'</code>、<code>'pin'</code>、<code>'arrow'</code>。甚至，使用 <code>'path://...'</code> 的形式，为其<a href="http://gallery.echartsjs.com/editor.html?c=liquidfill-echarts" target="_blank" rel="noopener">指定一个 SVG 路径</a>，得到非常酷炫的效果：</p>
+<iframe style="width: 100%; height: 400px" src="http://gallery.echartsjs.com/view.html?cid=liquidfill-echarts">
+</iframe>
+<p>通过将 <code>direction</code> 设为 <code>'left'</code> 或 <code>'right'</code>，指定波浪的移动方向，或者设为 <code>'none'</code> 表示静止。</p>
+<p>上面的例子完整的配置项代码为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// run at: http://gallery.echartsjs.com/editor.html?c=xry0tUfcBe</span></span><br><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    series: [&#123;</span><br><span class="line">        type: <span class="string">'liquidFill'</span>,</span><br><span class="line">        data: [<span class="number">0.6</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>],</span><br><span class="line">        radius: <span class="string">'40%'</span>,</span><br><span class="line">        shape: <span class="string">'diamond'</span>,</span><br><span class="line">        center: [<span class="string">'25%'</span>, <span class="string">'25%'</span>]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        type: <span class="string">'liquidFill'</span>,</span><br><span class="line">        data: [<span class="number">0.6</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>],</span><br><span class="line">        direction: <span class="string">'left'</span>,</span><br><span class="line">        radius: <span class="string">'40%'</span>,</span><br><span class="line">        shape: <span class="string">'rect'</span>,</span><br><span class="line">        center: [<span class="string">'75%'</span>, <span class="string">'25%'</span>]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        type: <span class="string">'liquidFill'</span>,</span><br><span class="line">        data: [<span class="number">0.6</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>],</span><br><span class="line">        radius: <span class="string">'40%'</span>,</span><br><span class="line">        shape: <span class="string">'roundRect'</span>,</span><br><span class="line">        center: [<span class="string">'25%'</span>, <span class="string">'75%'</span>],</span><br><span class="line">        backgroundStyle: &#123;</span><br><span class="line">            borderColor: <span class="string">'#156ACF'</span>,</span><br><span class="line">            borderWidth: <span class="number">1</span>,</span><br><span class="line">            shadowColor: <span class="string">'rgba(0, 0, 0, 0.4)'</span>,</span><br><span class="line">            shadowBlur: <span class="number">20</span></span><br><span class="line">        &#125;,</span><br><span class="line">        outline: &#123;</span><br><span class="line">            show: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        waveAnimation: <span class="literal">false</span>, <span class="comment">// 禁止左右波动</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        type: <span class="string">'liquidFill'</span>,</span><br><span class="line">        data: [<span class="number">0.6</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>],</span><br><span class="line">        radius: <span class="string">'50%'</span>,</span><br><span class="line">        shape: <span class="string">'pin'</span>,</span><br><span class="line">        center: [<span class="string">'75%'</span>, <span class="string">'75%'</span>],</span><br><span class="line">        amplitude: <span class="number">0</span>,</span><br><span class="line">        waveAnimation: <span class="literal">false</span>,</span><br><span class="line">        outline: &#123;</span><br><span class="line">            show: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        backgroundStyle: &#123;</span><br><span class="line">            shadowColor: <span class="string">'rgba(0, 0, 0, 0.4)'</span>,</span><br><span class="line">            shadowBlur: <span class="number">20</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="单个波的配置">单个波的配置</h3>
+<p>除了对所有水波做的设置之外，每个水波可以进行单独的配置。和 ECharts 的其他配置项一样，对单个数据的配置项将覆盖整个系列的配置项。</p>
+<iframe style="width: 100%; height: 350px" src="http://gallery.echartsjs.com/view.html?cid=xry6CHNCVl">
+</iframe>
+<p>在这个例子中，我们将第二条水波设为红色，并且改变其移动方向。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    series: [&#123;</span><br><span class="line">        type: <span class="string">'liquidFill'</span>,</span><br><span class="line">        data: [<span class="number">0.6</span>, &#123;</span><br><span class="line">            value: <span class="number">0.5</span>,</span><br><span class="line">            direction: <span class="string">'left'</span>,</span><br><span class="line">            itemStyle: &#123;</span><br><span class="line">                normal: &#123;</span><br><span class="line">                    color: <span class="string">'red'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">0.4</span>, <span class="number">0.3</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>可以发现，原先 <code>data</code> 中的一项是一个数字，而在需要做特殊定制的数据中，我们将其设置为一个对象，<code>value</code> 值是原先的数字，其他配置项将覆盖系列配置项的值。</p>
+<h3 id="文字显示">文字显示</h3>
+<p>水球图中间的文字有个酷炫的效果，在水波和背景前的文字颜色是不同的，可以通过 <code>insideColor</code> 设置水波处的文字颜色，<code>color</code> 设置背景处的文字颜色。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    series: [&#123;</span><br><span class="line">        type: <span class="string">'liquidFill'</span>,</span><br><span class="line">        radius: <span class="string">'80%'</span>,</span><br><span class="line">        data: [<span class="number">0.5</span>, <span class="number">0.45</span>, <span class="number">0.4</span>, <span class="number">0.3</span>],</span><br><span class="line">        label: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                textStyle: &#123;</span><br><span class="line">                    color: <span class="string">'red'</span>,</span><br><span class="line">                    insideColor: <span class="string">'yellow'</span>,</span><br><span class="line">                    fontSize: <span class="number">50</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<iframe style="width: 100%; height: 350px" src="http://gallery.echartsjs.com/view.html?cid=xHyUvV_tFe">
+</iframe>
+<p>图表中间默认显示百分比数据，如果你需要将其设置为其他文字内容，可以通过 <code>formatter</code> 指定，这与 ECharts 的其他格式化函数也是相同的。</p>
+<p><code>formatter</code> 可以是一个字符串，其中 <code>'{a}'</code>、<code>'{b}'</code>、<code>'{c}'</code> 会被分别替换成系列名称、数据名称、数据值。</p>
+<p>如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    series: [&#123;</span><br><span class="line">        type: <span class="string">'liquidFill'</span>,</span><br><span class="line">        name: <span class="string">'Liquid Fill'</span>,</span><br><span class="line">        data: [&#123;</span><br><span class="line">            name: <span class="string">'First Data'</span>,</span><br><span class="line">            value: <span class="number">0.6</span></span><br><span class="line">        &#125;, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>],</span><br><span class="line">        label: &#123;</span><br><span class="line">            normal: &#123;</span><br><span class="line">                formatter: <span class="string">'&#123;a&#125;\n&#123;b&#125;\nValue: &#123;c&#125;'</span>,</span><br><span class="line">                textStyle: &#123;</span><br><span class="line">                    fontSize: <span class="number">28</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<iframe style="width: 100%; height: 350px" src="http://gallery.echartsjs.com/view.html?cid=xHk5831cHg">
+</iframe>
+<p>此外，<code>formatter</code> 也可以是一个函数，以下代码能得到和上面字符串形式同样的效果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">formatter: <span class="function"><span class="keyword">function</span>(<span class="params">param</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> param.seriesName + <span class="string">'\n'</span></span><br><span class="line">        + param.name + <span class="string">'\n'</span></span><br><span class="line">        + <span class="string">'Value:'</span> + param.value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小结">小结</h2>
+<p>以上，我们介绍了 ECharts 水球图的一些基本用法，希望能够给大家启发，创作出更多波涛汹涌的作品。</p>
+<p>更完整的配置项请参考 GitHub 上<a href="https://github.com/ecomfe/echarts-liquidfill" target="_blank" rel="noopener">详细的文档</a>，或者到 ECharts Gallery 上查看其它<a href="http://gallery.echartsjs.com/explore.html#sort=rank~timeframe=all~query=liquidFill~author=all" target="_blank" rel="noopener">水球图作品</a>。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    <a href="/blog/echarts-dataAbstraction-tutorial/" class="article-prev">前一篇: 可视化中的数据</a>
+    
+    
+    <a href="/blog/echarts-3-4-0/" class="article-next">后一篇: ECharts 3.4 版本发布：新增象形柱图、主题河流图、水球图</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/echarts-liquidfill-chart-tutorial/" data-title="ECharts 水球图教程" data-url="http://efe.baidu.com/blog/echarts-liquidfill-chart-tutorial/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+

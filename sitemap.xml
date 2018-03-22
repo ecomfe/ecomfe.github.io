@@ -2,143 +2,598 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://efe.baidu.com/blog/hardware-accelerated-css-the-nice-vs-the-naughty/</loc>
-    <lastmod>2015-05-26T06:46:00.000Z</lastmod>
+    <loc>http://efe.baidu.com/san/index.html</loc>
+    
+    <lastmod>2018-03-22T09:43:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/san-3-3-0/</loc>
+    
+    <lastmod>2017-12-01T02:39:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-with-ionic/</loc>
+    
+    <lastmod>2017-11-30T10:09:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-8-0/</loc>
+    
+    <lastmod>2017-11-30T10:09:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-7-0/</loc>
+    
+    <lastmod>2017-11-30T10:09:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/building-realistic-map-with-echarts-gl/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-map-tutorial-2/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-liquidfill-chart-tutorial/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-histogram-tutorial/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-gl-alpha/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-4-0/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-dataAbstraction-tutorial/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-statistical-extension-tutorial/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-map-tutorial/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-6-0/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-5-0/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/san-a-traditional-mvvm-component-framework/</loc>
+    
+    <lastmod>2017-06-22T04:29:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/the-inner-workings-of-virtual-dom/</loc>
+    
+    <lastmod>2017-04-17T06:08:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/react-native-code-push-ios/</loc>
+    
+    <lastmod>2017-04-10T01:57:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/how-to-create-you-own-native-bridge-c2/</loc>
+    
+    <lastmod>2017-04-05T01:58:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/how-to-create-you-own-native-bridge/</loc>
+    
+    <lastmod>2016-12-26T05:29:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/introduction-about-ioc-in-frontend/</loc>
+    
+    <lastmod>2016-08-19T01:40:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/lineup/</loc>
+    
+    <lastmod>2016-07-27T01:38:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/front-end-continuous-integration-tools/</loc>
+    
+    <lastmod>2016-07-27T01:38:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/composers-and-audiences/</loc>
+    
+    <lastmod>2016-07-22T01:32:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/talk-about-sort-in-front-end/</loc>
+    
+    <lastmod>2016-07-22T01:25:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/sprite-scale/</loc>
+    
+    <lastmod>2016-07-12T05:06:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/an-obsessive-view-on-modularization/</loc>
+    
+    <lastmod>2016-07-05T02:21:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3.2.0/</loc>
+    
+    <lastmod>2016-07-01T02:55:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/managing-the-private-data-of-es6-classes/</loc>
+    
+    <lastmod>2016-05-13T01:41:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/text-truncating/</loc>
+    
+    <lastmod>2016-03-22T03:22:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/delivering-octicons-with-svg/</loc>
+    
+    <lastmod>2016-03-22T03:19:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/mixins-are-dead-long-live-the-composition/</loc>
+    
+    <lastmod>2016-01-14T06:21:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/esl-error-message/</loc>
+    
+    <lastmod>2015-12-28T02:46:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/use-high-order-functions-for-extensions/</loc>
+    
+    <lastmod>2015-12-21T06:56:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/14-popular-data-visualization-tools/</loc>
+    
+    <lastmod>2015-12-15T03:05:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/whats-new-in-ec3/</loc>
+    
+    <lastmod>2015-12-04T08:54:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/flattening-arrow-code/</loc>
+    
+    <lastmod>2015-12-04T07:21:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/defusing-race-conditions-when-using-promises/</loc>
+    
+    <lastmod>2015-12-04T07:21:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/fecs/</loc>
+    
+    <lastmod>2015-11-09T05:46:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/mvc-deformation/</loc>
+    
+    <lastmod>2015-11-03T00:38:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/float/</loc>
+    
+    <lastmod>2015-10-27T02:49:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/javascript-private-implement/</loc>
+    
+    <lastmod>2015-10-21T01:03:23.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/es6-develop-overview/</loc>
-    <lastmod>2015-05-21T01:39:14.000Z</lastmod>
+    
+    <lastmod>2015-10-21T00:37:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/friendly-restful-api/</loc>
+    
+    <lastmod>2015-10-16T06:33:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/hologram-exp/</loc>
+    
+    <lastmod>2015-09-17T07:53:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/android-mirror-proxy-based-on-baidu-cloud/</loc>
+    
+    <lastmod>2015-08-24T05:08:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/css-lints/</loc>
+    
+    <lastmod>2015-07-31T04:57:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/avoid-foreach/</loc>
+    
+    <lastmod>2015-07-28T09:04:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/promises-anti-pattern/</loc>
+    
+    <lastmod>2015-07-28T09:04:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/js-lints/</loc>
+    
+    <lastmod>2015-07-24T06:31:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/introduction-to-es-decorator/</loc>
+    
+    <lastmod>2015-07-17T07:08:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/comparison-of-html-linting-tool/</loc>
+    
+    <lastmod>2015-07-14T07:21:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/ioc-in-modulization/</loc>
+    
+    <lastmod>2015-07-10T07:01:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/xhr-compatibility-and-baidubce-sdk/</loc>
+    
+    <lastmod>2015-07-06T07:12:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/position-sticky/</loc>
+    
+    <lastmod>2015-06-24T05:48:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/number/</loc>
+    
+    <lastmod>2015-06-17T03:35:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/1px-on-retina/</loc>
+    
+    <lastmod>2015-06-01T05:49:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/hardware-accelerated-css-the-nice-vs-the-naughty/</loc>
+    
+    <lastmod>2015-05-26T06:46:00.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/use-fonteditor-to-build-webfont/</loc>
+    
     <lastmod>2015-05-19T07:58:05.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/vim-javascript-completion/</loc>
+    
     <lastmod>2015-05-05T00:36:16.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/venn/</loc>
+    
     <lastmod>2015-05-05T00:19:34.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/automatic-sprite/</loc>
+    
     <lastmod>2015-05-05T00:13:09.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/etpl-evolution/</loc>
+    
     <lastmod>2015-05-05T00:12:45.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/echarts-x-0.1/</loc>
+    
     <lastmod>2015-05-05T00:11:06.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/echarts-course/</loc>
+    
     <lastmod>2015-05-05T00:11:02.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/echarts-2.2.2/</loc>
+    
     <lastmod>2015-04-30T03:22:04.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/what-we-talk-about-when-we-talk-about-color-basic/</loc>
+    
     <lastmod>2015-04-29T04:28:24.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/fontmin-getting-started/</loc>
+    
     <lastmod>2015-04-17T04:57:41.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/git-submodule-vs-git-subtree/</loc>
+    
     <lastmod>2015-04-14T03:10:42.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/mobile-fixed-layout/</loc>
+    
     <lastmod>2015-04-03T03:23:25.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/revisiting-css-preprocessors/</loc>
+    
     <lastmod>2015-03-27T02:23:42.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/chinese-font-build/</loc>
+    
     <lastmod>2015-03-12T23:47:10.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/replace-nested-conditional-with-guard-clauses/</loc>
+    
     <lastmod>2015-03-09T01:19:24.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/oo-super-syntax-in-javascript/</loc>
+    
     <lastmod>2015-03-02T06:04:32.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/pc-spa-js-build/</loc>
+    
     <lastmod>2015-02-13T01:51:18.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/esl-2.0/</loc>
+    
     <lastmod>2015-02-06T03:58:40.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/isomorphic/</loc>
+    
     <lastmod>2015-01-14T02:30:28.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/windows-tools-recommandation-list/</loc>
+    
     <lastmod>2015-01-08T06:27:23.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/dissecting-amd-loader/</loc>
+    
     <lastmod>2014-12-17T01:09:29.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/dissecting-amd-how/</loc>
+    
     <lastmod>2014-12-10T04:48:27.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/dissecting-amd-what/</loc>
+    
     <lastmod>2014-12-10T04:42:27.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://efe.baidu.com/blog/dissecting-amd-preface/</loc>
-    <lastmod>2014-12-03T02:12:19.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/blog/responsive-images-in-practice/</loc>
+    
     <lastmod>2014-12-03T02:12:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/dissecting-amd-preface/</loc>
+    
+    <lastmod>2014-12-03T02:12:19.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://efe.baidu.com/projects/index.html</loc>
+    
     <lastmod>2014-11-27T03:02:40.000Z</lastmod>
+    
   </url>
   
 </urlset>
