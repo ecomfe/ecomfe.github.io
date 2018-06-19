@@ -1,8 +1,8 @@
 ---
 title: 浏览器往返缓存（Back/Forward cache）问题的分析与解决
-date: 2018-06-13
+date: 2018-06-19
 author: LeuisKen
-author_link: http://leuisken.github.io/
+author_link: https://github.com/LeuisKen
 tags:
 - Mobile
 ---
