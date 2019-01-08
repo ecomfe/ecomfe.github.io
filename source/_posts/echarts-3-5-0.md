@@ -1,7 +1,7 @@
 ---
 date: 2017-03-23
 title: ECharts v3.5 发布：新增日历坐标系、坐标轴指示器；同时统计扩展 v1.0 发布
-tags: 
+tags:
   - ECharts
   - 新版本
   - 数据可视化
@@ -169,7 +169,7 @@ author: 宿爽
 ></div>
 
 
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript">
 (function () {
 
