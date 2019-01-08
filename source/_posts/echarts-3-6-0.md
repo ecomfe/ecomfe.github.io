@@ -1,7 +1,7 @@
 ---
 date: 2017-05-25
 title: ECharts v3.6 发布：自定义系列、极坐标柱状图
-tags: 
+tags:
   - ECharts
   - 新版本
   - 数据可视化
@@ -128,7 +128,7 @@ var option = {
 更多的升级信息，参见 [changelog](http://echarts.baidu.com/changelog.html)。
 
 
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript">
 (function () {
 
