@@ -179,7 +179,7 @@ echarts v3.7 以后，支持了富文本标签，能够：
 
 
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript">
+<script>
 (function () {
 
     if (typeof jQuery === 'undefined') {

@@ -76,7 +76,7 @@ SVG 渲染的使用 [参见教程](http://echarts.baidu.com/tutorial.html#%E4%BD
 
 
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript">
+<script>
 (function () {
 
     if (typeof jQuery === 'undefined') {
