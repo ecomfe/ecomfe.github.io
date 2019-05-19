@@ -19,6 +19,8 @@ tags:
 
 既然bug产生了，我们该如何去解决它？很多文章都会提到`unload`事件，但是我们实际进行了测试发现并不好用。于是，为了解决问题，我们的`bfcache`探秘之旅开始了。
 
+<!-- more -->
+
 ### bfcache 探秘
 
 在检索`page cache in chromium`的时候，我们发现了这个issue：https://bugs.chromium.org/p/chromium/issues/detail?id=229605 。里面提到 chromium（chrome的开源版本）在很久以前就已经将`PageCache`（即`bfcache`）这部分代码移除了。也就是说现在的chrome应该是没有这个东西的。可以确定的是，chrome以前的版本中，`bfcache`的实现是从`webkit`中拿来的，加上我们项目目前面向的用户主体就是 iOS + Android，iOS下是基于Webkit，Android基于chrome（且这部分功能也是源于webkit）。因此追溯这个问题，我们只要专注于研究`webkit`里`bfcache`的逻辑即可。
