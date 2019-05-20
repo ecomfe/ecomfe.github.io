@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://efe.baidu.com/blog/san-perf/</loc>
+    
+    <lastmod>2019-05-18T12:42:11.730Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/bfcache-analysis-and-fix/</loc>
+    
+    <lastmod>2019-01-10T14:21:46.930Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-5-0/</loc>
+    
+    <lastmod>2019-01-08T08:12:54.833Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-6-0/</loc>
+    
+    <lastmod>2019-01-08T08:12:47.076Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-7-0/</loc>
+    
+    <lastmod>2019-01-08T08:12:36.934Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/echarts-3-8-0/</loc>
+    
+    <lastmod>2019-01-08T08:12:26.887Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/nodejs-module-analyze/</loc>
+    
+    <lastmod>2018-06-14T09:10:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://efe.baidu.com/san/index.html</loc>
     
     <lastmod>2018-03-22T09:43:15.000Z</lastmod>
@@ -23,35 +72,7 @@
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/echarts-3-8-0/</loc>
-    
-    <lastmod>2017-11-30T10:09:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://efe.baidu.com/blog/echarts-3-7-0/</loc>
-    
-    <lastmod>2017-11-30T10:09:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://efe.baidu.com/blog/building-realistic-map-with-echarts-gl/</loc>
-    
-    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://efe.baidu.com/blog/echarts-map-tutorial-2/</loc>
-    
-    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://efe.baidu.com/blog/echarts-liquidfill-chart-tutorial/</loc>
+    <loc>http://efe.baidu.com/blog/echarts-statistical-extension-tutorial/</loc>
     
     <lastmod>2017-06-29T08:25:58.000Z</lastmod>
     
@@ -65,14 +86,21 @@
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/echarts-gl-alpha/</loc>
+    <loc>http://efe.baidu.com/blog/echarts-liquidfill-chart-tutorial/</loc>
     
     <lastmod>2017-06-29T08:25:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/echarts-3-4-0/</loc>
+    <loc>http://efe.baidu.com/blog/echarts-map-tutorial-2/</loc>
+    
+    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://efe.baidu.com/blog/building-realistic-map-with-echarts-gl/</loc>
     
     <lastmod>2017-06-29T08:25:58.000Z</lastmod>
     
@@ -86,7 +114,7 @@
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/echarts-statistical-extension-tutorial/</loc>
+    <loc>http://efe.baidu.com/blog/echarts-3-4-0/</loc>
     
     <lastmod>2017-06-29T08:25:58.000Z</lastmod>
     
@@ -100,14 +128,7 @@
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/echarts-3-6-0/</loc>
-    
-    <lastmod>2017-06-29T08:25:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://efe.baidu.com/blog/echarts-3-5-0/</loc>
+    <loc>http://efe.baidu.com/blog/echarts-gl-alpha/</loc>
     
     <lastmod>2017-06-29T08:25:58.000Z</lastmod>
     
@@ -261,14 +282,14 @@
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/flattening-arrow-code/</loc>
+    <loc>http://efe.baidu.com/blog/defusing-race-conditions-when-using-promises/</loc>
     
     <lastmod>2015-12-04T07:21:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/defusing-race-conditions-when-using-promises/</loc>
+    <loc>http://efe.baidu.com/blog/flattening-arrow-code/</loc>
     
     <lastmod>2015-12-04T07:21:12.000Z</lastmod>
     
@@ -576,14 +597,14 @@
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/responsive-images-in-practice/</loc>
+    <loc>http://efe.baidu.com/blog/dissecting-amd-preface/</loc>
     
     <lastmod>2014-12-03T02:12:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://efe.baidu.com/blog/dissecting-amd-preface/</loc>
+    <loc>http://efe.baidu.com/blog/responsive-images-in-practice/</loc>
     
     <lastmod>2014-12-03T02:12:19.000Z</lastmod>
     

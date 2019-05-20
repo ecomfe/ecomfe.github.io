@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   height=device-height,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no"
+    />
+    <meta name="author"
+          content="ecomfe">
+    
+    
+    <title>San 为什么会这么快 | EFE Tech</title>
+    
+
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+</head>
+<body>
+
+<aside>
+    <a class="home" href="/" title="EFE Home"><abbr title="EFE">EFE</abbr></a>
+    <nav>
+        <a href="https://github.com/ecomfe/spec" target="_blank">SPECS</a>
+        <a href="/projects/">PROJECTS</a>
+        <!--a href="/about.html">ABOUT</a-->
+    </nav>
+    <ul class="product-overview">
+        <li><a target="_blank" href="https://ecomfe.github.io/san/"> <span class="product-overview-title">SAN</span> <span class="product-overview-desc">- MVVM 组件框架</span></a></li>
+        <li><a target="_blank" href="http://fecs.baidu.com/"> <span class="product-overview-title">FECS</span> <span class="product-overview-desc">- 前端代码风格检查套件</span></a></li>
+        <li><a target="_blank" href="http://echarts.baidu.com/"> <span class="product-overview-title">ECharts</span> <span class="product-overview-desc">- 数据可视化图表库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esl"><span class="product-overview-title">ESL</span> <span class="product-overview-desc"> - AMD Loader</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/edp/"><span class="product-overview-title">EDP</span> <span class="product-overview-desc"> - 前端开发平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/est/"><span class="product-overview-title">EST</span> <span class="product-overview-desc"> - 基于 Less 的样式工具库</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Saber</span> <span class="product-overview-desc"> - 移动 SPA 项目解决方案</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/saber/"><span class="product-overview-title">Rebas</span> <span class="product-overview-desc"> - 基于 NodeJS 的同构解决方案</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/rider"><span class="product-overview-title">Rider</span> <span class="product-overview-desc"> - 移动样式工具库</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/er"><span class="product-overview-title">ER</span> <span class="product-overview-desc"> - SPA 应用框架</span></a></li>
+        <li><a target="_blank" href="https://github.com/ecomfe/esui"><span class="product-overview-title">ESUI</span> <span class="product-overview-desc"> - UI 组件库</a></span></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/etpl/"><span class="product-overview-title">ETpl</span> <span class="product-overview-desc"> - 灵活、高性能的模板引擎</span></a></li>
+        <li><a target="_blank" href="https://github.com/BE-FE/iSlider"><span class="product-overview-title">iSlider</span> <span class="product-overview-desc"> - 轻量、高性能的移动滑动方案</span></a></li>
+        <li><a target="_blank" href="http://tushuo.baidu.com/"><span class="product-overview-title">图说</span> <span class="product-overview-desc"> - 可视化数据分享平台</span></a></li>
+        <li><a target="_blank" href="http://ecomfe.github.io/fontmin"><span class="product-overview-title">Fontmin</span> <span class="product-overview-desc"> - 首个纯 JS 字体子集化方案</span></a></li>
+    </ul>
+    <p class="efe-desc">百度EFE（Excellent FrontEnd）技术体系，前身是ECOM前端团队，后经过技术的发展，逐渐形成一套完善的前端技术体系。<br><br>EFE技术体系现由多个遵循该技术体系的前端团队所组成。E(Excellent)代表我们追求卓越的技术态度。</p>
+
+    
+    <dl class="tags">
+        <dt>Tags</dt>
+        
+            <dd><a href="/tags/JavaScript/">JavaScript</a> <small>(30)</small></dd>
+        
+            <dd><a href="/tags/ECharts/">ECharts</a> <small>(20)</small></dd>
+        
+            <dd><a href="/tags/数据可视化/">数据可视化</a> <small>(17)</small></dd>
+        
+            <dd><a href="/tags/模块化/">模块化</a> <small>(9)</small></dd>
+        
+            <dd><a href="/tags/CSS/">CSS</a> <small>(8)</small></dd>
+        
+            <dd><a href="/tags/教程/">教程</a> <small>(7)</small></dd>
+        
+            <dd><a href="/tags/AMD/">AMD</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/新版本/">新版本</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/ESNext/">ESNext</a> <small>(6)</small></dd>
+        
+            <dd><a href="/tags/Lint/">Lint</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/MVVM/">MVVM</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/Mobile/">Mobile</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/font/">font</a> <small>(4)</small></dd>
+        
+            <dd><a href="/tags/San/">San</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/ES6/">ES6</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/HTML/">HTML</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/优化/">优化</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/NodeJS/">NodeJS</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/React-Native/">React Native</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/Hint/">Hint</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/图片/">图片</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/tool/">tool</a> <small>(3)</small></dd>
+        
+            <dd><a href="/tags/promise/">promise</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/IoC/">IoC</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/用户体验/">用户体验</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/地图/">地图</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/ESL/">ESL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/中文字体/">中文字体</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/GL/">GL</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Less/">Less</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/重构/">重构</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/practice/">practice</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/fixed/">fixed</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/设计/">设计</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/mixin/">mixin</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/React/">React</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/JS-Engine/">JS Engine</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Objective-C/">Objective C</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/DI/">DI</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/Check/">Check</a> <small>(2)</small></dd>
+        
+            <dd><a href="/tags/依赖注入/">依赖注入</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/OO/">OO</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Isomorphic/">Isomorphic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/可视分析/">可视分析</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶组合/">高阶组合</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Layout/">Layout</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/硬件加速/">硬件加速</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Hardware-Accelerated/">Hardware Accelerated</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/subtree/">subtree</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/submoudle/">submoudle</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/git/">git</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Saucelabs/">Saucelabs</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/1px/">1px</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/tesing/">tesing</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Travis-CI/">Travis CI</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/HTTP/">HTTP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/REST/">REST</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/float/">float</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ETpl/">ETpl</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/模板引擎/">模板引擎</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/弹性滚动/">弹性滚动</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVC/">MVC</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/beautify/">beautify</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/fix/">fix</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/format/">format</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/check/">check</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/MVP/">MVP</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/构建/">构建</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/3D/">3D</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ECharts-X/">ECharts-X</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Ionic/">Ionic</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SPA/">SPA</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/水球图/">水球图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/直方图/">直方图</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Number/">Number</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/IEEE-754/">IEEE_754</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/iOS/">iOS</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/字体/">字体</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/图标/">图标</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/SVG/">SVG</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/sticky/">sticky</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/响应式/">响应式</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/预处理器/">预处理器</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/工具疲劳/">工具疲劳</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Sass/">Sass</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Stylus/">Stylus</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/文本截断/">文本截断</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/ellipsis/">ellipsis</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/text-overflow/">text-overflow</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/algorithm/">algorithm</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VitualDOM/">VitualDOM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Preact/">Preact</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/扩展性/">扩展性</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/高阶函数/">高阶函数</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/forEach/">forEach</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidu网盘/">baidu网盘</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Android/">Android</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/venn/">venn</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/VIM/">VIM</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Completion/">Completion</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/color/">color</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/前端设计感/">前端设计感</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/windows/">windows</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/XHR/">XHR</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/baidubce/">baidubce</a> <small>(1)</small></dd>
+        
+            <dd><a href="/tags/Coveralls/">Coveralls</a> <small>(1)</small></dd>
+        
+    </dl>
+
+
+        <dl class="links">
+        <dt>Links</dt>
+        <dd><a target="_blank" href="http://fex.baidu.com/">Baidu FEX</a></dd>
+        <dd><a target="_blank" href="http://eux.baidu.com/">Baidu EUX</a></dd>
+        <dd><a target="_blank" href="http://ued.taobao.org/blog/">Taobao UED</a></dd>
+        <dd><a target="_blank" href="http://www.alloyteam.com/">Tencent AlloyTeam</a></dd>
+        <dd><a target="_blank" href="http://isux.tencent.com/">Tencent ISUX</a></dd>
+        <dd><a target="_blank" href="http://ued.ctrip.com/blog/?cat=11">CTrip UED</a></dd>
+        <dd><a target="_blank" href="http://www.75team.com/">75Team</a></dd>
+    </ul>
+
+</aside>
+
+<article>
+    
+        <h1>San 为什么会这么快</h1>
+    
+
+    <div class="article-meta">
+        <span class="article-author"><i class="fa fa-pencil"></i>
+    
+        <a target="_blank" href="http://errorrik.com/" title="errorrik">errorrik</a>
+    
+</span>
+
+        <time datetime="2019-05-19T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-clock-o"></i> 2019-05-20</time>
+
+        
+    
+    <span class="article-tags"><i class="fa fa-tag"></i> <a href="/tags/MVVM/">MVVM</a>, <a href="/tags/San/">San</a></span>
+
+
+    </div>
+
+    
+        <blockquote>
+<p>一个 MVVM 框架的性能进化之路</p>
+</blockquote>
+<p>性能一直是 <a href="https://medium.freecodecamp.org/the-12-things-you-need-to-consider-when-evaluating-any-new-javascript-library-3908c4ed3f49" target="_blank" rel="noopener">框架选型</a> 最重要的考虑因素之一。<a href="https://baidu.github.io/san/" target="_blank" rel="noopener">San</a> 从设计之初就希望不要因为自身的短板（性能、体积、兼容性等）而成为开发者为难的理由，所以我们在性能上投入了很多的关注和精力，效果至少从 <a href="https://krausest.github.io/js-framework-benchmark/current.html" target="_blank" rel="noopener">benchmark</a> 看来，还不错。</p>
+<div class="figure">
+<img src="/blog/san-perf/san-perf-non-keyed.png" alt="San non-keyed performance"><p class="caption">San non-keyed performance</p>
+</div>
+<p>将近 2 年以前，我发了一篇 <a href="https://efe.baidu.com/blog/san-a-traditional-mvvm-component-framework/">San - 一个传统的MVVM组件框架</a>。对 <a href="https://baidu.github.io/san/" target="_blank" rel="noopener">San</a> 设计初衷感兴趣的同学可以翻翻。我一直觉得框架选型的时候，了解它的调性是非常关键的一点。</p>
+<p>不过其实，大多数应用场景的框架选型中，<strong>知名度</strong> 是最主要的考虑因素，因为 <strong>知名度</strong> 意味着你可以找到更多的人探讨、可以找到更多周边、可以更容易招聘熟手或者以后自己找工作更有优势。所以本文的目的并不是将你从三大阵营（<a href="https://reactjs.org/" target="_blank" rel="noopener">React</a>、<a href="https://vuejs.org/" target="_blank" rel="noopener">Vue</a>、<a href="https://angular.io/" target="_blank" rel="noopener">Angular</a>）拉出来，而是想把 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 的性能经验分享给你。这些经验无论在应用开发，还是写一些基础的东西，都会有所帮助。</p>
+<p>在正式开始之前，惯性先厚脸皮求下 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">Star</a>。</p>
+<a id="more"></a>
+<h2 id="视图创建">视图创建</h2>
+<p>考虑下面这个还算简单的组件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyApp = san.defineComponent(&#123;</span><br><span class="line">    template: <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;div&gt;</span></span><br><span class="line"><span class="string">            &lt;h3&gt;&#123;&#123;title&#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">            &lt;ul&gt;</span></span><br><span class="line"><span class="string">                &lt;li s-for="item,i in list"&gt;&#123;&#123;item&#125;&#125; &lt;a on-click="removeItem(i)"&gt;x&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;/ul&gt;</span></span><br><span class="line"><span class="string">            &lt;h4&gt;Operation&lt;/h4&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;</span></span><br><span class="line"><span class="string">                Name:</span></span><br><span class="line"><span class="string">                &lt;input type="text" value="&#123;=value=&#125;"&gt;</span></span><br><span class="line"><span class="string">                &lt;button on-click="addItem"&gt;add&lt;/button&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;</span></span><br><span class="line"><span class="string">                &lt;button on-click="reset"&gt;reset&lt;/button&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    `</span>,</span><br><span class="line"></span><br><span class="line">    initData() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            title: <span class="string">'List'</span>,</span><br><span class="line">            list: []</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    addItem() &#123;</span><br><span class="line">        <span class="keyword">this</span>.data.push(<span class="string">'list'</span>, <span class="keyword">this</span>.data.get(<span class="string">'value'</span>));</span><br><span class="line">        <span class="keyword">this</span>.data.set(<span class="string">'value'</span>, <span class="string">''</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    removeItem(index) &#123;</span><br><span class="line">        <span class="keyword">this</span>.data.removeAt(<span class="string">'list'</span>, index);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    reset() &#123;</span><br><span class="line">        <span class="keyword">this</span>.data.set(<span class="string">'list'</span>, []);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在视图初次渲染完成后，<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 会生成一棵这样子的树：</p>
+<div class="figure">
+<img src="/blog/san-perf/render-tree.png" alt="Render Tree"><p class="caption">Render Tree</p>
+</div>
+<p>那么，在这个过程里，<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 都做了哪些事情呢？</p>
+<h3 id="模板解析">模板解析</h3>
+<p>在组件第一个实例被创建时，<strong>template</strong> 属性会被解析成 <a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a>。</p>
+<div class="figure">
+<img src="/blog/san-perf/anode.png" alt="ANode"><p class="caption">ANode</p>
+</div>
+<p><a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 的含义是抽象节点树，包含了模板声明的所有信息，包括标签、文本、插值、数据绑定、条件、循环、事件等信息。对每个数据引用的声明，也会解析出具体的表达式对象。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"directives"</span>: &#123;&#125;,</span><br><span class="line">    <span class="attr">"props"</span>: [],</span><br><span class="line">    <span class="attr">"events"</span>: [],</span><br><span class="line">    <span class="attr">"children"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"directives"</span>: &#123;</span><br><span class="line">                <span class="attr">"for"</span>: &#123;</span><br><span class="line">                    <span class="attr">"item"</span>: <span class="string">"item"</span>,</span><br><span class="line">                    <span class="attr">"value"</span>: &#123;</span><br><span class="line">                        <span class="attr">"type"</span>: <span class="number">4</span>,</span><br><span class="line">                        <span class="attr">"paths"</span>: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="attr">"type"</span>: <span class="number">1</span>,</span><br><span class="line">                                <span class="attr">"value"</span>: <span class="string">"list"</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        ]</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"index"</span>: <span class="string">"i"</span>,</span><br><span class="line">                    <span class="attr">"raw"</span>: <span class="string">"item,i in list"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"props"</span>: [],</span><br><span class="line">            <span class="attr">"events"</span>: [],</span><br><span class="line">            <span class="attr">"children"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"textExpr"</span>: &#123;</span><br><span class="line">                        <span class="attr">"type"</span>: <span class="number">7</span>,</span><br><span class="line">                        <span class="attr">"segs"</span>: [</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="attr">"type"</span>: <span class="number">5</span>,</span><br><span class="line">                                <span class="attr">"expr"</span>: &#123;</span><br><span class="line">                                    <span class="attr">"type"</span>: <span class="number">4</span>,</span><br><span class="line">                                    <span class="attr">"paths"</span>: [</span><br><span class="line">                                        &#123;</span><br><span class="line">                                            <span class="attr">"type"</span>: <span class="number">1</span>,</span><br><span class="line">                                            <span class="attr">"value"</span>: <span class="string">"item"</span></span><br><span class="line">                                        &#125;</span><br><span class="line">                                    ]</span><br><span class="line">                                &#125;,</span><br><span class="line">                                <span class="attr">"filters"</span>: [],</span><br><span class="line">                                <span class="attr">"raw"</span>: <span class="string">"item"</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        ]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"directives"</span>: &#123;&#125;,</span><br><span class="line">                    <span class="attr">"props"</span>: [],</span><br><span class="line">                    <span class="attr">"events"</span>: [</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="attr">"name"</span>: <span class="string">"click"</span>,</span><br><span class="line">                            <span class="attr">"modifier"</span>: &#123;&#125;,</span><br><span class="line">                            <span class="attr">"expr"</span>: &#123;</span><br><span class="line">                                <span class="attr">"type"</span>: <span class="number">6</span>,</span><br><span class="line">                                <span class="attr">"name"</span>: &#123;</span><br><span class="line">                                    <span class="attr">"type"</span>: <span class="number">4</span>,</span><br><span class="line">                                    <span class="attr">"paths"</span>: [</span><br><span class="line">                                        &#123;</span><br><span class="line">                                            <span class="attr">"type"</span>: <span class="number">1</span>,</span><br><span class="line">                                            <span class="attr">"value"</span>: <span class="string">"removeItem"</span></span><br><span class="line">                                        &#125;</span><br><span class="line">                                    ]</span><br><span class="line">                                &#125;,</span><br><span class="line">                                <span class="attr">"args"</span>: [</span><br><span class="line">                                    &#123;</span><br><span class="line">                                        <span class="attr">"type"</span>: <span class="number">4</span>,</span><br><span class="line">                                        <span class="attr">"paths"</span>: [</span><br><span class="line">                                            &#123;</span><br><span class="line">                                                <span class="attr">"type"</span>: <span class="number">1</span>,</span><br><span class="line">                                                <span class="attr">"value"</span>: <span class="string">"i"</span></span><br><span class="line">                                            &#125;</span><br><span class="line">                                        ]</span><br><span class="line">                                    &#125;</span><br><span class="line">                                ],</span><br><span class="line">                                <span class="attr">"raw"</span>: <span class="string">"removeItem(i)"</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    ],</span><br><span class="line">                    <span class="attr">"children"</span>: [</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="attr">"textExpr"</span>: &#123;</span><br><span class="line">                                <span class="attr">"type"</span>: <span class="number">7</span>,</span><br><span class="line">                                <span class="attr">"segs"</span>: [</span><br><span class="line">                                    &#123;</span><br><span class="line">                                        <span class="attr">"type"</span>: <span class="number">1</span>,</span><br><span class="line">                                        <span class="attr">"literal"</span>: <span class="string">"x"</span>,</span><br><span class="line">                                        <span class="attr">"value"</span>: <span class="string">"x"</span></span><br><span class="line">                                    &#125;</span><br><span class="line">                                ],</span><br><span class="line">                                <span class="attr">"value"</span>: <span class="string">"x"</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    ],</span><br><span class="line">                    <span class="attr">"tagName"</span>: <span class="string">"a"</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"tagName"</span>: <span class="string">"li"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"tagName"</span>: <span class="string">"ul"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 保存着视图声明的数据引用与事件绑定信息，在视图的初次渲染与后续的视图更新中，都扮演着不可或缺的作用。</p>
+<p>无论一个组件被创建了多少个实例，<strong>template</strong> 的解析都只会进行一次。当然，预编译是可以做的。但因为 <strong>template</strong> 是用才解析，没有被使用的组件不会解析，所以就看实际使用中值不值，有没有必要了。</p>
+<h3 id="preheat">preheat</h3>
+<p>在组件第一个实例被创建时，<a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 会进行一个 <strong>预热</strong> 操作。看起来， <strong>预热</strong> 和 <strong>template解析</strong> 都是发生在第一个实例创建时，那他们有什么区别呢？</p>
+<ol style="list-style-type: decimal">
+<li><strong>template解析</strong> 生成的 <a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 是一个可以被 JSON stringify 的对象。</li>
+<li>由于 1，所以 <a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 可以进行预编译。这种情况下，<strong>template解析</strong> 过程会被省略。而 <strong>预热</strong> 是必然会发生的。</li>
+</ol>
+<p>接下来，让我们看看预热到底生成了什么？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">aNode.hotspot = &#123;</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    dynamicProps: [],</span><br><span class="line">    xProps: [],</span><br><span class="line">    props: &#123;&#125;,</span><br><span class="line">    sourceNode: sourceNode</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>上面这个来自 <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js" target="_blank" rel="noopener">preheat-a-node.js</a> 的简单代码节选不包含细节，但是可以看出， <strong>预热</strong> 过程生成了一个 <code>hotspot</code> 对象，其包含这样的一些属性：</p>
+<ul>
+<li>data - 节点数据引用的摘要信息</li>
+<li>dynamicProps - 节点上的动态属性</li>
+<li>xProps - 节点上的双向绑定属性</li>
+<li>props - 节点的属性索引</li>
+<li>sourceNode - 用于节点生成的 HTMLElement</li>
+</ul>
+<p><strong>预热</strong> 的主要目的非常简单，就是把在模板信息中就能确定的事情提前，只做一遍，避免在 <strong>渲染/更新</strong> 过程中重复去做，从而节省时间。<strong>预热</strong> 过程更多的细节见 <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js" target="_blank" rel="noopener">preheat-a-node.js</a>。在接下来的部分，对 <code>hotspot</code> 发挥作用的地方也会进行详细说明。</p>
+<h3 id="视图创建过程">视图创建过程</h3>
+<div class="figure">
+<img src="/blog/san-perf/anode-render.png" alt="Render"><p class="caption">Render</p>
+</div>
+<p>视图创建是个很常规的过程：基于初始的 <strong>数据</strong> 和 <a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a>，创建一棵对象树，树中的每个节点负责自身在 DOM 树上节点的操作（创建、更新、删除）行为。对一个组件框架来说，创建对象树的操作无法省略，所以这个过程一定比原始地 createElement + appendChild 慢。</p>
+<p>因为这个过程比较常规，所以接下来不会描述整个过程，而是提一些有价值的优化点。</p>
+<h4 id="clonenode">cloneNode</h4>
+<p>在 <strong>预热</strong> 阶段，我们根据 <code>tagName</code> 创建了 <code>sourceNode</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (isBrowser &amp;&amp; aNode.tagName</span><br><span class="line">    &amp;&amp; !<span class="regexp">/^(template|slot|select|input|option|button)$/i</span>.test(aNode.tagName)</span><br><span class="line">) &#123;</span><br><span class="line">    sourceNode = createEl(aNode.tagName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 中包含了所有的属性声明，我们知道哪些属性是动态的，哪些属性是静态的。对于静态属性，我们可以在 <strong>预热</strong> 阶段就直接设置好。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js#L122-L142" target="_blank" rel="noopener">preheat-a-node.js</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">each(aNode.props, <span class="function"><span class="keyword">function</span> (<span class="params">prop, index</span>) </span>&#123;</span><br><span class="line">    aNode.hotspot.props[prop.name] = index;</span><br><span class="line">    prop.handler = getPropHandler(aNode.tagName, prop.name);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ......</span></span><br><span class="line">    <span class="keyword">if</span> (prop.expr.value != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (sourceNode) &#123;</span><br><span class="line">            prop.handler(sourceNode, prop.expr.value, prop.name, aNode);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (prop.x) &#123;</span><br><span class="line">            aNode.hotspot.xProps.push(prop);</span><br><span class="line">        &#125;</span><br><span class="line">        aNode.hotspot.dynamicProps.push(prop);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 <strong>视图创建过程</strong> 中，就可以从 <code>sourceNode</code> clone，并且只对动态属性进行设置。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element.js#L115-L150" target="_blank" rel="noopener">element.js#L115-L150</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sourceNode = <span class="keyword">this</span>.aNode.hotspot.sourceNode;</span><br><span class="line"><span class="keyword">var</span> props = <span class="keyword">this</span>.aNode.props;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (sourceNode) &#123;</span><br><span class="line">    <span class="keyword">this</span>.el = sourceNode.cloneNode(<span class="literal">false</span>);</span><br><span class="line">    props = <span class="keyword">this</span>.aNode.hotspot.dynamicProps;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.el = createEl(<span class="keyword">this</span>.tagName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = props.length; i &lt; l; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> prop = props[i];</span><br><span class="line">    <span class="keyword">var</span> propName = prop.name;</span><br><span class="line">    <span class="keyword">var</span> value = isComponent</span><br><span class="line">        ? evalExpr(prop.expr, <span class="keyword">this</span>.data, <span class="keyword">this</span>)</span><br><span class="line">        : evalExpr(prop.expr, <span class="keyword">this</span>.scope, <span class="keyword">this</span>.owner);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    prop.handler(<span class="keyword">this</span>.el, value, propName, <span class="keyword">this</span>, prop);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="属性操作">属性操作</h4>
+<p>不同属性对应 DOM 的操作方式是不同的，属性的 <strong>预热</strong> 提前保存了属性操作函数（<a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js#L133" target="_blank" rel="noopener">preheat-a-node.js#L133</a>），属性初始化或更新时就无需每次都重复获取。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prop.handler = getPropHandler(aNode.tagName, prop.name);</span><br></pre></td></tr></table></figure>
+<p>对于 <code>s-bind</code>，对应的数据是 <strong>预热</strong> 阶段无法预知的，所以属性操作函数只能在具体操作时决定。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element.js#L128-L137" target="_blank" rel="noopener">element.js#L128-L137</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> <span class="keyword">this</span>._sbindData) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._sbindData.hasOwnProperty(key)) &#123;</span><br><span class="line">        getPropHandler(<span class="keyword">this</span>.tagName, key)( <span class="comment">// 看这里看这里</span></span><br><span class="line">            <span class="keyword">this</span>.el,</span><br><span class="line">            <span class="keyword">this</span>._sbindData[key],</span><br><span class="line">            key,</span><br><span class="line">            <span class="keyword">this</span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以，<code>getPropHandler</code> 函数的实现也进行了相应的结果缓存。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/get-prop-handler.js#L247-L258" target="_blank" rel="noopener">get-prop-handler.js</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tagPropHandlers = elementPropHandlers[tagName];</span><br><span class="line"><span class="keyword">if</span> (!tagPropHandlers) &#123;</span><br><span class="line">    tagPropHandlers = elementPropHandlers[tagName] = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> propHandler = tagPropHandlers[attrName];</span><br><span class="line"><span class="keyword">if</span> (!propHandler) &#123;</span><br><span class="line">    propHandler = defaultElementPropHandlers[attrName] || defaultElementPropHandler;</span><br><span class="line">    tagPropHandlers[attrName] = propHandler;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> propHandler;</span><br></pre></td></tr></table></figure>
+<h4 id="创建节点">创建节点</h4>
+<p>视图创建过程中，<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 通过 <code>createNode</code> 工厂方法，根据 <a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 上每个节点的信息，创建组件的每个节点。</p>
+<p><a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 上与节点创建相关的信息有：</p>
+<ul>
+<li>if 声明</li>
+<li>for 声明</li>
+<li>标签名</li>
+<li>文本表达式</li>
+</ul>
+<p>节点类型有：</p>
+<ul>
+<li>IfNode</li>
+<li>ForNode</li>
+<li>TextNode</li>
+<li>Element</li>
+<li>Component</li>
+<li>SlotNode</li>
+<li>TemplateNode</li>
+</ul>
+<p>因为每个节点都通过 <code>createNode</code> 方法创建，所以它的性能是极其重要的。那这个过程的实现，有哪些性能相关的考虑呢？</p>
+<p>首先，<strong>预热</strong> 过程提前选择好 <a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 节点对应的实际类型。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js#L58" target="_blank" rel="noopener">preheat-a-node.js#L58</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js#L170" target="_blank" rel="noopener">preheat-a-node.js#L170</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js#L185" target="_blank" rel="noopener">preheat-a-node.jsL185</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js#L190-L197" target="_blank" rel="noopener">preheat-a-node.jsL190</a></p>
+<p>在 <code>createNode</code> 一开始就可以直接知道对应的节点类型。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/create-node.js#L24-L26" target="_blank" rel="noopener">create-node.js#L24-L26</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (aNode.Clazz) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> aNode.Clazz(aNode, parent, scope, owner);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，我们可以看到，除了 Component 之外，其他节点类型的构造函数参数签名都是 <code>(aNode, parent, scope, owner, reverseWalker)</code>，并没有使用一个 Object 包起来，就是为了在节点创建过程避免创建无用的中间对象，浪费创建和回收的时间。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">IfNode</span>(<span class="params">aNode, parent, scope, owner, reverseWalker</span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ForNode</span>(<span class="params">aNode, parent, scope, owner, reverseWalker</span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TextNode</span>(<span class="params">aNode, parent, scope, owner, reverseWalker</span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Element</span>(<span class="params">aNode, parent, scope, owner, reverseWalker</span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SlotNode</span>(<span class="params">aNode, parent, scope, owner, reverseWalker</span>) </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TemplateNode</span>(<span class="params">aNode, parent, scope, owner, reverseWalker</span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Component</span>(<span class="params">options</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>而 Component 由于使用者可直接接触到，初始化参数的便利性就更重要些，所以初始化参数是一个 options 对象。</p>
+<h2 id="视图更新">视图更新</h2>
+<h3 id="从数据变更到遍历更新">从数据变更到遍历更新</h3>
+<p>考虑上文中展示过的组件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyApp = san.defineComponent(&#123;</span><br><span class="line">    template: <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;div&gt;</span></span><br><span class="line"><span class="string">            &lt;h3&gt;&#123;&#123;title&#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">            &lt;ul&gt;</span></span><br><span class="line"><span class="string">                &lt;li s-for="item,i in list"&gt;&#123;&#123;item&#125;&#125; &lt;a on-click="removeItem(i)"&gt;x&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;/ul&gt;</span></span><br><span class="line"><span class="string">            &lt;h4&gt;Operation&lt;/h4&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;</span></span><br><span class="line"><span class="string">                Name:</span></span><br><span class="line"><span class="string">                &lt;input type="text" value="&#123;=value=&#125;"&gt;</span></span><br><span class="line"><span class="string">                &lt;button on-click="addItem"&gt;add&lt;/button&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;</span></span><br><span class="line"><span class="string">                &lt;button on-click="reset"&gt;reset&lt;/button&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    `</span>,</span><br><span class="line"></span><br><span class="line">    initData() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            title: <span class="string">'List'</span>,</span><br><span class="line">            list: []</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    addItem() &#123;</span><br><span class="line">        <span class="keyword">this</span>.data.push(<span class="string">'list'</span>, <span class="keyword">this</span>.data.get(<span class="string">'value'</span>));</span><br><span class="line">        <span class="keyword">this</span>.data.set(<span class="string">'value'</span>, <span class="string">''</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    removeItem(index) &#123;</span><br><span class="line">        <span class="keyword">this</span>.data.removeAt(<span class="string">'list'</span>, index);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    reset() &#123;</span><br><span class="line">        <span class="keyword">this</span>.data.set(<span class="string">'list'</span>, []);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myApp = <span class="keyword">new</span> MyApp();</span><br><span class="line">myApp.attach(<span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
+<p>当我们更改了数据，视图就会自动刷新。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myApp.data.set(<span class="string">'title'</span>, <span class="string">'SampleList'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="data">data</h4>
+<p>我们可以很容易的发现，<code>data</code> 是：</p>
+<ul>
+<li>组件上的一个属性，组件的数据状态容器</li>
+<li>一个对象，提供了数据读取和操作的方法。See <a href="https://baidu.github.io/san/tutorial/data-method/" target="_blank" rel="noopener">数据操作文档</a></li>
+<li>Observable。每次数据的变更都会 <code>fire</code>，可以通过 <code>listen</code> 方法监听数据变更。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/data.js" target="_blank" rel="noopener">data.js</a></li>
+</ul>
+<p><code>data</code> 是变化可监听的，所以组件的视图变更就有了基础出发点。</p>
+<h4 id="视图更新过程">视图更新过程</h4>
+<p><a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 最初设计的时候想法很简单：模板声明包含了对数据的引用，当数据变更时可以精准地只更新需要更新的节点，性能应该是很高的。从上面组件例子的模板中，一眼就能看出，title 数据的修改，只需要更新一个节点。但是，我们如何去找到它并执行视图更新动作呢？这就是组件的视图更新机制了。其中，有几个关键的要素：</p>
+<ul>
+<li>组件在初始化的过程中，创建了 <code>data</code> 实例并监听其数据变化。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/component.js#L255" target="_blank" rel="noopener">component.js#L255</a></li>
+<li>视图更新是异步的。数据变化会被保存在一个数组里，在 <code>nextTick</code> 时批量更新。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/component.js#L782-L787" target="_blank" rel="noopener">component.js#L782</a></li>
+<li>组件是个 <code>children</code> 属性串联的节点树，视图更新是个自上而下遍历的过程。</li>
+</ul>
+<p>在节点树更新的遍历过程中，每个节点通过 <code>_update({Array}changes)</code> 方法接收数据变化信息，更新自身的视图，并向子节点传递数据变化信息。<a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/component.js#L688-L690" target="_blank" rel="noopener">component.js#L688</a> 是组件向下遍历的起始，但从最典型的 <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element.js#L240-L299" target="_blank" rel="noopener">Element的_update方法</a> 可以看得更清晰些：</p>
+<ol style="list-style-type: decimal">
+<li>先看自身的属性有没有需要更新的</li>
+<li>然后把数据变化信息通过 <code>children</code> 往下传递。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 节选</span></span><br><span class="line">Element.prototype._update = <span class="function"><span class="keyword">function</span> (<span class="params">changes</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ......</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 先看自身的属性有没有需要更新的</span></span><br><span class="line">    <span class="keyword">var</span> dynamicProps = <span class="keyword">this</span>.aNode.hotspot.dynamicProps;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = dynamicProps.length; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> prop = dynamicProps[i];</span><br><span class="line">        <span class="keyword">var</span> propName = prop.name;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>, changeLen = changes.length; j &lt; changeLen; j++) &#123;</span><br><span class="line">            <span class="keyword">var</span> change = changes[j];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!isDataChangeByElement(change, <span class="keyword">this</span>, propName)</span><br><span class="line">                &amp;&amp; changeExprCompare(change.expr, prop.hintExpr, <span class="keyword">this</span>.scope)</span><br><span class="line">            ) &#123;</span><br><span class="line">                prop.handler(<span class="keyword">this</span>.el, evalExpr(prop.expr, <span class="keyword">this</span>.scope, <span class="keyword">this</span>.owner), propName, <span class="keyword">this</span>, prop);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ......</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 然后把数据变化信息通过 children 往下传递</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = <span class="keyword">this</span>.children.length; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">this</span>.children[i]._update(changes);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>下面这张图说明了在节点树中，<code>this.data.set('title', 'hello')</code> 带来的视图刷新，遍历过程与数据变化信息的传递经过了哪些节点。左侧最大的点是实际需要更新的节点，红色的线代表遍历过程经过的路径，红色的小圆点代表遍历到的节点。可以看出，虽然需要进行视图更新的节点只有一个，但所有的节点都被遍历到了。</p>
+<div class="figure">
+<img src="/blog/san-perf/update-flow.png" alt="Update Flow"><p class="caption">Update Flow</p>
+</div>
+<h3 id="节点遍历中断">节点遍历中断</h3>
+<p>从上图中不难发现，与实际的更新行为相比，遍历确定更新节点的消耗要大得多。所以为遍历过程减负，是一个必要的事情。<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 在这方面是怎么做的呢？</p>
+<p>首先，<strong>预热</strong> 过程生成的 <code>hotspot</code> 对象中，有一项 <code>data</code>，包含了节点及其子节点对数据引用的摘要信息。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js" target="_blank" rel="noopener">preheat-a-node.js</a></p>
+<p>然后，在视图更新的节点树遍历过程中，使用 <code>hotspot.data</code> 与数据变化信息进行比对。结果为 false 时意味着数据的变化不会影响当前节点及其子节点的视图，就不会执行自身属性的更新，也不会继续向下遍历。遍历过程在更高层的节点被中断，节省了下层子树的遍历开销。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element.js#L240-L241" target="_blank" rel="noopener">element.js#241</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/changes-is-in-data-ref.js" target="_blank" rel="noopener">changes-is-in-data-ref.js</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Element.prototype._update = <span class="function"><span class="keyword">function</span> (<span class="params">changes</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dataHotspot = <span class="keyword">this</span>.aNode.hotspot.data;</span><br><span class="line">    <span class="keyword">if</span> (dataHotspot &amp;&amp; changesIsInDataRef(changes, dataHotspot)) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>有了节点遍历中断的机制，title 数据修改引起视图变更的遍历过程如下。可以看到，灰色的部分都是由于中断，无需到达的节点。</p>
+<div class="figure">
+<img src="/blog/san-perf/update-flow-opti.png" alt="Update Flow"><p class="caption">Update Flow</p>
+</div>
+<p>有没有似曾相识的感觉？是不是很像 <a href="https://reactjs.org/" target="_blank" rel="noopener">React</a> 中的 <a href="https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action" target="_blank" rel="noopener">shouldComponentUpdate</a>？不过不同的是，由于模板声明包含了对数据的引用，<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 可以在框架层面自动做到这一点，组件开发者不需要人工去干这件事了。</p>
+<h3 id="属性更新">属性更新</h3>
+<p>在视图创建过程的章节中，提到过在 <strong>预热</strong> 过程中，我们得到了：</p>
+<ul>
+<li>dynamicProps：哪些属性是动态的。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js#L122-L142" target="_blank" rel="noopener">preheat-a-node.js#L117</a></li>
+<li>prop.handler：属性的设置操作函数。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/preheat-a-node.js#L124" target="_blank" rel="noopener">preheat-a-node.jsL119</a></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"&#123;=value=&#125;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在上面这个例子中，<code>dynamicProps</code> 只包含 <code>value</code>，不包含 <code>type</code>。</p>
+<p>所以在节点的属性更新时，我们只需要遍历 <code>hotspot.dynamicProps</code>，并且直接使用 <code>prop.handler</code> 来执行属性更新。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element.js#L259-L277" target="_blank" rel="noopener">element.js#L259-L277</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Element.prototype._update = <span class="function"><span class="keyword">function</span> (<span class="params">changes</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ......</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 先看自身的属性有没有需要更新的</span></span><br><span class="line">    <span class="keyword">var</span> dynamicProps = <span class="keyword">this</span>.aNode.hotspot.dynamicProps;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = dynamicProps.length; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> prop = dynamicProps[i];</span><br><span class="line">        <span class="keyword">var</span> propName = prop.name;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>, changeLen = changes.length; j &lt; changeLen; j++) &#123;</span><br><span class="line">            <span class="keyword">var</span> change = changes[j];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!isDataChangeByElement(change, <span class="keyword">this</span>, propName)</span><br><span class="line">                &amp;&amp; changeExprCompare(change.expr, prop.hintExpr, <span class="keyword">this</span>.scope)</span><br><span class="line">            ) &#123;</span><br><span class="line">                prop.handler(<span class="keyword">this</span>.el, evalExpr(prop.expr, <span class="keyword">this</span>.scope, <span class="keyword">this</span>.owner), propName, <span class="keyword">this</span>, prop);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ......</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="immutable">Immutable</h3>
+<p><a href="https://en.wikipedia.org/wiki/Immutable_object" target="_blank" rel="noopener">Immutable</a> 在视图更新中最大的意义是，可以无脑认为 === 时，数据是没有变化的。在很多场景下，对视图是否需要更新的判断变得简单很多。否则判断的成本对应用来说是不可接受的。</p>
+<p>但是，<a href="https://en.wikipedia.org/wiki/Immutable_object" target="_blank" rel="noopener">Immutable</a> 可能会导致开发过程的更多成本。如果开发者不借助任何库，只使用原始的 JavaScript，一个对象的赋值会写的有些麻烦。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: &#123;</span><br><span class="line">        b1: <span class="number">2</span>,</span><br><span class="line">        b2: <span class="number">3</span></span><br><span class="line">    &#125;,</span><br><span class="line">    c: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// mutable</span></span><br><span class="line">obj.b.b1 = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// immutable</span></span><br><span class="line">obj = <span class="built_in">Object</span>.assign(&#123;&#125;, obj, &#123;<span class="attr">b</span>: <span class="built_in">Object</span>.assign(&#123;&#125;, obj.b, &#123;<span class="attr">b1</span>: <span class="number">5</span>&#125;)&#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 的<a href="https://baidu.github.io/san/tutorial/data-method/" target="_blank" rel="noopener">数据操作</a>是通过 data 上的方法提供的，所以内部实现可以天然 immutable，这利于视图更新操作中的一些判断。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/data.js#L209" target="_blank" rel="noopener">data.js#L209</a></p>
+<p>由于视图刷新是根据数据变化信息进行的，所以判断当数据没有变化时，不产生数据变化信息就行了。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/data.js#L204" target="_blank" rel="noopener">data.js#L204</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L570" target="_blank" rel="noopener">for-node.jsL570</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L595" target="_blank" rel="noopener">L595</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L679" target="_blank" rel="noopener">L679</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L731" target="_blank" rel="noopener">L731</a></p>
+<p><a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 期望开发者对数据操作细粒度的使用<a href="https://baidu.github.io/san/tutorial/data-method/" target="_blank" rel="noopener">数据操作方法</a>。否则，不熟悉 immutable 的开发者可能会碰到如下情况。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设初始数据如下</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">    a: 1,</span></span><br><span class="line"><span class="comment">    b: &#123;</span></span><br><span class="line"><span class="comment">        b1: 2,</span></span><br><span class="line"><span class="comment">        b2: 3</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">this</span>.data.get(<span class="string">'b'</span>);</span><br><span class="line">b.b1 = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 由于 b 对象引用不变，会导致视图不刷新</span></span><br><span class="line"><span class="keyword">this</span>.data.set(<span class="string">'b'</span>, b);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确做法。set 操作在 san 内部是 immutable 的</span></span><br><span class="line"><span class="keyword">this</span>.data.set(<span class="string">'b.b1'</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="列表更新">列表更新</h3>
+<h4 id="列表数据操作方法">列表数据操作方法</h4>
+<p>上文中我们提到，<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 的视图更新机制是基于数据变化信息的。<a href="https://baidu.github.io/san/tutorial/data-method/" target="_blank" rel="noopener">数据操作方法</a> 提供了一系列方法，会 fire changeObj。changeObj 只有两种类型： <strong>SET</strong> 和 <strong>SPLICE</strong>。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/data-change-type.js" target="_blank" rel="noopener">data-change-type.js</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/data.js#L211" target="_blank" rel="noopener">data.js#L211</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/data.js#L352" target="_blank" rel="noopener">data.js#L352</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SET</span></span><br><span class="line">changeObj = &#123;</span><br><span class="line">    type: DataChangeType.SET,</span><br><span class="line">    expr,</span><br><span class="line">    value,</span><br><span class="line">    option</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SPLICE</span></span><br><span class="line">changeObj = &#123;</span><br><span class="line">    type: DataChangeType.SPLICE,</span><br><span class="line">    expr,</span><br><span class="line">    index,</span><br><span class="line">    deleteCount,</span><br><span class="line">    value,</span><br><span class="line">    insertions,</span><br><span class="line">    option</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 提供的<a href="https://baidu.github.io/san/tutorial/data-method/" target="_blank" rel="noopener">数据操作方法</a>里，很多是针对数组的，并且大部分与 JavaScript 原生的数组方法是一致的。从 changeObj 的类型可以容易看出，最基础的方法只有 <code>splice</code> 一个，其他方法都是 <code>splice</code> 之上的封装。</p>
+<ul>
+<li>push</li>
+<li>pop</li>
+<li>shift</li>
+<li>unshift</li>
+<li>remove</li>
+<li>removeAt</li>
+<li>splice</li>
+</ul>
+<p>基于数据变化信息的视图更新机制，意味着数据操作的粒度越细越精准，视图更新的负担越小性能越高。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad performance</span></span><br><span class="line"><span class="keyword">this</span>.data.set(<span class="string">'list[0]'</span>, &#123;</span><br><span class="line">    name: <span class="string">'san'</span>,</span><br><span class="line">    id: <span class="keyword">this</span>.data.get(<span class="string">'list[0].id'</span>)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good performance</span></span><br><span class="line"><span class="keyword">this</span>.data.set(<span class="string">'list[0].name'</span>, <span class="string">'san'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="更新过程">更新过程</h4>
+<p>我们看个简单的例子：下图中，我们要把第一行的列表更新成第二行，需要插入绿色部分，更新黄色部分，删除红色部分。</p>
+<div class="figure">
+<img src="/blog/san-perf/list-eg.png" alt="List Update"><p class="caption">List Update</p>
+</div>
+<p><a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 的 <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js" target="_blank" rel="noopener">ForNode</a> 负责列表的渲染和更新。在更新过程里：</p>
+<ul>
+<li><a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L242" target="_blank" rel="noopener">_update</a> 方法接收数据变化信息后，根据类型进行分发</li>
+<li><a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L350" target="_blank" rel="noopener">_updateArray</a> 负责处理数组类型的更新。其遍历数据变化信息，计算得到更新动作，最后执行更新行为。</li>
+</ul>
+<p>假设数据变化信息为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    <span class="comment">// insert [2, 3], pos 1</span></span><br><span class="line">    <span class="comment">// update 4</span></span><br><span class="line">    <span class="comment">// remove 7</span></span><br><span class="line">    <span class="comment">// remove 10</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>在遍历数据变化信息前，我们先初始化一个和当前 children 等长的数组：childrenChanges。其用于存储 children 里每个子节点的数据变化信息。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L352" target="_blank" rel="noopener">for-node.js#L352</a></p>
+<p>同时，我们初始化一个 disposeChildren 数组，用于存储需要被删除的节点。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L362" target="_blank" rel="noopener">for-node.js#L362</a></p>
+<div class="figure">
+<img src="/blog/san-perf/children-changes.png" alt="childrenChanges"><p class="caption">childrenChanges</p>
+</div>
+<p>接下来，<a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L376" target="_blank" rel="noopener">_updateArray</a> 循环处理数据变化信息。当遇到插入时，同时扩充 children 和 childrenChanges 数组。</p>
+<div class="figure">
+<img src="/blog/san-perf/children-changes-insert.png" alt="childrenChanges"><p class="caption">childrenChanges</p>
+</div>
+<p>当遇到更新时，如果更新对应的是某一项，则对应该项的 childrenChanges 添加更新信息。</p>
+<div class="figure">
+<img src="/blog/san-perf/children-changes-update.png" alt="childrenChanges"><p class="caption">childrenChanges</p>
+</div>
+<p>当遇到删除时，我们把要删除的子节点从 children 移除，放入 disposeChildren。同时，childrenChanges 里相应位置的项也被移除。</p>
+<div class="figure">
+<img src="/blog/san-perf/children-changes-remove.png" alt="childrenChanges"><p class="caption">childrenChanges</p>
+</div>
+<p>遍历数据变化信息结束后，执行更新行为分成两步：See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L772-L823" target="_blank" rel="noopener">for-node.js#L772-L823</a></p>
+<ol style="list-style-type: decimal">
+<li>先执行删除 disposeChildren</li>
+<li>遍历 children，对标记全新的子节点执行创建与插入，对存在的节点根据 childrenChanges 相应位置的信息执行更新</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>._disposeChildren(disposeChildren, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    doCreateAndUpdate();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>下面，我们看看常见的列表更新场景下， <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 都有哪些性能优化的手段。</p>
+<h4 id="添加项">添加项</h4>
+<p>在遍历数据变化信息时，遇到添加项，往 children 和 childrenChanges 中填充的只是 <code>undefined</code> 或 <code>0</code> 的占位值，不初始化新节点。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L518-L520" target="_blank" rel="noopener">for-node.js#L518-L520</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> spliceArgs = [changeStart + deleteCount, <span class="number">0</span>].concat(<span class="keyword">new</span> <span class="built_in">Array</span>(newCount));</span><br><span class="line"><span class="keyword">this</span>.children.splice.apply(<span class="keyword">this</span>.children, spliceArgs);</span><br><span class="line">childrenChanges.splice.apply(childrenChanges, spliceArgs);</span><br></pre></td></tr></table></figure>
+<p>由于 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 的视图是异步更新的，当前更新周期可能包含多个数据操作。如果这些数据操作中创建了一个项又删除了的话，在遍历数据变化信息过程中初始化新节点就是没有必要的浪费。所以创建节点的操作放到后面 <strong>执行更新</strong> 的阶段。</p>
+<h4 id="删除项">删除项</h4>
+<p>前文中提过，视图创建的过程，对于 DOM 的创建是挨个 <code>createElement</code> 并 <code>appendChild</code> 到 <code>parentNode</code> 中的。但是在删除的时候，我们并不需要把整棵子树上的节点都挨个删除，只需要把要删除子树的根元素从 <code>parentNode</code> 中 <code>removeChild</code>。</p>
+<p>所以，对于 Element、TextNode、ForNode、IfNode 等节点的 <code>dispose</code> 方法，都包含一个隐藏参数：<code>noDetach</code>。当接收到的值为 <code>true</code> 时，节点只做必要的清除操作（移除 DOM 上挂载的事件、清理节点树的引用关系），不执行其对应 DOM 元素的删除操作。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/text-node.js#L118" target="_blank" rel="noopener">text-node.js#L118</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/node-own-simple-dispose.js#L22" target="_blank" rel="noopener">node-own-simple-dispose.js#L22</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element.js#L211" target="_blank" rel="noopener">element.js#L211</a> etc...</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!noDetach) &#123;</span><br><span class="line">    removeEl(<span class="keyword">this</span>.el);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，在很多情况下，一次视图更新周期中如果有数组项的删除，是不会有对其他项的更新操作的。所以我们增加了 <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L368" target="_blank" rel="noopener">isOnlyDispose</a> 变量用于记录是否只包含数组项删除操作。在 <strong>执行更新</strong> 阶段，如果该项为 <code>true</code>，则完成删除动作后不再遍历 <code>children</code> 进行子项更新。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L787" target="_blank" rel="noopener">for-node.js#L787</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (isOnlyDispose) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对相应的项进行更新</span></span><br><span class="line"><span class="comment">// 如果不attached则直接创建，如果存在则调用更新函数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; newLen; i++) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="length">length</h4>
+<p>数据变化（添加项、删除项等）可能会导致数组长度变化，数组长度也可能会被数据引用。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">s-for</span>=<span class="string">"item, index in list"</span>&gt;</span>&#123;&#123;index + 1&#125;&#125;/&#123;&#123;list.length&#125;&#125; item<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在这种场景下，即使只添加或删除一项，整个列表视图都需要被刷新。由于子节点的更新是在 <strong>执行更新</strong> 阶段通过 _update 方法传递数据变化信息的，所以在 <strong>执行更新</strong> 前，我们根据以下两个条件，判断是否需要为子节点增加 length 变更信息。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L752-L767" target="_blank" rel="noopener">for-node.js#L752-L767</a></p>
+<ul>
+<li>数组长度是否发生变化</li>
+<li>通过数据摘要判断子项视图是否依赖 length 数据。这个判断逻辑上是多余的，但是可以减少子项更新的成本</li>
+</ul>
+<h4 id="清空">清空</h4>
+<p>首先，当数组长度为 0 时，显然整个列表项直接清空就行了，数据变化信息可以完全忽略，不需要进行多余的遍历。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L248-L251" target="_blank" rel="noopener">for-node.js#L248-L251</a></p>
+<p>其次，如果一个元素里的所有元素都是由列表项组成的，那么元素的删除可以<strong>暴力清除</strong>：通过一次 <code>parentNode.textContent = ''</code> 完成，无需逐项从父元素中移除。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L316-L332" target="_blank" rel="noopener">for-node.js#L316-L332</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代码节选</span></span><br><span class="line"><span class="keyword">var</span> violentClear = !<span class="keyword">this</span>.aNode.directives.transition</span><br><span class="line">    &amp;&amp; !children</span><br><span class="line">    <span class="comment">// 是否 parent 的唯一 child</span></span><br><span class="line">    &amp;&amp; len &amp;&amp; parentFirstChild === <span class="keyword">this</span>.children[<span class="number">0</span>].el &amp;&amp; parentLastChild === <span class="keyword">this</span>.el</span><br><span class="line">;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ......</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (violentClear) &#123;</span><br><span class="line">    parentEl.textContent = <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="子项更新">子项更新</h4>
+<p>想象下面这个列表数据子项的变更：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myApp.data.set(<span class="string">'list[2]'</span>, <span class="string">'two'</span>);</span><br></pre></td></tr></table></figure>
+<p>对于 ForNode 的更新：</p>
+<ul>
+<li>首先使用 <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L378" target="_blank" rel="noopener">changeExprCompare</a> 方法判断数据变化对象与列表引用数据声明之间的关系。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/change-expr-compare.js" target="_blank" rel="noopener">change-expr-compare.js</a></li>
+<li>如果属于子项更新，则转换成对应子项的数据变更信息，其他子项对该信息无感知。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L426" target="_blank" rel="noopener">for-node.js#L426</a></li>
+</ul>
+<div class="figure">
+<img src="/blog/san-perf/update-for-item.png" alt="Update For Item"><p class="caption">Update For Item</p>
+</div>
+<p>从上图的更新过程可以看出，子项更新的更新过程能精确处理最少的节点。数据变更时精准地更新节点是 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 的优势。</p>
+<h4 id="整列表变更">整列表变更</h4>
+<p>对于整列表变更，<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 的处理原则是：尽可能重用当前存在的节点。原列表与新列表数据相比：</p>
+<ul>
+<li>原列表项更多</li>
+<li>新列表项更多</li>
+<li>一样多</li>
+</ul>
+<p>我们采用了如下的处理过程，保证原列表与新列表重叠部分节点执行更新操作，无需删除再创建：</p>
+<ol style="list-style-type: decimal">
+<li>如果原列表项更多，从尾部开始把多余的部分标记清除。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L717-L721" target="_blank" rel="noopener">for-node.js#L717-L721</a></li>
+<li>从起始遍历新列表。如果在旧列表长度范围内，标记更新(See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L730-L740" target="_blank" rel="noopener">for-node.js#L730-L740</a>)；如果是新列表多出的部分，标记新建(See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L742" target="_blank" rel="noopener">for-node.js#L742</a>)。</li>
+</ol>
+<p><a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 鼓励开发者细粒度的使用<a href="https://baidu.github.io/san/tutorial/data-method/" target="_blank" rel="noopener">数据操作方法</a>，但总有无法精准进行数据操作，只能直接 <a href="https://baidu.github.io/san/tutorial/data-method/#set" target="_blank" rel="noopener">set</a> 整个数组。举一个最常见的例子：数据是从服务端返回的 JSON。在这种场景下，就是 <a href="https://baidu.github.io/san/tutorial/for/#trackBy" target="_blank" rel="noopener">trackBy</a> 发挥作用的时候了。</p>
+<h4 id="trackby">trackBy</h4>
+<blockquote>
+<p>我就是我，是颜色不一样的烟火。 -- 张国荣《我》</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">s-for</span>=<span class="string">"p in persons trackBy p.name"</span>&gt;</span>&#123;&#123;p.name&#125;&#125; - &#123;&#123;p.email&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://baidu.github.io/san/tutorial/for/#trackBy" target="_blank" rel="noopener">trackBy</a> 也叫 keyed，其作用就是当列表数据 <strong>无法进行引用比较</strong> 时，告诉框架一个依据，框架就可以判断出新列表中的项是原列表中的哪一项。上文提到的：服务端返回的数据，是 <strong>无法进行引用比较</strong> 的典型例子。</p>
+<p>这里我们不说 <a href="https://baidu.github.io/san/tutorial/for/#trackBy" target="_blank" rel="noopener">trackBy</a> 的整个更新细节，只提一个优化手段。这个优化手段不是 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 独有的，而是经典的优化手段。</p>
+<div class="figure">
+<img src="/blog/san-perf/trackby-opti.png" alt="TrackBy Optimize"><p class="caption">TrackBy Optimize</p>
+</div>
+<p>可以看到，我们从新老列表的头部和尾部进行分别遍历，找出新老列表头部和尾部的相同项，并把他们排除。这样剩下需要进行 trackBy 的项可能就少多了。对应到常见的视图变更场景，该优化手段都能发挥较好的作用。</p>
+<ul>
+<li>添加：无论在什么位置添加几项，该优化都能发挥较大作用</li>
+<li>删除：无论在什么位置删除几项，该优化都能发挥较大作用</li>
+<li>更新部分项：头尾都有更新时，该优化无法发挥作用。也就是说，对于长度固定的列表有少量新增项时，该优化无用。不过 trackBy 过程在该场景下，性能消耗不高</li>
+<li>更新全部项：trackBy 过程在该场景下，性能消耗很低</li>
+<li>交换：相邻元素的交换，该优化都能发挥较大作用。交换的元素间隔越小，该优化发挥作用越大</li>
+</ul>
+<p>从 <a href="https://krausest.github.io/js-framework-benchmark/current.html" target="_blank" rel="noopener">benchmark</a> 的结果能看出来，<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 在 <a href="https://baidu.github.io/san/tutorial/for/#trackBy" target="_blank" rel="noopener">trackBy</a> 下也有较好的性能。</p>
+<div class="figure">
+<img src="/blog/san-perf/san-perf-keyed.png" alt="San keyed performance"><p class="caption">San keyed performance</p>
+</div>
+<h2 id="吹毛求疵">吹毛求疵</h2>
+<p>在这个部分，我会列举一些大多数人觉得知道、但又不会这么去做的优化写法。这些优化写法貌似对性能没什么帮助，但是积少成多，带来的性能增益还是不可忽略的。</p>
+<h3 id="避免-call-和-apply">避免 call 和 apply</h3>
+<p>call 和 apply 是 JavaScript 中的魔法，也是性能的大包袱。在 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 中，我们尽可能减少 call 和 apply 的使用。下面列两个点：</p>
+<p>比如，对 filter 的处理中，内置的 filter 由于都是 pure function，我们明确知道运行结果不依赖 this，并且参数个数都是确定的，所以无需使用 call。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/eval-expr.js#L164-L172" target="_blank" rel="noopener">eval-expr.js#L164-L172</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (owner.filters[filterName]) &#123;</span><br><span class="line">    value = owner.filters[filterName].apply(</span><br><span class="line">        owner,</span><br><span class="line">        [value].concat(evalArgs(filter.args, data, owner))</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (DEFAULT_FILTERS[filterName]) &#123;</span><br><span class="line">    value = DEFAULT_FILTERS[filterName](value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再比如，Component 和 Element 之间应该是继承关系，create、attach、dispose、toPhase 等方法有很多可以复用的逻辑。基于性能的考虑，实现中并没有让 Component 和 Element 发生关系。对于复用的部分：</p>
+<ul>
+<li>复用逻辑较少的直接再写一遍（See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/component.js#L355" target="_blank" rel="noopener">component.js#L355</a>）</li>
+<li>复用逻辑多的，部分通过函数直接调用的形式复用（See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element-get-transition.js" target="_blank" rel="noopener">element-get-transition.js</a> etc...），部分通过函数挂载到 prototype 成为实例方法的形式复用（See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element-own-dispose.js" target="_blank" rel="noopener">element-own-dispose.js</a> etc...）。场景和例子比较多，就不一一列举了。</li>
+</ul>
+<h3 id="减少中间对象">减少中间对象</h3>
+<p>看到这里的你不知是否记得，在 <strong>创建节点</strong> 章节中，提到节点的函数签名不合并成一个数组，就是为了防止中间对象的创建。中间对象不止是创建时有开销，触发 GC 回收内存也是有开销的。在 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 的实现中，我们尽可能避免中间对象的创建。下面列两个点：</p>
+<p>数据操作的过程，直接传递表达式层级数组，以及当前指针位置。不使用 slice 创建表达式子层级数组。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/data.js#L138" target="_blank" rel="noopener">data.js#L138</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">immutableSet</span>(<span class="params">source, exprPaths, pathsStart, pathsLen, value, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pathsStart &gt;= pathsLen) &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>data 创建时如果传入初始数据对象，以此为准，避免 extend 使初始数据对象变成中间对象。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/data.js#L23" target="_blank" rel="noopener">data.js#L23</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Data</span>(<span class="params">data, parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.parent = parent;</span><br><span class="line">    <span class="keyword">this</span>.raw = data || &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.listeners = [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="减少函数调用">减少函数调用</h3>
+<p>函数调用本身的开销是很小的，但是调用本身也会初始化环境对象，调用结束后环境对象也需要被回收。<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 对函数调用较为频繁的地方，做了避免调用的条件判断。下面列两个点：</p>
+<p>element 在创建子元素时，判断子元素构造器是否存在，如果存在则无需调用 createNode 函数。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/element.js#L167-L169" target="_blank" rel="noopener">element.js#L167-L169</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> child = childANode.Clazz</span><br><span class="line">    ? <span class="keyword">new</span> childANode.Clazz(childANode, <span class="keyword">this</span>, <span class="keyword">this</span>.scope, <span class="keyword">this</span>.owner)</span><br><span class="line">    : createNode(childANode, <span class="keyword">this</span>, <span class="keyword">this</span>.scope, <span class="keyword">this</span>.owner);</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/baidu/san/blob/master/doc/anode.md" target="_blank" rel="noopener">ANode</a> 中对定值表达式（数字、bool、字符串字面量）的值保存在对象的 value 属性中。<code>evalExpr</code> 方法开始时根据 <code>expr.value != null</code> 返回。不过在调用频繁的场景（比如文本的拼接、表达式变化比对、等等），会提前进行一次判断，减少 <code>evalExpr</code> 的调用。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/eval-expr.js#L203" target="_blank" rel="noopener">eval-expr.js#L203</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/change-expr-compare.js#L77" target="_blank" rel="noopener">change-expr-compare.js#L77</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buf += seg.value || evalExpr(seg, data, owner);</span><br></pre></td></tr></table></figure>
+<p>另外，还有很重要的一点：<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 里虽然实现了 <code>each</code> 方法，但是在视图创建、视图更新、变更判断、表达式取值等关键性的过程中，还是直接使用 for 进行遍历，就是为了减少不必要的函数调用开销。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/util/each.js" target="_blank" rel="noopener">each.js</a> <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/runtime/eval-expr.js" target="_blank" rel="noopener">eval-expr.js</a> etc...</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad performance</span></span><br><span class="line">each(expr.segs.length, <span class="function"><span class="keyword">function</span> (<span class="params">seg</span>) </span>&#123;</span><br><span class="line">    buf += seg.value || evalExpr(seg, data, owner);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good performance</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = expr.segs.length; i &lt; l; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> seg = expr.segs[i];</span><br><span class="line">    buf += seg.value || evalExpr(seg, data, owner);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="减少对象遍历">减少对象遍历</h3>
+<p>使用 for...in 进行对象的遍历是非常耗时的操作，<a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 在视图创建、视图更新等过程中，当运行过程明确时，尽可能不使用 for...in 进行对象的遍历。一个比较容易被忽略的场景是对象的 extend，其隐藏了 for...in 遍历过程。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">target, source</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">        <span class="keyword">if</span> (source.hasOwnProperty(key)) &#123;</span><br><span class="line">            <span class="keyword">var</span> value = source[key];</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> value !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">                target[key] = value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从一个对象创建一个大部分成员都一样的新对象时，避免使用 <code>extend</code>。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/for-node.js#L404" target="_blank" rel="noopener">for-node.jsL404</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad performance</span></span><br><span class="line">change = extend(</span><br><span class="line">    extend(&#123;&#125;, change),</span><br><span class="line">    &#123;</span><br><span class="line">        expr: createAccessor(<span class="keyword">this</span>.itemPaths.concat(changePaths.slice(forLen + <span class="number">1</span>)))</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good performance</span></span><br><span class="line">change = change.type === DataChangeType.SET</span><br><span class="line">    ? &#123;</span><br><span class="line">        type: change.type,</span><br><span class="line">        expr: createAccessor(</span><br><span class="line">            <span class="keyword">this</span>.itemPaths.concat(changePaths.slice(forLen + <span class="number">1</span>))</span><br><span class="line">        ),</span><br><span class="line">        value: change.value,</span><br><span class="line">        option: change.option</span><br><span class="line">    &#125;</span><br><span class="line">    : &#123;</span><br><span class="line">        index: change.index,</span><br><span class="line">        deleteCount: change.deleteCount,</span><br><span class="line">        insertions: change.insertions,</span><br><span class="line">        type: change.type,</span><br><span class="line">        expr: createAccessor(</span><br><span class="line">            <span class="keyword">this</span>.itemPaths.concat(changePaths.slice(forLen + <span class="number">1</span>))</span><br><span class="line">        ),</span><br><span class="line">        value: change.value,</span><br><span class="line">        option: change.option</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>将一个对象的成员赋予另一个对象时，避免使用 <code>extend</code>。See <a href="https://github.com/baidu/san/blob/15935bdaad42246742e16759f789af536592c3b7/src/view/component.js#L113" target="_blank" rel="noopener">component.jsL113</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad performance</span></span><br><span class="line">extend(<span class="keyword">this</span>, options);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good performance</span></span><br><span class="line"><span class="keyword">this</span>.owner = options.owner;</span><br><span class="line"><span class="keyword">this</span>.scope = options.scope;</span><br><span class="line"><span class="keyword">this</span>.el = options.el;</span><br></pre></td></tr></table></figure>
+<h2 id="最后">最后</h2>
+<p>性能对于一个框架来说，是非常重要的事情。应用开发的过程通常很少会关注框架的实现；而如果框架实现有瓶颈，应用开发工程师其实是很难解决的。开发一时爽，调优火葬场的故事，发生得太多了。</p>
+<p><a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 在性能方面做了很多工作，但是看下来，其实没有什么非常深奥难以理解的技术。我们仅仅是觉得性能很重要，并且尽可能细致的考虑和实现。因为我们不希望自己成为应用上的瓶颈，也不希望性能成为开发者在选型时犹豫的理由。</p>
+<p>如果你看到这里，觉得 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">San</a> 还算有诚意，或者觉得有收获，给个 <a href="https://github.com/baidu/san/" target="_blank" rel="noopener">Star</a> 呗。</p>
+
+    
+</article>
+
+<div class="article-license">
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" src="/img/cc-by.png" width="80" height="15"></a>
+</div>
+<nav class="article-pagination">
+    
+    
+    <a href="/blog/bfcache-analysis-and-fix/" class="article-next">后一篇: 浏览器往返缓存（Back/Forward cache）问题的分析与解决</a>
+    
+</nav>
+
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<div class="ds-thread" data-thread-key="blog/san-perf/" data-title="San 为什么会这么快" data-url="http://efe.baidu.com/blog/san-perf/"></div>
+<script>
+var duoshuoQuery = {short_name:"baidu-efe"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+
+
+<footer>
+    <p class="copy">&copy;2018 Baidu EFE | Powered By <a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></p>
+</footer>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8581b5de0049c5e3009931686fc45d7a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>
+
+
