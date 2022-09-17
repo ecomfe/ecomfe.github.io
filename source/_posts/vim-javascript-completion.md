@@ -1,7 +1,6 @@
 title: VIM的JavaScript补全
 date: 2015-05-05
 author: hushicai
-author_link: http://hushicai.com
 tags:
 - VIM
 - JavaScript
